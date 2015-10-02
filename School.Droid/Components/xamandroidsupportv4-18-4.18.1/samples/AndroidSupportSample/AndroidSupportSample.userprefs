@@ -1,0 +1,37 @@
+﻿<Properties StartupItem="AndroidSupportSample/AndroidSupportSample.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Galaxy_Nexus_by_Google" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../School.Droid/Main.cs">
+    <Files>
+      <File FileName="../../../../School.Droid/Main.cs" Line="33" Column="20" />
+      <File FileName="../../../../School.Droid/DrawerActivity.cs" Line="91" Column="32" />
+      <File FileName="../../../../School.Core/Data/DataProvider.cs" Line="304" Column="26" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AndroidSupportSample" expanded="True" />
+          <Node name="School" expanded="True">
+            <Node name="School.Core" expanded="True">
+              <Node name="Bussiness" expanded="True" />
+              <Node name="Data" expanded="True" />
+            </Node>
+            <Node name="School.Droid" expanded="True">
+              <Node name="Resources" expanded="True">
+                <Node name="values" expanded="True" />
+              </Node>
+              <Node name="Main.cs" selected="True" />
+            </Node>
+            <Node name="School.Droid.UITests" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />
+      <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/LichHocTuanFragment.cs" line="53" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

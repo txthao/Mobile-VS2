@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.school">
+	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="16" />
+	<application android:label="School" android:theme="@style/MyTheme">
+	<receiver
+      android:name=".OnAlarmReceive" />
+	</application>
+</manifest>

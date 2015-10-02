@@ -1,0 +1,21 @@
+﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Galaxy_Nexus_by_Google" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid/Helper/OnAlarmRecieve.cs">
+    <Files>
+      <File FileName="School.Droid/LichThiFragment.cs" Line="61" Column="3" />
+      <File FileName="School.Droid/Helper/OnAlarmRecieve.cs" Line="32" Column="35" />
+      <File FileName="School.Droid/LichThiAdapter.cs" Line="60" Column="42" />
+      <File FileName="School.Core/Bussiness/BLichThi.cs" Line="80" Column="1" />
+      <File FileName="School.Droid/Helper/ScheduleReminder.cs" Line="17" Column="47" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />
+      <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/HocPhiAdapter.cs" line="23" column="1" />
+      <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Core/Bussiness/BLichHoc.cs" line="140" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.School.Droid AndroidDesignerPreferredDevice="Nexus 4" />
+</Properties>

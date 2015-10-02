@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:background="@android:color/background_light"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_above="@+id/seperator_DT">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup3"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xem dạng HK"
+                android:id="@+id/rb_dangHK_HK_DT"
+                android:textSize="15dip" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xem Tất cả"
+                android:id="@+id/rb_dangAll_HK_DT"
+                android:textSize="15dip" />
+        </RadioGroup>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@android:color/background_light"
+            android:id="@+id/linear_HK_DT"
+            android:layout_marginTop="30dp">
+            <TextView
+                android:textColor="@android:color/background_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:text="Học Kỳ " />
+            <TextView
+                android:textColor="@android:color/background_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:id="@+id/lbl_HK_DT" />
+            <TextView
+                android:textColor="@android:color/background_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:text=" Năm Học " />
+            <TextView
+                android:textColor="@android:color/background_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:id="@+id/lbl_NH_DT" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearDT_HK"
+            style="@style/RowHeader"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Môn Học"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                style="@style/RowHeader" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.15"
+                android:text="Tỉ lệ"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                style="@style/RowHeader" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.15"
+                android:text="Điểm KT"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                style="@style/RowHeader" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.15"
+                android:text="Điểm Thi"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                style="@style/RowHeader" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.15"
+                android:text="Điểm TK"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                style="@style/RowHeader" />
+        </LinearLayout>
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressDTHK" />
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10px"
+            android:id="@+id/listDT_HK" />
+        <LinearLayout
+            android:id="@+id/linear16"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingBottom="6dip"
+            android:paddingTop="4dip">
+            <TextView
+                android:id="@+id/txtTB10_HK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dip"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_blue_light" />
+            <TextView
+                android:id="@+id/txtTB4_HK"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dip"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_blue_light" />
+            <TextView
+                android:id="@+id/txtTBTL10_HK"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dip"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_blue_light" />
+            <TextView
+                android:id="@+id/txtTBTL4_HK"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dip"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_blue_light" />
+            <TextView
+                android:id="@+id/txtDRL_HK"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dip"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_blue_light" />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:id="@+id/seperator_DT"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#81D4FA"
+        android:layout_above="@+id/linearBtn_DT"
+        android:layout_marginTop="10dp" />
+    <LinearLayout
+        android:id="@+id/linearBtn_DT"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:text="HK Trước"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnHK_Truoc_DT"
+            style="@style/Button" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#81D4FA" />
+        <Button
+            android:text="HK Kế"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnHK_Ke_DT"
+            style="@style/Button" />
+    </LinearLayout>
+</RelativeLayout>

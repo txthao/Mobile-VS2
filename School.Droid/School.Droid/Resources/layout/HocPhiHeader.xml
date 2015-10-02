@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear10"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="90px"
+        android:layout_height="wrap_content"
+        android:text="STT" />
+    <TextView
+        android:layout_width="90px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Môn Học" />
+    <TextView
+        android:layout_width="90px"
+        android:layout_height="wrap_content"
+        android:text="Học Phí" />
+    <TextView
+        android:layout_width="90px"
+        android:layout_height="wrap_content"
+        android:text="Miễn Giảm" />
+    <TextView
+        android:layout_width="90px"
+        android:layout_height="wrap_content"
+        android:text="Phải Đóng" />
+</LinearLayout>
