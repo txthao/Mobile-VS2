@@ -21,11 +21,7 @@ namespace School.Droid
 		ListView listViewDT;
 		TextView lbl_HK;
 		TextView lbl_NH;
-		TextView txt_TB10;
-		TextView txt_TB4;
-		TextView txt_TBTL10;
-		TextView txt_TBTL4;
-		TextView txt_DRL;
+
 		int btn_value ;
 			ProgressBar progress;
 
@@ -45,11 +41,6 @@ namespace School.Droid
 			listViewDT = rootView.FindViewById<ListView> (Resource.Id.listDT_HK);
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_DT);
 			lbl_NH = rootView.FindViewById<TextView> (Resource.Id.lbl_NH_DT);
-			txt_TB10 = rootView.FindViewById<TextView> (Resource.Id.txtTB10_HK);
-			txt_TB4 = rootView.FindViewById<TextView> (Resource.Id.txtTB4_HK);
-			txt_TBTL10 = rootView.FindViewById<TextView> (Resource.Id.txtTBTL10_HK);
-			txt_TBTL4 = rootView.FindViewById<TextView> (Resource.Id.txtTBTL4_HK);
-			txt_DRL = rootView.FindViewById<TextView> (Resource.Id.txtDRL_HK);
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressDTHK);
 
 			//load data
@@ -107,7 +98,9 @@ namespace School.Droid
 
 		async void LoadData (string hocKy, string namHoc)
 		{
-
+			listViewDT.Visibility = ViewStates.Invisible;
+			progress.Visibility = ViewStates.Visible;
+			progress.Indeterminate = true;
 			DiemThi diemThi = new DiemThi ();
 			var t = await BDiemThi.MakeDataFromXml(SQLite_Android.GetConnection ());
 			if (hocKy == "0") {
@@ -124,41 +117,15 @@ namespace School.Droid
 			List<DiemMon> listDM = BDiemThi.GetDiemMons (SQLite_Android.GetConnection (), diemThi.Hocky, diemThi.NamHoc);
 			lbl_HK.Text = diemThi.Hocky;
 			lbl_NH.Text = diemThi.NamHoc;
-			txt_TB10.Text = diemThi.DiemTB10;
-			txt_TB4.Text = diemThi.DiemTB4;
-			txt_TBTL10.Text = diemThi.DiemTBTL10;
-			txt_TBTL4.Text = diemThi.DiemTBTL4;
-			txt_DRL.Text = diemThi.DiemRL;
+	
+		
 			DiemThiHKAdapter adapter = new DiemThiHKAdapter (Activity, listDM);
 			listViewDT.Adapter = adapter;  
-				progress.Visibility = ViewStates.Gone;
+			progress.Indeterminate = false;
+			progress.Visibility = ViewStates.Gone;
+			listViewDT.Visibility = ViewStates.Visible;
 
 
 		}
-
-//		async void LoadData (string hocKy, string namHoc)
-//		{
-//			System.Diagnostics.Debug.WriteLine ("test: " + hocKy + " " + namHoc);
-//			DiemThi diemThi = new DiemThi ();
-//			var t = await BDiemThi.MakeDataFromXml(SQLite_Android.GetConnection ());
-//			if (hocKy == "0") {
-//				diemThi = BDiemThi.GetNewestDT (SQLite_Android.GetConnection ());
-//			} else {
-//				diemThi = BDiemThi.GetDT (SQLite_Android.GetConnection (), hocKy, namHoc);
-//			}
-//			List<DiemMon> listDM = BDiemThi.GetDiemMons (SQLite_Android.GetConnection (), diemThi.Hocky, diemThi.NamHoc);
-//			lbl_HK.Text = hocKy;
-//			lbl_NH.Text = namHoc;
-//			txt_TB10.Text = diemThi.DiemTB10;
-//			txt_TB4.Text = diemThi.DiemTB4;
-//			txt_TBTL10.Text = diemThi.DiemTBTL10;
-//			txt_TBTL4.Text = diemThi.DiemTBTL4;
-//			txt_DRL.Text = diemThi.DiemRL;
-//			DiemThiHKAdapter adapter = new DiemThiHKAdapter (Activity, listDM);
-//			listView.Adapter = adapter;  
-//			//progress.Visibility = ViewStates.Gone;
-//
-//
-//		}
 	}
 }

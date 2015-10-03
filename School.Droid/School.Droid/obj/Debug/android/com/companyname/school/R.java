@@ -25,19 +25,20 @@ public final class R {
         public static final int border=0x7f020004;
         public static final int button_border=0x7f020005;
         public static final int configuration2=0x7f020006;
-        public static final int drawer_shadow_dark=0x7f020007;
-        public static final int drawer_shadow_light=0x7f020008;
-        public static final int edittext=0x7f020009;
-        public static final int ic_drawer_dark=0x7f02000a;
-        public static final int ic_drawer_light=0x7f02000b;
-        public static final int icon=0x7f02000c;
-        public static final int monoandroidsplash=0x7f02000d;
-        public static final int note=0x7f02000e;
-        public static final int pencil=0x7f02000f;
-        public static final int sgu1=0x7f020010;
-        public static final int sguicon=0x7f020011;
-        public static final int tag=0x7f020012;
-        public static final int user=0x7f020013;
+        public static final int divider=0x7f020007;
+        public static final int drawer_shadow_dark=0x7f020008;
+        public static final int drawer_shadow_light=0x7f020009;
+        public static final int edittext=0x7f02000a;
+        public static final int ic_drawer_dark=0x7f02000b;
+        public static final int ic_drawer_light=0x7f02000c;
+        public static final int icon=0x7f02000d;
+        public static final int monoandroidsplash=0x7f02000e;
+        public static final int note=0x7f02000f;
+        public static final int pencil=0x7f020010;
+        public static final int sgu1=0x7f020011;
+        public static final int sguicon=0x7f020012;
+        public static final int tag=0x7f020013;
+        public static final int user=0x7f020014;
     }
     public static final class id {
         public static final int btDangNhap=0x7f080078;
@@ -182,20 +183,18 @@ public final class R {
         public static final int dtheader=0x7f030004;
         public static final int dtrow=0x7f030005;
         public static final int hocphi=0x7f030006;
-        public static final int hocphiheader=0x7f030007;
-        public static final int hocphirow=0x7f030008;
-        public static final int lhtuanheader=0x7f030009;
-        public static final int lhtuanrow=0x7f03000a;
-        public static final int lichhoc_hk=0x7f03000b;
-        public static final int lichhoc_tuan=0x7f03000c;
-        public static final int lichhocheader=0x7f03000d;
-        public static final int lichhocrow=0x7f03000e;
-        public static final int lichthi=0x7f03000f;
-        public static final int login=0x7f030010;
-        public static final int ltheader=0x7f030011;
-        public static final int ltrow=0x7f030012;
-        public static final int menu=0x7f030013;
-        public static final int settings=0x7f030014;
+        public static final int hocphirow=0x7f030007;
+        public static final int lhtuanheader=0x7f030008;
+        public static final int lhtuanrow=0x7f030009;
+        public static final int lichhoc_hk=0x7f03000a;
+        public static final int lichhoc_tuan=0x7f03000b;
+        public static final int lichhocheader=0x7f03000c;
+        public static final int lichhocrow=0x7f03000d;
+        public static final int lichthi=0x7f03000e;
+        public static final int login=0x7f03000f;
+        public static final int ltrow=0x7f030010;
+        public static final int menu=0x7f030011;
+        public static final int settings=0x7f030012;
     }
     public static final class string {
         public static final int ApplicationName=0x7f040001;

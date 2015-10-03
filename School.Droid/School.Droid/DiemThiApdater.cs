@@ -59,7 +59,6 @@ namespace School.Droid
 			}
 			else if(childPosition == GetChildrenCount(groupPosition)-1 && listDT [groupPosition].Hocky != "3")
 			{
-				System.Diagnostics.Debug.WriteLine ("footer: " + groupPosition);
 				row = LayoutInflater.From(context).Inflate(Resource.Layout.DTFooter, null);
 				row.FindViewById<TextView>(Resource.Id.txtTB10).Text = "ĐTB Học kỳ hệ 10: " + listDT [groupPosition].DiemTB10;
 				row.FindViewById<TextView>(Resource.Id.txtTB4).Text = "ĐTB Học kỳ hệ 4: " + listDT [groupPosition].DiemTB4;
@@ -82,7 +81,7 @@ namespace School.Droid
 
 		public override int GroupCount {
 			get {
-				return listDT.Count;;
+				return listDT.Count;
 			}
 		}
 

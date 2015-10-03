@@ -19,5 +19,7 @@
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
         android:textColor="#fff"
         android:background="@android:color/holo_blue_dark"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall" />
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:textStyle="bold"
+        android:textSize="16dp" />
 </LinearLayout>

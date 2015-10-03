@@ -10,6 +10,7 @@ using System.Xml;
 using System.Xml.Linq;
 using SQLite;
 using System.Net.Http;
+using System.Globalization;
 
 namespace School.Core
 {
@@ -151,11 +152,11 @@ namespace School.Core
 			return null;
 		}
 
-		public static string convertToDate(List<string> text, string time)
+		public static string convertToDate(List<string> text, string date)
 		{
 
 			string s = "";
-			DateTime firstDate = Convert.ToDateTime(time.Substring(0, 10));
+			DateTime firstDate = DateTime.ParseExact (date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 			for (int i = 0; i < text.Count; i++)
 			{
 				if (int.Parse(text[i]) % 2 == 0)
