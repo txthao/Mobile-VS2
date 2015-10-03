@@ -70,6 +70,10 @@ School.Droid.OnAlarmReceive, School.Droid;md57f5688a386234212827f14cda194d215.On
 School.Droid.OnAlarmReceive, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.OnAlarmReceive
 School.Droid.OnAlarmReceive;md57f5688a386234212827f14cda194d215.OnAlarmReceive
 school.droid.OnAlarmReceive;md57f5688a386234212827f14cda194d215.OnAlarmReceive
+School.Droid.SettingsFragment, School.Droid;md57f5688a386234212827f14cda194d215.SettingsFragment
+School.Droid.SettingsFragment, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.SettingsFragment
+School.Droid.SettingsFragment;md57f5688a386234212827f14cda194d215.SettingsFragment
+school.droid.SettingsFragment;md57f5688a386234212827f14cda194d215.SettingsFragment
 Android.Support.V4.View.ViewPager/IOnPageChangeListenerImplementor, Xamarin.Android.Support.v4;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 Android.Support.V4.View.ViewPager/IOnPageChangeListenerImplementor, Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 Android.Support.V4.View.ViewPager.IOnPageChangeListenerImplementor;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor

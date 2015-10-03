@@ -3,6 +3,7 @@
 	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">School.Droid</string>
 	<string-array name="MenuArray">
+	<item>Sinh Viên</item>
     <item>Lịch Học</item>
     <item>Lịch Thi</item>
     <item>Điểm Thi</item>

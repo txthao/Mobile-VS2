@@ -63,3 +63,4 @@
 /Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/obj/Debug/uploadflags.txt
 /Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/obj/Debug/School.Droid.dll
 /Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/obj/Debug/School.Droid.dll.mdb
+/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/obj/Debug/res/layout/settings.xml

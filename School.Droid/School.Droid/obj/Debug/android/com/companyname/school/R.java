@@ -47,6 +47,9 @@ public final class R {
         public static final int btnHK_Truoc_LH=0x7f080054;
         public static final int btnTuanKe=0x7f080061;
         public static final int btnTuanTruoc=0x7f080060;
+        public static final int ckboxAutoUpdateData=0x7f080084;
+        public static final int ckboxRemindLH=0x7f080083;
+        public static final int ckboxRemindLT=0x7f080082;
         public static final int content_frame=0x7f080080;
         public static final int drawer_layout=0x7f08007f;
         public static final int errorMSG=0x7f080079;
@@ -192,6 +195,7 @@ public final class R {
         public static final int ltheader=0x7f030011;
         public static final int ltrow=0x7f030012;
         public static final int menu=0x7f030013;
+        public static final int settings=0x7f030014;
     }
     public static final class string {
         public static final int ApplicationName=0x7f040001;
