@@ -33,7 +33,7 @@ namespace School.Droid
 
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Menu);
-
+			string namesv = BUser.GetMainUser (SQLite_Android.GetConnection ()).Hoten;
 			_title = _drawerTitle = Title;
 			_menuTitles = Resources.GetStringArray(Resource.Array.MenuArray);
 			_drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
@@ -41,6 +41,7 @@ namespace School.Droid
 
 			_drawer.SetDrawerShadow(Resource.Drawable.drawer_shadow_dark, (int)GravityFlags.Start);
 			List<DrawerItem> listItems = new List<DrawerItem> ();
+			listItems.Add(new DrawerItem(namesv,Resource.Drawable.user));
 			listItems.Add(new DrawerItem("Lịch Học",Resource.Drawable.note));
 			listItems.Add(new DrawerItem("Lịch Thi",Resource.Drawable.pencil));
 			listItems.Add(new DrawerItem("Điểm Thi",Resource.Drawable.archive));
@@ -80,7 +81,7 @@ namespace School.Droid
 			_drawer.SetDrawerListener(_drawerToggle);
 
 			if (null == savedInstanceState)
-				SelectItem(1);
+				SelectItem(2);
 
 
 		}
@@ -89,37 +90,40 @@ namespace School.Droid
 		{
 			var fragment=new Fragment();
             switch (position) {
-            case 0:
+			case 0:
+				break;
+            case 1:
                 fragment = new LichHocTuanFragment ();
                 break;
-            case 1:
+            case 2:
                 fragment = new LichThiFragment ();
                 break;
-            case 2:
+            case 3:
                 fragment = new DiemThiHKFragment ();
                 break;
-            case 3:
+            case 4:
                 fragment = new HocPhiFragment ();
                 break;
-
 			case 5:
+				fragment = new SettingsFragment ();
+				break;
+			case 6:
 				BUser.LogOut (SQLite_Android.GetConnection ());
 				Intent myintent = new Intent (this, typeof(LoginActivity));
 				StartActivity (myintent);
 				this.Finish ();
 				break;
-            default:
-                fragment = new LichThiFragment ();
-                break;
+           
             }
+			if (position != 0) {
+				FragmentManager.BeginTransaction ()
+				.Replace (Resource.Id.content_frame, fragment)
+				.Commit ();
 
-			FragmentManager.BeginTransaction()
-				.Replace(Resource.Id.content_frame, fragment)
-				.Commit();
-
-			_drawerList.SetItemChecked(position, true);
-			ActionBar.Title = _title = _menuTitles[position];
-			_drawer.CloseDrawer(_drawerList);
+				_drawerList.SetItemChecked (position, true);
+				ActionBar.Title = _title = _menuTitles [position];
+				_drawer.CloseDrawer (_drawerList);
+			}
 		}
 
 		protected override void OnPostCreate(Bundle savedInstanceState)

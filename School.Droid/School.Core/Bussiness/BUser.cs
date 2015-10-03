@@ -57,9 +57,14 @@ namespace School.Core
 			User usr = new User ();
 			usr.Password = pass;
 			usr.Id = id;
+			Task<string> contentNameTask = httpClient.GetStringAsync ("http://www.schoolapi.somee.com/api/user/" + id);
+			contents=await contentNameTask;
+			XDocument doc = XDocument.Parse (contents);
+			usr.Hoten= doc.Root.Elements().ElementAt(0).Elements().ElementAt(1).Value.ToString();
 			int i = AddUser (connection, usr);
 			return true;
 		}
+	
 	}
 }
 

@@ -175,6 +175,15 @@ namespace School.Droid
 			// aapt resource value: 0x7f080060
 			public const int btnTuanTruoc = 2131230816;
 			
+			// aapt resource value: 0x7f080084
+			public const int ckboxAutoUpdateData = 2131230852;
+			
+			// aapt resource value: 0x7f080083
+			public const int ckboxRemindLH = 2131230851;
+			
+			// aapt resource value: 0x7f080082
+			public const int ckboxRemindLT = 2131230850;
+			
 			// aapt resource value: 0x7f080080
 			public const int content_frame = 2131230848;
 			
@@ -616,6 +625,9 @@ namespace School.Droid
 			
 			// aapt resource value: 0x7f030013
 			public const int Menu = 2130903059;
+			
+			// aapt resource value: 0x7f030014
+			public const int Settings = 2130903060;
 			
 			static Layout()
 			{
