@@ -29,7 +29,7 @@ namespace School.Droid
 				PendingIntent.GetActivity (context, pendingIntentId, i, PendingIntentFlags.OneShot);
 			Notification.Builder builder = new Notification.Builder(context)
 				.SetContentIntent (pendingIntent)
-				.SetContentTitle ("Nhắc Lịch")
+				.SetContentTitle ("Nhắc Lịch Thi")
 				.SetContentText (nofcontent)
 				.SetSmallIcon (Resource.Drawable.SguIcon);
 			builder.SetAutoCancel (true);
@@ -40,6 +40,35 @@ namespace School.Droid
 			notificationManager.Notify (notificationId, notification);
 		}
 
+		//	NotifLichHoc (context);
+		}
+		private void NotifLichHoc(Context context)
+		{
+			List<chiTietLH> listctlh = new List<chiTietLH> ();
+			listctlh = BLichHoc.GetCTLHNow (SQLite_Android.GetConnection ());
+			if (listctlh.Count >= 1) {
+				string nofcontent = "";
+				Intent i = new Intent(context, typeof(DrawerActivity));
+				if (listctlh.Count == 1) {
+					nofcontent = String.Format ("Bạn có lịch hoc vào tiết {0}", listctlh [0].TietBatDau);
+				} else {
+					nofcontent=String.Format("Hôm nay bạn có nhiều lịch học lắm đấy");
+				}
+				const int pendingIntentId = 1;
+				PendingIntent pendingIntent = 
+					PendingIntent.GetActivity (context, pendingIntentId, i, PendingIntentFlags.OneShot);
+				Notification.Builder builder = new Notification.Builder(context)
+					.SetContentIntent (pendingIntent)
+					.SetContentTitle ("Nhắc Lịch Học")
+					.SetContentText (nofcontent)
+					.SetSmallIcon (Resource.Drawable.SguIcon);
+				builder.SetAutoCancel (true);
+				Notification notification = builder.Build();
+				NotificationManager notificationManager =
+					context.GetSystemService (Context.NotificationService) as NotificationManager;
+				const int notificationId = 1;
+				notificationManager.Notify (notificationId, notification);
+			}
 		}
 	}
 }

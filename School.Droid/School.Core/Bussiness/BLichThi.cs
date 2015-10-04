@@ -76,7 +76,15 @@ namespace School.Core
 		public static List<LichThi> GetLichThiByTime(SQLiteConnection connection)
 		{
 			DateTime dt= DateTime.Today;
-			string time=String.Format("{0}/{1}/{2}",dt.Day,dt.Month,dt.Year);
+			string day = dt.Day.ToString();
+			string month = dt.Month.ToString ();
+			if (day.Length == 1) {
+				day = "0" + day;
+			}
+			if (month.Length == 1) {
+				month = "0"+month;
+			}
+			string time=String.Format("{0}/{1}/{2}",day,month,dt.Year);
 			DataProvider dtb = new DataProvider (connection);
 			return dtb.GetLichThiByTime (time);
 

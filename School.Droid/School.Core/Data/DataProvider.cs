@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using SQLite;
+using System.Globalization;
 
 
 namespace School.Core
@@ -314,15 +315,29 @@ namespace School.Core
 				select c;
 			return query.ToList ();
 		}
-//		public List<LichHoc> GetLichHocByTime(string time)
-//		{
-//			var query = from c in _connection.Table<LichHoc> ()
-//					where c.Equals(time)
-//				select c;
-//			return query.ToList ();
-//		}
-		
+		public List<chiTietLH> GetCTLichHocByTime()
+		{
+			var query = from c in _connection.Table<chiTietLH> ()
+					where (checkTime(c.ThoigianBD))&&(!checkTime(c.ThoigianKT))
+			select c;
+			return query.ToList ();
+		}
+		private bool checkTime(string time)
+		{
+			
+			DateTime now = DateTime.Now;
+			if (now.CompareTo(convertFromStringToDate(time))<=0)
+			{
+				return false;
 
+			}
+			return true;
+		}
+		public  DateTime convertFromStringToDate (string date)
+		{
+			return DateTime.ParseExact (date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+		}
 		public int DeleteAll ()
 		{
 			

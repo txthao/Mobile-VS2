@@ -22,7 +22,7 @@ namespace School.Droid
 		private DrawerLayout _drawer;
 		private MyActionBarDrawerToggle _drawerToggle;
 		private ListView _drawerList;
-
+		Bundle bundle;
 		private string _drawerTitle;
 		private string _title;
 		private string[] _menuTitles;
@@ -79,9 +79,10 @@ namespace School.Droid
 			};
 
 			_drawer.SetDrawerListener(_drawerToggle);
+			LoadSettings ();
 
 			if (null == savedInstanceState)
-				SelectItem(2);
+				SelectItem(1);
 
 
 		}
@@ -106,6 +107,7 @@ namespace School.Droid
                 break;
 			case 5:
 				fragment = new SettingsFragment ();
+				fragment.Arguments = bundle;
 				break;
 			case 6:
 				BUser.LogOut (SQLite_Android.GetConnection ());
@@ -158,6 +160,15 @@ namespace School.Droid
 			if (_drawerToggle.OnOptionsItemSelected(item))
 				return true;
 			return base.OnOptionsItemSelected(item);
-	}
+		}
+		private void LoadSettings()
+		{
+			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);              
+			var checkRemind = prefs.GetBoolean ("Remind",false);
+			bundle = new Bundle();
+
+			bundle.PutBoolean ("Remind", checkRemind);
+
+		}
 }
 }
