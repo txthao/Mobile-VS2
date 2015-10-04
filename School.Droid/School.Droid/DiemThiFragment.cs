@@ -56,21 +56,7 @@ namespace School.Droid
 				.Replace(Resource.Id.content_frame, fragment)
 				.Commit();
 		}
-
-
-//		 void LoadData()
-//		{
-//			//progress.Visibility = ViewStates.Visible;
-//		//	progress.Indeterminate = true;
-//			List<DiemThi> list = new List<DiemThi>();
-//			//var t=await BDiemThi.MakeDataFromXml(SQLite_Android.GetConnection ());
-//
-//			list = BDiemThi.getAll(SQLite_Android.GetConnection ());
-//			listView.SetAdapter (new DiemThiApdater(Activity, list)); 
-////			progress.Indeterminate = false;
-////			progress.Visibility = ViewStates.Gone;
-//		}
-//
+			
 		async void LoadData()
 		{
 			progress.Visibility = ViewStates.Visible;

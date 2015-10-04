@@ -23,6 +23,7 @@ namespace School.Droid
 		TextView lbl_NH;
 		ProgressBar progress;
 
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -39,13 +40,17 @@ namespace School.Droid
 			listView_HK = rootView.FindViewById<ListView> (Resource.Id.listLH);
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_LH);
 			lbl_NH = rootView.FindViewById<TextView> (Resource.Id.lbl_NH_LH);
+			progress = rootView.FindViewById<ProgressBar> (Resource.Id.progressLH);
 
-			//	progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressLH);
+
+			//load data
 			LichHoc lh = BLichHoc.GetLast (SQLite_Android.GetConnection ());
-			LoadData_HK (lh.HocKy, lh.NamHoc);
-
+			if (lh != null) {
+				LoadData_HK (lh.HocKy, lh.NamHoc);
+			} else {
+				LoadData_HK ("0", "0");
+			}
 			//radio button
-	//		RadioGroup radioGroup = rootView.FindViewById<RadioGroup> (Resource.Id.radioGroup1);
 			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangTuan);
 			RadioButton rb_hocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK);
 			rb_hocKy.Checked = true;
@@ -65,10 +70,10 @@ namespace School.Droid
 
 		void rd_OnCheckedChangeListener (object sender, EventArgs e)
 		{
-			LichHocTuanFragment fragment = new LichHocTuanFragment();
-			FragmentManager.BeginTransaction()
-				.Replace(Resource.Id.content_frame, fragment)
-				.Commit();
+			LichHocTuanFragment fragment = new LichHocTuanFragment ();
+			FragmentManager.BeginTransaction ()
+				.Replace (Resource.Id.content_frame, fragment)
+				.Commit ();
 		}
 
 		void btnHK_Truoc_Click (object sender, EventArgs e)
@@ -89,44 +94,37 @@ namespace School.Droid
 
 		}
 
-		void LoadData_HK (string hocKy, string namHoc)
+		async void LoadData_HK (string hocKy, string namHoc)
 		{
+			listView_HK.Visibility = ViewStates.Invisible;
+			progress.Visibility = ViewStates.Visible;
+			progress.Indeterminate = true;
 			List<LichHoc> listLH = new List<LichHoc> ();
-							
-			listLH = BLichHoc.GetLH_Time (SQLite_Android.GetConnection (), hocKy, namHoc);
+			var t = await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
+
+			if (hocKy == "0") {
+				listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());
+			} else {
+				listLH = BLichHoc.GetLH_Time (SQLite_Android.GetConnection (), hocKy, namHoc);
+
+			}
 			List<chiTietLH> listCT = new List<chiTietLH> ();
 			foreach (var item in listLH) {
 				listCT.AddRange (BLichHoc.GetCTLH (SQLite_Android.GetConnection (), item.Id));
-		
+
 			}
 
-			lbl_HK.Text = hocKy;
-			lbl_NH.Text = namHoc;
+			lbl_HK.Text = listLH [0].HocKy;
+			lbl_NH.Text = listLH [0].NamHoc;
 			LichHocHKAdapter adapter = new LichHocHKAdapter (Activity, listCT);
 			listView_HK.Adapter = adapter;  
-//			progress.Visibility = ViewStates.Gone;
+			progress.Indeterminate = false;
+			progress.Visibility = ViewStates.Gone;
+			listView_HK.Visibility = ViewStates.Visible;
 
 		
 		}
 
-		//		async void LoadData_HK(string hocKy, string namHoc)
-		//		{
-		//			progress.Visibility = ViewStates.Visible;
-		//			progress.Indeterminate = true;
-		//			List<LichHoc> listLH = new List<LichHoc> ();
-		//			var t = await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
-		//
-		//			listLH = BLichHoc.GetLH_Time (SQLite_Android.GetConnection (),hocKy, namHoc);
-		//			List<chiTietLH> listCT = new List<chiTietLH> ();
-		//			foreach (var item in listLH) {
-		//				listCT.AddRange(BLichHoc.GetCTLH (SQLite_Android.GetConnection (), item.Id));
-		//
-		//			}
-		//			LichHocHKAdapter adapter = new LichHocHKAdapter (Activity, listCT);
-		//			listView_HK.Adapter  = adapter;
-		//			progress.Indeterminate = false;
-		//			progress.Visibility = ViewStates.Gone;
-		//		}
 	}
 }
 
