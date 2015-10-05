@@ -318,7 +318,7 @@ namespace School.Core
 		public List<chiTietLH> GetCTLichHocByTime()
 		{
 			var query = from c in _connection.Table<chiTietLH> ()
-					where (checkTime(c.ThoigianBD))&&(!checkTime(c.ThoigianKT))
+					where (checkTime(c.ThoigianBD))&&(checkTime(c.ThoigianKT))
 			select c;
 			return query.ToList ();
 		}
