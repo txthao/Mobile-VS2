@@ -44,7 +44,10 @@ namespace School.Droid
 				
 			view.FindViewById<TextView> (Resource.Id.text_drawer).Text = item.getItemName ();
 			view.FindViewById<ImageView>(Resource.Id.icon_drawer).SetImageResource(item.getImgResID());
-				return view;
+			if (item.Separator() == true) {
+				view.FindViewById<LinearLayout> (Resource.Id.separator).Visibility = ViewStates.Visible;
+			}
+				
 
 			return view;
 		}

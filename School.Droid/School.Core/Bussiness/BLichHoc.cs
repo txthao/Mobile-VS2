@@ -205,7 +205,12 @@ namespace School.Core
 			return result;
 
 		}
-
+		public static List<chiTietLH> GetCTLHNow(SQLiteConnection connection)
+		{
+			
+			DataProvider dtb = new DataProvider (connection);
+			return dtb.GetCTLichHocByTime ();
+		}
 
 
 	}

@@ -26,10 +26,10 @@
             android:layout_width="fill_parent"
             android:layout_marginLeft="50dp"
             android:id="@+id/ckboxRemindLT"
-            android:text="Tự động nhắc lịch thi"
+            android:text="Cho phép nhắc lịch"
             android:textColor="@android:color/holo_blue_dark"
-            android:checked="true" />
-        <CheckBox
+            android:checked="false" />
+    <!--        <CheckBox
             android:layout_marginTop="10dp"
             android:textSize="20dp"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:id="@+id/ckboxRemindLH"
             android:text="Tự động nhắc lịch học"
             android:textColor="@android:color/holo_blue_dark"
-            android:checked="true" />
+            android:checked="true" />-->
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

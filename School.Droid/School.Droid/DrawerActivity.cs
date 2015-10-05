@@ -22,7 +22,7 @@ namespace School.Droid
 		private DrawerLayout _drawer;
 		private MyActionBarDrawerToggle _drawerToggle;
 		private ListView _drawerList;
-
+		Bundle bundle;
 		private string _drawerTitle;
 		private string _title;
 		private string[] _menuTitles;
@@ -41,13 +41,13 @@ namespace School.Droid
 
 			_drawer.SetDrawerShadow(Resource.Drawable.drawer_shadow_dark, (int)GravityFlags.Start);
 			List<DrawerItem> listItems = new List<DrawerItem> ();
-			listItems.Add(new DrawerItem(namesv,Resource.Drawable.user));
-			listItems.Add(new DrawerItem("Lịch Học",Resource.Drawable.note));
-			listItems.Add(new DrawerItem("Lịch Thi",Resource.Drawable.pencil));
-			listItems.Add(new DrawerItem("Điểm Thi",Resource.Drawable.archive));
-			listItems.Add(new DrawerItem("Học Phí",Resource.Drawable.tag));
-			listItems.Add(new DrawerItem("Cài đặt",Resource.Drawable.configuration2));
-			listItems.Add (new DrawerItem ("Đăng xuất", Resource.Drawable.back));
+			listItems.Add(new DrawerItem(namesv,Resource.Drawable.user,true));
+			listItems.Add(new DrawerItem("Lịch Học",Resource.Drawable.note,false));
+			listItems.Add(new DrawerItem("Lịch Thi",Resource.Drawable.pencil,false));
+			listItems.Add(new DrawerItem("Điểm Thi",Resource.Drawable.archive,false));
+			listItems.Add(new DrawerItem("Học Phí",Resource.Drawable.tag,true));
+			listItems.Add(new DrawerItem("Cài đặt",Resource.Drawable.configuration2,false));
+			listItems.Add (new DrawerItem ("Đăng xuất", Resource.Drawable.back,false));
 			_drawerList.Adapter = new CustomDrawerAdapter (this, listItems);
 			_drawerList.ItemClick += (sender, args) => SelectItem(args.Position);
 
@@ -79,9 +79,10 @@ namespace School.Droid
 			};
 
 			_drawer.SetDrawerListener(_drawerToggle);
+			LoadSettings ();
 
 			if (null == savedInstanceState)
-				SelectItem(2);
+				SelectItem(1);
 
 
 		}
@@ -106,6 +107,7 @@ namespace School.Droid
                 break;
 			case 5:
 				fragment = new SettingsFragment ();
+				fragment.Arguments = bundle;
 				break;
 			case 6:
 				BUser.LogOut (SQLite_Android.GetConnection ());
@@ -158,6 +160,15 @@ namespace School.Droid
 			if (_drawerToggle.OnOptionsItemSelected(item))
 				return true;
 			return base.OnOptionsItemSelected(item);
-	}
+		}
+		private void LoadSettings()
+		{
+			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);              
+			var checkRemind = prefs.GetBoolean ("Remind",false);
+			bundle = new Bundle();
+
+			bundle.PutBoolean ("Remind", checkRemind);
+
+		}
 }
 }
