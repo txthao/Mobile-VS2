@@ -157,6 +157,9 @@ namespace School.Droid
 			// aapt resource value: 0x7f080073
 			public const int btDangNhap = 2131230835;
 			
+			// aapt resource value: 0x7f08007f
+			public const int btUpdateData = 2131230847;
+			
 			// aapt resource value: 0x7f080012
 			public const int btnHK_Ke_DT = 2131230738;
 			
@@ -294,6 +297,9 @@ namespace School.Droid
 			
 			// aapt resource value: 0x7f080070
 			public const int listLT = 2131230832;
+			
+			// aapt resource value: 0x7f080080
+			public const int proUpdateData = 2131230848;
 			
 			// aapt resource value: 0x7f080005
 			public const int progressDT = 2131230725;

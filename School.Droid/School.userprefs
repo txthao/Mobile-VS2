@@ -1,34 +1,6 @@
 ﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Galaxy_Nexus_by_Google" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid/Helper/OnAlarmRecieve.cs">
-    <Files>
-      <File FileName="School.Droid/Helper/ScheduleReminder.cs" Line="17" Column="47" />
-      <File FileName="School.Core/Data/DataProvider.cs" Line="323" Column="27" />
-      <File FileName="School.Droid/Helper/OnAlarmRecieve.cs" Line="43" Column="5" />
-      <File FileName="School.Core/Bussiness/BLichHoc.cs" Line="212" Column="1" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="School" expanded="True">
-            <Node name="School.Core" expanded="True">
-              <Node name="Bussiness" expanded="True" />
-              <Node name="Data" expanded="True" />
-              <Node name="Model" expanded="True" />
-            </Node>
-            <Node name="School.Droid" expanded="True">
-              <Node name="Helper" expanded="True">
-                <Node name="OnAlarmRecieve.cs" selected="True" />
-              </Node>
-              <Node name="Resources" expanded="True">
-                <Node name="layout" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />

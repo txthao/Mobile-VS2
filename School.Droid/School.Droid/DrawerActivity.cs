@@ -26,6 +26,7 @@ namespace School.Droid
 		private string _drawerTitle;
 		private string _title;
 		private string[] _menuTitles;
+		private int previousItemChecked;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -33,6 +34,19 @@ namespace School.Droid
 
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Menu);
+			Intent t = this.Intent;
+
+				bool firstload=t.GetBooleanExtra("FirstLoad",false);
+			
+			if (firstload == true) {
+				if (Common.checkNWConnection (this) == true) {
+					Common.LoadDataFromSV ();
+				} else {
+					Toast.MakeText (this,"Không Có Kết Nối Tới Mạng Internet, Vui Lòng Thử Lại Sau", ToastLength.Long).Show();
+
+				}
+			}
+
 			string namesv = BUser.GetMainUser (SQLite_Android.GetConnection ()).Hoten;
 			_title = _drawerTitle = Title;
 			_menuTitles = Resources.GetStringArray(Resource.Array.MenuArray);
@@ -79,16 +93,19 @@ namespace School.Droid
 			};
 
 			_drawer.SetDrawerListener(_drawerToggle);
-			LoadSettings ();
 
-			if (null == savedInstanceState)
-				SelectItem(1);
-
+			this.ActionBar.SetDisplayHomeAsUpEnabled(true);
+			this.ActionBar.SetHomeButtonEnabled(true);
+			if (null == savedInstanceState) {
+				SelectItem (5);
+				previousItemChecked = 5;
+			}
 
 		}
 
 		private void SelectItem(int position)
 		{
+			LoadSettings ();
 			var fragment=new Fragment();
             switch (position) {
 			case 0:
@@ -107,10 +124,12 @@ namespace School.Droid
                 break;
 			case 5:
 				fragment = new SettingsFragment ();
-				fragment.Arguments = bundle;
+
 				break;
 			case 6:
 				BUser.LogOut (SQLite_Android.GetConnection ());
+				var prefs = Application.Context.GetSharedPreferences ("SGU APP", FileCreationMode.Private);
+				prefs.Edit ().Clear ().Commit ();
 				Intent myintent = new Intent (this, typeof(LoginActivity));
 				StartActivity (myintent);
 				this.Finish ();
@@ -118,11 +137,15 @@ namespace School.Droid
            
             }
 			if (position != 0) {
+				
+				fragment.Arguments = bundle;
 				FragmentManager.BeginTransaction ()
-				.Replace (Resource.Id.content_frame, fragment)
+					.Replace (Resource.Id.content_frame, fragment).AddToBackStack(""+previousItemChecked)
 				.Commit ();
-
 				_drawerList.SetItemChecked (position, true);
+				previousItemChecked = _drawerList.CheckedItemPosition;
+
+			
 				ActionBar.Title = _title = _menuTitles [position];
 				_drawer.CloseDrawer (_drawerList);
 			}
@@ -165,9 +188,26 @@ namespace School.Droid
 		{
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);              
 			var checkRemind = prefs.GetBoolean ("Remind",false);
+			var autoUpdate= prefs.GetBoolean ("AutoUpdateData",false);
 			bundle = new Bundle();
 
 			bundle.PutBoolean ("Remind", checkRemind);
+			bundle.PutBoolean ("AutoUpdateData", autoUpdate);
+
+		}
+		override public void OnBackPressed()
+		{
+			
+			if (FragmentManager.BackStackEntryCount > 0) {
+				String title = FragmentManager.GetBackStackEntryAt (FragmentManager.BackStackEntryCount - 1).Name;
+				FragmentManager.PopBackStackImmediate ();
+				int pos = int.Parse (title);
+
+				SelectItem (pos);
+				FragmentManager.PopBackStackImmediate ();
+			} else {
+				base.OnBackPressed ();
+			}
 
 		}
 }

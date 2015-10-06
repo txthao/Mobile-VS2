@@ -21,10 +21,10 @@ namespace School.Droid
 		ListView listViewDT;
 		TextView lbl_HK;
 		TextView lbl_NH;
-
+		bool check,autoupdate;
 		int btn_value ;
 			ProgressBar progress;
-
+		Bundle bundle;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -42,7 +42,9 @@ namespace School.Droid
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_DT);
 			lbl_NH = rootView.FindViewById<TextView> (Resource.Id.lbl_NH_DT);
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressDTHK);
-
+			bundle=this.Arguments;
+			check = bundle.GetBoolean ("Remind");
+			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 			//load data
 			DiemThi dt = BDiemThi.GetNewestDT (SQLite_Android.GetConnection ());
 			if (dt != null) {
@@ -70,6 +72,7 @@ namespace School.Droid
 		void rd_OnCheckedChangeListener (object sender, EventArgs e)
 		{
 			DiemThiFragment fragment = new DiemThiFragment ();
+			fragment.Arguments = bundle;
 			FragmentManager.BeginTransaction ()
 				.Replace (Resource.Id.content_frame, fragment)
 				.Commit ();
@@ -102,7 +105,9 @@ namespace School.Droid
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
 			DiemThi diemThi = new DiemThi ();
-			var t = await BDiemThi.MakeDataFromXml(SQLite_Android.GetConnection ());
+			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
+				 await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			}
 			if (hocKy == "0") {
 				diemThi = BDiemThi.GetNewestDT (SQLite_Android.GetConnection ());
 			} else {
@@ -117,10 +122,8 @@ namespace School.Droid
 			List<DiemMon> listDM = BDiemThi.GetDiemMons (SQLite_Android.GetConnection (), diemThi.Hocky, diemThi.NamHoc);
 			lbl_HK.Text = diemThi.Hocky;
 			lbl_NH.Text = diemThi.NamHoc;
-	
-		
-			DiemThiHKAdapter adapter = new DiemThiHKAdapter (Activity, listDM);
-			listViewDT.Adapter = adapter;  
+				DiemThiHKAdapter adapter = new DiemThiHKAdapter (Activity, listDM);
+				listViewDT.Adapter = adapter;  
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 			listViewDT.Visibility = ViewStates.Visible;

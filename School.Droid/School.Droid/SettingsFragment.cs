@@ -11,12 +11,16 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using School.Core;
 
 namespace School.Droid
 {
 	public class SettingsFragment : Fragment
 	{
-		CheckBox cbNLT,cbNLH;
+		bool autoupdate;
+		CheckBox cbNLT,cbUpdate;
+		Button btupdateData;
+		ProgressBar progressup;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -30,15 +34,48 @@ namespace School.Droid
 			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 			var rootView = inflater.Inflate(Resource.Layout.Settings, container, false);
 			cbNLT = rootView.FindViewById<CheckBox> (Resource.Id.ckboxRemindLT);
-	//		cbNLH = rootView.FindViewById<CheckBox> (Resource.Id.ckboxRemindLH);
+			cbUpdate=rootView.FindViewById<CheckBox> (Resource.Id.ckboxAutoUpdateData);
+			btupdateData=rootView.FindViewById<Button> (Resource.Id.btUpdateData);
+			progressup=rootView.FindViewById<ProgressBar> (Resource.Id.proUpdateData);
+			cbUpdate.CheckedChange+= CbUpdate_CheckedChange;
 			cbNLT.CheckedChange += CbNLT_CheckedChange;
 			Bundle bundle=this.Arguments;
 			bool check = bundle.GetBoolean ("Remind");
+			 autoupdate = bundle.GetBoolean ("AutoUpdateData");
+			cbUpdate.Checked = autoupdate;
 			cbNLT.Checked = check;
-
-	//		cbNLH.CheckedChange += new EventHandler (ChangeCBNLH);
+			btupdateData.Click+= BtupdateData_Click;
 			return rootView;
 		}
+
+		async void BtupdateData_Click (object sender, EventArgs e)
+		{
+			progressup.Visibility= ViewStates.Visible;
+			progressup.Indeterminate = true;
+			if (Common.checkNWConnection (Activity) == true) {
+				await Common.LoadDataFromSV ();
+			} else {
+				Toast.MakeText (Activity,"Không Có Kết Nối Tới Mạng Internet, Vui Lòng Thử Lại Sau", ToastLength.Long).Show();
+
+			}
+			progressup.Indeterminate = false;
+			progressup.Visibility = ViewStates.Gone;
+		}
+
+		void CbUpdate_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
+		{
+			if (cbUpdate.Checked == true) {
+				btupdateData.Visibility = ViewStates.Invisible;
+			} else {
+				btupdateData.Visibility = ViewStates.Visible;
+
+			}
+			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
+			var prefEditor = prefs.Edit();
+			prefEditor.PutBoolean("AutoUpdateData",cbUpdate.Checked);
+			prefEditor.Commit();
+		}
+
 
 		void CbNLT_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
 		{

@@ -27,10 +27,9 @@
             android:textSize="14dp" />
     </LinearLayout>
     <LinearLayout
-        android:paddingTop="10dp"
         android:layout_width="fill_parent"
         android:layout_height="3dp"
         android:background="@android:color/darker_gray"
         android:id="@+id/separator"
-        android:visibility="invisible" />
+        android:visibility="gone" />
 </LinearLayout>

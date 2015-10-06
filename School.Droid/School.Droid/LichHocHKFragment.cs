@@ -22,8 +22,8 @@ namespace School.Droid
 		TextView lbl_HK;
 		TextView lbl_NH;
 		ProgressBar progress;
-
-
+		bool check,autoupdate;
+		Bundle bundle;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -41,7 +41,9 @@ namespace School.Droid
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_LH);
 			lbl_NH = rootView.FindViewById<TextView> (Resource.Id.lbl_NH_LH);
 			progress = rootView.FindViewById<ProgressBar> (Resource.Id.progressLH);
-
+			 bundle=this.Arguments;
+			check = bundle.GetBoolean ("Remind");
+			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 
 			//load data
 			LichHoc lh = BLichHoc.GetLast (SQLite_Android.GetConnection ());
@@ -71,6 +73,7 @@ namespace School.Droid
 		void rd_OnCheckedChangeListener (object sender, EventArgs e)
 		{
 			LichHocTuanFragment fragment = new LichHocTuanFragment ();
+			fragment.Arguments = bundle;
 			FragmentManager.BeginTransaction ()
 				.Replace (Resource.Id.content_frame, fragment)
 				.Commit ();
@@ -100,8 +103,11 @@ namespace School.Droid
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
 			List<LichHoc> listLH = new List<LichHoc> ();
-			var t = await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
+			if (Common.checkNWConnection (Activity) == true&&autoupdate==true) {
+			
+				 await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
 
+			}
 			if (hocKy == "0") {
 				listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());
 			} else {

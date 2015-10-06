@@ -22,7 +22,7 @@ namespace School.Droid
 		ProgressBar progress;
 		View rootView;
 		TextView txtHocKyHP;
-
+		bool check,autoupdate;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -37,7 +37,9 @@ namespace School.Droid
 
 			 rootView = inflater.Inflate(Resource.Layout.HocPhi, container, false);
 
-		
+			Bundle bundle=this.Arguments;
+			check = bundle.GetBoolean ("Remind");
+			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressHP);
 			listView = rootView.FindViewById<ListView>(Resource.Id.listHP);
@@ -51,9 +53,10 @@ namespace School.Droid
 		{
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
-
-			var t=await BHocPhi.MakeDataFromXml(SQLite_Android.GetConnection ());
-
+			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
+				
+				 await BHocPhi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			}
 			HocPhi hp = BHocPhi.GetHP(SQLite_Android.GetConnection ());
 			List<CTHocPhi> listCT = BHocPhi.GetCTHP (SQLite_Android.GetConnection (), hp.NamHoc, hp.HocKy);
 			HocPhiAdapter adapter = new HocPhiAdapter(Activity, listCT);
