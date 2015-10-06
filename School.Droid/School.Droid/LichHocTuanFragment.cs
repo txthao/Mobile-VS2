@@ -24,7 +24,8 @@ namespace School.Droid
 		TextView lbl_TuNgay;
 		TextView lbl_DenNgay;
 		ProgressBar progress;
-
+		bool check,autoupdate;
+		Bundle bundle;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -42,7 +43,9 @@ namespace School.Droid
 			lbl_TuNgay = rootView.FindViewById<TextView> (Resource.Id.lbl_TuNgay);
 			lbl_DenNgay = rootView.FindViewById<TextView> (Resource.Id.lbl_DenNgay);
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_Tuan);
-		
+			bundle=this.Arguments;
+			check = bundle.GetBoolean ("Remind");
+			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 			LoadData_Tuan (DateTime.Today);
 
 			//radio button 
@@ -63,6 +66,7 @@ namespace School.Droid
 		void rd_OnCheckedChangeListener (object sender, EventArgs e)
 		{
 			LichHocHKFragment fragment = new LichHocHKFragment ();
+			fragment.Arguments = bundle;
 			FragmentManager.BeginTransaction ()
 				.Replace (Resource.Id.content_frame, fragment)
 				.Commit ();
@@ -86,7 +90,9 @@ namespace School.Droid
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
 			List<LichHoc> listLH = new List<LichHoc> ();
-			var t = await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
+			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
+				await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
+			}
 			listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());
 			List<chiTietLH> listCT = new List<chiTietLH> ();
 			foreach (var item in listLH) {

@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Globalization;
+using Android.Net;
+using Android.Content;
+using School.Core;
+using System.Threading.Tasks;
 
 namespace School.Droid
 {
@@ -43,9 +47,21 @@ namespace School.Droid
 			}
 			return "";
 		}
-
-
-
+		public static bool checkNWConnection(Context ct)
+		{
+			ConnectivityManager connectivityManager = (ConnectivityManager)ct.GetSystemService (Context.ConnectivityService);
+			NetworkInfo activeConnection = connectivityManager.ActiveNetworkInfo;
+			bool isOnline = (activeConnection != null) && activeConnection.IsConnected;
+			return isOnline;
+		}
+		public static async Task<string> LoadDataFromSV()
+		{
+			await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
+			await BLichThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			await BHocPhi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			return "load success";
+		}
 	}
 }
 

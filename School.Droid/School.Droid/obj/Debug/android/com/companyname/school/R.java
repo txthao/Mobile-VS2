@@ -41,6 +41,7 @@ public final class R {
     }
     public static final class id {
         public static final int btDangNhap=0x7f080073;
+        public static final int btUpdateData=0x7f08007f;
         public static final int btnHK_Ke_DT=0x7f080012;
         public static final int btnHK_Ke_LH=0x7f080050;
         public static final int btnHK_Truoc_DT=0x7f080011;
@@ -87,6 +88,7 @@ public final class R {
         public static final int listLHTuan=0x7f08006c;
         public static final int listLH_Tuan=0x7f080059;
         public static final int listLT=0x7f080070;
+        public static final int proUpdateData=0x7f080080;
         public static final int progressDT=0x7f080005;
         public static final int progressDTHK=0x7f08000e;
         public static final int progressHP=0x7f080025;

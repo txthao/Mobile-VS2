@@ -20,6 +20,8 @@ namespace School.Droid
 	{
 		ExpandableListView listView;
 		ProgressBar progress;
+		bool check,autoupdate;
+		Bundle bundle;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -33,7 +35,12 @@ namespace School.Droid
 			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 
 
+
 			var rootView = inflater.Inflate(Resource.Layout.DiemThi, container, false);
+			bundle = this.Arguments;
+			check = bundle.GetBoolean ("Remind");
+			autoupdate = bundle.GetBoolean ("AutoUpdateData");
+
 			listView = rootView.FindViewById<ExpandableListView>(Resource.Id.listDT);
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressDT);
 			LoadData ();
@@ -52,6 +59,7 @@ namespace School.Droid
 		void rd_OnCheckedChangeListener (object sender, EventArgs e)
 		{
 			DiemThiHKFragment fragment = new DiemThiHKFragment();
+			fragment.Arguments = bundle;
 			FragmentManager.BeginTransaction()
 				.Replace(Resource.Id.content_frame, fragment)
 				.Commit();
@@ -62,10 +70,13 @@ namespace School.Droid
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
 			List<DiemThi> list = new List<DiemThi>();
-			var t=await BDiemThi.MakeDataFromXml(SQLite_Android.GetConnection ());
-
+			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
+				await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			}
 			list = BDiemThi.getAll(SQLite_Android.GetConnection ());
-			listView.SetAdapter (new DiemThiApdater(Activity, list)); 
+			if (list.Count > 0) {
+				listView.SetAdapter (new DiemThiApdater (Activity, list)); 
+			}
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 		}

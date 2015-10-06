@@ -20,7 +20,7 @@ namespace School.Droid
 		ListView listView;
 		ProgressBar progress;
 		TextView txtHocKy;
-
+		bool check,autoupdate;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -41,7 +41,10 @@ namespace School.Droid
             listView = rootView.FindViewById<ListView>(Resource.Id.listLT);
 			progress= rootView.FindViewById<ProgressBar>(Resource.Id.progressLT);
 
-		
+			Bundle bundle=this.Arguments;
+			check = bundle.GetBoolean ("Remind");
+			autoupdate = bundle.GetBoolean ("AutoUpdateData");
+
 			LoadData ();
 
 			ScheduleReminder.setupAlarm (Activity);
@@ -54,7 +57,9 @@ namespace School.Droid
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
 			List<LichThi> list = new List<LichThi>();
-			var t=await BLichThi.MakeDataFromXml( SQLite_Android.GetConnection());
+			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
+				await BLichThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			}
 			//	LichThi lt = BLichThi.GetNewestLT (SQLite_Android.GetConnection ()); chi hien thi lich thi moi nhat 
 			list = BLichThi.getAll (SQLite_Android.GetConnection ());
 

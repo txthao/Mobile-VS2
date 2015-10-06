@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using School.Core;
+using Android.Views.InputMethods;
 
 namespace School.Droid
 {
@@ -31,16 +32,25 @@ namespace School.Droid
 					// Create your application here
 			password = FindViewById<EditText> (Resource.Id.txtmk);
 			username = FindViewById<EditText> (Resource.Id.txtmsv);
+			username.FocusChange+= delegate {
+				hideKeyboard(username);
+			};
+			password.FocusChange+= delegate {
+				hideKeyboard(password);
+			};
+
+
+			password.Click += delegate {
+				password.Text = "";
+			};
 			username.Click += delegate {
-						username.Text = "";
-						password.Text = "";
-					};
-
-
-
-					password.Click += delegate {
-						password.Text = "";
-					};
+				if (username.Text.Equals("Mã Sinh Viên"))
+				{
+				username.Text="";
+				password.Text = "";
+				}
+			};
+			username.NextFocusDownId = Resource.Id.txtmk;
 
 
 			btnLogin = FindViewById<Button> (Resource.Id.btDangNhap);
@@ -51,6 +61,8 @@ namespace School.Droid
 		
 		
 		}
+
+
 		async void  LogInProcess(object sender, EventArgs e)
 		{
 			
@@ -65,6 +77,7 @@ namespace School.Droid
 
 				if (await BUser.CheckAuth (username.Text, password.Text, SQLite_Android.GetConnection ())) {
 					Intent myintent = new Intent (this, typeof(DrawerActivity));
+					myintent.PutExtra ("FirstLoad", true);
 					StartActivity (myintent);
 
 					this.Finish ();
@@ -75,18 +88,11 @@ namespace School.Droid
 				}
 			}
 		}
+		public void hideKeyboard(View view) {
+			InputMethodManager inputMethodManager =(InputMethodManager)GetSystemService(Activity.InputMethodService);
+			inputMethodManager.HideSoftInputFromWindow(view.WindowToken, 0);
+		}
 
-
-
-		
-
-
-//				pDialog = new ProgressDialog(LoginActivity.,1);
-//				pDialog.SetMessage("Login...");
-//				pDialog.Indeterminate=false;
-//				pDialog.SetCancelable(false);
-//				pDialog.Show();
-//
 
 
 	}
