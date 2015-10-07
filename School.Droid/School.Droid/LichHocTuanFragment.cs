@@ -68,7 +68,7 @@ namespace School.Droid
 			LichHocHKFragment fragment = new LichHocHKFragment ();
 			fragment.Arguments = bundle;
 			FragmentManager.BeginTransaction ()
-				.Replace (Resource.Id.content_frame, fragment)
+				.Replace (Resource.Id.content_frame, fragment).AddToBackStack("12")
 				.Commit ();
 		}
 

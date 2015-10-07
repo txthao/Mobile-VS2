@@ -47,7 +47,7 @@ namespace School.Droid
 
 			LoadData ();
 
-			ScheduleReminder.setupAlarm (Activity);
+
 			return rootView;
 		}
 

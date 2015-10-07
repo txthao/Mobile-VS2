@@ -40,16 +40,7 @@ namespace School.Droid
 			};
 
 
-			password.Click += delegate {
-				password.Text = "";
-			};
-			username.Click += delegate {
-				if (username.Text.Equals("Mã Sinh Viên"))
-				{
-				username.Text="";
-				password.Text = "";
-				}
-			};
+
 			username.NextFocusDownId = Resource.Id.txtmk;
 
 
