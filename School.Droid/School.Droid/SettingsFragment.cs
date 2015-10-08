@@ -21,6 +21,7 @@ namespace School.Droid
 		CheckBox cbNLT,cbUpdate;
 		Button btupdateData;
 		ProgressBar progressup;
+		TextView txtResult;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -37,6 +38,7 @@ namespace School.Droid
 			cbUpdate=rootView.FindViewById<CheckBox> (Resource.Id.ckboxAutoUpdateData);
 			btupdateData=rootView.FindViewById<Button> (Resource.Id.btUpdateData);
 			progressup=rootView.FindViewById<ProgressBar> (Resource.Id.proUpdateData);
+			txtResult = rootView.FindViewById<TextView> (Resource.Id.txtresult);
 			cbUpdate.CheckedChange+= CbUpdate_CheckedChange;
 			cbNLT.CheckedChange += CbNLT_CheckedChange;
 			Bundle bundle=this.Arguments;
@@ -45,6 +47,7 @@ namespace School.Droid
 			cbUpdate.Checked = autoupdate;
 			cbNLT.Checked = check;
 			btupdateData.Click+= BtupdateData_Click;
+
 			return rootView;
 		}
 
@@ -54,8 +57,9 @@ namespace School.Droid
 			progressup.Indeterminate = true;
 			if (Common.checkNWConnection (Activity) == true) {
 				await Common.LoadDataFromSV ();
+				txtResult.Text = "Cập Nhật Dữ Liệu Thành Công";
 			} else {
-				Toast.MakeText (Activity,"Không Có Kết Nối Tới Mạng Internet, Vui Lòng Thử Lại Sau", ToastLength.Long).Show();
+				txtResult.Text = "Không Có Kết Nối Mạng, Vui Lòng Thử Lại Sau";
 
 			}
 			progressup.Indeterminate = false;
@@ -80,11 +84,25 @@ namespace School.Droid
 		void CbNLT_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
 		{
 			if (cbNLT.Checked == true) {
-				ScheduleReminder.setupAlarm (Activity);
+				
+				try{
+					List<LichThi> listlt= BLichThi.getAll(SQLite_Android.GetConnection());
+					Log.Debug("logsettings","Load LT Success");
+					List<LichHoc> listlh= BLichHoc.GetNewestLH(SQLite_Android.GetConnection());
+					Log.Debug("logsettings","Load LH Success");
+					ScheduleReminder.RemindAllLT(Activity,listlt);
+					ScheduleReminder.RemindAllLH(Activity,listlh);
+					txtResult.Text="Cài Đặt Nhắc Lịch Hoàn Tất";
 
+				}
+				catch {
+					
+				}
 
 			} else {
-				ScheduleReminder.stopAlarm (Activity);
+				
+				ScheduleReminder.DeleteAlLRemind (Activity);
+				txtResult.Text="Xoá Nhắc Lịch Hoàn Tất";
 			}
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
 			var prefEditor = prefs.Edit();

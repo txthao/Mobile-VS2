@@ -13,6 +13,7 @@ using Android.Widget;
 using Android.Support.V4.Widget;
 using Android.Content.Res;
 using School.Core;
+using System.Threading.Tasks;
 
 namespace School.Droid
 {
@@ -40,7 +41,9 @@ namespace School.Droid
 			
 			if (firstload == true) {
 				if (Common.checkNWConnection (this) == true) {
-					Common.LoadDataFromSV ();
+					Task<string> result= Common.LoadDataFromSV ();
+
+					Toast.MakeText (this, result.ToString() , ToastLength.Long).Show();
 				} else {
 					Toast.MakeText (this,"Không Có Kết Nối Tới Mạng Internet, Vui Lòng Thử Lại Sau", ToastLength.Long).Show();
 

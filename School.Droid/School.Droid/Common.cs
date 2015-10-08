@@ -4,6 +4,7 @@ using Android.Net;
 using Android.Content;
 using School.Core;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace School.Droid
 {
@@ -39,7 +40,17 @@ namespace School.Droid
 				outNH = nh;
 			}
 		}
-
+		public static List<string>  strListTuanToArrayString(string s)
+		{
+			
+			int number = s.ToCharArray ().Length / 10;
+			List<string> strs = new List<string> ();
+			for (int i = 1; i <= number; i++) {
+				string a = s.Substring ((i - 1) * 10, 10);
+				strs.Add (a);
+			}
+			return strs;
+		}
 		public static string setDiemTK (string diem10, string diemChu)
 		{
 			if (!diem10.Equals ("&nbsp;") && !diemChu.Equals ("&nbsp;")) {

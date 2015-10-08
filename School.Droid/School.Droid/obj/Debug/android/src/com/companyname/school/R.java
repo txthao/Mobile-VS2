@@ -167,8 +167,10 @@ public final class R {
         public static final int txtTiLe=0x7f08001e;
         public static final int txtTietBD_HK=0x7f080049;
         public static final int txtTietBD_Tuan=0x7f080036;
+        public static final int txtVersion=0x7f080082;
         public static final int txtmk=0x7f080072;
         public static final int txtmsv=0x7f080071;
+        public static final int txtresult=0x7f080081;
     }
     public static final class layout {
         public static final int diemthi=0x7f030000;
