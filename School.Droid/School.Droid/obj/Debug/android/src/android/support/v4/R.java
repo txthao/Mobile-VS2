@@ -88,6 +88,7 @@ public final class R {
         public static int listLHTuan=0x7f08006c;
         public static int listLH_Tuan=0x7f080059;
         public static int listLT=0x7f080070;
+        public static int proUpdateData=0x7f080080;
         public static int progressDT=0x7f080005;
         public static int progressDTHK=0x7f08000e;
         public static int progressHP=0x7f080025;

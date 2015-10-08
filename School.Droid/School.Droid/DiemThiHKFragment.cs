@@ -74,7 +74,7 @@ namespace School.Droid
 			DiemThiFragment fragment = new DiemThiFragment ();
 			fragment.Arguments = bundle;
 			FragmentManager.BeginTransaction ()
-				.Replace (Resource.Id.content_frame, fragment)
+				.Replace (Resource.Id.content_frame, fragment).AddToBackStack("32")
 				.Commit ();
 		}
 
