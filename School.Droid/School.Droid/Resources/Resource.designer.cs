@@ -535,11 +535,17 @@ namespace School.Droid
 			// aapt resource value: 0x7f080036
 			public const int txtTietBD_Tuan = 2131230774;
 			
+			// aapt resource value: 0x7f080082
+			public const int txtVersion = 2131230850;
+			
 			// aapt resource value: 0x7f080072
 			public const int txtmk = 2131230834;
 			
 			// aapt resource value: 0x7f080071
 			public const int txtmsv = 2131230833;
+			
+			// aapt resource value: 0x7f080081
+			public const int txtresult = 2131230849;
 			
 			static Id()
 			{

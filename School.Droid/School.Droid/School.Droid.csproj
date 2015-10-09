@@ -74,7 +74,9 @@
     <Compile Include="HocPhiFragment.cs" />
     <Compile Include="SQLite_Android.cs" />
     <Compile Include="Common.cs" />
-    <Compile Include="HocPhiAdapter.cs" />
+    <Compile Include="HocPhiAdapter.cs">
+      <DependentUpon>LichHocHKAdapter.cs</DependentUpon>
+    </Compile>
     <Compile Include="LichHocHKAdapter.cs" />
     <Compile Include="LichHocTuanAdapter.cs" />
     <Compile Include="LoginActivity.cs" />
