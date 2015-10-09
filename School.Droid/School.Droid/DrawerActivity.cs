@@ -108,7 +108,7 @@ namespace School.Droid
 
 		private void SelectItem(int position)
 		{
-			LoadSettings ();
+			bundle=Common.LoadSettings ();
 			var fragment=new Fragment();
             switch (position) {
 			case 0:
@@ -187,17 +187,7 @@ namespace School.Droid
 				return true;
 			return base.OnOptionsItemSelected(item);
 		}
-		private void LoadSettings()
-		{
-			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);              
-			var checkRemind = prefs.GetBoolean ("Remind",false);
-			var autoUpdate= prefs.GetBoolean ("AutoUpdateData",false);
-			bundle = new Bundle();
 
-			bundle.PutBoolean ("Remind", checkRemind);
-			bundle.PutBoolean ("AutoUpdateData", autoUpdate);
-
-		}
 		override public void OnBackPressed()
 		{
 			

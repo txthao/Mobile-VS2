@@ -39,14 +39,15 @@ namespace School.Droid
 			btupdateData=rootView.FindViewById<Button> (Resource.Id.btUpdateData);
 			progressup=rootView.FindViewById<ProgressBar> (Resource.Id.proUpdateData);
 			txtResult = rootView.FindViewById<TextView> (Resource.Id.txtresult);
-			cbUpdate.CheckedChange+= CbUpdate_CheckedChange;
-			cbNLT.CheckedChange += CbNLT_CheckedChange;
+
 			Bundle bundle=this.Arguments;
 			bool check = bundle.GetBoolean ("Remind");
 			 autoupdate = bundle.GetBoolean ("AutoUpdateData");
 			cbUpdate.Checked = autoupdate;
 			cbNLT.Checked = check;
 			btupdateData.Click+= BtupdateData_Click;
+			cbNLT.CheckedChange += CbNLT_CheckedChange;
+			cbUpdate.CheckedChange+= CbUpdate_CheckedChange;
 
 			return rootView;
 		}
@@ -83,27 +84,28 @@ namespace School.Droid
 
 		void CbNLT_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
 		{
-			if (cbNLT.Checked == true) {
-				
-				try{
-					List<LichThi> listlt= BLichThi.getAll(SQLite_Android.GetConnection());
-					Log.Debug("logsettings","Load LT Success");
-					List<LichHoc> listlh= BLichHoc.GetNewestLH(SQLite_Android.GetConnection());
-					Log.Debug("logsettings","Load LH Success");
-					ScheduleReminder.RemindAllLT(Activity,listlt);
-					ScheduleReminder.RemindAllLH(Activity,listlh);
-					txtResult.Text="Cài Đặt Nhắc Lịch Hoàn Tất";
-
-				}
-				catch {
-					
-				}
-
-			} else {
-				
-				ScheduleReminder.DeleteAlLRemind (Activity);
-				txtResult.Text="Xoá Nhắc Lịch Hoàn Tất";
-			}
+//			if (cbNLT.Checked == true) {
+//				
+//				try{
+//					List<LichThi> listlt= BLichThi.getAll(SQLite_Android.GetConnection());
+//					Log.Debug("logsettings","Load LT Success");
+//					List<LichHoc> listlh= BLichHoc.GetNewestLH(SQLite_Android.GetConnection());
+//					Log.Debug("logsettings","Load LH Success");
+//					ScheduleReminder reminder = new ScheduleReminder(Activity);
+//					reminder.RemindAllLT(listlt);
+//					reminder.RemindAllLH(listlh);
+//					txtResult.Text="Cài Đặt Nhắc Lịch Hoàn Tất";
+//
+//				}
+//				catch {
+//					
+//				}
+//
+//			} else {
+//				ScheduleReminder reminder = new ScheduleReminder(Activity);
+//				reminder.DeleteAlLRemind (Activity);
+//				txtResult.Text="Xoá Nhắc Lịch Hoàn Tất";
+//			}
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
 			var prefEditor = prefs.Edit();
 			prefEditor.PutBoolean("Remind",cbNLT.Checked);

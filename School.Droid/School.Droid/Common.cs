@@ -5,6 +5,8 @@ using Android.Content;
 using School.Core;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Android.App;
+using Android.OS;
 
 namespace School.Droid
 {
@@ -72,6 +74,18 @@ namespace School.Droid
 			await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 			await BHocPhi.MakeDataFromXml (SQLite_Android.GetConnection ());
 			return "load success";
+		}
+		public static Bundle LoadSettings()
+		{
+			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);              
+			var checkRemind = prefs.GetBoolean ("Remind",false);
+			var autoUpdate= prefs.GetBoolean ("AutoUpdateData",false);
+
+			var bundle = new Bundle();
+
+			bundle.PutBoolean ("Remind", checkRemind);
+			bundle.PutBoolean ("AutoUpdateData", autoUpdate);
+			return bundle;
 		}
 	}
 }

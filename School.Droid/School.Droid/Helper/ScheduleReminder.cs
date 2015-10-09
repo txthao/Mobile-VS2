@@ -12,52 +12,36 @@ namespace School.Droid
 {
 	public class ScheduleReminder
 	{
-//		public static void setupAlarm(Context context) {
-//			AlarmManager alarmManager = (AlarmManager)context.GetSystemService ("alarm");
-//			Intent intent = new Intent(context, typeof(OnAlarmReceive));
-//
-//			PendingIntent pendingIntent = PendingIntent.GetBroadcast(
-//				context, 0, intent,
-//				PendingIntentFlags.UpdateCurrent);
-//			long t = GetMilisecondsUntilNextCheck (15,38);
-//			//	alarmManager.Set(AlarmType.ElapsedRealtimeWakeup,, pendingIntent);
-//			alarmManager.SetRepeating(AlarmType.ElapsedRealtimeWakeup, SystemClock.ElapsedRealtime ()+t,30*1000, pendingIntent);
-//
-//			// Finish the currently running activity
-//
-//		}
-//		public static void stopAlarm(Context context)
-//		{
-//			AlarmManager alarmManager = (AlarmManager)context.GetSystemService ("alarm");
-//			Intent intent = new Intent(context, typeof(OnAlarmReceive));
-//			PendingIntent pendingIntent = PendingIntent.GetBroadcast(
-//				context, 0, intent,
-//				PendingIntentFlags.UpdateCurrent);
-//		
-//			alarmManager.Cancel (pendingIntent);
-//		}
-//		public static long GetMilisecondsUntilNextCheck(int hour,int minute)
-//		{
-//			DateTime now = DateTime.Now;
-//			DateTime todayAtTime = now.Date.AddHours(hour).AddMinutes(minute);
-//			DateTime nextInstance = now <= todayAtTime ? todayAtTime : todayAtTime.AddDays(1);
-//			TimeSpan span = nextInstance - now;
-//			using (var cal = Java.Util.Calendar.GetInstance(Java.Util.TimeZone.Default))
-//			{
-//				long t = (long)span.TotalMilliseconds;
-//
-//				return t;
-//			}
-//		}
-		public static void SetCalenDarLH(Context ctx,  LichHoc lh ,string Date, chiTietLH ctlh,string content)
+
+		public Context ctx;
+		public LichHoc lh;
+		public string DateForCTLH;
+		public chiTietLH ctlh;
+		public string content;
+		public int MinutesRemind;
+
+		public LichThi lt;
+		List<string> listTimeLH;
+		public ScheduleReminder(Context context)
+		{
+			ctx = context;
+			DateForCTLH = "";
+			ctlh = new chiTietLH ();
+			MinutesRemind =60;
+			content = "";
+		}	
+
+
+
+		public  void SetCalenDarLH()
 		{
 			TimeForCalendar time=new TimeForCalendar();
 
-			List<string> listTimeLH= new List<string> {"07g00","07g50","08g40","09g00","09g50","10g40","11g30","12g00","12g50","13g40","14g00","14g50","15g40","16g30","17g00","17g50"
-			,"18g40"};
-		
 			chiTietLH ct=ctlh;
 
+			listTimeLH= new List<string> {"07g00","07g50","08g40","09g00","09g50","10g40","11g30","12g00","12g50","13g40","14g00","14g50","15g40","16g30","17g00","17g50"
+				,"18g40"};
+			
 
 			ContentValues eventValues = new ContentValues();
 			string tenmh = "";
@@ -65,7 +49,7 @@ namespace School.Droid
 			try{
 				tenmh = BMonHoc.GetMH (SQLite_Android.GetConnection(),lh.MaMH).TenMH;
 				min=int.Parse(ct.SoTiet)*50;
-				time= new TimeForCalendar(Date,listTimeLH[int.Parse(ct.TietBatDau-1)]);
+				time= new TimeForCalendar(DateForCTLH,listTimeLH[int.Parse(ct.TietBatDau)-1]);
 				}
 			catch{
 			}
@@ -80,16 +64,16 @@ namespace School.Droid
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone,"GMT+7:00");
 			var eventUri = ctx.ContentResolver.Insert(CalendarContract.Events.ContentUri, eventValues);
 			long eventID = long.Parse(eventUri.LastPathSegment);
-
+			SaveRMId (eventID);
 			ContentValues remindervalues = new ContentValues();
-			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Minutes,60);
+			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Minutes,MinutesRemind);
 			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.EventId,eventID);
 			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Method,(int)Android.Provider.RemindersMethod.Alert);
 			var reminderURI= ctx.ContentResolver.Insert(CalendarContract.Reminders.ContentUri,remindervalues);
 		}
 
 
-		public static void SetCalenDarLT(Context ctx,  LichThi lt  )
+		public  void SetCalenDarLT()
 		{
 			TimeForCalendar time=new TimeForCalendar();
 			ContentValues eventValues = new ContentValues();
@@ -112,15 +96,15 @@ namespace School.Droid
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone,"GMT+7:00");
 			var eventUri = ctx.ContentResolver.Insert(CalendarContract.Events.ContentUri, eventValues);
 			long eventID = long.Parse(eventUri.LastPathSegment);
-
+			SaveRMId (eventID);
 			ContentValues remindervalues = new ContentValues();
-			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Minutes,60);
+			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Minutes,MinutesRemind);
 			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.EventId,eventID);
 			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Method,(int)Android.Provider.RemindersMethod.Alert);
 			var reminderURI= ctx.ContentResolver.Insert(CalendarContract.Reminders.ContentUri,remindervalues);
 		}
 
-		public static void RemindAllLH(Context ctx, List<LichHoc> listlh)
+		public  void RemindAllLH( List<LichHoc> listlh)
 		{
 			foreach (LichHoc lh in listlh) {
 				List<chiTietLH> cts = BLichHoc.GetCTLH (SQLite_Android.GetConnection (), lh.Id);
@@ -128,43 +112,73 @@ namespace School.Droid
 				{
 					List<string> listNgayHoc = Common.strListTuanToArrayString (ct.Tuan);
 					foreach (string s in listNgayHoc) {
-						SetCalenDarLH (ctx, lh, s, ct, "");
+						DateForCTLH = s;
+						ctlh = ct;
+						this.lh = lh;
+						SetCalenDarLH ();
 					}
 				}
 				
 			}
 		}
 
-		public static void RemindAllLT(Context ctx, List<LichThi> listlt)
+		public  void RemindAllLT( List<LichThi> listlt)
 		{
 			foreach (LichThi lt in listlt) {
-				SetCalenDarLT (ctx, lt);
+				this.lt = lt;
+				SetCalenDarLT ();
 			}
 		}
 
 
-		public static void DeleteAlLRemind(Context ctx)
+		public  void DeleteAlLRemind(Context ctx)
 		{
 			List<string> list = new List<string> ();
-			list.Add ("1");
-			int k = 1;
+			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
+			string listidsaved = prefs.GetString ("ListRMId",null);
+			List<string> listid = CovertListId (listidsaved);
+			int i = 1;
+			int k = int.Parse(listid[0]);
+			list.Add (k.ToString());
 			int deleted;
 			do {
-				list [0] = k.ToString ();	
+				list [0] =k.ToString();	
 				deleted =
 				ctx.ContentResolver.
 				Delete (
 					CalendarContract.Events.ContentUri,
 					CalendarContract.Events.InterfaceConsts.Id + " =? ",
 					list.ToArray ());
-				k++;
+				k=int.Parse(listid[i]);
+				i++;
 			} while (deleted != 0);
 
 		}
+		private void SaveRMId(long id)
+		{
+			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
+			string listid = prefs.GetString ("ListRMId",null);
+			string strid=id.ToString();
+			while (strid.Length < 5) {
+				strid = "0" + strid;
+			}
+			listid=listid+strid;
+			var prefEditor = prefs.Edit();
+			prefEditor.PutString ("ListRMId", listid);
+			prefEditor.Commit();
+		}
 
+		private List<string> CovertListId(string s)
+		{
 
-
-
+			int number = s.ToCharArray ().Length / 5;
+			List<string> strs = new List<string> ();
+			for (int i = 1; i <= number; i++) {
+				string a = s.Substring ((i - 1) * 5, 5);
+				strs.Add (a);
+			}
+			return strs;
+		}
 
 		static long GetDateTimeMS (int yr, int month, int day, int hr, int min)
 		{
@@ -201,6 +215,8 @@ namespace School.Droid
 			public TimeForCalendar()
 			{
 			}
+
+
 		}
 
 	}
