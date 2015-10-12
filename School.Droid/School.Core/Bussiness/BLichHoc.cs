@@ -155,18 +155,15 @@ namespace School.Core
 		public static string convertToDate(List<string> text, string date)
 		{
 
-			string s = "";
+
 			DateTime firstDate = DateTime.ParseExact (date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-			for (int i = 0; i < text.Count; i++)
+			string s = firstDate.ToString("MM/dd/yyyy").Replace("-", "/");
+			for (int i = 1; i < text.Count; i++)
 			{
-				if (int.Parse(text[i]) % 2 == 0)
-				{
-					s += firstDate.AddDays(2 * i * 7).ToString("MM/dd/yyyy").Replace("-", "/");
-				}
-				else
-				{
-					s += firstDate.AddDays((int.Parse(text[i]) - 1) * 7).ToString("MM/dd/yyyy").Replace("-", "/");
-				}
+				firstDate = firstDate.AddDays ((int.Parse (text [i]) - int.Parse (text [i - 1])) * 7);
+				s+= firstDate.ToString("MM/dd/yyyy").Replace("-", "/");
+
+
 			}
 			return s;
 		}

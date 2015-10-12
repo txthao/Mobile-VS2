@@ -37,7 +37,7 @@ namespace School.Droid
 			MonHoc mh = BMonHoc.GetMH (SQLite_Android.GetConnection (), lh.MaMH);
 			header.FindViewById<TextView> (Resource.Id.txtMon_Tuan).Text ="Tên môn học: " + mh.TenMH ;
 			header.FindViewById<TextView> (Resource.Id.txtThu_Tuan).Text = getDay(listCT [groupPosition].Thu);
-			header.FindViewById<TextView> (Resource.Id.txtNgay_Tuan).Text = listCT [groupPosition].Tuan.Substring(3,2);
+			header.FindViewById<TextView> (Resource.Id.txtNgay_Tuan).Text = listCT [groupPosition].Tuan.Substring(3,2)+ "/"+listCT [groupPosition].Tuan.Substring(0,2);
 			header.FindViewById<TextView> (Resource.Id.txtTietBD_Tuan).Text = "Tiết bắt đầu: " +listCT [groupPosition].TietBatDau;
 			header.FindViewById<TextView> (Resource.Id.txtSoTiet_Tuan).Text = "Số tiết: " +listCT [groupPosition].SoTiet;
 			header.FindViewById<TextView> (Resource.Id.txtPhong_Tuan).Text = "Phòng: " +listCT [groupPosition].Phong;

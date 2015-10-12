@@ -79,6 +79,10 @@
                 android:layout_marginTop="5dp"
                 android:text="Môn Học"
                 style="@style/RowHeader" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#DEDEDE" />
             <TextView
                 android:id="@+id/txtThu_HK"
                 android:layout_width="0dp"
@@ -89,6 +93,10 @@
                 android:layout_marginTop="5dp"
                 android:text="Thứ"
                 style="@style/RowHeader" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#DEDEDE" />
             <TextView
                 android:id="@+id/txtTietBD_HK"
                 android:layout_width="0dp"
@@ -99,6 +107,10 @@
                 android:layout_marginTop="5dp"
                 android:text="Tiết BĐ"
                 style="@style/RowHeader" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#DEDEDE" />
             <TextView
                 android:id="@+id/txtSoTiet_HK"
                 android:layout_width="0dp"
@@ -109,6 +121,10 @@
                 android:layout_marginTop="5dp"
                 android:text="Số Tiết"
                 style="@style/RowHeader" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#DEDEDE" />
             <TextView
                 android:id="@+id/txtPhong_HK"
                 android:layout_width="0dp"
@@ -129,10 +145,9 @@
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10px"
             android:id="@+id/listLH" />
     </LinearLayout>
-    <View
+<!--    <View
         android:id="@+id/seperator_HK"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
@@ -147,7 +162,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_alignParentBottom="true">
-        <Button
+       <Button
             android:text="HK Trước"
             android:layout_width="0dp"
             android:layout_weight="0.5"
@@ -165,5 +180,5 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnHK_Ke_LH"
             style="@style/Button" />
-    </LinearLayout>
+    </LinearLayout>-->
 </RelativeLayout>

@@ -166,7 +166,7 @@ namespace School.Droid
 		public static bool DateInsideOneWeek (DateTime checkDate, DateTime referenceDate)
 		{
 			// get first day of week from your actual culture info, 
-			DayOfWeek firstWeekDay = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
+			DayOfWeek firstWeekDay = DayOfWeek.Monday;
 			// or you can set exactly what you want: firstWeekDay = DayOfWeek.Monday;
 			// calculate first day of week from your reference date
 			DateTime startDateOfWeek = referenceDate;

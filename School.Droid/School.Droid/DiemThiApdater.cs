@@ -9,6 +9,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using School.Core;
+using Android.Graphics;
 
 namespace School.Droid
 {
@@ -56,6 +57,11 @@ namespace School.Droid
 				row.FindViewById<TextView> (Resource.Id.txtDKT).Text = Common.checkSpaceValue (diemMon.DiemKT);
 				row.FindViewById<TextView> (Resource.Id.txtDT).Text = Common.checkSpaceValue (diemMon.DiemThi);
 				row.FindViewById<TextView> (Resource.Id.txtDTK).Text = Common.setDiemTK (diemMon.DiemTK10, diemMon.DiemChu);
+				if (childPosition % 2 == 0) {
+					row.FindViewById<LinearLayout> (Resource.Id.linear45).SetBackgroundColor(Color.ParseColor("#FFFFFF"));
+				} else {
+					row.FindViewById<LinearLayout> (Resource.Id.linear45).SetBackgroundColor(Color.ParseColor("#C9C9C9"));
+				}
 			}
 			else if(childPosition == GetChildrenCount(groupPosition)-1 && listDT [groupPosition].Hocky != "3")
 			{

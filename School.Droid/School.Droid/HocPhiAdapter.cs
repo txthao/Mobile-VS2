@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
 
 namespace School.Droid
 {
@@ -52,7 +53,11 @@ namespace School.Droid
 			view.FindViewById<TextView> (Resource.Id.txtHocPhi).Text = list [position].HocPhi;
 			view.FindViewById<TextView> (Resource.Id.txtMienGiam).Text = list [position].MienGiam;
 			view.FindViewById<TextView> (Resource.Id.txtPhaiDong).Text = list [position].PhaiDong;
-
+			if (position % 2 == 0) {
+				view.FindViewById<LinearLayout> (Resource.Id.linear6).SetBackgroundColor(Color.ParseColor("#FFFFFF"));
+			} else {
+				view.FindViewById<LinearLayout> (Resource.Id.linear6).SetBackgroundColor(Color.ParseColor("#C9C9C9"));
+			}
 			return view;
 		}
 

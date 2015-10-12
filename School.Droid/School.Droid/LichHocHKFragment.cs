@@ -41,7 +41,7 @@ namespace School.Droid
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_LH);
 			lbl_NH = rootView.FindViewById<TextView> (Resource.Id.lbl_NH_LH);
 			progress = rootView.FindViewById<ProgressBar> (Resource.Id.progressLH);
-			 bundle=this.Arguments;
+		    bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 
@@ -60,11 +60,11 @@ namespace School.Droid
 			rb_tuan.Click += new EventHandler (rd_OnCheckedChangeListener);
 
 			//button 
-			Button btnHKTruoc = rootView.FindViewById<Button> (Resource.Id.btnHK_Truoc_LH);
-			btnHKTruoc.Click += new EventHandler (btnHK_Truoc_Click);
-			Button btnHKKe = rootView.FindViewById<Button> (Resource.Id.btnHK_Ke_LH);
-			btnHKKe.Click += new EventHandler (btnHK_Ke_Click);	
-			
+//			Button btnHKTruoc = rootView.FindViewById<Button> (Resource.Id.btnHK_Truoc_LH);
+//			btnHKTruoc.Click += new EventHandler (btnHK_Truoc_Click);
+//			Button btnHKKe = rootView.FindViewById<Button> (Resource.Id.btnHK_Ke_LH);
+//			btnHKKe.Click += new EventHandler (btnHK_Ke_Click);	
+//			
 						
 
 			return rootView;
@@ -78,24 +78,24 @@ namespace School.Droid
 				.Replace (Resource.Id.content_frame, fragment).AddToBackStack ("11")
 				.Commit ();
 		}
-
-		void btnHK_Truoc_Click (object sender, EventArgs e)
-		{
-			string hK;
-			string nH;
-			Common.calSemester (lbl_HK.Text, lbl_NH.Text, -1, out hK, out nH);
-			LoadData_HK (hK, nH);
-		}
-
-		void btnHK_Ke_Click (object sender, EventArgs e)
-		{
-
-			string hK;
-			string nH;
-			Common.calSemester (lbl_HK.Text, lbl_NH.Text, 1, out hK, out nH);
-			LoadData_HK (hK, nH);
-
-		}
+//
+//		void btnHK_Truoc_Click (object sender, EventArgs e)
+//		{
+//			string hK;
+//			string nH;
+//			Common.calSemester (lbl_HK.Text, lbl_NH.Text, -1, out hK, out nH);
+//			LoadData_HK (hK, nH);
+//		}
+//
+//		void btnHK_Ke_Click (object sender, EventArgs e)
+//		{
+//
+//			string hK;
+//			string nH;
+//			Common.calSemester (lbl_HK.Text, lbl_NH.Text, 1, out hK, out nH);
+//			LoadData_HK (hK, nH);
+//
+//		}
 
 		async void LoadData_HK (string hocKy, string namHoc)
 		{

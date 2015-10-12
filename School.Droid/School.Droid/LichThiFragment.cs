@@ -46,9 +46,12 @@ namespace School.Droid
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 
 			LoadData ();
-
-
+			// row click
+			listView.ItemClick += listView_ItemClick;
 			return rootView;
+		}
+		void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e){
+
 		}
 
 
