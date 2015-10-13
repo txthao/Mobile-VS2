@@ -68,6 +68,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/linearDT_HK"
             style="@style/RowHeader"
+            android:weightSum="1"
             android:layout_marginTop="20dp">
             <TextView
                 android:layout_width="0dp"
@@ -75,44 +76,55 @@
                 android:layout_weight="0.4"
                 android:text="Môn Học"
                 android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:padding="5dp"
                 style="@style/RowHeader" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#DEDEDE" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.15"
                 android:text="Tỉ lệ"
                 android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:padding="5dp"
                 style="@style/RowHeader" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#DEDEDE" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.15"
                 android:text="Điểm KT"
                 android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:padding="5dp"
                 style="@style/RowHeader" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#DEDEDE" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.15"
                 android:text="Điểm Thi"
                 android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:padding="5dp"
                 style="@style/RowHeader" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#DEDEDE" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.15"
                 android:text="Điểm TK"
                 android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:padding="5dp"
                 style="@style/RowHeader" />
         </LinearLayout>
         <ProgressBar
@@ -124,7 +136,6 @@
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10px"
             android:id="@+id/listDT_HK" />
     </LinearLayout>
     <View

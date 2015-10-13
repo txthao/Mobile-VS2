@@ -4,47 +4,60 @@
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
-    android:weightSum="1"
-    android:layout_marginTop="20px"
-    style="@style/Row">
+    android:weightSum="1">
     <TextView
         android:id="@+id/txtMonHocDT"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minHeight="30dp"
         android:layout_weight="0.4"
-        android:gravity="center"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp" />
+        android:gravity="left"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="5dp"
+        style="@style/Row" />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:background="#DEDEDE" />
     <TextView
         android:id="@+id/txtTiLe"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.15"
         android:gravity="center"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp" />
+        style="@style/Row" />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:background="#DEDEDE" />
     <TextView
         android:id="@+id/txtDKT"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.15"
         android:gravity="center"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp" />
+        style="@style/Row" />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:background="#DEDEDE" />
     <TextView
         android:id="@+id/txtDT"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.15"
         android:gravity="center"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp" />
+        style="@style/Row" />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:background="#DEDEDE" />
     <TextView
         android:id="@+id/txtDTK"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.15"
         android:gravity="center"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp" />
+        style="@style/Row" />
 </LinearLayout>

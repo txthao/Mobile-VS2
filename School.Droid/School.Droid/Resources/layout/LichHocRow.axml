@@ -3,45 +3,65 @@
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:id="@+id/linearRowLH">
     <TextView
         android:id="@+id/txtMonHoc_HK"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minHeight="30dp"
         android:layout_weight="0.4"
-        android:gravity="center"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp" />
+        android:gravity="left"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="5dp"
+        style="@style/Row" />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:background="#DEDEDE" />
     <TextView
         android:id="@+id/txtThu_HK"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minHeight="30dp"
         android:layout_weight="0.13"
         android:gravity="center"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp" />
+        style="@style/Row" />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:background="#DEDEDE" />
     <TextView
         android:id="@+id/txtTietBD_HK"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minHeight="30dp"
         android:layout_weight="0.13"
         android:gravity="center"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp" />
+        style="@style/Row" />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:background="#DEDEDE" />
     <TextView
         android:id="@+id/txtSoTiet_HK"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minHeight="30dp"
         android:layout_weight="0.13"
         android:gravity="center"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp" />
+        style="@style/Row" />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:background="#DEDEDE" />
     <TextView
         android:id="@+id/txtPhong_HK"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minHeight="30dp"
         android:layout_weight="0.21"
         android:gravity="center"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp" />
+        style="@style/Row" />
 </LinearLayout>

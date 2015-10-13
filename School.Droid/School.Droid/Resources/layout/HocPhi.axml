@@ -25,8 +25,6 @@
             android:orientation="horizontal"
             android:weightSum="1"
             android:layout_marginTop="20px"
-            android:layout_marginLeft="10px"
-            android:layout_marginRight="10px"
             style="@style/RowHeader">
             <TextView
                 android:layout_width="0dp"
@@ -35,8 +33,11 @@
                 android:text="Môn Học"
                 style="@style/RowHeader"
                 android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp" />
+                android:padding="5dp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#DEDEDE" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -44,8 +45,11 @@
                 android:text="Học Phí"
                 style="@style/RowHeader"
                 android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp" />
+                android:padding="5dp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#DEDEDE" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -53,8 +57,11 @@
                 android:text="Miễn Giảm"
                 style="@style/RowHeader"
                 android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp" />
+                android:padding="5dp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#DEDEDE" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -62,8 +69,7 @@
                 android:text="Phải Đóng"
                 style="@style/RowHeader"
                 android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp" />
+                android:padding="5dp" />
         </LinearLayout>
         <ProgressBar
             android:layout_width="50dp"
@@ -74,9 +80,7 @@
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/listHP"
-            android:layout_marginLeft="10px"
-            android:layout_marginRight="10px" />
+            android:id="@+id/listHP" />
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
