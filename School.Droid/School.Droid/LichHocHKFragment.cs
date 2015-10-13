@@ -24,6 +24,8 @@ namespace School.Droid
 		ProgressBar progress;
 		bool check,autoupdate;
 		Bundle bundle;
+		List<LichHoc> listLH;
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -64,11 +66,29 @@ namespace School.Droid
 //			btnHKTruoc.Click += new EventHandler (btnHK_Truoc_Click);
 //			Button btnHKKe = rootView.FindViewById<Button> (Resource.Id.btnHK_Ke_LH);
 //			btnHKKe.Click += new EventHandler (btnHK_Ke_Click);	
-//			
+							
+			// row click
+			listView_HK.ItemClick += listView_ItemClick;
 						
 
 			return rootView;
 		}
+
+		void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e){
+			// content to pass 
+			var bundle1 = new Bundle();
+			bundle1.PutString ("MH", BMonHoc.GetMH(SQLite_Android.GetConnection (),listLH[e.Position].MaMH).TenMH);
+			bundle1.PutBoolean ("check", false);
+			bundle1.PutBoolean ("Remind",check);
+			bundle1.PutBoolean ("AutoUpdateData",autoupdate);
+
+			var fragment = new ReminderDialogFragment ();
+			fragment.Arguments = bundle1;
+			FragmentManager.BeginTransaction ()
+				.Replace (Resource.Id.content_frame, fragment)
+				.Commit ();
+		}
+
 
 		void rd_OnCheckedChangeListener (object sender, EventArgs e)
 		{
@@ -102,7 +122,7 @@ namespace School.Droid
 			listView_HK.Visibility = ViewStates.Invisible;
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
-			List<LichHoc> listLH = new List<LichHoc> ();
+			listLH = new List<LichHoc> ();
 			if (Common.checkNWConnection (Activity) == true&&autoupdate==true) {
 			
 				 await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
