@@ -14,7 +14,7 @@ using System.Threading;
 
 namespace School.Droid
 {
-	[Activity (Label = "SGU",MainLauncher = true, 
+	[Activity (Label = "SGU Mobile",MainLauncher = true, 
 		Theme = "@style/Theme.Splash",NoHistory = true)]			
 	public class Main : Activity
 	{

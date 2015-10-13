@@ -132,7 +132,6 @@
     <AndroidResource Include="Resources\layout\LichHoc_HK.axml" />
     <AndroidResource Include="Resources\layout\LichHoc_Tuan.xml" />
     <AndroidResource Include="Resources\layout\Menu.axml" />
-    <AndroidResource Include="Resources\drawable-hdpi\SGU1.pdf" />
     <AndroidResource Include="Resources\drawable-hdpi\border.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\button_border.xml" />
     <AndroidResource Include="Resources\layout\DTFooter.xml" />
@@ -148,6 +147,13 @@
     <AndroidResource Include="Resources\drawable-hdpi\archive.png" />
     <AndroidResource Include="Resources\drawable-hdpi\back.png" />
     <AndroidResource Include="Resources\layout\Settings.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\img_flash.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\app_icon.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\icon_drawer.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_menu_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\contact_icon.png" />
+    <AndroidResource Include="Resources\layout\DrawerHeader.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\header.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

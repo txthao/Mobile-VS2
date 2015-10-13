@@ -44,14 +44,12 @@
             android:singleLine="true"
             android:imeOptions="actionDone" />
         <Button
-            android:layout_marginTop="20px"
-            android:padding="10px"
             android:text="Đăng Nhập"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btDangNhap"
-            android:background="@android:color/holo_blue_dark"
-            android:textColor="#ffffff"
+            android:background="#ffffffff"
+            android:textColor="@android:color/holo_blue_dark"
             android:gravity="center" />
         <TextView
             android:layout_width="wrap_content"

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Android.App;
 using Android.OS;
+using Android.Widget;
 
 namespace School.Droid
 {
@@ -67,13 +68,21 @@ namespace School.Droid
 			bool isOnline = (activeConnection != null) && activeConnection.IsConnected;
 			return isOnline;
 		}
-		public static async Task<string> LoadDataFromSV()
+		public static async Task<string> LoadDataFromSV(Context ctx)
 		{
+			try
+			{
 			await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
 			await BLichThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 			await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 			await BHocPhi.MakeDataFromXml (SQLite_Android.GetConnection ());
-			return "load success";
+				Toast.MakeText (ctx, "Cập nhật dữ liệu thành công", ToastLength.Long).Show();
+				return "load success ";
+			}
+			catch {
+				Toast.MakeText (ctx, "Xảy ra lỗi trong quá trình tải dữ liệu, vui lòng thử lại sau", ToastLength.Long).Show();
+				return "load failed";
+			}
 		}
 		public static Bundle LoadSettings()
 		{

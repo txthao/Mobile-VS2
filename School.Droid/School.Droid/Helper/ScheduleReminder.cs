@@ -81,11 +81,15 @@ namespace School.Droid
 			try{
 				tenmh = BMonHoc.GetMH (SQLite_Android.GetConnection(),lt.MaMH).TenMH;
 				time= new TimeForCalendar(lt.NgayThi,lt.GioBD);
-
+				int tmp;
+				tmp=time.month;
+				time.month=time.day;
+				time.day=tmp;
 			}
 			catch{
 			}
-			eventValues.Put(CalendarContract.Events.InterfaceConsts.CalendarId, 2);
+
+			eventValues.Put(CalendarContract.Events.InterfaceConsts.CalendarId, 1);
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.Title, "Lịch Thi");
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.Description, "Bạn Có Lịch Thi Môn "+tenmh);
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS(time.yr,time.month,time.day,time.hr,time.min));
@@ -137,22 +141,30 @@ namespace School.Droid
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
 			string listidsaved = prefs.GetString ("ListRMId",null);
 			List<string> listid = CovertListId (listidsaved);
-			int i = 1;
+
 			int k = int.Parse(listid[0]);
 			list.Add (k.ToString());
-			int deleted;
-			do {
-				list [0] =k.ToString();	
-				deleted =
-				ctx.ContentResolver.
-				Delete (
-					CalendarContract.Events.ContentUri,
-					CalendarContract.Events.InterfaceConsts.Id + " =? ",
-					list.ToArray ());
-				k=int.Parse(listid[i]);
-				i++;
-			} while (deleted != 0);
 
+			for (int i=0;i<listid.Count;i++)
+			{
+				list [0] =k.ToString();	
+				int deleted =
+					ctx.ContentResolver.
+					Delete (
+						CalendarContract.Events.ContentUri,
+						CalendarContract.Events.InterfaceConsts.Id + " =? ",
+						list.ToArray ());
+				try{
+					k=int.Parse(listid[i+1]);
+				}
+				catch{
+					break;
+				}
+
+			}
+			var prefEditor = prefs.Edit();
+			prefEditor.PutString ("ListRMId", "");
+			prefEditor.Commit();
 		}
 		private void SaveRMId(long id)
 		{

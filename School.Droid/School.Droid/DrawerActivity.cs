@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace School.Droid
 {
-	[Activity (Label = "School App")]			
+	[Activity (Label = "SGU Mobile")]			
 	public class DrawerActivity : Activity
 	{
 		private DrawerLayout _drawer;
@@ -40,25 +40,22 @@ namespace School.Droid
 				bool firstload=t.GetBooleanExtra("FirstLoad",false);
 			
 			if (firstload == true) {
-				if (Common.checkNWConnection (this) == true) {
-					Task<string> result= Common.LoadDataFromSV ();
-
-					Toast.MakeText (this, result.ToString() , ToastLength.Long).Show();
-				} else {
-					Toast.MakeText (this,"Không Có Kết Nối Tới Mạng Internet, Vui Lòng Thử Lại Sau", ToastLength.Long).Show();
-
-				}
+				
 			}
 
-			string namesv = BUser.GetMainUser (SQLite_Android.GetConnection ()).Hoten;
+			User sv = BUser.GetMainUser (SQLite_Android.GetConnection ());
 			_title = _drawerTitle = Title;
 			_menuTitles = Resources.GetStringArray(Resource.Array.MenuArray);
 			_drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
 			_drawerList = FindViewById<ListView>(Resource.Id.left_drawer);
 
 			_drawer.SetDrawerShadow(Resource.Drawable.drawer_shadow_dark, (int)GravityFlags.Start);
+			View header = this.LayoutInflater.Inflate (Resource.Layout.DrawerHeader, null);
+			header.FindViewById<TextView> (Resource.Id.txtTenSV).Text=sv.Hoten;
+			header.FindViewById<TextView> (Resource.Id.txtmasv).Text=sv.Id;
+			_drawerList.AddHeaderView (header);
 			List<DrawerItem> listItems = new List<DrawerItem> ();
-			listItems.Add(new DrawerItem(namesv,Resource.Drawable.user,true));
+		//	listItems.Add(new DrawerItem(namesv,Resource.Drawable.user,true));
 			listItems.Add(new DrawerItem("Lịch Học",Resource.Drawable.note,false));
 			listItems.Add(new DrawerItem("Lịch Thi",Resource.Drawable.pencil,false));
 			listItems.Add(new DrawerItem("Điểm Thi",Resource.Drawable.archive,false));
@@ -76,7 +73,7 @@ namespace School.Droid
 			//DrawerToggle is the animation that happens with the indicator next to the
 			//ActionBar icon. You can choose not to use this.
 			_drawerToggle = new MyActionBarDrawerToggle(this, _drawer,
-				Resource.Drawable.ic_drawer_light,
+				Resource.Drawable.ic_menu_white_18dp,
 				Resource.String.DrawerOpen,
 				Resource.String.DrawerClose);
 
