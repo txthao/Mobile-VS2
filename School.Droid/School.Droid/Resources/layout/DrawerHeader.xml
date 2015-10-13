@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/RelativeLayout5"
+        android:background="@drawable/header"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/contact_icon" />
+        <LinearLayout
+            android:id="@+id/RelativeLayou"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="10dp">
+            <TextView
+                android:id="@+id/txtTenSV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical"
+                android:text="Welcome to Snappy"
+                android:layout_alignParentLeft="true"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="17dp" />
+            <TextView
+                android:id="@+id/txtmasv"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:textColor="#FFFFFF"
+                android:text="Mã SV"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

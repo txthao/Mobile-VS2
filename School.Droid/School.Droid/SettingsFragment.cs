@@ -57,8 +57,8 @@ namespace School.Droid
 			progressup.Visibility= ViewStates.Visible;
 			progressup.Indeterminate = true;
 			if (Common.checkNWConnection (Activity) == true) {
-				await Common.LoadDataFromSV ();
-				txtResult.Text = "Cập Nhật Dữ Liệu Thành Công";
+				await Common.LoadDataFromSV (Activity);
+
 			} else {
 				txtResult.Text = "Không Có Kết Nối Mạng, Vui Lòng Thử Lại Sau";
 
@@ -84,28 +84,32 @@ namespace School.Droid
 
 		void CbNLT_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
 		{
-//			if (cbNLT.Checked == true) {
-//				
-//				try{
-//					List<LichThi> listlt= BLichThi.getAll(SQLite_Android.GetConnection());
-//					Log.Debug("logsettings","Load LT Success");
-//					List<LichHoc> listlh= BLichHoc.GetNewestLH(SQLite_Android.GetConnection());
-//					Log.Debug("logsettings","Load LH Success");
-//					ScheduleReminder reminder = new ScheduleReminder(Activity);
-//					reminder.RemindAllLT(listlt);
-//					reminder.RemindAllLH(listlh);
-//					txtResult.Text="Cài Đặt Nhắc Lịch Hoàn Tất";
-//
-//				}
-//				catch {
-//					
-//				}
-//
-//			} else {
-//				ScheduleReminder reminder = new ScheduleReminder(Activity);
-//				reminder.DeleteAlLRemind (Activity);
-//				txtResult.Text="Xoá Nhắc Lịch Hoàn Tất";
-//			}
+			progressup.Visibility= ViewStates.Visible;
+			progressup.Indeterminate = true;
+			if (cbNLT.Checked == true) {
+
+				try{
+					List<LichThi> listlt= BLichThi.getAll(SQLite_Android.GetConnection());
+					Log.Debug("logsettings","Load LT Success");
+					List<LichHoc> listlh= BLichHoc.GetNewestLH(SQLite_Android.GetConnection());
+					Log.Debug("logsettings","Load LH Success");
+					ScheduleReminder reminder = new ScheduleReminder(Activity);
+				
+					reminder.RemindAllLH(listlh);
+					reminder.RemindAllLT(listlt);
+					Toast.MakeText (Activity, "Cài đặt nhắc lịch hoàn tất", ToastLength.Long).Show();
+				}
+				catch {
+
+				}
+
+			} else {
+				ScheduleReminder reminder = new ScheduleReminder(Activity);
+				reminder.DeleteAlLRemind (Activity);
+				Toast.MakeText (Activity, "Xoá nhắc lịch hoàn tất", ToastLength.Long).Show();
+			}
+			progressup.Indeterminate = false;
+			progressup.Visibility = ViewStates.Gone;
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
 			var prefEditor = prefs.Edit();
 			prefEditor.PutBoolean("Remind",cbNLT.Checked);

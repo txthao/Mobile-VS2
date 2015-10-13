@@ -15,7 +15,7 @@ using Android.Views.InputMethods;
 
 namespace School.Droid
 {
-	[Activity (Label = "Login")]			
+	[Activity (Label = "Đăng nhập")]			
 	public class LoginActivity : Activity
 	{
 		Button btnLogin;
@@ -64,11 +64,14 @@ namespace School.Droid
 				dialog.SetMessage ("Login...");
 				dialog.Indeterminate = false;
 				dialog.SetCancelable (false);
+		
 				dialog.Show ();
 
 				if (await BUser.CheckAuth (username.Text, password.Text, SQLite_Android.GetConnection ())) {
 					Intent myintent = new Intent (this, typeof(DrawerActivity));
 					myintent.PutExtra ("FirstLoad", true);
+					dialog.SetMessage ("Đang tải dữ liệu....");
+					await Common.LoadDataFromSV(this);
 					StartActivity (myintent);
 
 					this.Finish ();

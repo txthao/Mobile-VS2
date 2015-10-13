@@ -31,7 +31,6 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/layout/lichhoc_hk.xml
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/layout/lichhoc_tuan.xml
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/layout/menu.xml
-/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/sgu1.pdf
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/border.xml
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/button_border.xml
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/layout/dtfooter.xml
@@ -47,6 +46,13 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/archive.png
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/back.png
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/layout/settings.xml
+/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/img_flash.jpg
+/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/app_icon.jpg
+/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/icon_drawer.png
+/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/ic_menu_white_18dp.png
+/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/layout/drawerheader.xml
+/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/contact_icon.png
+/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/header.jpg
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/R.cs.flag
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/bin/Debug/com.companyname.school-Signed.apk
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/uploadflags.txt

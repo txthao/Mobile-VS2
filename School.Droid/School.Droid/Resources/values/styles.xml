@@ -30,7 +30,7 @@
          <item name="android:textStyle">bold</item>
 	</style>
 	<style name="Theme.Splash" parent="android:Theme">
-    <item name="android:windowBackground">@drawable/SguIcon</item>
+    <item name="android:windowBackground">@drawable/img_flash</item>
     <item name="android:windowNoTitle">true</item>
  	 </style>
 
