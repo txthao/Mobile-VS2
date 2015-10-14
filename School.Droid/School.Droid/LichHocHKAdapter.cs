@@ -42,21 +42,31 @@ namespace School.Droid
 
 		public override View GetView (int position, View convertView, ViewGroup parent)
 		{
-
+			ViewHolderItem viewholder;
 			View view = convertView;
 			if (view == null) {
 				view = LayoutInflater.From (context).Inflate (Resource.Layout.LichHocRow, null, false);
-
+				viewholder = new ViewHolderItem ();
+				viewholder.txtMH = view.FindViewById<TextView> (Resource.Id.txtMonHoc_HK);
+				viewholder.txtPhong = view.FindViewById<TextView> (Resource.Id.txtPhong_HK);
+				viewholder.txtSoTiet = view.FindViewById<TextView> (Resource.Id.txtSoTiet_HK);
+				viewholder.txtTBD = view.FindViewById<TextView> (Resource.Id.txtTietBD_HK);
+				viewholder.txtThu = view.FindViewById<TextView> (Resource.Id.txtThu_HK);
+				view.Tag = viewholder;
+			} else {
+				viewholder = (ViewHolderItem)view.Tag;
 			}
 			LichHoc lh = BLichHoc.GetLH (SQLite_Android.GetConnection (), list [position].Id);
-
-			TextView txtMon = view.FindViewById<TextView> (Resource.Id.txtMonHoc_HK);
-			txtMon.Text = BMonHoc.GetMH (SQLite_Android.GetConnection (), lh.MaMH).TenMH;
-	
-			view.FindViewById<TextView> (Resource.Id.txtThu_HK).Text = list [position].Thu;
-			view.FindViewById<TextView> (Resource.Id.txtTietBD_HK).Text = list [position].TietBatDau;
-			view.FindViewById<TextView> (Resource.Id.txtSoTiet_HK).Text = list [position].SoTiet;
-			view.FindViewById<TextView> (Resource.Id.txtPhong_HK).Text = list [position].Phong;
+			viewholder.txtMH.Text = BMonHoc.GetMH (SQLite_Android.GetConnection (), lh.MaMH).TenMH;
+			viewholder.txtPhong.Text = list [position].Phong;
+			viewholder.txtSoTiet.Text = list [position].SoTiet;
+			viewholder.txtTBD.Text = list [position].TietBatDau;
+			viewholder.txtThu.Text = list [position].Thu;
+//			view.FindViewById<TextView> (Resource.Id.txtMonHoc_HK).TextView = BMonHoc.GetMH (SQLite_Android.GetConnection (), lh.MaMH).TenMH;
+//			view.FindViewById<TextView> (Resource.Id.txtThu_HK).Text = list [position].Thu;
+//			view.FindViewById<TextView> (Resource.Id.txtTietBD_HK).Text = list [position].TietBatDau;
+//			view.FindViewById<TextView> (Resource.Id.txtSoTiet_HK).Text = list [position].SoTiet;
+//			view.FindViewById<TextView> (Resource.Id.txtPhong_HK).Text = list [position].Phong;
 			if (position % 2 == 0) {
 				view.FindViewById<LinearLayout> (Resource.Id.linearRowLH).SetBackgroundColor(Color.ParseColor("#FFFFFF"));
 			} else {
@@ -65,6 +75,14 @@ namespace School.Droid
 			return view;
 		}
 
+		class ViewHolderItem : Java.Lang.Object
+		{
+			internal TextView txtMH;
+			internal TextView txtThu;
+			internal TextView txtTBD;
+			internal TextView txtSoTiet;
+			internal TextView txtPhong;
+		}
 
 	}
 }

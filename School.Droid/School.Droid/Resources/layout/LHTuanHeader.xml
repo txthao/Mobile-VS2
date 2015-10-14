@@ -47,24 +47,44 @@
             android:gravity="left"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp" />
-        <TextView
-            android:id="@+id/txtTietBD_Tuan"
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_marginLeft="5dp" />
-        <TextView
-            android:id="@+id/txtSoTiet_Tuan"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_marginLeft="5dp" />
-        <TextView
-            android:id="@+id/txtPhong_Tuan"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_marginLeft="5dp"
-            android:layout_marginBottom="5dp" />
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:weightSum="1">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txtTietBD_Tuan"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginLeft="5dp" />
+                <TextView
+                    android:id="@+id/txtSoTiet_Tuan"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginLeft="5dp" />
+                <TextView
+                    android:id="@+id/txtPhong_Tuan"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp" />
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/btn_Expand"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/down" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

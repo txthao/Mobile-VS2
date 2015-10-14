@@ -26,6 +26,10 @@ School.Droid.LichHocHKAdapter, School.Droid;md57f5688a386234212827f14cda194d215.
 School.Droid.LichHocHKAdapter, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.LichHocHKAdapter
 School.Droid.LichHocHKAdapter;md57f5688a386234212827f14cda194d215.LichHocHKAdapter
 school.droid.LichHocHKAdapter;md57f5688a386234212827f14cda194d215.LichHocHKAdapter
+School.Droid.LichHocHKAdapter/ViewHolderItem, School.Droid;md57f5688a386234212827f14cda194d215.LichHocHKAdapter_ViewHolderItem
+School.Droid.LichHocHKAdapter/ViewHolderItem, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.LichHocHKAdapter_ViewHolderItem
+School.Droid.LichHocHKAdapter.ViewHolderItem;md57f5688a386234212827f14cda194d215.LichHocHKAdapter_ViewHolderItem
+school.droid.LichHocHKAdapter_ViewHolderItem;md57f5688a386234212827f14cda194d215.LichHocHKAdapter_ViewHolderItem
 School.Droid.LichHocTuanAdapter, School.Droid;md57f5688a386234212827f14cda194d215.LichHocTuanAdapter
 School.Droid.LichHocTuanAdapter, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.LichHocTuanAdapter
 School.Droid.LichHocTuanAdapter;md57f5688a386234212827f14cda194d215.LichHocTuanAdapter

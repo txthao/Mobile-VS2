@@ -63,5 +63,19 @@ namespace School.Core
             get { return phongThi; }
             set { phongThi = value; }
         }
+		string hocKy;
+		public string HocKy
+		{
+			get { return hocKy; }
+			set { hocKy = value; }
+		}
+		string namHoc;
+		public string NamHoc
+		{
+			get { return namHoc; }
+			set { namHoc = value; }
+		}
+
+
     }
 }

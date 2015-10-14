@@ -41,6 +41,15 @@ namespace School.Droid
 			header.FindViewById<TextView> (Resource.Id.txtTietBD_Tuan).Text = "Tiết bắt đầu: " +listCT [groupPosition].TietBatDau;
 			header.FindViewById<TextView> (Resource.Id.txtSoTiet_Tuan).Text = "Số tiết: " +listCT [groupPosition].SoTiet;
 			header.FindViewById<TextView> (Resource.Id.txtPhong_Tuan).Text = "Phòng: " +listCT [groupPosition].Phong;
+			header.FindViewById<ImageView> (Resource.Id.btn_Expand).Click += (sender, ea) => {
+				if(isExpanded){
+					((ExpandableListView) parent).CollapseGroup(groupPosition);
+					header.FindViewById<ImageView> (Resource.Id.btn_Expand).SetImageResource(Resource.Drawable.down);
+				}else{
+					((ExpandableListView) parent).ExpandGroup(groupPosition, true);
+					header.FindViewById<ImageView> (Resource.Id.btn_Expand).SetImageResource(Resource.Drawable.up);
+				}
+			};
 			return header;
 		}
 

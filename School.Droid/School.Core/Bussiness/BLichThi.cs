@@ -56,6 +56,8 @@ namespace School.Core
 					LichThi lt = new LichThi ();
 					lt.GhepThi = node.Elements ().ElementAt (0).Value.Trim ();
 					lt.GioBD = node.Elements ().ElementAt (1).Value.Trim ();
+					lt.HocKy = node.Elements ().ElementAt (3).Value.Trim ();
+					lt.NamHoc = node.Elements ().ElementAt (5).Value.Trim ();
 					MonHoc mh = new MonHoc ();
 					lt.MaMH = node.Elements ().ElementAt (4).Value.Trim ();
 					mh.MaMH = lt.MaMH;

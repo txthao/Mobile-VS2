@@ -2,18 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/toast_layout"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:background="#dcffffff">
+    android:padding="20dp">
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:id="@+id/txtTitleRM" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16dip"
         android:textStyle="bold"
-        android:text="Nhắc lịch"
+        android:text="Mon"
         android:layout_marginTop="10dp"
-        android:id="@+id/txtTitleRM" />
+        android:id="@+id/txtSubjectRM" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
