@@ -1,0 +1,13 @@
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhone/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhone/Debug/ibtool/LaunchScreen.nib
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhone/Debug/ibtool/RootViewController.nib
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhone/Debug/ibtool/VCMainMenu.nib
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhone/Debug/ibtool/VCMainContent.nib
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhone/Debug/actool/partial-info.plist
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhone/Debug/actool/asset-manifest.plist
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhone/Debug/optimized/
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhone/Debug/School.iOS.exe.mdb
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhone/Debug/School.iOS.exe
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhone/Debug/School.iOS.exe
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhone/Debug/School.iOS.exe.mdb
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhone/Debug/Xamarin-Sidebar-Unified.dll

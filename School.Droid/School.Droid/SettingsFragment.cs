@@ -94,7 +94,6 @@ namespace School.Droid
 					List<LichHoc> listlh= BLichHoc.GetNewestLH(SQLite_Android.GetConnection());
 					Log.Debug("logsettings","Load LH Success");
 					ScheduleReminder reminder = new ScheduleReminder(Activity);
-				
 					reminder.RemindAllLH(listlh);
 					reminder.RemindAllLT(listlt);
 					Toast.MakeText (Activity, "Cài đặt nhắc lịch hoàn tất", ToastLength.Long).Show();

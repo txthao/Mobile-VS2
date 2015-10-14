@@ -26,12 +26,14 @@ namespace School.Core
 			return list;
 		}
 
-		public static void AddLH (LichHoc lt, SQLiteConnection connection)
+		public static bool AddLH (LichHoc lt, SQLiteConnection connection)
 		{
 			DataProvider dtb = new DataProvider (connection);
 			if (dtb.GetLH_Ma (lt.MaMH) == null) {
 				dtb.AddLH (lt);
+				return true;
 			}
+			return false;
 		}
 
 		public static LichHoc GetLH (SQLiteConnection connection, string id)
@@ -139,8 +141,11 @@ namespace School.Core
 						ct.ThoigianKT = node.Elements ().ElementAt (10).Value.Trim ().Substring (12);
 						ct.Tuan = convertToDate (setTKB_Tuan (node.Elements ().ElementAt (13).Value.Trim ()),ct.ThoigianBD);
 						AddCTLH (connection, ct);
-						list.Add (lh);
-						AddLH (lh, connection);
+
+						bool done=AddLH (lh, connection);
+						if (done) {
+							list.Add (lh);
+						}
 						BMonHoc.Add (connection, mh);
 					
 					}
