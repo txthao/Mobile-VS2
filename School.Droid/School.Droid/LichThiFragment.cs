@@ -17,6 +17,7 @@ namespace School.Droid
 {
 	public class LichThiFragment : Fragment
 	{
+		List<LichThi> list;
 		ListView listView;
 		ProgressBar progress;
 		TextView txtHocKy;
@@ -51,7 +52,18 @@ namespace School.Droid
 			return rootView;
 		}
 		void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e){
+			// content to pass to dialog fragment
+			var bundle1 = new Bundle();
+			bundle1.PutString ("MH", BMonHoc.GetMH(SQLite_Android.GetConnection (),list[e.Position].MaMH).TenMH);
+			bundle1.PutBoolean ("check", true);
+			bundle1.PutBoolean ("Remind",check);
+			bundle1.PutBoolean ("AutoUpdateData",autoupdate);
 
+			var fragment = new ReminderDialogFragment ();
+			fragment.Arguments = bundle1;
+			FragmentManager.BeginTransaction ()
+				.Replace (Resource.Id.content_frame, fragment)
+				.Commit ();
 		}
 
 
@@ -59,7 +71,7 @@ namespace School.Droid
 		{
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
-			List<LichThi> list = new List<LichThi>();
+			list = new List<LichThi>();
 			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
 				await BLichThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 			}
