@@ -72,11 +72,18 @@ namespace School.Droid
 		{
 			try
 			{
-			await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
-			await BLichThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			var newlistlh= BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
+			List<LichHoc> newListLH= await newlistlh;
+			var newlistlt= BLichThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			List<LichThi> newListLT= await newlistlt;
 			await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 			await BHocPhi.MakeDataFromXml (SQLite_Android.GetConnection ());
 				Toast.MakeText (ctx, "Cập nhật dữ liệu thành công", ToastLength.Long).Show();
+
+				ScheduleReminder reminder = new ScheduleReminder(ctx);
+
+				reminder.RemindAllLH(newListLH);
+				reminder.RemindAllLT(newListLT);
 				return "load success ";
 			}
 			catch {

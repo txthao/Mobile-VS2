@@ -91,7 +91,7 @@ namespace School.Droid
 
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.CalendarId, 1);
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.Title, "Lịch Thi");
-			eventValues.Put(CalendarContract.Events.InterfaceConsts.Description, "Bạn Có Lịch Thi Môn "+tenmh);
+			eventValues.Put(CalendarContract.Events.InterfaceConsts.Description, "Bạn Có Lịch Thi Môn "+tenmh+" Ghi chú: "+content);
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS(time.yr,time.month,time.day,time.hr,time.min));
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtend,GetDateTimeMS(time.yr,time.month,time.day,time.hr+lt.SoPhut/60,time.min+lt.SoPhut%60));
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.AllDay,"0");

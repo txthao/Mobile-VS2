@@ -48,15 +48,18 @@ public final class R {
         public static final int RelativeLayou=0x7f080018;
         public static final int RelativeLayout5=0x7f080016;
         public static final int btDangNhap=0x7f080076;
-        public static final int btUpdateData=0x7f080082;
+        public static final int btUpdateData=0x7f080089;
+        public static final int btnCancel=0x7f080086;
         public static final int btnHK_Ke_DT=0x7f080012;
         public static final int btnHK_Truoc_DT=0x7f080011;
+        public static final int btnSave=0x7f080085;
         public static final int btnTuanKe=0x7f08005e;
         public static final int btnTuanTruoc=0x7f08005d;
-        public static final int ckboxAutoUpdateData=0x7f080081;
-        public static final int ckboxRemindLT=0x7f080080;
+        public static final int ckboxAutoUpdateData=0x7f080088;
+        public static final int ckboxRemindLT=0x7f080087;
         public static final int content_frame=0x7f08007e;
         public static final int drawer_layout=0x7f08007d;
+        public static final int edtxt_Content=0x7f080084;
         public static final int errorMSG=0x7f080077;
         public static final int icon_drawer=0x7f080013;
         public static final int lbl_DenNgay=0x7f080059;
@@ -93,7 +96,7 @@ public final class R {
         public static final int listLHTuan=0x7f08006e;
         public static final int listLH_Tuan=0x7f08005b;
         public static final int listLT=0x7f080073;
-        public static final int proUpdateData=0x7f080083;
+        public static final int proUpdateData=0x7f08008a;
         public static final int profile_image=0x7f080017;
         public static final int progressDT=0x7f080005;
         public static final int progressDTHK=0x7f08000e;
@@ -130,6 +133,7 @@ public final class R {
         public static final int textView8=0x7f080066;
         public static final int textView9=0x7f080067;
         public static final int text_drawer=0x7f080014;
+        public static final int toast_layout=0x7f080080;
         public static final int txtCBGD=0x7f080042;
         public static final int txtDKT=0x7f080024;
         public static final int txtDRL=0x7f08001f;
@@ -174,11 +178,14 @@ public final class R {
         public static final int txtTiLe=0x7f080023;
         public static final int txtTietBD_HK=0x7f08004e;
         public static final int txtTietBD_Tuan=0x7f08003b;
-        public static final int txtVersion=0x7f080085;
+        public static final int txtTimeRM=0x7f080082;
+        public static final int txtTitleRM=0x7f080081;
+        public static final int txtVersion=0x7f08008c;
+        public static final int txt_minutes=0x7f080083;
         public static final int txtmasv=0x7f08001a;
         public static final int txtmk=0x7f080075;
         public static final int txtmsv=0x7f080074;
-        public static final int txtresult=0x7f080084;
+        public static final int txtresult=0x7f08008b;
     }
     public static final class layout {
         public static final int diemthi=0x7f030000;
@@ -200,7 +207,8 @@ public final class R {
         public static final int login=0x7f030010;
         public static final int ltrow=0x7f030011;
         public static final int menu=0x7f030012;
-        public static final int settings=0x7f030013;
+        public static final int reminder_dialog=0x7f030013;
+        public static final int settings=0x7f030014;
     }
     public static final class string {
         public static final int ApplicationName=0x7f040001;

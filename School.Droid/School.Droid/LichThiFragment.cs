@@ -54,15 +54,12 @@ namespace School.Droid
 		void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e){
 			// content to pass to dialog fragment
 			var bundle1 = new Bundle();
-			bundle1.PutString ("MH", BMonHoc.GetMH(SQLite_Android.GetConnection (),list[e.Position].MaMH).TenMH);
+			bundle1.PutString ("MH", list[e.Position].MaMH);
 			bundle1.PutBoolean ("check", true);
-			bundle1.PutBoolean ("Remind",check);
-			bundle1.PutBoolean ("AutoUpdateData",autoupdate);
-
 			var fragment = new ReminderDialogFragment ();
 			fragment.Arguments = bundle1;
 			FragmentManager.BeginTransaction ()
-				.Replace (Resource.Id.content_frame, fragment)
+				.Replace (Resource.Id.content_frame, fragment).AddToBackStack("2")
 				.Commit ();
 		}
 
@@ -73,7 +70,12 @@ namespace School.Droid
 			progress.Indeterminate = true;
 			list = new List<LichThi>();
 			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
-				await BLichThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+				var newlistlt= BLichThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+				List<LichThi> newListLT= await newlistlt;
+				if (check) {
+					ScheduleReminder reminder = new ScheduleReminder (Activity);
+					reminder.RemindAllLT (newListLT);
+				}
 			}
 			//	LichThi lt = BLichThi.GetNewestLT (SQLite_Android.GetConnection ()); chi hien thi lich thi moi nhat 
 			list = BLichThi.getAll (SQLite_Android.GetConnection ());

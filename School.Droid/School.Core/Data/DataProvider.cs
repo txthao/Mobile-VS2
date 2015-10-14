@@ -240,7 +240,14 @@ namespace School.Core
 
 			return query.FirstOrDefault ();
 		}
+		public LichThi GetLichThi(string mamh)
+		{
+			var query = from c in _connection.Table<LichThi> ()
+					where c.MaMH.Equals(mamh)
+				select c;
 
+			return query.FirstOrDefault ();
+		}
 
 
 		public CTHocPhi GetCTHP (int namhoc, int hocky)

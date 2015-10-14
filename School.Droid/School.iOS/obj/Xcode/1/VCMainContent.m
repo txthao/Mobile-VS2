@@ -1,0 +1,19 @@
+// WARNING
+// This file has been generated automatically by Xamarin Studio to
+// mirror C# types. Changes in this file made by drag-connecting
+// from the UI designer will be synchronized back to C#, but
+// more complex manual changes may not transfer correctly.
+
+
+#import "VCMainContent.h"
+
+@implementation VCMainContent
+
+- (IBAction)menu_click:(UIButton *)sender {
+}
+- (void)dealloc {
+    [_menubt release];
+    [_menubt release];
+    [super dealloc];
+}
+@end

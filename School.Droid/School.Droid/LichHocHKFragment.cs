@@ -77,15 +77,14 @@ namespace School.Droid
 		void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e){
 			// content to pass 
 			var bundle1 = new Bundle();
-			bundle1.PutString ("MH", BMonHoc.GetMH(SQLite_Android.GetConnection (),listLH[e.Position].MaMH).TenMH);
+			bundle1.PutString ("MH", listLH[e.Position].Id);
+
 			bundle1.PutBoolean ("check", false);
-			bundle1.PutBoolean ("Remind",check);
-			bundle1.PutBoolean ("AutoUpdateData",autoupdate);
 
 			var fragment = new ReminderDialogFragment ();
 			fragment.Arguments = bundle1;
 			FragmentManager.BeginTransaction ()
-				.Replace (Resource.Id.content_frame, fragment)
+				.Replace (Resource.Id.content_frame, fragment).AddToBackStack("1")
 				.Commit ();
 		}
 
@@ -125,8 +124,13 @@ namespace School.Droid
 			listLH = new List<LichHoc> ();
 			if (Common.checkNWConnection (Activity) == true&&autoupdate==true) {
 			
-				 await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
+				var newlistlh= BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
+				List<LichHoc> newListLH= await newlistlh;
+				if (check) {
+					ScheduleReminder reminder = new ScheduleReminder (Activity);
 
+					reminder.RemindAllLH (newListLH);
+				}
 			}
 			if (hocKy == "0") {
 				listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());

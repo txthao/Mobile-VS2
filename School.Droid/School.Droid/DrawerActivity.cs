@@ -28,7 +28,7 @@ namespace School.Droid
 		private string _title;
 		private string[] _menuTitles;
 		private int previousItemChecked;
-
+		private ReminderDialogFragment dialogfrag;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -187,22 +187,26 @@ namespace School.Droid
 
 		override public void OnBackPressed()
 		{
-			
-			if (FragmentManager.BackStackEntryCount > 1) {
-				String title = FragmentManager.GetBackStackEntryAt (FragmentManager.BackStackEntryCount - 1).Name;
-				FragmentManager.PopBackStackImmediate ();
-				int pos = int.Parse (title);
-				while (pos > 5) {
-					title = FragmentManager.GetBackStackEntryAt (FragmentManager.BackStackEntryCount - 1).Name;
+
+
+				if (FragmentManager.BackStackEntryCount > 1) {
+					String title = FragmentManager.GetBackStackEntryAt (FragmentManager.BackStackEntryCount - 1).Name;
 					FragmentManager.PopBackStackImmediate ();
-					 pos = int.Parse (title);
+					int pos = int.Parse (title);
+					
+					while (pos > 5) {
+						title = FragmentManager.GetBackStackEntryAt (FragmentManager.BackStackEntryCount - 1).Name;
+						FragmentManager.PopBackStackImmediate ();
+						pos = int.Parse (title);
+					}
+
+					SelectItem (pos);
+					FragmentManager.PopBackStackImmediate ();
+				} else {
+					base.OnBackPressed ();
+					this.Finish ();
 				}
-				SelectItem (pos);
-				FragmentManager.PopBackStackImmediate ();
-			} else {
-				base.OnBackPressed ();
-				this.Finish ();
-			}
+
 
 		}
 }

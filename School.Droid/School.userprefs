@@ -1,11 +1,10 @@
-﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
+﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Galaxy_Nexus_by_Google" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid/LichThiFragment.cs">
     <Files>
-      <File FileName="School.Droid/LoginActivity.cs" Line="18" Column="35" />
-      <File FileName="School.Droid/DrawerActivity.cs" Line="22" Column="3" />
-      <File FileName="School.Droid/SettingsFragment.cs" Line="102" Column="12" />
       <File FileName="School.Droid/Main.cs" Line="39" Column="19" />
+      <File FileName="School.Droid/LichThiFragment.cs" Line="62" Column="23" />
+      <File FileName="School.Droid/LichHocHKFragment.cs" Line="85" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

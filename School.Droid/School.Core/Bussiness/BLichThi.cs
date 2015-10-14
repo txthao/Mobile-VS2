@@ -22,12 +22,14 @@ namespace School.Core
 			list = dtb.GetAllLT ();
             return list;
         }
-		public static void AddLT(LichThi lt,SQLiteConnection connection )
+		public static int AddLT(LichThi lt,SQLiteConnection connection )
 		{
 			DataProvider dtb = new DataProvider (connection);
 			if (dtb.GetLT (lt.MaMH) == null) {
 				dtb.AddLT (lt);
+				return 1;
 			}
+			return 0;
 		}
 //		public static LichThi GetNewestLT(LichThi lt,SQLiteConnection connection )
 //		{
@@ -63,32 +65,25 @@ namespace School.Core
 					lt.SoLuong = int.Parse (node.Elements ().ElementAt (8).Value.Trim ());
 					lt.SoPhut = int.Parse (node.Elements ().ElementAt (9).Value.Trim ());
 					lt.ToThi = node.Elements ().ElementAt (11).Value.Trim ();
-					list.Add (lt);
+
 					BMonHoc.Add (connection, mh);
-					AddLT (lt, connection);
+					int i=AddLT (lt, connection);
+					if (i == 1) {
+						list.Add (lt);
+					}
 				}
 				return list;
 			}return null;
 		}
 
-
-
-		public static List<LichThi> GetLichThiByTime(SQLiteConnection connection)
+		public static LichThi GetLichThi(SQLiteConnection connection,string mamh)
 		{
-			DateTime dt= DateTime.Today;
-			string day = dt.Day.ToString();
-			string month = dt.Month.ToString ();
-			if (day.Length == 1) {
-				day = "0" + day;
-			}
-			if (month.Length == 1) {
-				month = "0"+month;
-			}
-			string time=String.Format("{0}/{1}/{2}",day,month,dt.Year);
 			DataProvider dtb = new DataProvider (connection);
-			return dtb.GetLichThiByTime (time);
-
+			return dtb.GetLichThi (mamh);
 		}
+
+
+
 
     }
 }

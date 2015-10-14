@@ -91,7 +91,13 @@ namespace School.Droid
 			progress.Indeterminate = true;
 			List<LichHoc> listLH = new List<LichHoc> ();
 			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
-				await BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
+				var newlistlh= BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
+				List<LichHoc> newListLH= await newlistlh;
+				if (check) {
+					ScheduleReminder reminder = new ScheduleReminder (Activity);
+
+					reminder.RemindAllLH (newListLH);
+				}
 			}
 			listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());
 			List<chiTietLH> listCT = new List<chiTietLH> ();
