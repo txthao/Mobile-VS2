@@ -136,8 +136,8 @@ namespace School.Droid
            
             }
 			if (position == previousItemChecked) {
-				fragment.Arguments = bundle;
-				FragmentManager.BeginTransaction ().Detach (fragment).Attach (fragment).Commit ();
+//				fragment.Arguments = bundle;
+//				FragmentManager.BeginTransaction ().Detach (fragment).Attach (fragment).Commit ();
 				_drawer.CloseDrawer (_drawerList);
 			}
 			else
