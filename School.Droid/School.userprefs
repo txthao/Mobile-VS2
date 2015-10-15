@@ -1,10 +1,11 @@
-﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
+﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Galaxy_Nexus_by_Google" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid/LichThiFragment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid/DrawerActivity.cs">
     <Files>
-      <File FileName="School.Droid/Main.cs" Line="39" Column="19" />
-      <File FileName="School.Droid/LichThiFragment.cs" Line="62" Column="23" />
-      <File FileName="School.Droid/LichHocHKFragment.cs" Line="85" Column="23" />
+      <File FileName="School.Droid/LichHocHKFragment.cs" Line="134" Column="39" />
+      <File FileName="School.Core/Bussiness/BLichThi.cs" Line="28" Column="17" />
+      <File FileName="School.Droid/DrawerActivity.cs" Line="132" Column="4" />
+      <File FileName="School.Droid/LichHocTuanFragment.cs" Line="97" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -12,6 +13,7 @@
       <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/HocPhiAdapter.cs" line="23" column="1" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Core/Bussiness/BLichHoc.cs" line="140" column="1" />
+      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.Droid/Helper/ScheduleReminder.cs" line="154" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

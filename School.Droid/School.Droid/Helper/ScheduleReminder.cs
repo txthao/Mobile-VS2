@@ -46,10 +46,13 @@ namespace School.Droid
 			ContentValues eventValues = new ContentValues();
 			string tenmh = "";
 			int min=0;
+
 			try{
 				tenmh = BMonHoc.GetMH (SQLite_Android.GetConnection(),lh.MaMH).TenMH;
 				min=int.Parse(ct.SoTiet)*50;
 				time= new TimeForCalendar(DateForCTLH,listTimeLH[int.Parse(ct.TietBatDau)-1]);
+			
+			
 				}
 			catch{
 			}
@@ -108,7 +111,7 @@ namespace School.Droid
 			var reminderURI= ctx.ContentResolver.Insert(CalendarContract.Reminders.ContentUri,remindervalues);
 		}
 
-		public  void RemindAllLH( List<LichHoc> listlh)
+		public void RemindAllLH( List<LichHoc> listlh)
 		{
 			foreach (LichHoc lh in listlh) {
 				List<chiTietLH> cts = BLichHoc.GetCTLH (SQLite_Android.GetConnection (), lh.Id);
@@ -126,7 +129,7 @@ namespace School.Droid
 			}
 		}
 
-		public  void RemindAllLT( List<LichThi> listlt)
+		public void RemindAllLT( List<LichThi> listlt)
 		{
 			foreach (LichThi lt in listlt) {
 				this.lt = lt;
@@ -135,7 +138,7 @@ namespace School.Droid
 		}
 
 
-		public  void DeleteAlLRemind(Context ctx)
+		public   void DeleteAlLRemind(Context ctx)
 		{
 			List<string> list = new List<string> ();
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);

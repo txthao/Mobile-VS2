@@ -56,6 +56,8 @@ namespace School.Droid
 			var bundle1 = new Bundle();
 			bundle1.PutString ("MH", list[e.Position].MaMH);
 			bundle1.PutBoolean ("check", true);
+			bundle1.PutString ("NamHoc", list[e.Position].NamHoc);
+			bundle1.PutString ("HocKy", list[e.Position].HocKy);
 			var fragment = new ReminderDialogFragment ();
 			fragment.Arguments = bundle1;
 			FragmentManager.BeginTransaction ()

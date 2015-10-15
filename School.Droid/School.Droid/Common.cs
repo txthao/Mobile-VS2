@@ -84,11 +84,18 @@ namespace School.Droid
 
 				reminder.RemindAllLH(newListLH);
 				reminder.RemindAllLT(newListLT);
+
 				return "load success ";
 			}
 			catch {
 				Toast.MakeText (ctx, "Xảy ra lỗi trong quá trình tải dữ liệu, vui lòng thử lại sau", ToastLength.Long).Show();
 				return "load failed";
+			}
+			try{
+				DrawerActivity drAc=(DrawerActivity)ctx;
+				drAc.SelectItem(drAc.previousItemChecked);
+			}
+			catch{
 			}
 		}
 		public static Bundle LoadSettings()

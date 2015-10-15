@@ -19,9 +19,11 @@ namespace School.Droid
 		
 	public class ReminderDialogFragment : DialogFragment
 	{
-		String maMH;
-		String namHoc;
-		String hocKy;
+		string MH;
+		bool isLHT;
+		string ngayhoc;
+		string tietBD;
+		string soTiet;
 		Bundle bundle;
 		Boolean check;
 		MonHoc mh;
@@ -42,14 +44,18 @@ namespace School.Droid
 			TextView time = view.FindViewById<TextView> (Resource.Id.txtTimeRM);
 			minutes = view.FindViewById<EditText> (Resource.Id.txt_minutes);
 			bundle = this.Arguments;
-			maMH = bundle.GetString ("MH");
-			namHoc = bundle.GetString ("NH");
-			hocKy = bundle.GetString ("HK");
+			MH = bundle.GetString ("MH");
+			tietBD = bundle.GetString ("TietBD");
+			ngayhoc= bundle.GetString ("NgayHoc");
+			soTiet= bundle.GetString ("SoTiet");
 			check = bundle.GetBoolean ("check");
 
+
 			if (check) {
-				mh = BMonHoc.GetMH (SQLite_Android.GetConnection (), maMH);
-				lt = BLichThi.GetLichThi (SQLite_Android.GetConnection (), maMH);
+				string namhoc=bundle.GetString ("NamHoc");
+				string hocky=bundle.GetString ("HocKy");
+				mh = BMonHoc.GetMH (SQLite_Android.GetConnection (), MH);
+				lt = BLichThi.GetLT (SQLite_Android.GetConnection (), MH,namhoc,hocky);
 				title.Text = "NHẮC LỊCH THI";
 				subject.Text = "Môn:" + mh.TenMH;
 
@@ -57,10 +63,17 @@ namespace School.Droid
 
 
 			} else {
-				lh = BLichHoc.GetLH (SQLite_Android.GetConnection (), maMH, namHoc, hocKy);
-				mh = BMonHoc.GetMH (SQLite_Android.GetConnection (), maMH);
+				lh = BLichHoc.GetLH (SQLite_Android.GetConnection (), MH);
+				mh = BMonHoc.GetMH (SQLite_Android.GetConnection (), lh.MaMH);
+				isLHT = true;
+				isLHT= bundle.GetBoolean ("isLHT");
 				title.Text = "NHẮC LỊCH HOC";
 				subject.Text = "Môn: " + mh.TenMH;
+				if (isLHT) {
+					string exNgay = ngayhoc.Substring (3, 2);
+					exNgay = exNgay + "/" + ngayhoc.Substring(0,2)+"/"+ngayhoc.Substring(6,4);
+					time.Text = "Tiết: " + tietBD + " Ngày: " + exNgay;
+				}
 
 			}
 			Save.Click+= Save_Click;
@@ -84,11 +97,21 @@ namespace School.Droid
 				reminder.lt = lt;
 				reminder.SetCalenDarLT ();
 			} else {
+				
 				reminder.lh = lh;
-				List<LichHoc> list = new List<LichHoc> ();
-				list.Add (lh);
-				reminder.RemindAllLH (list);
-
+				if (isLHT) {
+					chiTietLH ct = new chiTietLH ();
+					ct.Id = lh.Id;
+					ct.TietBatDau = tietBD;
+					ct.SoTiet = soTiet;
+					reminder.DateForCTLH = ngayhoc;
+					reminder.ctlh = ct;
+					reminder.SetCalenDarLH ();
+				} else {
+					List<LichHoc> list = new List<LichHoc> ();
+					list.Add (lh);
+					reminder.RemindAllLH (list);
+				}
 			}
 			Toast.MakeText (Activity, "Cài dặt nhắc lịch thành công", ToastLength.Long).Show();
 			Cancel.CallOnClick ();

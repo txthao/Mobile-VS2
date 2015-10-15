@@ -44,11 +44,13 @@ namespace School.Core
 			return query.ToList ();
 		}
 
-		public LichThi GetLT (string mamh)
+		public LichThi GetLT (string mamh,string namhoc,string hocky)
 		{
+
 			var query = from c in _connection.Table<LichThi> ()
-			            where c.MaMH.Equals (mamh)
-			            select c;
+					where (c.MaMH.Equals(mamh))&&(c.HocKy.Equals(hocky)) && (c.NamHoc.Equals(namhoc))
+				select c;
+			
 
 			return query.FirstOrDefault ();
 		}
@@ -240,14 +242,7 @@ namespace School.Core
 
 			return query.FirstOrDefault ();
 		}
-		public LichThi GetLichThi(string mamh)
-		{
-			var query = from c in _connection.Table<LichThi> ()
-					where c.MaMH.Equals(mamh)
-				select c;
 
-			return query.FirstOrDefault ();
-		}
 
 
 		public CTHocPhi GetCTHP (int namhoc, int hocky)
