@@ -113,10 +113,10 @@ namespace School.Core
 			return query.FirstOrDefault ();
 		}
 
-		public LichHoc GetLH_Ma (string mamh)
+		public LichHoc GetLH_Ma (string mamh, string namHoc, string hocKy)
 		{
 			var query = from c in _connection.Table<LichHoc> ()
-			            where c.MaMH.Equals (mamh)
+					where c.MaMH.Equals (mamh) && c.HocKy.Equals(hocKy) && c.NamHoc.Equals(namHoc)
 			            select c;
 
 			return query.FirstOrDefault ();

@@ -26,11 +26,11 @@ namespace School.Core
 			return list;
 		}
 
-		public static bool AddLH (LichHoc lt, SQLiteConnection connection)
+		public static bool AddLH (LichHoc lh, SQLiteConnection connection)
 		{
 			DataProvider dtb = new DataProvider (connection);
-			if (dtb.GetLH_Ma (lt.MaMH) == null) {
-				dtb.AddLH (lt);
+			if (dtb.GetLH_Ma (lh.MaMH, lh.NamHoc,lh.HocKy) == null) {
+				dtb.AddLH (lh);
 				return true;
 			}
 			return false;
@@ -40,6 +40,12 @@ namespace School.Core
 		{
 			DataProvider dtb = new DataProvider (connection);
 			return dtb.GetLH_Id (id);
+		}
+
+		public static LichHoc GetLH (SQLiteConnection connection, string id, string namHoc, string hocKy)
+		{
+			DataProvider dtb = new DataProvider (connection);
+			return dtb.GetLH_Ma (id, namHoc , hocKy);
 		}
 
 		public static int GetId (SQLiteConnection connection)
@@ -101,7 +107,7 @@ namespace School.Core
 				foreach (XElement node in childList) {
 				
 					LichHoc lichhoc = new LichHoc ();
-					lichhoc = dtb.GetLH_Ma (node.Elements ().ElementAt (3).Value.Trim ());
+					lichhoc = dtb.GetLH_Ma (node.Elements ().ElementAt (3).Value.Trim (),node.Elements ().ElementAt (4).Value.Trim (),node.Elements ().ElementAt (1).Value.Trim ());
 
 					if (lichhoc != null) {
 						chiTietLH ct = new chiTietLH ();

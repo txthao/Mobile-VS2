@@ -24,7 +24,7 @@ namespace School.Droid
 		ProgressBar progress;
 		bool check,autoupdate;
 		Bundle bundle;
-		List<LichHoc> listLH;
+		List<chiTietLH> listCT;
 
 		public override void OnCreate (Bundle savedInstanceState)
 		{
@@ -77,8 +77,11 @@ namespace School.Droid
 		void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e){
 			// content to pass 
 			var bundle1 = new Bundle();
-			bundle1.PutString ("MH", listLH[e.Position].Id);
+			LichHoc lh = BLichHoc.GetLH(SQLite_Android.GetConnection (),listCT[e.Position].Id);
 
+			bundle1.PutString ("MH", lh.MaMH);
+			bundle1.PutString ("HK", lh.HocKy);
+			bundle1.PutString ("Nam", lh.MaMH);
 			bundle1.PutBoolean ("check", false);
 
 			var fragment = new ReminderDialogFragment ();
@@ -121,7 +124,7 @@ namespace School.Droid
 			listView_HK.Visibility = ViewStates.Invisible;
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
-			listLH = new List<LichHoc> ();
+			List<LichHoc> listLH = new List<LichHoc> ();
 			if (Common.checkNWConnection (Activity) == true&&autoupdate==true) {
 			
 				var newlistlh= BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
@@ -138,7 +141,7 @@ namespace School.Droid
 				listLH = BLichHoc.GetLH_Time (SQLite_Android.GetConnection (), hocKy, namHoc);
 
 			}
-			List<chiTietLH> listCT = new List<chiTietLH> ();
+			listCT = new List<chiTietLH> ();
 			foreach (var item in listLH) {
 				listCT.AddRange (BLichHoc.GetCTLH (SQLite_Android.GetConnection (), item.Id));
 

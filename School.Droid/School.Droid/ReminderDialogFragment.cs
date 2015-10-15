@@ -19,7 +19,9 @@ namespace School.Droid
 		
 	public class ReminderDialogFragment : DialogFragment
 	{
-		String tenMH;
+		String maMH;
+		String namHoc;
+		String hocKy;
 		Bundle bundle;
 		Boolean check;
 		MonHoc mh;
@@ -36,22 +38,29 @@ namespace School.Droid
 			 Cancel = view.FindViewById<Button> (Resource.Id.btnCancel);
 			 content = view.FindViewById<EditText> (Resource.Id.edtxt_Content);
 			TextView title = view.FindViewById<TextView> (Resource.Id.txtTitleRM);
+			TextView subject = view.FindViewById<TextView> (Resource.Id.txtSubjectRM);
 			TextView time = view.FindViewById<TextView> (Resource.Id.txtTimeRM);
-			 minutes = view.FindViewById<EditText> (Resource.Id.txt_minutes);
+			minutes = view.FindViewById<EditText> (Resource.Id.txt_minutes);
 			bundle = this.Arguments;
-			tenMH = bundle.GetString ("MH");
+			maMH = bundle.GetString ("MH");
+			namHoc = bundle.GetString ("NH");
+			hocKy = bundle.GetString ("HK");
 			check = bundle.GetBoolean ("check");
+
 			if (check) {
-				mh = BMonHoc.GetMH (SQLite_Android.GetConnection (), tenMH);
-				lt = BLichThi.GetLichThi (SQLite_Android.GetConnection (), tenMH);
-				title.Text = "Nhắc lịch thi môn:" + mh.TenMH;
-				time.Text = "Thời gian:" + lt.GioBD + " Ngày:" + lt.NgayThi;
+				mh = BMonHoc.GetMH (SQLite_Android.GetConnection (), maMH);
+				lt = BLichThi.GetLichThi (SQLite_Android.GetConnection (), maMH);
+				title.Text = "NHẮC LỊCH THI";
+				subject.Text = "Môn:" + mh.TenMH;
+
+				time.Text = "Thời gian: " + lt.GioBD + " Ngày: " + lt.NgayThi;// TACH THANH 2 DONG  DE NGAY TRUOC
 
 
 			} else {
-				lh = BLichHoc.GetLH (SQLite_Android.GetConnection (), tenMH);
-				mh = BMonHoc.GetMH (SQLite_Android.GetConnection (), lh.MaMH);
-				title.Text = "Nhắc lịch học môn:" + mh.TenMH;
+				lh = BLichHoc.GetLH (SQLite_Android.GetConnection (), maMH, namHoc, hocKy);
+				mh = BMonHoc.GetMH (SQLite_Android.GetConnection (), maMH);
+				title.Text = "NHẮC LỊCH HOC";
+				subject.Text = "Môn: " + mh.TenMH;
 
 			}
 			Save.Click+= Save_Click;

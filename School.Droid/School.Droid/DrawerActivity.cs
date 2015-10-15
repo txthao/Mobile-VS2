@@ -28,7 +28,6 @@ namespace School.Droid
 		private string _title;
 		private string[] _menuTitles;
 		private int previousItemChecked;
-		private ReminderDialogFragment dialogfrag;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);

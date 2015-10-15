@@ -26,6 +26,8 @@ namespace School.Droid
 		ProgressBar progress;
 		bool check,autoupdate;
 		Bundle bundle;
+		List<chiTietLH> listCT;
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -39,6 +41,13 @@ namespace School.Droid
 
 			var rootView = inflater.Inflate (Resource.Layout.LichHoc_Tuan, container, false);
 			listView_Tuan = rootView.FindViewById<ExpandableListView> (Resource.Id.listLH_Tuan);
+			listView_Tuan.GroupClick += (sender, e) => {
+				listView_ItemClick(sender,e);
+			//	return false;
+				// row click 
+
+
+			};
 			progress = rootView.FindViewById<ProgressBar> (Resource.Id.progressLHTuan);
 			lbl_TuNgay = rootView.FindViewById<TextView> (Resource.Id.lbl_TuNgay);
 			lbl_DenNgay = rootView.FindViewById<TextView> (Resource.Id.lbl_DenNgay);
@@ -60,7 +69,27 @@ namespace School.Droid
 			Button btnTuanKe = rootView.FindViewById<Button> (Resource.Id.btnTuanKe);
 			btnTuanKe.Click += new EventHandler (btnTuanKe_Click);
 
+
+
 			return rootView;
+		}
+
+		void listView_ItemClick(object sender, ExpandableListView.GroupClickEventArgs e){
+			// content to pass 
+			var bundle1 = new Bundle();
+			LichHoc lh = BLichHoc.GetLH(SQLite_Android.GetConnection (),listCT[e.GroupPosition].Id);
+
+			bundle1.PutString ("MH", lh.MaMH);
+			bundle1.PutString ("HK", lh.HocKy);
+			bundle1.PutString ("Nam", lh.MaMH);
+			bundle1.PutBoolean ("check", false);
+
+			// call fragment
+			var fragment = new ReminderDialogFragment ();
+			fragment.Arguments = bundle1;
+			FragmentManager.BeginTransaction ()
+				.Replace (Resource.Id.content_frame, fragment).AddToBackStack("1")
+				.Commit ();
 		}
 
 		void rd_OnCheckedChangeListener (object sender, EventArgs e)
@@ -68,7 +97,7 @@ namespace School.Droid
 			LichHocHKFragment fragment = new LichHocHKFragment ();
 			fragment.Arguments = bundle;
 			FragmentManager.BeginTransaction ()
-				.Replace (Resource.Id.content_frame, fragment).AddToBackStack("12")
+				.Add (Resource.Id.content_frame, fragment).AddToBackStack("12")
 				.Commit ();
 		}
 
@@ -100,7 +129,7 @@ namespace School.Droid
 				}
 			}
 			listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());
-			List<chiTietLH> listCT = new List<chiTietLH> ();
+			listCT = new List<chiTietLH> ();
 			foreach (var item in listLH) {
 				List<chiTietLH> list = BLichHoc.GetCTLH (SQLite_Android.GetConnection (), item.Id).ToList ();
 				foreach (var ct in list) {
