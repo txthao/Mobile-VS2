@@ -79,9 +79,8 @@ namespace School.Droid
 			var bundle1 = new Bundle();
 			LichHoc lh = BLichHoc.GetLH(SQLite_Android.GetConnection (),listCT[e.Position].Id);
 
-			bundle1.PutString ("MH", lh.MaMH);
-			bundle1.PutString ("HK", lh.HocKy);
-			bundle1.PutString ("Nam", lh.MaMH);
+			bundle1.PutString ("MH", lh.Id);
+			bundle1.PutBoolean ("isLHT", false);
 			bundle1.PutBoolean ("check", false);
 
 			var fragment = new ReminderDialogFragment ();

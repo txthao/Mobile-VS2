@@ -77,11 +77,11 @@ namespace School.Droid
 		void listView_ItemClick(object sender, ExpandableListView.GroupClickEventArgs e){
 			// content to pass 
 			var bundle1 = new Bundle();
-			LichHoc lh = BLichHoc.GetLH(SQLite_Android.GetConnection (),listCT[e.GroupPosition].Id);
-
-			bundle1.PutString ("MH", lh.MaMH);
-			bundle1.PutString ("HK", lh.HocKy);
-			bundle1.PutString ("Nam", lh.MaMH);
+		
+			bundle1.PutString ("MH", listCT[e.GroupPosition].Id);
+			bundle1.PutString ("TietBD", listCT [e.GroupPosition].TietBatDau);
+			bundle1.PutString ("NgayHoc", listCT [e.GroupPosition].Tuan);
+			bundle1.PutString ("SoTiet", listCT [e.GroupPosition].SoTiet);
 			bundle1.PutBoolean ("check", false);
 
 			// call fragment

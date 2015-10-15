@@ -1,17 +1,37 @@
-﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Galaxy_Nexus_by_Google" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid/LichThiFragment.cs">
+﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="School.iOS/SlideMenu/RootViewController.cs">
     <Files>
-      <File FileName="School.Droid/Main.cs" Line="39" Column="19" />
-      <File FileName="School.Droid/LichThiFragment.cs" Line="62" Column="23" />
-      <File FileName="School.Droid/LichHocHKFragment.cs" Line="85" Column="23" />
+      <File FileName="School.iOS/SlideMenu/VCMainContent.cs" Line="33" Column="6" />
+      <File FileName="School.iOS/SlideMenu/RootViewController.cs" Line="37" Column="3" />
+      <File FileName="School.iOS/Main.cs" Line="12" Column="1" />
+      <File FileName="School.iOS/SlideMenu/RootViewController.designer.cs" Line="1" Column="1" />
+      <File FileName="School.iOS/SlideMenu/VCMainContent.designer.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="School" expanded="True">
+            <Node name="School.iOS" expanded="True">
+              <Node name="ComponentReferenceFolder" expanded="True" />
+              <Node name="Resources" expanded="True" />
+              <Node name="SlideMenu" expanded="True">
+                <Node name="RootViewController.cs" expanded="True" selected="True" />
+                <Node name="VCMainContent.cs" expanded="True" />
+                <Node name="VCMainMenu.cs" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/HocPhiAdapter.cs" line="23" column="1" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Core/Bussiness/BLichHoc.cs" line="140" column="1" />
+      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.Droid/LichThiFragment.cs" line="77" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -59,6 +59,7 @@ namespace School.Droid
 			if (Common.checkNWConnection (Activity) == true) {
 				await Common.LoadDataFromSV (Activity);
 
+
 			} else {
 				txtResult.Text = "Không Có Kết Nối Mạng, Vui Lòng Thử Lại Sau";
 
@@ -82,7 +83,7 @@ namespace School.Droid
 		}
 
 
-		void CbNLT_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
+		async void CbNLT_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
 		{
 			progressup.Visibility= ViewStates.Visible;
 			progressup.Indeterminate = true;
@@ -94,7 +95,7 @@ namespace School.Droid
 					List<LichHoc> listlh= BLichHoc.GetNewestLH(SQLite_Android.GetConnection());
 					Log.Debug("logsettings","Load LH Success");
 					ScheduleReminder reminder = new ScheduleReminder(Activity);
-					reminder.RemindAllLH(listlh);
+					 reminder.RemindAllLH(listlh);
 					reminder.RemindAllLT(listlt);
 					Toast.MakeText (Activity, "Cài đặt nhắc lịch hoàn tất", ToastLength.Long).Show();
 				}

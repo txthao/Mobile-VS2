@@ -25,7 +25,7 @@ namespace School.Core
 		public static int AddLT(LichThi lt,SQLiteConnection connection )
 		{
 			DataProvider dtb = new DataProvider (connection);
-			if (dtb.GetLT (lt.MaMH) == null) {
+			if (dtb.GetLT (lt.MaMH,lt.NamHoc,lt.HocKy) == null) {
 				dtb.AddLT (lt);
 				return 1;
 			}
@@ -78,10 +78,10 @@ namespace School.Core
 			}return null;
 		}
 
-		public static LichThi GetLichThi(SQLiteConnection connection,string mamh)
+		public static LichThi GetLT(SQLiteConnection connection,string mamh,string namhoc,string hocky)
 		{
 			DataProvider dtb = new DataProvider (connection);
-			return dtb.GetLichThi (mamh);
+			return dtb.GetLT (mamh,namhoc,hocky);
 		}
 
 

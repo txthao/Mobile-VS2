@@ -27,7 +27,7 @@ namespace School.Droid
 		private string _drawerTitle;
 		private string _title;
 		private string[] _menuTitles;
-		private int previousItemChecked;
+		public int previousItemChecked;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -102,7 +102,7 @@ namespace School.Droid
 
 		}
 
-		private void SelectItem(int position)
+		public void SelectItem(int position)
 		{
 			bundle=Common.LoadSettings ();
 			var fragment=new Fragment();
@@ -135,18 +135,26 @@ namespace School.Droid
 				break;
            
             }
-			if (position != 0) {
-				
+			if (position == previousItemChecked) {
 				fragment.Arguments = bundle;
-				FragmentManager.BeginTransaction ()
-					.Replace (Resource.Id.content_frame, fragment).AddToBackStack(""+previousItemChecked)
+				FragmentManager.BeginTransaction ().Detach (fragment).Attach (fragment).Commit ();
+				_drawer.CloseDrawer (_drawerList);
+			}
+			else
+			{
+				if (position != 0) {
+				
+					fragment.Arguments = bundle;
+					FragmentManager.BeginTransaction ()
+					.Replace (Resource.Id.content_frame, fragment).AddToBackStack ("" + previousItemChecked)
 				.Commit ();
-				_drawerList.SetItemChecked (position, true);
-				previousItemChecked = _drawerList.CheckedItemPosition;
+					_drawerList.SetItemChecked (position, true);
+					previousItemChecked = _drawerList.CheckedItemPosition;
 
 			
-				ActionBar.Title = _title = _menuTitles [position];
-				_drawer.CloseDrawer (_drawerList);
+					ActionBar.Title = _title = _menuTitles [position];
+					_drawer.CloseDrawer (_drawerList);
+				}
 			}
 		}
 
