@@ -55,13 +55,19 @@ namespace School.Core
 			return query.FirstOrDefault ();
 		}
 
-//		public LichThi GetNewestLT (string mamh)
-//		{
-//			var query = from c in _connection.Table<LichThi> ()
-//				orderby c.NamHoc descending, c.HocKy descending
-//			select c;
-//			return query.FirstOrDefault ();
-//		}
+		public List<LichThi> GetNewestLT ()
+		{
+			var query = from c in _connection.Table<LichThi> ()
+				orderby c.NamHoc descending, c.HocKy descending
+			select c;
+
+			LichThi lt = query.FirstOrDefault ();
+			var result = from a in _connection.Table<LichThi> ()
+				            where a.NamHoc.Equals (lt.NamHoc) && a.HocKy.Equals (lt.HocKy)
+				            select a;
+				return result.ToList ();
+
+		}
 
 		public void AddLH (LichHoc lh)
 		{
@@ -165,8 +171,8 @@ namespace School.Core
 		public List<chiTietLH> GetCTLH (string id)
 		{
 			var query = from c in _connection.Table<chiTietLH> ()
-			            where c.Id.Equals (id)
-			            select c;
+					where c.Id.Equals (id)
+				select c;
 			return query.ToList ();
 		}
 
@@ -207,6 +213,14 @@ namespace School.Core
 			            select c;
 			return query.ToList ();
 		}
+
+		public List<DiemMon> GetAllDiemMon ()
+		{
+			var query = from c in _connection.Table<DiemMon> ()
+				select c;
+			return query.ToList ();
+		}
+
 
 		public DiemMon GetDM (DiemMon dm)
 		{

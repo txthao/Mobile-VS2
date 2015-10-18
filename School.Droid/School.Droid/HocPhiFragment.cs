@@ -44,8 +44,13 @@ namespace School.Droid
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressHP);
 			listView = rootView.FindViewById<ListView>(Resource.Id.listHP);
 			txtHocKyHP = rootView.FindViewById<TextView>(Resource.Id.txtHocKyHP);
-
-			LoadData ();
+			//load data
+			HocPhi hp = BHocPhi.GetHP(SQLite_Android.GetConnection ());
+			if (hp != null) {
+				LoadData ();
+			} else {
+				progress.Visibility = ViewStates.Gone;
+			}
 			return rootView;
 		}
 
@@ -63,11 +68,11 @@ namespace School.Droid
 
 			listView.Adapter = adapter;
 			rootView.FindViewById<TextView> (Resource.Id.txtHocKyHP).Text = "Học Kỳ " + hp.HocKy +" Năm Học "+ hp.NamHoc;
-			rootView.FindViewById<TextView> (Resource.Id.txtTSTC).Text += hp.TongSoTC;
-			rootView.FindViewById<TextView> (Resource.Id.txtTSTHP).Text += hp.TongSoTien;
-			rootView.FindViewById<TextView> (Resource.Id.txtTTLD).Text += hp.TienDongTTLD;
-			rootView.FindViewById<TextView> (Resource.Id.txtTDD).Text += hp.TienDaDong;
-			rootView.FindViewById<TextView> (Resource.Id.txtTCN).Text += hp.TienConNo;
+//			rootView.FindViewById<TextView> (Resource.Id.txtTSTC).Text += hp.TongSoTC;
+//			rootView.FindViewById<TextView> (Resource.Id.txtTSTHP).Text += hp.TongSoTien;
+//			rootView.FindViewById<TextView> (Resource.Id.txtTTLD).Text += hp.TienDongTTLD;
+//			rootView.FindViewById<TextView> (Resource.Id.txtTDD).Text += hp.TienDaDong;
+//			rootView.FindViewById<TextView> (Resource.Id.txtTCN).Text += hp.TienConNo;
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 		}

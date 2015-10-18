@@ -50,9 +50,10 @@ namespace School.Droid
 			//load data
 			LichHoc lh = BLichHoc.GetLast (SQLite_Android.GetConnection ());
 			if (lh != null) {
-				LoadData_HK (lh.HocKy, lh.NamHoc);
-			} else {
-				LoadData_HK ("0", "0");
+				LoadData_HK ();
+			}
+			else {
+				progress.Visibility = ViewStates.Gone;
 			}
 			//radio button
 			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangTuan);
@@ -99,26 +100,8 @@ namespace School.Droid
 				.Replace (Resource.Id.content_frame, fragment).AddToBackStack ("11")
 				.Commit ();
 		}
-//
-//		void btnHK_Truoc_Click (object sender, EventArgs e)
-//		{
-//			string hK;
-//			string nH;
-//			Common.calSemester (lbl_HK.Text, lbl_NH.Text, -1, out hK, out nH);
-//			LoadData_HK (hK, nH);
-//		}
-//
-//		void btnHK_Ke_Click (object sender, EventArgs e)
-//		{
-//
-//			string hK;
-//			string nH;
-//			Common.calSemester (lbl_HK.Text, lbl_NH.Text, 1, out hK, out nH);
-//			LoadData_HK (hK, nH);
-//
-//		}
-
-		async void LoadData_HK (string hocKy, string namHoc)
+			
+		async void LoadData_HK ()
 		{
 			listView_HK.Visibility = ViewStates.Invisible;
 			progress.Visibility = ViewStates.Visible;
@@ -126,7 +109,7 @@ namespace School.Droid
 			List<LichHoc> listLH = new List<LichHoc> ();
 			if (Common.checkNWConnection (Activity) == true&&autoupdate==true) {
 			
-				var newlistlh= BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
+				var newlistlh = BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
 				List<LichHoc> newListLH= await newlistlh;
 				if (check) {
 					ScheduleReminder reminder = new ScheduleReminder (Activity);
@@ -134,12 +117,8 @@ namespace School.Droid
 					reminder.RemindAllLH (newListLH);
 				}
 			}
-			if (hocKy == "0") {
-				listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());
-			} else {
-				listLH = BLichHoc.GetLH_Time (SQLite_Android.GetConnection (), hocKy, namHoc);
+			listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());
 
-			}
 			listCT = new List<chiTietLH> ();
 			foreach (var item in listLH) {
 				listCT.AddRange (BLichHoc.GetCTLH (SQLite_Android.GetConnection (), item.Id));
@@ -156,7 +135,24 @@ namespace School.Droid
 
 		
 		}
-
+		//
+		//		void btnHK_Truoc_Click (object sender, EventArgs e)
+		//		{
+		//			string hK;
+		//			string nH;
+		//			Common.calSemester (lbl_HK.Text, lbl_NH.Text, -1, out hK, out nH);
+		//			LoadData_HK (hK, nH);
+		//		}
+		//
+		//		void btnHK_Ke_Click (object sender, EventArgs e)
+		//		{
+		//
+		//			string hK;
+		//			string nH;
+		//			Common.calSemester (lbl_HK.Text, lbl_NH.Text, 1, out hK, out nH);
+		//			LoadData_HK (hK, nH);
+		//
+		//		}
 	}
 }
 

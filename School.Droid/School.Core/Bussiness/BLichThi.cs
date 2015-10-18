@@ -31,11 +31,11 @@ namespace School.Core
 			}
 			return 0;
 		}
-//		public static LichThi GetNewestLT(LichThi lt,SQLiteConnection connection )
-//		{
-//			DataProvider dtb = new DataProvider (connection);
-//			return dtb.GetNewestLT ();
-//		}
+		public static List<LichThi> GetNewestLT(SQLiteConnection connection )
+		{
+			DataProvider dtb = new DataProvider (connection);
+			return dtb.GetNewestLT ();
+		}
 			
 		public static async Task<List<LichThi>> MakeDataFromXml(SQLiteConnection connection)
 		{
