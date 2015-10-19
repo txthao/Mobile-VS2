@@ -48,13 +48,9 @@ namespace School.Droid
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 
 			//load data
-			LichHoc lh = BLichHoc.GetLast (SQLite_Android.GetConnection ());
-			if (lh != null) {
-				LoadData_HK ();
-			}
-			else {
-				progress.Visibility = ViewStates.Gone;
-			}
+
+			LoadData_HK ();
+
 			//radio button
 			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangTuan);
 			RadioButton rb_hocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK);
@@ -84,11 +80,9 @@ namespace School.Droid
 			bundle1.PutBoolean ("isLHT", false);
 			bundle1.PutBoolean ("check", false);
 
-			var fragment = new ReminderDialogFragment ();
-			fragment.Arguments = bundle1;
-			FragmentManager.BeginTransaction ()
-				.Replace (Resource.Id.content_frame, fragment).AddToBackStack("1")
-				.Commit ();
+			Intent myintent = new Intent (Activity, typeof(Remider));
+			myintent.PutExtra ("RemindValue", bundle1);
+			StartActivity (myintent);
 		}
 
 
@@ -114,21 +108,22 @@ namespace School.Droid
 				if (check) {
 					ScheduleReminder reminder = new ScheduleReminder (Activity);
 
-					reminder.RemindAllLH (newListLH);
+					await reminder.RemindAllLH (newListLH);
 				}
 			}
 			listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());
+			if (listLH.Count > 0) {
+				listCT = new List<chiTietLH> ();
+				foreach (var item in listLH) {
+					listCT.AddRange (BLichHoc.GetCTLH (SQLite_Android.GetConnection (), item.Id));
 
-			listCT = new List<chiTietLH> ();
-			foreach (var item in listLH) {
-				listCT.AddRange (BLichHoc.GetCTLH (SQLite_Android.GetConnection (), item.Id));
+				}
 
+				lbl_HK.Text = listLH [0].HocKy;
+				lbl_NH.Text = listLH [0].NamHoc;
+				LichHocHKAdapter adapter = new LichHocHKAdapter (Activity, listCT);
+				listView_HK.Adapter = adapter;  
 			}
-
-			lbl_HK.Text = listLH [0].HocKy;
-			lbl_NH.Text = listLH [0].NamHoc;
-			LichHocHKAdapter adapter = new LichHocHKAdapter (Activity, listCT);
-			listView_HK.Adapter = adapter;  
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 			listView_HK.Visibility = ViewStates.Visible;

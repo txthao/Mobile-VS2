@@ -14,10 +14,11 @@ using Android.Support.V4.Widget;
 using Android.Content.Res;
 using School.Core;
 using System.Threading.Tasks;
+using Android.Content.PM;
 
 namespace School.Droid
 {
-	[Activity (Label = "SGU Mobile")]			
+	[Activity (Label = "SGU Mobile", ScreenOrientation = ScreenOrientation.Portrait)]			
 	public class DrawerActivity : Activity
 	{
 		private DrawerLayout _drawer;
@@ -34,6 +35,7 @@ namespace School.Droid
 
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Menu);
+		
 			Intent t = this.Intent;
 
 				bool firstload=t.GetBooleanExtra("FirstLoad",false);
@@ -135,19 +137,17 @@ namespace School.Droid
 				break;
            
             }
-			if (position == previousItemChecked) {
-//				fragment.Arguments = bundle;
-//				FragmentManager.BeginTransaction ().Detach (fragment).Attach (fragment).Commit ();
-				_drawer.CloseDrawer (_drawerList);
-			}
-			else
-			{
+
 				if (position != 0) {
 				
 					fragment.Arguments = bundle;
 					FragmentManager.BeginTransaction ()
 					.Replace (Resource.Id.content_frame, fragment).AddToBackStack ("" + previousItemChecked)
 				.Commit ();
+				if (position == previousItemChecked && FragmentManager.BackStackEntryCount > 1) {
+					FragmentManager.PopBackStackImmediate ();
+
+				}
 					_drawerList.SetItemChecked (position, true);
 					previousItemChecked = _drawerList.CheckedItemPosition;
 
@@ -155,7 +155,7 @@ namespace School.Droid
 					ActionBar.Title = _title = _menuTitles [position];
 					_drawer.CloseDrawer (_drawerList);
 				}
-			}
+
 		}
 
 		protected override void OnPostCreate(Bundle savedInstanceState)

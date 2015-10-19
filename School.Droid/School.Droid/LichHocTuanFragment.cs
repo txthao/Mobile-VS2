@@ -100,13 +100,11 @@ namespace School.Droid
 			bundle1.PutString ("NgayHoc", listCT [e.GroupPosition].Tuan);
 			bundle1.PutString ("SoTiet", listCT [e.GroupPosition].SoTiet);
 			bundle1.PutBoolean ("check", false);
-
+			bundle1.PutBoolean ("isLHT", true);
 			// call fragment
-			var fragment = new ReminderDialogFragment ();
-			fragment.Arguments = bundle1;
-			FragmentManager.BeginTransaction ()
-				.Replace (Resource.Id.content_frame, fragment).AddToBackStack("1")
-				.Commit ();
+			Intent myintent = new Intent (Activity, typeof(Remider));
+			myintent.PutExtra ("RemindValue", bundle1);
+			StartActivity (myintent);
 		}
 
 		void rd_OnCheckedChangeListener (object sender, EventArgs e)
@@ -142,7 +140,7 @@ namespace School.Droid
 				if (check) {
 					ScheduleReminder reminder = new ScheduleReminder (Activity);
 
-					reminder.RemindAllLH (newListLH);
+					await reminder.RemindAllLH (newListLH);
 				}
 			}
 			listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());

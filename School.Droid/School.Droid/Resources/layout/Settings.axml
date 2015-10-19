@@ -69,10 +69,11 @@
             android:textColor="@android:color/background_light" />
         <ProgressBar
             android:id="@+id/proUpdateData"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:layout_width="fill_parent"
             android:layout_height="50dp"
-            style="?android:attr/progressBarStyleHorizontal" />
+            android:layout_centerHorizontal="true"
+            android:indeterminateDrawable="@drawable/Progress" />
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -87,7 +88,7 @@
             android:layout_height="wrap_content"
             android:text="SGU Mobile Phiên Bản Beta"
             android:textColor="@android:color/black"
-            android:paddingTop="200dp"
+            android:paddingTop="150dp"
             android:gravity="center" />
     </LinearLayout>
 </RelativeLayout>

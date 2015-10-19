@@ -53,7 +53,7 @@ namespace School.Droid
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 			//load data
 			DiemThi dt = BDiemThi.GetNewestDT (SQLite_Android.GetConnection ());
-			if (dt != null) {
+			if (dt!=null) {
 				if (flag) {
 					LoadData ("0", "0");
 					flag = false;

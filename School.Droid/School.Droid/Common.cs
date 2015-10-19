@@ -78,25 +78,30 @@ namespace School.Droid
 			List<LichThi> newListLT= await newlistlt;
 			await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 			await BHocPhi.MakeDataFromXml (SQLite_Android.GetConnection ());
-				Toast.MakeText (ctx, "Cập nhật dữ liệu thành công", ToastLength.Long).Show();
-
-				ScheduleReminder reminder = new ScheduleReminder(ctx);
-
-				reminder.RemindAllLH(newListLH);
-				reminder.RemindAllLT(newListLT);
-
-				return "load success ";
+			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);              
+			var checkRemind = prefs.GetBoolean ("Remind",false);
+			if ( checkRemind)
+			{
+			ScheduleReminder reminder = new ScheduleReminder(ctx);
+			await reminder.RemindAllLH(newListLH);
+			await reminder.RemindAllLT(newListLT);
+			}
+			Toast.MakeText (ctx, "Cập nhật dữ liệu thành công", ToastLength.Long).Show();
+				try{
+			DrawerActivity drAc=(DrawerActivity)ctx;
+			drAc.SelectItem(drAc.previousItemChecked);
+				}catch
+				{
+				}
+			return "load success ";
 			}
 			catch {
 				Toast.MakeText (ctx, "Xảy ra lỗi trong quá trình tải dữ liệu, vui lòng thử lại sau", ToastLength.Long).Show();
 				return "load failed";
 			}
-			try{
-				DrawerActivity drAc=(DrawerActivity)ctx;
-				drAc.SelectItem(drAc.previousItemChecked);
-			}
-			catch{
-			}
+
+
+
 		}
 		public static Bundle LoadSettings()
 		{
@@ -110,6 +115,7 @@ namespace School.Droid
 			bundle.PutBoolean ("AutoUpdateData", autoUpdate);
 			return bundle;
 		}
+
 	}
 }
 

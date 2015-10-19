@@ -95,8 +95,8 @@ namespace School.Droid
 					List<LichHoc> listlh= BLichHoc.GetNewestLH(SQLite_Android.GetConnection());
 					Log.Debug("logsettings","Load LH Success");
 					ScheduleReminder reminder = new ScheduleReminder(Activity);
-					 reminder.RemindAllLH(listlh);
-					reminder.RemindAllLT(listlt);
+					await reminder.RemindAllLH(listlh);
+					await reminder.RemindAllLT(listlt);
 					Toast.MakeText (Activity, "Cài đặt nhắc lịch hoàn tất", ToastLength.Long).Show();
 				}
 				catch {
@@ -105,7 +105,7 @@ namespace School.Droid
 
 			} else {
 				ScheduleReminder reminder = new ScheduleReminder(Activity);
-				reminder.DeleteAlLRemind (Activity);
+				await reminder.DeleteAlLRemind ();
 				Toast.MakeText (Activity, "Xoá nhắc lịch hoàn tất", ToastLength.Long).Show();
 			}
 			progressup.Indeterminate = false;

@@ -74,9 +74,6 @@
     <Compile Include="HocPhiFragment.cs" />
     <Compile Include="SQLite_Android.cs" />
     <Compile Include="Common.cs" />
-    <Compile Include="HocPhiAdapter.cs">
-      <DependentUpon>LichHocHKAdapter.cs</DependentUpon>
-    </Compile>
     <Compile Include="LichHocHKAdapter.cs" />
     <Compile Include="LichHocTuanAdapter.cs" />
     <Compile Include="LoginActivity.cs" />
@@ -91,7 +88,8 @@
     <Compile Include="Helper\CustomDrawerAdapter.cs" />
     <Compile Include="Helper\ScheduleReminder.cs" />
     <Compile Include="SettingsFragment.cs" />
-    <Compile Include="ReminderDialogFragment.cs" />
+    <Compile Include="Helper\Remider.cs" />
+    <Compile Include="HocPhiAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -157,6 +155,8 @@
     <AndroidResource Include="Resources\layout\Reminder_Dialog.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\down.png" />
     <AndroidResource Include="Resources\drawable-hdpi\up.png" />
+    <AndroidResource Include="Resources\layout\HocPhiFooter.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\Progress.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

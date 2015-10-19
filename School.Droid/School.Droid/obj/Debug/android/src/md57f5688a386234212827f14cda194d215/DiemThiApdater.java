@@ -2,23 +2,19 @@ package md57f5688a386234212827f14cda194d215;
 
 
 public class DiemThiApdater
-	extends android.widget.BaseExpandableListAdapter
+	extends android.widget.BaseAdapter
 	implements
 		mono.android.IGCUserPeer
 {
 	static final String __md_methods;
 	static {
 		__md_methods = 
-			"n_getGroupView:(IZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;:GetGetGroupView_IZLandroid_view_View_Landroid_view_ViewGroup_Handler\n" +
-			"n_getChildView:(IIZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;:GetGetChildView_IIZLandroid_view_View_Landroid_view_ViewGroup_Handler\n" +
-			"n_getChildrenCount:(I)I:GetGetChildrenCount_IHandler\n" +
-			"n_getGroupCount:()I:GetGetGroupCountHandler\n" +
-			"n_getChild:(II)Ljava/lang/Object;:GetGetChild_IIHandler\n" +
-			"n_getChildId:(II)J:GetGetChildId_IIHandler\n" +
-			"n_getGroup:(I)Ljava/lang/Object;:GetGetGroup_IHandler\n" +
-			"n_getGroupId:(I)J:GetGetGroupId_IHandler\n" +
-			"n_isChildSelectable:(II)Z:GetIsChildSelectable_IIHandler\n" +
-			"n_hasStableIds:()Z:GetHasStableIdsHandler\n" +
+			"n_getCount:()I:GetGetCountHandler\n" +
+			"n_getItemId:(I)J:GetGetItemId_IHandler\n" +
+			"n_getItemViewType:(I)I:GetGetItemViewType_IHandler\n" +
+			"n_getViewTypeCount:()I:GetGetViewTypeCountHandler\n" +
+			"n_getItem:(I)Ljava/lang/Object;:GetGetItem_IHandler\n" +
+			"n_getView:(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;:GetGetView_ILandroid_view_View_Landroid_view_ViewGroup_Handler\n" +
 			"";
 		mono.android.Runtime.register ("School.Droid.DiemThiApdater, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", DiemThiApdater.class, __md_methods);
 	}
@@ -32,84 +28,52 @@ public class DiemThiApdater
 	}
 
 
-	public android.view.View getGroupView (int p0, boolean p1, android.view.View p2, android.view.ViewGroup p3)
+	public int getCount ()
 	{
-		return n_getGroupView (p0, p1, p2, p3);
+		return n_getCount ();
 	}
 
-	private native android.view.View n_getGroupView (int p0, boolean p1, android.view.View p2, android.view.ViewGroup p3);
+	private native int n_getCount ();
 
 
-	public android.view.View getChildView (int p0, int p1, boolean p2, android.view.View p3, android.view.ViewGroup p4)
+	public long getItemId (int p0)
 	{
-		return n_getChildView (p0, p1, p2, p3, p4);
+		return n_getItemId (p0);
 	}
 
-	private native android.view.View n_getChildView (int p0, int p1, boolean p2, android.view.View p3, android.view.ViewGroup p4);
+	private native long n_getItemId (int p0);
 
 
-	public int getChildrenCount (int p0)
+	public int getItemViewType (int p0)
 	{
-		return n_getChildrenCount (p0);
+		return n_getItemViewType (p0);
 	}
 
-	private native int n_getChildrenCount (int p0);
+	private native int n_getItemViewType (int p0);
 
 
-	public int getGroupCount ()
+	public int getViewTypeCount ()
 	{
-		return n_getGroupCount ();
+		return n_getViewTypeCount ();
 	}
 
-	private native int n_getGroupCount ();
+	private native int n_getViewTypeCount ();
 
 
-	public java.lang.Object getChild (int p0, int p1)
+	public java.lang.Object getItem (int p0)
 	{
-		return n_getChild (p0, p1);
+		return n_getItem (p0);
 	}
 
-	private native java.lang.Object n_getChild (int p0, int p1);
+	private native java.lang.Object n_getItem (int p0);
 
 
-	public long getChildId (int p0, int p1)
+	public android.view.View getView (int p0, android.view.View p1, android.view.ViewGroup p2)
 	{
-		return n_getChildId (p0, p1);
+		return n_getView (p0, p1, p2);
 	}
 
-	private native long n_getChildId (int p0, int p1);
-
-
-	public java.lang.Object getGroup (int p0)
-	{
-		return n_getGroup (p0);
-	}
-
-	private native java.lang.Object n_getGroup (int p0);
-
-
-	public long getGroupId (int p0)
-	{
-		return n_getGroupId (p0);
-	}
-
-	private native long n_getGroupId (int p0);
-
-
-	public boolean isChildSelectable (int p0, int p1)
-	{
-		return n_isChildSelectable (p0, p1);
-	}
-
-	private native boolean n_isChildSelectable (int p0, int p1);
-
-
-	public boolean hasStableIds ()
-	{
-		return n_hasStableIds ();
-	}
-
-	private native boolean n_hasStableIds ();
+	private native android.view.View n_getView (int p0, android.view.View p1, android.view.ViewGroup p2);
 
 	java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

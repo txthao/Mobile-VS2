@@ -60,12 +60,16 @@ namespace School.Core
 			var query = from c in _connection.Table<LichThi> ()
 				orderby c.NamHoc descending, c.HocKy descending
 			select c;
-
+			List<LichThi> list = new List<LichThi> ();
 			LichThi lt = query.FirstOrDefault ();
-			var result = from a in _connection.Table<LichThi> ()
+
+			if (lt != null) {
+			var	result = from a in _connection.Table<LichThi> ()
 				            where a.NamHoc.Equals (lt.NamHoc) && a.HocKy.Equals (lt.HocKy)
 				            select a;
 				return result.ToList ();
+			}
+			return list;
 
 		}
 

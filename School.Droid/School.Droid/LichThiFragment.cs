@@ -46,15 +46,15 @@ namespace School.Droid
 			Bundle bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
-			List<LichThi> listLT = BLichThi.GetNewestLT (SQLite_Android.GetConnection ()); 
-			if (listLT != null) {
-				LoadData ();
-			}	
-			else {
-				progress.Visibility = ViewStates.Gone;
-			}
+//			List<LichThi> listLT = BLichThi.GetNewestLT (SQLite_Android.GetConnection ()); 
+//			if (listLT != null) {
+//				
+//			}	
+//			else {
+//				progress.Visibility = ViewStates.Gone;
+//			}
 
-			// row click
+			LoadData ();
 			listView.ItemClick += listView_ItemClick;
 			return rootView;
 		}
@@ -65,11 +65,9 @@ namespace School.Droid
 			bundle1.PutBoolean ("check", true);
 			bundle1.PutString ("NamHoc", list[e.Position].NamHoc);
 			bundle1.PutString ("HocKy", list[e.Position].HocKy);
-			var fragment = new ReminderDialogFragment ();
-			fragment.Arguments = bundle1;
-			FragmentManager.BeginTransaction ()
-				.Replace (Resource.Id.content_frame, fragment).AddToBackStack("2")
-				.Commit ();
+			Intent myintent = new Intent (Activity, typeof(Remider));
+			myintent.PutExtra ("RemindValue", bundle1);
+			StartActivity (myintent);
 		}
 
 
@@ -83,16 +81,17 @@ namespace School.Droid
 				List<LichThi> newListLT= await newlistlt;
 				if (check) {
 					ScheduleReminder reminder = new ScheduleReminder (Activity);
-					reminder.RemindAllLT (newListLT);
+					await reminder.RemindAllLT (newListLT);
 				}
 			}
 			list = BLichThi.GetNewestLT (SQLite_Android.GetConnection ()); 
 			//list = BLichThi.getAll (SQLite_Android.GetConnection ());
+			if (list.Count > 0) {
+				LichThiAdapter adapter = new LichThiAdapter (Activity, list);
+				rootView.FindViewById<TextView> (Resource.Id.txtHocKy).Text = "Học Kỳ " + list [0].HocKy + " Năm Học " + list [0].NamHoc;
+				listView.Adapter = adapter;
 
-		
-			LichThiAdapter adapter = new LichThiAdapter(Activity, list);
-			rootView.FindViewById<TextView> (Resource.Id.txtHocKy).Text = "Học Kỳ " + list[0].HocKy +" Năm Học "+ list[0].NamHoc;
-			listView.Adapter = adapter;
+			}
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 		}
