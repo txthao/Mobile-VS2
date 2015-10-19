@@ -18,7 +18,7 @@ namespace School.Droid
 {
 	public class DiemThiFragment : Fragment
 	{
-		ExpandableListView listView;
+		ListView listView;
 		ProgressBar progress;
 		bool check,autoupdate;
 		Bundle bundle;
@@ -41,8 +41,15 @@ namespace School.Droid
 			check = bundle.GetBoolean ("Remind");
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 
-			listView = rootView.FindViewById<ExpandableListView>(Resource.Id.listDT);
+			listView = rootView.FindViewById<ListView>(Resource.Id.listDT);
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressDT);
+			List<DiemThi> dt = BDiemThi.getAll(SQLite_Android.GetConnection ());
+			if (dt != null) {
+				LoadData ();
+			}
+			else {
+				progress.Visibility = ViewStates.Gone;
+			}
 			LoadData ();
 
 			//radio button
@@ -69,14 +76,32 @@ namespace School.Droid
 		{
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
-			List<DiemThi> list = new List<DiemThi>();
+			List<DiemMon> list = new List<DiemMon>();
 			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
 				await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 			}
-			list = BDiemThi.getAll(SQLite_Android.GetConnection ());
-			if (list.Count > 0) {
-				listView.SetAdapter (new DiemThiApdater (Activity, list)); 
+			List<DiemThi> listDT = new List<DiemThi>();
+			listDT = BDiemThi.getAll(SQLite_Android.GetConnection ());
+			foreach (var item in listDT) {
+				
+				DiemMon Header = new DiemMon ();
+				Header.Hocky = item.Hocky;
+				Header.NamHoc = item.NamHoc;
+				Header.MaMH = "Header";
+				list.Add (Header);
+				list.AddRange (BDiemThi.GetDiemMons (SQLite_Android.GetConnection (),item.Hocky, item.NamHoc));
+				DiemMon Footer = new DiemMon ();
+				if (item.Hocky != "3") {
+					Footer.Hocky = item.Hocky;
+					Footer.NamHoc = item.NamHoc;
+					Footer.MaMH = "Footer";
+					list.Add (Footer);
+				}
+
 			}
+			listView.Adapter = new DiemThiApdater (Activity, list); 
+			//listView.SetAdapter (new DiemThiApdater (Activity, list)); 
+
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 		}

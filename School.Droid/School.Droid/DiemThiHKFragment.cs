@@ -23,8 +23,10 @@ namespace School.Droid
 		TextView lbl_NH;
 		bool check,autoupdate;
 		int btn_value ;
-			ProgressBar progress;
+		ProgressBar progress;
 		Bundle bundle;
+		bool flag = true;//check the first time and have data
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -42,15 +44,27 @@ namespace School.Droid
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_DT);
 			lbl_NH = rootView.FindViewById<TextView> (Resource.Id.lbl_NH_DT);
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressDTHK);
+			//button 
+			Button btnHKTruoc = rootView.FindViewById<Button> (Resource.Id.btnHK_Truoc_DT);
+			Button btnHKKe = rootView.FindViewById<Button> (Resource.Id.btnHK_Ke_DT);
+			//bundle
 			bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 			//load data
 			DiemThi dt = BDiemThi.GetNewestDT (SQLite_Android.GetConnection ());
 			if (dt != null) {
+				if (flag) {
+					LoadData ("0", "0");
+					flag = false;
+				}
 				LoadData (dt.Hocky, dt.NamHoc);
+				btnHKKe.Enabled = true;
+				btnHKTruoc.Enabled = true;
 			} else {
-				LoadData ("0", "0");
+				progress.Visibility = ViewStates.Gone;
+				btnHKKe.Enabled = false;
+				btnHKTruoc.Enabled = false;
 			}
 
 			//radio button
@@ -59,10 +73,8 @@ namespace School.Droid
 			rb_hocKy.Checked = true;
 			rb_tuan.Click += new EventHandler (rd_OnCheckedChangeListener);
 
-			//button 
-			Button btnHKTruoc = rootView.FindViewById<Button> (Resource.Id.btnHK_Truoc_DT);
+			//button event
 			btnHKTruoc.Click += new EventHandler (btnHK_Truoc_Click);
-			Button btnHKKe = rootView.FindViewById<Button> (Resource.Id.btnHK_Ke_DT);
 			btnHKKe.Click += new EventHandler (btnHK_Ke_Click);	
 		
 

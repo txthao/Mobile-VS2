@@ -21,6 +21,7 @@ namespace School.Droid
 		ListView listView;
 		ProgressBar progress;
 		TextView txtHocKy;
+		View rootView;
 		bool check,autoupdate;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
@@ -36,7 +37,7 @@ namespace School.Droid
 			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 		
   
-			var rootView = inflater.Inflate(Resource.Layout.LichThi, container, false);
+			rootView = inflater.Inflate(Resource.Layout.LichThi, container, false);
 		
 			txtHocKy = rootView.FindViewById<TextView> (Resource.Id.txtHocKy);
             listView = rootView.FindViewById<ListView>(Resource.Id.listLT);
@@ -45,8 +46,14 @@ namespace School.Droid
 			Bundle bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
+			List<LichThi> listLT = BLichThi.GetNewestLT (SQLite_Android.GetConnection ()); 
+			if (listLT != null) {
+				LoadData ();
+			}	
+			else {
+				progress.Visibility = ViewStates.Gone;
+			}
 
-			LoadData ();
 			// row click
 			listView.ItemClick += listView_ItemClick;
 			return rootView;
@@ -79,11 +86,12 @@ namespace School.Droid
 					reminder.RemindAllLT (newListLT);
 				}
 			}
-			//	LichThi lt = BLichThi.GetNewestLT (SQLite_Android.GetConnection ()); chi hien thi lich thi moi nhat 
-			list = BLichThi.getAll (SQLite_Android.GetConnection ());
+			list = BLichThi.GetNewestLT (SQLite_Android.GetConnection ()); 
+			//list = BLichThi.getAll (SQLite_Android.GetConnection ());
 
 		
 			LichThiAdapter adapter = new LichThiAdapter(Activity, list);
+			rootView.FindViewById<TextView> (Resource.Id.txtHocKy).Text = "Học Kỳ " + list[0].HocKy +" Năm Học "+ list[0].NamHoc;
 			listView.Adapter = adapter;
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;

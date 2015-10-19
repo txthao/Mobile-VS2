@@ -76,7 +76,7 @@
                 android:layout_weight="0.4"
                 android:text="Môn Học"
                 android:gravity="center"
-                android:padding="5dp"
+                android:paddingBottom="5dp"
                 style="@style/RowHeader" />
             <View
                 android:layout_width="1dp"
@@ -88,7 +88,7 @@
                 android:layout_weight="0.15"
                 android:text="Tỉ lệ"
                 android:gravity="center"
-                android:padding="5dp"
+                android:paddingBottom="5dp"
                 style="@style/RowHeader" />
             <View
                 android:layout_width="1dp"
@@ -100,7 +100,7 @@
                 android:layout_weight="0.15"
                 android:text="Điểm KT"
                 android:gravity="center"
-                android:padding="5dp"
+                android:paddingBottom="5dp"
                 style="@style/RowHeader" />
             <View
                 android:layout_width="1dp"
@@ -112,7 +112,7 @@
                 android:layout_weight="0.15"
                 android:text="Điểm Thi"
                 android:gravity="center"
-                android:padding="5dp"
+                android:paddingBottom="5dp"
                 style="@style/RowHeader" />
             <View
                 android:layout_width="1dp"
@@ -124,7 +124,7 @@
                 android:layout_weight="0.15"
                 android:text="Điểm TK"
                 android:gravity="center"
-                android:padding="5dp"
+                android:paddingBottom="5dp"
                 style="@style/RowHeader" />
         </LinearLayout>
         <ProgressBar

@@ -45,6 +45,12 @@ namespace School.Core
 			return 0;
 		}
 
+		public static List<DiemMon> GetAllDiemMon (SQLiteConnection connection)
+		{
+			DataProvider dtb = new DataProvider (connection);
+			return dtb.GetAllDiemMon ();
+		}
+
 		public static List<DiemMon> GetDiemMons (SQLiteConnection connection, string hocky, string namhoc)
 		{
 			DataProvider dtb = new DataProvider (connection);

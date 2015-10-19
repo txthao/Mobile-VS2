@@ -41,7 +41,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:background="@android:color/background_light">
+            android:background="@android:color/background_light"
+            android:id="@+id/linear_LH_Tuan_ThoiGian">
             <TextView
                 android:textColor="@android:color/background_dark"
                 android:layout_width="wrap_content"

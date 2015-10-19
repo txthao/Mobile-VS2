@@ -52,10 +52,29 @@ namespace School.Droid
 			lbl_TuNgay = rootView.FindViewById<TextView> (Resource.Id.lbl_TuNgay);
 			lbl_DenNgay = rootView.FindViewById<TextView> (Resource.Id.lbl_DenNgay);
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_Tuan);
+			LinearLayout linear_ThoiGian= rootView.FindViewById<LinearLayout> (Resource.Id.linear_LH_Tuan_ThoiGian);
+			//button 
+			Button btnTuanTruoc = rootView.FindViewById<Button> (Resource.Id.btnTuanTruoc);
+			Button btnTuanKe = rootView.FindViewById<Button> (Resource.Id.btnTuanKe);
+			//bundle
 			bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
-			LoadData_Tuan (DateTime.Today);
+
+			LichHoc lh = BLichHoc.GetLast (SQLite_Android.GetConnection ());
+			if (lh != null) {
+				LoadData_Tuan (DateTime.Today);
+				btnTuanTruoc.Enabled = true;
+				btnTuanKe.Enabled = true;
+				linear_ThoiGian.Visibility = ViewStates.Visible;
+			}
+			else {
+				progress.Visibility = ViewStates.Gone;
+				btnTuanTruoc.Enabled = false;
+				btnTuanKe.Enabled = false;
+				linear_ThoiGian.Visibility = ViewStates.Invisible;
+			}
+
 
 			//radio button 
 			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangTuan_Tuan);
@@ -63,10 +82,8 @@ namespace School.Droid
 			rb_tuan.Checked = true;
 			rb_hocKy.Click += new EventHandler (rd_OnCheckedChangeListener);
 
-			//button 
-			Button btnTuanTruoc = rootView.FindViewById<Button> (Resource.Id.btnTuanTruoc);
+			// button event
 			btnTuanTruoc.Click += new EventHandler (btnTuanTruoc_Click);
-			Button btnTuanKe = rootView.FindViewById<Button> (Resource.Id.btnTuanKe);
 			btnTuanKe.Click += new EventHandler (btnTuanKe_Click);
 
 
