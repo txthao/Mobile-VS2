@@ -18,10 +18,6 @@ School.Droid.HocPhiFragment, School.Droid;md57f5688a386234212827f14cda194d215.Ho
 School.Droid.HocPhiFragment, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.HocPhiFragment
 School.Droid.HocPhiFragment;md57f5688a386234212827f14cda194d215.HocPhiFragment
 school.droid.HocPhiFragment;md57f5688a386234212827f14cda194d215.HocPhiFragment
-School.Droid.HocPhiAdapter, School.Droid;md57f5688a386234212827f14cda194d215.HocPhiAdapter
-School.Droid.HocPhiAdapter, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.HocPhiAdapter
-School.Droid.HocPhiAdapter;md57f5688a386234212827f14cda194d215.HocPhiAdapter
-school.droid.HocPhiAdapter;md57f5688a386234212827f14cda194d215.HocPhiAdapter
 School.Droid.LichHocHKAdapter, School.Droid;md57f5688a386234212827f14cda194d215.LichHocHKAdapter
 School.Droid.LichHocHKAdapter, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.LichHocHKAdapter
 School.Droid.LichHocHKAdapter;md57f5688a386234212827f14cda194d215.LichHocHKAdapter
@@ -58,6 +54,10 @@ School.Droid.DiemThiApdater, School.Droid;md57f5688a386234212827f14cda194d215.Di
 School.Droid.DiemThiApdater, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.DiemThiApdater
 School.Droid.DiemThiApdater;md57f5688a386234212827f14cda194d215.DiemThiApdater
 school.droid.DiemThiApdater;md57f5688a386234212827f14cda194d215.DiemThiApdater
+School.Droid.DiemThiApdater/ViewHolderItem, School.Droid;md57f5688a386234212827f14cda194d215.DiemThiApdater_ViewHolderItem
+School.Droid.DiemThiApdater/ViewHolderItem, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.DiemThiApdater_ViewHolderItem
+School.Droid.DiemThiApdater.ViewHolderItem;md57f5688a386234212827f14cda194d215.DiemThiApdater_ViewHolderItem
+school.droid.DiemThiApdater_ViewHolderItem;md57f5688a386234212827f14cda194d215.DiemThiApdater_ViewHolderItem
 School.Droid.DiemThiHKAdapter, School.Droid;md57f5688a386234212827f14cda194d215.DiemThiHKAdapter
 School.Droid.DiemThiHKAdapter, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.DiemThiHKAdapter
 School.Droid.DiemThiHKAdapter;md57f5688a386234212827f14cda194d215.DiemThiHKAdapter
@@ -74,10 +74,14 @@ School.Droid.SettingsFragment, School.Droid;md57f5688a386234212827f14cda194d215.
 School.Droid.SettingsFragment, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.SettingsFragment
 School.Droid.SettingsFragment;md57f5688a386234212827f14cda194d215.SettingsFragment
 school.droid.SettingsFragment;md57f5688a386234212827f14cda194d215.SettingsFragment
-School.Droid.ReminderDialogFragment, School.Droid;md57f5688a386234212827f14cda194d215.ReminderDialogFragment
-School.Droid.ReminderDialogFragment, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.ReminderDialogFragment
-School.Droid.ReminderDialogFragment;md57f5688a386234212827f14cda194d215.ReminderDialogFragment
-school.droid.ReminderDialogFragment;md57f5688a386234212827f14cda194d215.ReminderDialogFragment
+School.Droid.Remider, School.Droid;md57f5688a386234212827f14cda194d215.Remider
+School.Droid.Remider, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.Remider
+School.Droid.Remider;md57f5688a386234212827f14cda194d215.Remider
+school.droid.Remider;md57f5688a386234212827f14cda194d215.Remider
+School.Droid.HocPhiAdapter, School.Droid;md57f5688a386234212827f14cda194d215.HocPhiAdapter
+School.Droid.HocPhiAdapter, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.HocPhiAdapter
+School.Droid.HocPhiAdapter;md57f5688a386234212827f14cda194d215.HocPhiAdapter
+school.droid.HocPhiAdapter;md57f5688a386234212827f14cda194d215.HocPhiAdapter
 Android.Support.V4.View.ViewPager/IOnPageChangeListenerImplementor, Xamarin.Android.Support.v4;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 Android.Support.V4.View.ViewPager/IOnPageChangeListenerImplementor, Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 Android.Support.V4.View.ViewPager.IOnPageChangeListenerImplementor;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor

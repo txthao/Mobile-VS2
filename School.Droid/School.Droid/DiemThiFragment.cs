@@ -43,13 +43,8 @@ namespace School.Droid
 
 			listView = rootView.FindViewById<ListView>(Resource.Id.listDT);
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressDT);
-			List<DiemThi> dt = BDiemThi.getAll(SQLite_Android.GetConnection ());
-			if (dt != null) {
-				LoadData ();
-			}
-			else {
-				progress.Visibility = ViewStates.Gone;
-			}
+	
+
 			LoadData ();
 
 			//radio button
@@ -81,7 +76,10 @@ namespace School.Droid
 				await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 			}
 			List<DiemThi> listDT = new List<DiemThi>();
+
 			listDT = BDiemThi.getAll(SQLite_Android.GetConnection ());
+			if (listDT.Count>0)
+			{
 			foreach (var item in listDT) {
 				
 				DiemMon Header = new DiemMon ();
@@ -101,7 +99,7 @@ namespace School.Droid
 			}
 			listView.Adapter = new DiemThiApdater (Activity, list); 
 			//listView.SetAdapter (new DiemThiApdater (Activity, list)); 
-
+			}
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 		}

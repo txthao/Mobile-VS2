@@ -28,7 +28,8 @@
         android:textStyle="bold"
         android:text="Thời gian"
         android:layout_marginTop="15dp"
-        android:id="@+id/txtTimeRM" />
+        android:id="@+id/txtTimeRM"
+        android:textColor="@android:color/holo_blue_dark" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -70,19 +71,19 @@
     <EditText
         android:id="@+id/edtxt_Content"
         android:layout_width="fill_parent"
-        android:layout_height="80dp"
+        android:layout_height="120dp"
         android:textColor="@android:color/holo_blue_dark"
-        android:gravity="left"
+        android:gravity="center"
         android:background="@drawable/edittext"
         android:inputType="text"
-        android:imeOptions="actionNext"
+        android:imeOptions="actionDone"
         android:layout_marginTop="10dp" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="6dip"
-        android:paddingTop="4dip"
+        android:paddingTop="50dip"
         android:weightSum="1"
         android:layout_marginTop="10dp">
         <View

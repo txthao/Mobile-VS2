@@ -12,10 +12,11 @@ using Android.Views;
 using Android.Widget;
 using School.Core;
 using Android.Views.InputMethods;
+using Android.Content.PM;
 
 namespace School.Droid
 {
-	[Activity (Label = "Đăng nhập")]			
+	[Activity (Label = "Đăng nhập", ScreenOrientation = ScreenOrientation.Portrait)]			
 	public class LoginActivity : Activity
 	{
 		Button btnLogin;
@@ -56,30 +57,34 @@ namespace School.Droid
 
 		async void  LogInProcess(object sender, EventArgs e)
 		{
-			
+			errormsg = FindViewById<TextView> (Resource.Id.errorMSG);
+			if (Common.checkNWConnection (this) == true) {
 				
-				errormsg = FindViewById<TextView> (Resource.Id.errorMSG);
-			if (!String.IsNullOrEmpty (username.Text) && !String.IsNullOrEmpty (password.Text)) {
-				ProgressDialog dialog = new ProgressDialog (this);
-				dialog.SetMessage ("Login...");
-				dialog.Indeterminate = false;
-				dialog.SetCancelable (false);
+
+				if (!String.IsNullOrEmpty (username.Text) && !String.IsNullOrEmpty (password.Text)) {
+					ProgressDialog dialog = new ProgressDialog (this);
+					dialog.SetMessage ("Đăng nhập...");
+					dialog.Indeterminate = false;
+					dialog.SetCancelable (false);
 		
-				dialog.Show ();
+					dialog.Show ();
 
-				if (await BUser.CheckAuth (username.Text, password.Text, SQLite_Android.GetConnection ())) {
-					Intent myintent = new Intent (this, typeof(DrawerActivity));
-					myintent.PutExtra ("FirstLoad", true);
-					dialog.SetMessage ("Đang tải dữ liệu....");
-					await Common.LoadDataFromSV(this);
-					StartActivity (myintent);
+					if (await BUser.CheckAuth (username.Text, password.Text, SQLite_Android.GetConnection ())) {
+						Intent myintent = new Intent (this, typeof(DrawerActivity));
+						myintent.PutExtra ("FirstLoad", true);
+						dialog.SetMessage ("Đang tải dữ liệu....");
+						await Common.LoadDataFromSV (this);
+						StartActivity (myintent);
 
-					this.Finish ();
-				} else {
-					dialog.Dismiss ();
-					errormsg.Text = "Mã Sinh Viên Hoặc Mật Khẩu Không Đúng!";
+						this.Finish ();
+					} else {
+						dialog.Dismiss ();
+						errormsg.Text = "Mã Sinh Viên Hoặc Mật Khẩu Không Đúng!";
 
+					}
 				}
+			} else {
+				errormsg.Text = "Không có kết nối mạng, vui lòng thử lại sau";
 			}
 		}
 		public void hideKeyboard(View view) {

@@ -102,8 +102,11 @@
                 style="@style/RowHeader" />
         </LinearLayout>
         <ProgressBar
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:indeterminateDrawable="@drawable/Progress"
             android:id="@+id/progressDT" />
         <ListView
             android:minWidth="25px"
