@@ -95,6 +95,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:id="@+id/btnSave"
             style="@style/Button" />
         <View
@@ -106,6 +107,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:id="@+id/btnCancel"
             style="@style/Button" />
     </LinearLayout>
