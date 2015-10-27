@@ -1,0 +1,49 @@
+﻿
+using System;
+
+using Foundation;
+using UIKit;
+using School.Core;
+using System.Collections.Generic;
+
+namespace School.iOS
+{
+	public partial class VCHocPhi : UIViewController
+	{
+		public VCHocPhi () : base ("VCHocPhi", null)
+		{
+		}
+
+		public override void DidReceiveMemoryWarning ()
+		{
+			// Releases the view if it doesn't have a superview.
+			base.DidReceiveMemoryWarning ();
+			
+			// Release any cached data, images, etc that aren't in use.
+		}
+
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+
+
+			LoadData ();
+
+		}
+		private async void LoadData()
+		{
+			try{
+				
+			List<CTHocPhi> list = new List<CTHocPhi> ();
+			await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
+				HocPhi hp = BHocPhi.GetHP(SQLite_iOS.GetConnection ());
+				list= BHocPhi.GetCTHP(SQLite_iOS.GetConnection (),hp.NamHoc,hp.HocKy);
+
+			listHP.Source = new HocPhiSource (list);
+			}
+			catch {
+			}
+		}
+	}
+}
+

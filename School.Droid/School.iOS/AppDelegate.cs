@@ -19,7 +19,7 @@ namespace School.iOS
 		{
 			// create a new window instance based on the screen size
 			Window = new UIWindow (UIScreen.MainScreen.Bounds);
-
+		
 			// If you have defined a root view controller, set it here:
 			// Window.RootViewController = myViewController;
 			Window.RootViewController = new RootViewController();
