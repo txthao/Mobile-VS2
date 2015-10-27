@@ -73,3 +73,4 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/uploadflags.txt
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/School.Droid.dll
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/School.Droid.dll.mdb
+/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/appicon.jpg

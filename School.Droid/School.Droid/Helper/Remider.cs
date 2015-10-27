@@ -15,7 +15,7 @@ using Android.Content.PM;
 
 namespace School.Droid
 {
-	[Activity (Label = "Cài đặt nhắc lịch", ScreenOrientation = ScreenOrientation.Portrait,Icon = Android.Resource.Color.Transparent)]			
+	[Activity (Label = "Cài đặt nhắc lịch", ScreenOrientation = ScreenOrientation.Portrait)]			
 	public class Remider : Activity
 	{
 		string MH;

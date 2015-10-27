@@ -63,47 +63,105 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Xamarin-Sidebar-Unified">
-      <HintPath>..\Components\SidebarNavigation-1.9\lib\ios-unified\Xamarin-Sidebar-Unified.dll</HintPath>
+    <Reference Include="FlyoutNavigation">
+      <HintPath>..\Components\flyoutnavigation-1.5.1\lib\ios-unified\FlyoutNavigation.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTouch.Dialog-1" />
+    <Reference Include="BTProgressHUD">
+      <HintPath>..\Components\btprogresshud-1.17\lib\ios-unified\BTProgressHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.0.11\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\AppLogo.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\AppLogo.imageset\SguIcon.jpg" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="SlideMenu\VCLichHoc.xib" />
+    <InterfaceDefinition Include="SlideMenu\VCLichThi.xib" />
+    <InterfaceDefinition Include="SlideMenu\VCDiemThi.xib" />
+    <InterfaceDefinition Include="SlideMenu\VCHocPhi.xib" />
+    <InterfaceDefinition Include="SlideMenu\VCSettings.xib" />
+    <InterfaceDefinition Include="LogInView\VCLogIn.xib" />
     <InterfaceDefinition Include="SlideMenu\RootViewController.xib" />
-    <InterfaceDefinition Include="SlideMenu\VCMainMenu.xib" />
-    <InterfaceDefinition Include="SlideMenu\VCMainContent.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="SlideMenu\VCLichHoc.cs" />
+    <Compile Include="SlideMenu\VCLichHoc.designer.cs">
+      <DependentUpon>VCLichHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlideMenu\VCLichThi.cs" />
+    <Compile Include="SlideMenu\VCLichThi.designer.cs">
+      <DependentUpon>VCLichThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlideMenu\VCDiemThi.cs" />
+    <Compile Include="SlideMenu\VCDiemThi.designer.cs">
+      <DependentUpon>VCDiemThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlideMenu\VCHocPhi.cs" />
+    <Compile Include="SlideMenu\VCHocPhi.designer.cs">
+      <DependentUpon>VCHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlideMenu\VCSettings.cs" />
+    <Compile Include="SlideMenu\VCSettings.designer.cs">
+      <DependentUpon>VCSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogInView\VCLogIn.cs" />
+    <Compile Include="LogInView\VCLogIn.designer.cs">
+      <DependentUpon>VCLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ApiHelper.cs" />
+    <Compile Include="Helper\SQLite_iOS.cs" />
+    <Compile Include="TableSources\HocPhiSource.cs" />
+    <Compile Include="TableSources\HocPhiCell.cs" />
     <Compile Include="SlideMenu\RootViewController.cs" />
     <Compile Include="SlideMenu\RootViewController.designer.cs">
       <DependentUpon>RootViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="SlideMenu\VCMainMenu.cs" />
-    <Compile Include="SlideMenu\VCMainMenu.designer.cs">
-      <DependentUpon>VCMainMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SlideMenu\VCMainContent.cs" />
-    <Compile Include="SlideMenu\VCMainContent.designer.cs">
-      <DependentUpon>VCMainContent.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\SQLitePCL.raw_basic.0.8.2\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets" Condition="Exists('..\packages\SQLitePCL.raw_basic.0.8.2\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets')" />
   <ItemGroup>
     <Folder Include="SlideMenu\" />
+    <Folder Include="Resources\menupic\" />
+    <Folder Include="LogInView\" />
+    <Folder Include="Helper\" />
+    <Folder Include="TableSources\" />
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="SidebarNavigation">
-      <Version>1.9</Version>
+    <XamarinComponentReference Include="flyoutnavigation">
+      <Version>1.5.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+    <XamarinComponentReference Include="btprogresshud">
+      <Version>1.17</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menupic\Icdiemthi.png" />
+    <BundleResource Include="Resources\menupic\Iclichhoc.png" />
+    <BundleResource Include="Resources\menupic\Icsettings.png" />
+    <BundleResource Include="Resources\menupic\Iclichthi.png" />
+    <BundleResource Include="Resources\menupic\Ichocphi.png" />
+    <BundleResource Include="Resources\menupic\Iclogout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\School.Core\School.Core.csproj">
+      <Project>{ECAB2A37-F7A2-4B77-AE7D-16CB77DE4DB0}</Project>
+      <Name>School.Core</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

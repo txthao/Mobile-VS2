@@ -92,7 +92,7 @@
             android:layout_weight="0.2" />
         <Button
             android:text="Save"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_weight="0.2"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -104,7 +104,7 @@
             android:layout_weight="0.2" />
         <Button
             android:text="Cancel"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_weight="0.2"
             android:layout_height="wrap_content"
             android:padding="10dp"
