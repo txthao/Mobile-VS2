@@ -13,7 +13,16 @@ namespace School.iOS
 	partial class VCHocPhi
 	{
 		[Outlet]
+		UIKit.UITableView headers { get; set; }
+
+		[Outlet]
+		UIKit.UITableView listHeaders { get; set; }
+
+		[Outlet]
 		UIKit.UITableView listHP { get; set; }
+
+		[Outlet]
+		UIKit.UILabel timeHP { get; set; }
 
 		[Outlet]
 		UIKit.UILabel txtTienConNo { get; set; }
@@ -32,24 +41,19 @@ namespace School.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (txtTongTienHP != null) {
-				txtTongTienHP.Dispose ();
-				txtTongTienHP = null;
+			if (timeHP != null) {
+				timeHP.Dispose ();
+				timeHP = null;
 			}
 
-			if (txtTTLD != null) {
-				txtTTLD.Dispose ();
-				txtTTLD = null;
+			if (headers != null) {
+				headers.Dispose ();
+				headers = null;
 			}
 
-			if (txtTongTIenDD != null) {
-				txtTongTIenDD.Dispose ();
-				txtTongTIenDD = null;
-			}
-
-			if (txtTienConNo != null) {
-				txtTienConNo.Dispose ();
-				txtTienConNo = null;
+			if (listHeaders != null) {
+				listHeaders.Dispose ();
+				listHeaders = null;
 			}
 
 			if (listHP != null) {
@@ -57,9 +61,29 @@ namespace School.iOS
 				listHP = null;
 			}
 
+			if (txtTienConNo != null) {
+				txtTienConNo.Dispose ();
+				txtTienConNo = null;
+			}
+
+			if (txtTongTIenDD != null) {
+				txtTongTIenDD.Dispose ();
+				txtTongTIenDD = null;
+			}
+
+			if (txtTongTienHP != null) {
+				txtTongTienHP.Dispose ();
+				txtTongTienHP = null;
+			}
+
 			if (txtToSoTC != null) {
 				txtToSoTC.Dispose ();
 				txtToSoTC = null;
+			}
+
+			if (txtTTLD != null) {
+				txtTTLD.Dispose ();
+				txtTTLD = null;
 			}
 		}
 	}

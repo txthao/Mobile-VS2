@@ -25,8 +25,8 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
-
+			headers.Source = new HocPhiSource ();
+	
 			LoadData ();
 
 		}
@@ -36,10 +36,19 @@ namespace School.iOS
 				
 			List<CTHocPhi> list = new List<CTHocPhi> ();
 			await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
-				HocPhi hp = BHocPhi.GetHP(SQLite_iOS.GetConnection ());
-				list= BHocPhi.GetCTHP(SQLite_iOS.GetConnection (),hp.NamHoc,hp.HocKy);
-
+			HocPhi hp = BHocPhi.GetHP(SQLite_iOS.GetConnection ());
+			if (hp!=null)
+			{
+			timeHP.Text="Học Kỳ "+hp.HocKy+"Năm "+hp.NamHoc;
+			list= BHocPhi.GetCTHP(SQLite_iOS.GetConnection (),hp.NamHoc,hp.HocKy);
 			listHP.Source = new HocPhiSource (list);
+			listHP.ReloadData();
+			txtToSoTC.Text+=hp.TongSoTC;
+			txtTongTienHP.Text+=hp.TongSoTien;
+			txtTTLD.Text+=hp.TienDongTTLD;
+			txtTongTIenDD.Text+=hp.TienDaDong;
+			txtTienConNo.Text+=hp.TienConNo;
+			}
 			}
 			catch {
 			}

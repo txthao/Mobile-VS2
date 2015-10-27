@@ -10,10 +10,19 @@ namespace School.iOS
 	{
 		List<CTHocPhi> tableItems;
 		NSString cellIdentifier = new NSString("TableCell");
+		bool isHeader=false;
 		public HocPhiSource (List<CTHocPhi> list)
 		{
 			tableItems = list;
-
+			isHeader = false;
+		}
+		public HocPhiSource()
+		{
+			tableItems = new List<CTHocPhi> ();
+			isHeader = true;
+			CTHocPhi ct = new CTHocPhi ();
+			ct.MaMH="Môn Học";
+			tableItems.Add (ct);
 		}
 		public override nint RowsInSection (UITableView tableview, nint section)
 		{
@@ -22,17 +31,25 @@ namespace School.iOS
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
 			// in a Storyboard, Dequeue will ALWAYS return a cell, 
-			HocPhiCell cell = tableView.DequeueReusableCell (cellIdentifier) as HocPhiCell;
+			if (!isHeader) {
+				HocPhiCell cell = tableView.DequeueReusableCell (cellIdentifier) as HocPhiCell;
 
-			if (cell == null) {
-				cell = new HocPhiCell ( cellIdentifier);
+				if (cell == null) {
+					cell = new HocPhiCell (cellIdentifier);
+				}
+				cell.UpdateCell (tableItems [indexPath.Row].MaMH, tableItems [indexPath.Row].HocPhi, tableItems [indexPath.Row].MienGiam,
+					tableItems [indexPath.Row].PhaiDong);
+				return cell;
+				// now set the properties as normal
+			} else {
+				HPHeaderCell cell = tableView.DequeueReusableCell (cellIdentifier) as HPHeaderCell;
+				if (cell == null) {
+					cell = new  HPHeaderCell (cellIdentifier);
+				}
+				return cell;
 			}
-			cell.UpdateCell (tableItems [indexPath.Row].MaMH, tableItems [indexPath.Row].HocPhi, tableItems [indexPath.Row].MienGiam,
-				tableItems [indexPath.Row].PhaiDong);
-			// now set the properties as normal
 			
-			
-			return cell;
+
 		}
 
 	}

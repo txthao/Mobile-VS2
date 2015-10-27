@@ -22,7 +22,11 @@ namespace School.iOS
 			
 			// Release any cached data, images, etc that aren't in use.
 		}
-
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+			this.NavigationController.NavigationBarHidden = true;
+		}
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
@@ -46,10 +50,7 @@ namespace School.iOS
 						txtMaSV.Text=string.Empty;
 						txtMatKhau.Text=string.Empty;
 						BTProgressHUD.Dismiss();
-							var view=	NSBundle.MainBundle.LoadNib("RootViewController",this,null);
-							RootViewController main= Runtime.GetNSObject(view.ValueAt(0)) as RootViewController;
-						
-						
+						this.NavigationController.PresentViewController(new RootViewController(),true,null);
 						});
 					}
 					else

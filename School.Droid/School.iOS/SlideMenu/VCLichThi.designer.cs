@@ -12,9 +12,31 @@ namespace School.iOS
 	[Register ("VCLichThi")]
 	partial class VCLichThi
 	{
+		[Outlet]
+		UIKit.UITableView headers { get; set; }
+
+		[Outlet]
+		UIKit.UITableView listLT { get; set; }
+
+		[Outlet]
+		UIKit.UILabel timeLT { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (headers != null) {
+				headers.Dispose ();
+				headers = null;
+			}
+
+			if (listLT != null) {
+				listLT.Dispose ();
+				listLT = null;
+			}
+
+			if (timeLT != null) {
+				timeLT.Dispose ();
+				timeLT = null;
+			}
 		}
 	}
 }

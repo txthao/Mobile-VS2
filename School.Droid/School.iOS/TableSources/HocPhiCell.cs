@@ -8,6 +8,7 @@ namespace School.iOS
 	public class HocPhiCell: UITableViewCell
 	{
 		UILabel monhoc,hocphi,miengiam,phaidong;
+
 		public HocPhiCell (NSString cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;
@@ -32,6 +33,7 @@ namespace School.iOS
 				BackgroundColor = UIColor.Clear,
 				Font = UIFont.FromName("AmericanTypewriter", 12f)
 			};
+
 			ContentView.AddSubviews (new UIView[] { monhoc, hocphi, miengiam, phaidong });
 		}
 		public void UpdateCell (string imonhoc, string ihocphi, string imiengiam, string iphaidong)
