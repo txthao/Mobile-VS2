@@ -84,12 +84,14 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
     <InterfaceDefinition Include="SlideMenu\VCLichHoc.xib" />
     <InterfaceDefinition Include="SlideMenu\VCLichThi.xib" />
-    <InterfaceDefinition Include="SlideMenu\VCDiemThi.xib" />
     <InterfaceDefinition Include="SlideMenu\VCHocPhi.xib" />
     <InterfaceDefinition Include="SlideMenu\VCSettings.xib" />
     <InterfaceDefinition Include="LogInView\VCLogIn.xib" />
     <InterfaceDefinition Include="SlideMenu\RootViewController.xib" />
     <InterfaceDefinition Include="Resources\SlideMenu\en.lproj\VCHocPhi.xib" />
+    <InterfaceDefinition Include="SlideMenu\VCDiemThi.xib" />
+    <InterfaceDefinition Include="SlideMenu\VCADiemThi.xib" />
+    <InterfaceDefinition Include="SlideMenu\VCLichHocTuan.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -106,10 +108,6 @@
     <Compile Include="SlideMenu\VCLichThi.cs" />
     <Compile Include="SlideMenu\VCLichThi.designer.cs">
       <DependentUpon>VCLichThi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SlideMenu\VCDiemThi.cs" />
-    <Compile Include="SlideMenu\VCDiemThi.designer.cs">
-      <DependentUpon>VCDiemThi.cs</DependentUpon>
     </Compile>
     <Compile Include="SlideMenu\VCHocPhi.cs" />
     <Compile Include="SlideMenu\VCHocPhi.designer.cs">
@@ -139,6 +137,24 @@
     <Compile Include="TableSources\DiemThiSource.cs" />
     <Compile Include="TableSources\LichHocHKCell.cs" />
     <Compile Include="TableSources\LichHocHKSource.cs" />
+    <Compile Include="TableSources\DiemThiHKSource.cs" />
+    <Compile Include="SlideMenu\VCDiemThi.cs" />
+    <Compile Include="SlideMenu\VCDiemThi.designer.cs">
+      <DependentUpon>VCDiemThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\DiemThiFooter.cs" />
+    <Compile Include="SlideMenu\VCADiemThi.cs" />
+    <Compile Include="SlideMenu\VCADiemThi.designer.cs">
+      <DependentUpon>VCADiemThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\DTHeader.cs" />
+    <Compile Include="TableSources\LichHocTSource.cs" />
+    <Compile Include="TableSources\LichHocTCell.cs" />
+    <Compile Include="SlideMenu\VCLichHocTuan.cs" />
+    <Compile Include="SlideMenu\VCLichHocTuan.designer.cs">
+      <DependentUpon>VCLichHocTuan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\LHExpandCell.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\SQLitePCL.raw_basic.0.8.2\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets" Condition="Exists('..\packages\SQLitePCL.raw_basic.0.8.2\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets')" />

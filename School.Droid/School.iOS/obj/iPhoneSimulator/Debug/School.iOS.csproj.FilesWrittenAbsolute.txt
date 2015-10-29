@@ -2,11 +2,13 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCLichHoc.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCLichThi.nib
-/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCDiemThi.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCHocPhi.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCSettings.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCLogIn.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/RootViewController.nib
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/en.lproj/VCHocPhi.nib
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCDiemThi.nib
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCADiemThi.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/partial-info.plist
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/asset-manifest.plist
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/LaunchImage-700-568h@2x.png
@@ -44,4 +46,4 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/School.iOS.exe
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/School.iOS.exe
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/School.iOS.exe.mdb
-/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/en.lproj/VCHocPhi.nib
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCLichHocTuan.nib

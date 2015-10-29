@@ -38,7 +38,9 @@ namespace School.iOS
 				NavigationRoot = new RootElement ("Navigation") {
 					new Section ("Trang") {
 						new ImageStringElement("Lịch Học",UIImage.FromBundle("menupic/Iclichhoc.png")),
+						new ImageStringElement("Lịch Học Tuần",UIImage.FromBundle("menupic/Iclichhoc.png")),
 						new ImageStringElement("Lịch Thi",UIImage.FromBundle("menupic/Iclichthi.png")),
+						new ImageStringElement("Điểm Thi HK",UIImage.FromBundle("menupic/Icdiemthi.png")),
 						new ImageStringElement("Điểm Thi",UIImage.FromBundle("menupic/Icdiemthi.png")),
 						new ImageStringElement("Học Phí",UIImage.FromBundle("menupic/Ichocphi.png")),
 
@@ -51,8 +53,10 @@ namespace School.iOS
 				// Supply view controllers corresponding to menu items:
 				ViewControllers = new UIViewController[] {
 					new VCLichHoc(),
+					new VCLichHocTuan(),
 					new VCLichThi(),
 					new VCDiemThi(),
+					new VCADiemThi(),
 					new VCHocPhi(),
 					new VCSettings(),
 				},
