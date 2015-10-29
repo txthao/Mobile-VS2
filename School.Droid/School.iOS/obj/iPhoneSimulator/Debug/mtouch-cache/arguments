@@ -14,7 +14,7 @@
 	--sdk \
 	8.2 \
 	--targetver \
-	8.3 \
+	7.0 \
 	--abi=i386 \
 	--symbollist \
 	/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list \

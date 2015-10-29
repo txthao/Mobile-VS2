@@ -22,7 +22,7 @@ namespace School.iOS
 		
 			// If you have defined a root view controller, set it here:
 			// Window.RootViewController = myViewController;
-			Window.RootViewController = new RootViewController();
+			Window.RootViewController =new UINavigationController (new VCLogIn ());
 			// make the window visible
 			Window.MakeKeyAndVisible ();
 

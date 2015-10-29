@@ -1,12 +1,9 @@
 ﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="School.iOS/TableSources/HocPhiCell.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="School.iOS/TableSources/DiemThiSource.cs">
     <Files>
-      <File FileName="School.iOS/TableSources/HocPhiSource.cs" Line="30" Column="1" />
-      <File FileName="School.iOS/TableSources/HocPhiCell.cs" Line="49" Column="40" />
-      <File FileName="School.iOS/AppDelegate.cs" Line="27" Column="1" />
-      <File FileName="School.iOS/SlideMenu/RootViewController.cs" Line="58" Column="7" />
-      <File FileName="School.iOS/SlideMenu/VCHocPhi.cs" Line="42" Column="1" />
+      <File FileName="School.iOS/TableSources/DiemThiFooter.cs" Line="43" Column="4" />
+      <File FileName="School.iOS/TableSources/DiemThiSource.cs" Line="50" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
