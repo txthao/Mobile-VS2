@@ -81,10 +81,10 @@ namespace School.iOS
 		public void UpdateCell (string imonhoc,string itile,string idiemkt, string idiemthi,string idiemtk,string diemchu)
 		{
 			monhoc.Text = imonhoc;
-			tile.Text = itile;
-			diemkt.Text = idiemkt;
-			diemthi.Text = idiemthi;
-			diemtk.Text = idiemtk + " (" + diemchu + ")";
+			tile.Text = ApiHelper.calPercent (int.Parse(itile));
+			diemkt.Text = ApiHelper.checkSpaceValue(idiemkt);
+			diemthi.Text = ApiHelper.checkSpaceValue(idiemthi);
+			diemtk.Text =  ApiHelper.setDiemTK(idiemtk, diemchu);
 		}
 		public override void LayoutSubviews ()
 		{

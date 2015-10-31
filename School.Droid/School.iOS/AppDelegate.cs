@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using School.Core;
 
 namespace School.iOS
 {
@@ -9,7 +10,8 @@ namespace School.iOS
 	public class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
-
+		UINavigationController navigation;
+		RootViewController menu;
 		public override UIWindow Window {
 			get;
 			set;
@@ -22,7 +24,10 @@ namespace School.iOS
 		
 			// If you have defined a root view controller, set it here:
 			// Window.RootViewController = myViewController;
-			Window.RootViewController =new UINavigationController (new VCLogIn ());
+			navigation = new UINavigationController (new VCLogIn ());
+
+			navigation.SetNavigationBarHidden (true, true);
+			Window.RootViewController = navigation;
 			// make the window visible
 			Window.MakeKeyAndVisible ();
 

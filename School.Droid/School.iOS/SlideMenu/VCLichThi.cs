@@ -26,15 +26,26 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			headers.Source = new LichThiSource ();
+			progress.Hidden = true;
 			LoadData ();
+
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 		private async void LoadData()
 		{
 			try
 			{
+				progress.Hidden = false;
+				progress.StartAnimating ();
 				List<LichThi> list= new List<LichThi>();
+				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
+				if (sync)
+				{
+				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 				await BLichThi.MakeDataFromXml(SQLite_iOS.GetConnection());
+					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+				}
+				progress.StopAnimating ();
 				list= BLichThi.GetNewestLT(SQLite_iOS.GetConnection());
 				if (list.Count>0)
 				{

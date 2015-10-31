@@ -19,6 +19,9 @@ namespace School.iOS
 		UIKit.UITableView listDM { get; set; }
 
 		[Outlet]
+		UIKit.UIActivityIndicatorView progress { get; set; }
+
+		[Outlet]
 		UIKit.UILabel timeDTHK { get; set; }
 
 		[Outlet]
@@ -49,14 +52,19 @@ namespace School.iOS
 				headers = null;
 			}
 
-			if (timeDTHK != null) {
-				timeDTHK.Dispose ();
-				timeDTHK = null;
+			if (progress != null) {
+				progress.Dispose ();
+				progress = null;
 			}
 
 			if (listDM != null) {
 				listDM.Dispose ();
 				listDM = null;
+			}
+
+			if (timeDTHK != null) {
+				timeDTHK.Dispose ();
+				timeDTHK = null;
 			}
 
 			if (txtDRL != null) {

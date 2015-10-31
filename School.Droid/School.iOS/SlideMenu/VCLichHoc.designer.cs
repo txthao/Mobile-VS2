@@ -19,6 +19,9 @@ namespace School.iOS
 		UIKit.UITableView listLH { get; set; }
 
 		[Outlet]
+		UIKit.UIActivityIndicatorView progress { get; set; }
+
+		[Outlet]
 		UIKit.UILabel timeLH { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -28,14 +31,19 @@ namespace School.iOS
 				headers = null;
 			}
 
-			if (timeLH != null) {
-				timeLH.Dispose ();
-				timeLH = null;
-			}
-
 			if (listLH != null) {
 				listLH.Dispose ();
 				listLH = null;
+			}
+
+			if (progress != null) {
+				progress.Dispose ();
+				progress = null;
+			}
+
+			if (timeLH != null) {
+				timeLH.Dispose ();
+				timeLH = null;
 			}
 		}
 	}

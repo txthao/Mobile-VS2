@@ -5,6 +5,7 @@ using Foundation;
 using UIKit;
 using School.Core;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace School.iOS
 {
@@ -26,6 +27,7 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			headers.Source = new DiemThiHKSource ();
+			progress.Hidden = true;
 			LoadData ();
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
@@ -33,12 +35,23 @@ namespace School.iOS
 		{
 			try
 			{
+				progress.Hidden = false;
+				progress.StartAnimating ();
+				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
+				if (sync)
+				{
+				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 				await  BDiemThi.MakeDataFromXml(SQLite_iOS.GetConnection());
+				
+				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+				}
 				List<DiemThi> listDT = new List<DiemThi>();
 				List<DiemMon> list = new List<DiemMon>();
 				listDT = BDiemThi.getAll(SQLite_iOS.GetConnection ());
 				if (listDT.Count>0)
 				{
+					await Task.Run(()=>
+					{
 					foreach (var item in listDT) {
 
 						DiemMon Header = new DiemMon ();
@@ -56,6 +69,8 @@ namespace School.iOS
 						}
 
 					}
+					});
+					progress.StopAnimating ();
 					listContent.Source=new DiemThiSource(list);
 					listContent.ReloadData();
 				}

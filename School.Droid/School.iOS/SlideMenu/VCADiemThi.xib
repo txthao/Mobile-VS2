@@ -7,7 +7,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VCADiemThi">
             <connections>
                 <outlet property="headers" destination="2Sr-GY-CRk" id="Rfd-cj-qYi"/>
-                <outlet property="listContent" destination="R0V-qL-ckg" id="nLq-Dh-37X"/>
+                <outlet property="listContent" destination="R0V-qL-ckg" id="RXa-EI-qby"/>
+                <outlet property="progress" destination="eza-Wc-tvW" id="0PS-8j-Dvt"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kCW-yf-GMq"/>
             </connections>
         </placeholder>
@@ -30,6 +31,9 @@
                     <rect key="frame" x="0.0" y="69" width="320" height="21"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eza-Wc-tvW">
+                    <rect key="frame" x="150" y="154" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
         </view>

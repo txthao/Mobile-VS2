@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="headers" destination="egj-84-sJW" id="Zc4-GC-oW1"/>
                 <outlet property="listLT" destination="oNL-ki-m7V" id="JDO-IH-dsx"/>
+                <outlet property="progress" destination="cXT-pI-LgT" id="Ni9-Jk-dBz"/>
                 <outlet property="timeLT" destination="AcB-5L-NzQ" id="xeA-JS-Pa8"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kCW-yf-GMq"/>
             </connections>
@@ -37,6 +38,9 @@
                     <rect key="frame" x="1" y="145" width="319" height="373"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-pI-LgT">
+                    <rect key="frame" x="150" y="145" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
         </view>

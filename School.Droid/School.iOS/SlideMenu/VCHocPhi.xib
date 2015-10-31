@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="headers" destination="Obr-CP-SG5" id="qvA-eL-keH"/>
                 <outlet property="listHP" destination="eO3-cn-cfX" id="tOo-zm-3eQ"/>
+                <outlet property="progress" destination="BUh-w9-t9z" id="uuF-hu-DUj"/>
                 <outlet property="timeHP" destination="A36-AL-Pmv" id="F6k-p2-44y"/>
                 <outlet property="txtTTLD" destination="gIm-0Y-N8H" id="EyB-zw-v1u"/>
                 <outlet property="txtTienConNo" destination="oqJ-gd-ndn" id="QZh-oa-TxW"/>
@@ -72,6 +73,9 @@
                     <color key="textColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BUh-w9-t9z">
+                    <rect key="frame" x="155" y="150" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="486" y="309"/>

@@ -47,3 +47,5 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/School.iOS.exe
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/School.iOS.exe.mdb
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCLichHocTuan.nib
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/Settings.Bundle/Root.plist
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/LogOut.nib

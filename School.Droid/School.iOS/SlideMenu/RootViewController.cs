@@ -48,6 +48,7 @@ namespace School.iOS
 					},
 					new Section("Ứng dụng") {
 						new ImageStringElement("Cài đặt",UIImage.FromBundle("menupic/Icsettings.png")),
+						new ImageStringElement("Đăng xuất",UIImage.FromBundle("menupic/Icsettings.png")),
 					}
 				},
 				// Supply view controllers corresponding to menu items:
@@ -59,6 +60,7 @@ namespace School.iOS
 					new VCADiemThi(),
 					new VCHocPhi(),
 					new VCSettings(),
+					new LogOut(),
 				},
 			};
 			// Show the navigation view
@@ -75,6 +77,10 @@ namespace School.iOS
 					instance = new RootViewController ();
 				return instance;
 			}
+		}
+		public void LogOut()
+		{
+			this.PresentViewController (VCLogIn.Instance, true, null);
 		}
 	}
 }

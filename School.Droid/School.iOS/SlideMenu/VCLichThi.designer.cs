@@ -19,6 +19,9 @@ namespace School.iOS
 		UIKit.UITableView listLT { get; set; }
 
 		[Outlet]
+		UIKit.UIActivityIndicatorView progress { get; set; }
+
+		[Outlet]
 		UIKit.UILabel timeLT { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -31,6 +34,11 @@ namespace School.iOS
 			if (listLT != null) {
 				listLT.Dispose ();
 				listLT = null;
+			}
+
+			if (progress != null) {
+				progress.Dispose ();
+				progress = null;
 			}
 
 			if (timeLT != null) {
