@@ -5,6 +5,7 @@ using Foundation;
 using UIKit;
 using BigTed;
 using ObjCRuntime;
+using School.Core;
 
 
 namespace School.iOS
@@ -14,7 +15,7 @@ namespace School.iOS
 		public VCLogIn () : base ("VCLogIn", null)
 		{
 		}
-
+		private static VCLogIn instance=null; 
 		public override void DidReceiveMemoryWarning ()
 		{
 			// Releases the view if it doesn't have a superview.
@@ -25,11 +26,14 @@ namespace School.iOS
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-			this.NavigationController.NavigationBarHidden = true;
+		
 		}
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			if (BUser.IsLogined (SQLite_iOS.GetConnection ()) == true) {	
+				this.NavigationController.PresentViewController(RootViewController.Instance,true,null);
+			}
 			txtMaSV.Text = "3111410094";
 			txtMatKhau.Text = "itdaihocsg";
 
@@ -42,7 +46,7 @@ namespace School.iOS
 				string tk=txtMaSV.Text.Trim();
 				string pass=txtMatKhau.Text.Trim();
 				BTProgressHUD.Show ("Đăng nhập...");
-			
+
 				 ApiHelper.Login(tk,pass,"1",error=>{
 					if (error==null)
 					{
@@ -50,7 +54,7 @@ namespace School.iOS
 						txtMaSV.Text=string.Empty;
 						txtMatKhau.Text=string.Empty;
 						BTProgressHUD.Dismiss();
-						this.NavigationController.PresentViewController(new RootViewController(),true,null);
+							this.NavigationController.PresentViewController(RootViewController.Instance,true,null);
 						});
 					}
 					else
@@ -73,6 +77,15 @@ namespace School.iOS
 				return false;
 			}
 			return true;
+		}
+		public static VCLogIn Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new VCLogIn ();
+				return instance;
+			}
 		}
 	}
 }

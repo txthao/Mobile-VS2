@@ -29,14 +29,23 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			progress.Hidden = true;
 			LoadData_Tuan (DateTime.Today);
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 		async void LoadData_Tuan (DateTime dateOfWeek)
 		{
+			progress.Hidden = false;
+			progress.StartAnimating ();
+			bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
 			List<LichHoc> listLH = new List<LichHoc> ();
-			var newlistlh= BLichHoc.MakeDataFromXml (SQLite_iOS.GetConnection ());
-			List<LichHoc> newListLH= await newlistlh;
+			if (sync) {
+				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
+				var newlistlh = BLichHoc.MakeDataFromXml (SQLite_iOS.GetConnection ());
+				List<LichHoc> newListLH= await newlistlh;
+				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+			}
+			progress.StopAnimating ();
 			listLH = BLichHoc.GetNewestLH (SQLite_iOS.GetConnection ());
 			listCT = new List<chiTietLH> ();
 			foreach (var item in listLH) {

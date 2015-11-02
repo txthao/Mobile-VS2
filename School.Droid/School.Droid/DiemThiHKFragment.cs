@@ -134,8 +134,8 @@ namespace School.Droid
 			List<DiemMon> listDM = BDiemThi.GetDiemMons (SQLite_Android.GetConnection (), diemThi.Hocky, diemThi.NamHoc);
 			lbl_HK.Text = diemThi.Hocky;
 			lbl_NH.Text = diemThi.NamHoc;
-				DiemThiHKAdapter adapter = new DiemThiHKAdapter (Activity, listDM);
-				listViewDT.Adapter = adapter;  
+			DiemThiHKAdapter adapter = new DiemThiHKAdapter (Activity, listDM);
+			listViewDT.Adapter = adapter;  
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 			listViewDT.Visibility = ViewStates.Visible;

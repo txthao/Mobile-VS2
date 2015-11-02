@@ -16,6 +16,9 @@ namespace School.iOS
 		UIKit.UITableView listContent { get; set; }
 
 		[Outlet]
+		UIKit.UIActivityIndicatorView progress { get; set; }
+
+		[Outlet]
 		UIKit.UILabel timeLHTuan { get; set; }
 
 		[Outlet]
@@ -45,6 +48,11 @@ namespace School.iOS
 			if (txtngayLHTuan != null) {
 				txtngayLHTuan.Dispose ();
 				txtngayLHTuan = null;
+			}
+
+			if (progress != null) {
+				progress.Dispose ();
+				progress = null;
 			}
 		}
 	}

@@ -26,16 +26,24 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			headers.Source = new HocPhiSource ();
-	
+			progress.Hidden = true;
 			LoadData ();
 
 		}
 		private async void LoadData()
 		{
 			try{
-				
+				progress.Hidden = false;
+				progress.StartAnimating ();	
 			List<CTHocPhi> list = new List<CTHocPhi> ();
+			bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
+			if (sync)
+			{
+			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 			await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
+			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+			}
+			progress.StopAnimating ();
 			HocPhi hp = BHocPhi.GetHP(SQLite_iOS.GetConnection ());
 			if (hp!=null)
 			{

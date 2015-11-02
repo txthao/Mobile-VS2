@@ -26,6 +26,7 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			headers.Source = new LichHocHKSource ();
+			progress.Hidden = true;
 			LoadData ();
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
@@ -33,7 +34,16 @@ namespace School.iOS
 		{
 			try
 			{
+				progress.Hidden = false;
+				progress.StartAnimating ();
+				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
+				if (sync)
+				{
+				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 				await BLichHoc.MakeDataFromXml(SQLite_iOS.GetConnection ());
+				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+				}
+				progress.StopAnimating ();
 				List<LichHoc> newlistLH= BLichHoc.GetNewestLH(SQLite_iOS.GetConnection());
 				if (newlistLH.Count>0)
 				{

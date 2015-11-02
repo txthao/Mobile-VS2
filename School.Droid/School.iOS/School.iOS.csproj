@@ -92,6 +92,7 @@
     <InterfaceDefinition Include="SlideMenu\VCDiemThi.xib" />
     <InterfaceDefinition Include="SlideMenu\VCADiemThi.xib" />
     <InterfaceDefinition Include="SlideMenu\VCLichHocTuan.xib" />
+    <InterfaceDefinition Include="SlideMenu\LogOut.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -155,6 +156,11 @@
       <DependentUpon>VCLichHocTuan.cs</DependentUpon>
     </Compile>
     <Compile Include="TableSources\LHExpandCell.cs" />
+    <Compile Include="Helper\SettingsHelper.cs" />
+    <Compile Include="SlideMenu\LogOut.cs" />
+    <Compile Include="SlideMenu\LogOut.designer.cs">
+      <DependentUpon>LogOut.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\SQLitePCL.raw_basic.0.8.2\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets" Condition="Exists('..\packages\SQLitePCL.raw_basic.0.8.2\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets')" />
@@ -164,6 +170,7 @@
     <Folder Include="LogInView\" />
     <Folder Include="Helper\" />
     <Folder Include="TableSources\" />
+    <Folder Include="Settings.Bundle\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="flyoutnavigation">
@@ -182,6 +189,7 @@
     <BundleResource Include="Resources\menupic\Iclichthi.png" />
     <BundleResource Include="Resources\menupic\Ichocphi.png" />
     <BundleResource Include="Resources\menupic\Iclogout.png" />
+    <BundleResource Include="Settings.Bundle\Root.plist" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\School.Core\School.Core.csproj">

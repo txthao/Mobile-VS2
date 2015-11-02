@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="headers" destination="VLY-ap-Ihy" id="etz-j3-1qP"/>
                 <outlet property="listDM" destination="NUe-PP-zEr" id="e1h-yq-OHk"/>
+                <outlet property="progress" destination="eE7-q6-Y7p" id="6q1-fI-iYx"/>
                 <outlet property="timeDTHK" destination="ole-FX-SiP" id="lxi-Js-GLU"/>
                 <outlet property="txtDRL" destination="RbP-fS-Iei" id="VkX-X5-4ec"/>
                 <outlet property="txtTB4" destination="M8Q-Yd-CYT" id="GQ5-t4-z9p"/>
@@ -30,11 +31,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NUe-PP-zEr">
-                    <rect key="frame" x="0.0" y="161" width="320" height="186"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VLY-ap-Ihy">
-                    <rect key="frame" x="0.0" y="134" width="320" height="29"/>
+                    <rect key="frame" x="-1" y="161" width="320" height="186"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Điểm TB HK Hệ 10:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlY-aS-jTd">
@@ -85,6 +82,14 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VLY-ap-Ihy">
+                    <rect key="frame" x="0.0" y="114" width="320" height="43"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <activityIndicatorView key="tableHeaderView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="eE7-q6-Y7p">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </activityIndicatorView>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
         </view>
