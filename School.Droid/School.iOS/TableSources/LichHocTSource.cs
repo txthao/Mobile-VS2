@@ -8,18 +8,22 @@ namespace School.iOS
 {
 	public class LichHocTSource : UITableViewSource
 	{
+		VCLichHocTuan controller;
+	
 		public LichHocTSource ()
 		{
 		}
 		public List<chiTietLH> Items;
-
+	
 		NSString cellIdentifier = new NSString("TableCell");
 		protected int currentExpandedIndex = -1;
 		bool key=true;
 
-		public  LichHocTSource(List<chiTietLH> list)
+		public  LichHocTSource(List<chiTietLH> list,VCLichHocTuan controller)
 		{
 			Items = list;
+			this.controller = controller;
+
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
@@ -36,6 +40,7 @@ namespace School.iOS
 		{
 			int insertPos = index + 1;
 			key = false;
+
 			tableView.InsertRows(new[] {NSIndexPath.FromRowSection(insertPos++, 0)}, UITableViewRowAnimation.Fade);
 
 		}
@@ -74,27 +79,51 @@ namespace School.iOS
 		//TODO: implement this here?
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
+			int row = indexPath.Row;
+			if (row == currentExpandedIndex+1&&row!=0) {
+				key = false;
+
+			}
 			if (key) {
-				LichHocTCell cell = tableView.DequeueReusableCell (cellIdentifier) as LichHocTCell;
+				
+
+
+					LichHocTCell cell = tableView.DequeueReusableCell (cellIdentifier) as LichHocTCell;
 
 				if (cell == null) {
 					cell = new LichHocTCell (cellIdentifier);
+
+
+					LHRemindItem rmItem = BRemind.GetLHRemind (SQLite_iOS.GetConnection (), Items [row].Id, Items [row].Tuan);
+					bool hasRM = false;
+					if (rmItem != null) {
+						hasRM = true;
+					}
+					string monhoc = BMonHoc.GetMH (SQLite_iOS.GetConnection (), BLichHoc.GetLH (SQLite_iOS.GetConnection (), Items [row].Id).MaMH).TenMH;
+					cell.UpdateCell (monhoc, Items [row].TietBatDau, Items [row].SoTiet, Items [row].Phong
+						, Items [row].Thu
+						, Items [row].Tuan.Substring (3, 2) + "/" + Items [row].Tuan.Substring (0, 2)
+						,	row, hasRM);
+					UILongPressGestureRecognizer longPress = new UILongPressGestureRecognizer (LongPress);
+					cell.AddGestureRecognizer (longPress);
+
+				} else {
+					
 				}
-				string monhoc = BMonHoc.GetMH (SQLite_iOS.GetConnection (), BLichHoc.GetLH (SQLite_iOS.GetConnection (), Items [indexPath.Row].Id).MaMH).TenMH;
-				cell.UpdateCell (monhoc, Items [indexPath.Row].TietBatDau, Items [indexPath.Row].SoTiet, Items [indexPath.Row].Phong
-				, Items [indexPath.Row].Thu
-				, Items [indexPath.Row].Tuan.Substring (3, 2) + "/" + Items [indexPath.Row].Tuan.Substring (0, 2)
-				);
-				return cell;
+
+					return cell;
+			
 			} else {
 				LHExpandCell cell = tableView.DequeueReusableCell (cellIdentifier) as LHExpandCell;
 
 				if (cell == null) {
 					cell = new LHExpandCell (cellIdentifier);
+
 				}
-				var lh = BLichHoc.GetLH (SQLite_iOS.GetConnection (), Items [indexPath.Row-1].Id);
+
+				var lh = BLichHoc.GetLH (SQLite_iOS.GetConnection (), Items [row-1].Id);
 				MonHoc monhoc = BMonHoc.GetMH (SQLite_iOS.GetConnection (), lh.MaMH);
-				cell.UpdateCell (Items [indexPath.Row-1],lh,monhoc.SoTC.ToString());
+				cell.UpdateCell (Items [row-1],lh,monhoc.SoTC.ToString());
 				key = true;
 				return cell;
 			}
@@ -105,6 +134,21 @@ namespace School.iOS
 			// just return it. 
 
 			return 100;
+		}
+		void LongPress(UILongPressGestureRecognizer gesture)
+		{
+			LichHocTCell cell = (LichHocTCell )gesture.View;
+
+			VCHomeReminder remid = new VCHomeReminder (controller);
+			remid.ct = Items [cell.num];
+			LHRemindItem rmItem = BRemind.GetLHRemind (SQLite_iOS.GetConnection (), remid.ct.Id, remid.ct.Tuan);
+
+			if (rmItem != null) {
+				remid.LoadEvent (rmItem.EventID);
+			} else {
+				remid.lh = BLichHoc.GetLH (SQLite_iOS.GetConnection (), Items [cell.num].Id);
+				remid.RemindLH ();
+			}
 		}
 	}
 }

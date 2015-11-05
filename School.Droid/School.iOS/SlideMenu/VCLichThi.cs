@@ -42,15 +42,21 @@ namespace School.iOS
 				if (sync)
 				{
 				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-				await BLichThi.MakeDataFromXml(SQLite_iOS.GetConnection());
+					var newlistlt= BLichThi.MakeDataFromXml (SQLite_iOS.GetConnection ());
+					List<LichThi> newListLT= await newlistlt;
+					var checkRemind=SettingsHelper.LoadSetting("Remind");
+					if (checkRemind){
+						VCHomeReminder remind= new VCHomeReminder(this);
+						await remind.RemindAllLT(newListLT);
+					}
 					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 				}
 				progress.StopAnimating ();
 				list= BLichThi.GetNewestLT(SQLite_iOS.GetConnection());
 				if (list.Count>0)
 				{
-					timeLT.Text="HỌc Kỳ "+list[0].HocKy+"Năm "+ list[0].NamHoc;
-					listLT.Source=new LichThiSource(list);
+					timeLT.Text="Học Kỳ "+list[0].HocKy+" Năm "+ list[0].NamHoc;
+					listLT.Source=new LichThiSource(list,this);
 					listLT.ReloadData();
 				}
 			}

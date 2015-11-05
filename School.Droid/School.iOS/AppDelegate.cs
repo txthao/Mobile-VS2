@@ -27,7 +27,7 @@ namespace School.iOS
 			navigation = new UINavigationController (new VCLogIn ());
 
 			navigation.SetNavigationBarHidden (true, true);
-			Window.RootViewController = navigation;
+			Window.RootViewController = navigation ;
 			// make the window visible
 			Window.MakeKeyAndVisible ();
 

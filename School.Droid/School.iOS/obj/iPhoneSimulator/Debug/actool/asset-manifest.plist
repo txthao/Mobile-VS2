@@ -7,7 +7,7 @@
 		<key>output-files</key>
 		<array>
 			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/LaunchImage-700-568h@2x.png</string>
-			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/Assets.car</string>
+			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppLogo~iphone.jpg</string>
 			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/partial-info.plist</string>
 		</array>
 	</dict>

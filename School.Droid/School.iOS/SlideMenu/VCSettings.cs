@@ -3,6 +3,8 @@ using System;
 
 using Foundation;
 using UIKit;
+using System.Collections.Generic;
+using School.Core;
 
 namespace School.iOS
 {
@@ -37,9 +39,30 @@ namespace School.iOS
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 
-		void SwtNLich_ValueChanged (object sender, EventArgs e)
+		async void SwtNLich_ValueChanged (object sender, EventArgs e)
 		{
 			SettingsHelper.SaveSetting ("Remind", swtNLich.On);
+			progress.Hidden = false;
+			progress.StartAnimating ();
+			if (swtNLich.On) {
+				try {
+					List<LichThi> listlt = BLichThi.GetNewestLT (SQLite_iOS.GetConnection ());
+
+					List<LichHoc> listlh = BLichHoc.GetNewestLH (SQLite_iOS.GetConnection ());
+				
+					VCHomeReminder reminder = new VCHomeReminder (this);
+					await reminder.RemindALLLH (listlh, "");
+					await reminder.RemindAllLT (listlt);
+					progress.StopAnimating ();
+				} catch {
+
+				}
+			} else {
+				VCHomeReminder reminder = new VCHomeReminder (this);
+				await reminder.RemoveAllEvent ();
+				BRemind.RemoveAllRM (SQLite_iOS.GetConnection ());
+				progress.StopAnimating ();
+			}
 		}
 
 		void SwtCNDL_ValueChanged (object sender, EventArgs e)
@@ -56,7 +79,7 @@ namespace School.iOS
 			try
 			{
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-			var result= ApiHelper.LoadDataFromSV();
+			var result= ApiHelper.LoadDataFromSV(this);
 			txtResult.Text=await result;
 			progress.StopAnimating ();
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;

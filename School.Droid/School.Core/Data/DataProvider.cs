@@ -28,7 +28,100 @@ namespace School.Core
 			_connection.CreateTable<DiemMon> ();
 			_connection.CreateTable<CTHocPhi> ();
 			_connection.CreateTable<chiTietLH> ();
+			_connection.CreateTable<LHRemindItem> ();
+			_connection.CreateTable<LTRemindItem> ();
 		}
+
+
+
+
+		public void AddRemindLH (LHRemindItem T)
+		{
+			_connection.Insert (T);
+			_connection.Commit ();
+
+		}
+		public void AddRemindLT(LTRemindItem T)
+		{
+			_connection.Insert (T);
+			_connection.Commit ();
+
+		}
+
+		public LHRemindItem GetLHRemind(string idLH,string date)
+		{
+			var query = from c in _connection.Table<LHRemindItem> ()
+					where (c.IDLH.Equals(idLH))&&(c.Date.Equals(date))
+				select c;
+			return query.FirstOrDefault ();
+		}
+		public List<LHRemindItem> GetLHRemind(string idLH)
+		{
+			var query = from c in _connection.Table<LHRemindItem> ()
+					where (c.IDLH.Equals(idLH))
+				select c;
+			return query.ToList();
+		}
+		public LTRemindItem GetLTRemind(string mamh,string namhoc,string hocky)
+		{
+			var query = from c in _connection.Table<LTRemindItem> ()
+					where (c.MaMH.Equals(mamh))&&(c.HocKy.Equals(hocky)) && (c.NamHoc.Equals(namhoc))
+				select c;
+
+
+			return query.FirstOrDefault ();
+		}
+
+		public List<LTRemindItem> GetAllLTRemind ()
+		{
+			var query = from c in _connection.Table<LTRemindItem> ()
+				select c;
+			return query.ToList ();
+		}
+		public List<LHRemindItem> GetAllLHRemind ()
+		{
+			var query = from c in _connection.Table<LHRemindItem> ()
+				select c;
+			return query.ToList ();
+		}
+		public void RemoveLHRemind(string id,string date)
+		{
+			
+			List<LHRemindItem> list=GetLHRemind(id, date);
+			foreach (var obj in list) {
+				_connection.Delete<LHRemindItem> (obj);
+			}
+			_connection.Commit ();
+		}
+		public void RemoveLHRemind(string id)
+		{
+
+			LHRemindItem list=GetLHRemind(id);
+
+			_connection.Delete<LHRemindItem> (list);
+		
+			_connection.Commit ();
+		}
+		public void RemoveLTRemind(string mamh,string namhoc,string hocky)
+		{
+
+			LTRemindItem list=GetLTRemind(mamh,namhoc,hocky);
+
+			_connection.Delete<LTRemindItem> (list);
+
+			_connection.Commit ();
+		}
+		public void RemoveALlLTRemind()
+		{
+			_connection.DeleteAll<LTRemindItem> ();
+			_connection.Commit ();
+		}
+		public void RemoveALlLHRemind()
+		{
+			_connection.DeleteAll<LHRemindItem> ();
+			_connection.Commit ();
+		}
+
 
 		public void AddLT (LichThi T)
 		{
@@ -378,6 +471,10 @@ namespace School.Core
 			i += _connection.DeleteAll<DiemMon> ();
 			_connection.Commit ();
 			i += _connection.DeleteAll<MonHoc> ();
+			_connection.Commit ();
+			i+=_connection.DeleteAll<LTRemindItem> ();
+			_connection.Commit ();
+			i+=_connection.DeleteAll<LHRemindItem> ();
 			_connection.Commit ();
 			return i;
 		}

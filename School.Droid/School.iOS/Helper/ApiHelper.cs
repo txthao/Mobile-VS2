@@ -88,7 +88,7 @@ namespace School.iOS
 			return "";
 		}
 
-		public static async Task<string> LoadDataFromSV()
+		public static async Task<string> LoadDataFromSV(UIViewController controller)
 		{
 			try
 			{
@@ -100,7 +100,13 @@ namespace School.iOS
 				await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
 //				var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);              
 //				var checkRemind = prefs.GetBoolean ("Remind",false);
-			
+				var checkRemind=SettingsHelper.LoadSetting("Remind");
+				if (checkRemind)
+				{
+					VCHomeReminder remind= new VCHomeReminder(controller);
+					await remind.RemindALLLH(newListLH,"");
+					await remind.RemindAllLT(newListLT);
+				}
 				return "load success ";
 			}
 			catch {

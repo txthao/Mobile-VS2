@@ -8,9 +8,12 @@ namespace School.iOS
 	public class LichHocTCell: UITableViewCell
 	{
 		UILabel thuT,ngayT,monhoc,tietBD,soTiet,phong;
+		UIImageView hasRM;
+		public int num;
 		public LichHocTCell (NSString cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;
+			hasRM = new UIImageView ();
 			monhoc = new UILabel () {
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
@@ -43,9 +46,9 @@ namespace School.iOS
 				Font = UIFont.FromName("AmericanTypewriter", 12f)
 			};
 
-			ContentView.AddSubviews (new UIView[] { thuT, ngayT, monhoc, tietBD, soTiet, phong }); 
+			ContentView.AddSubviews (new UIView[] { thuT, ngayT, monhoc, tietBD, soTiet, phong,hasRM }); 
 		}
-		public void UpdateCell (string monhoc,string tietBD,string soTiet,string phong,string thuT,string ngayT)
+		public void UpdateCell (string monhoc,string tietBD,string soTiet,string phong,string thuT,string ngayT,int num,bool hasRM)
 		{
 			this.monhoc.Text = monhoc;
 			this.tietBD.Text = "Tiết Bắt Đầu:" +tietBD;
@@ -53,6 +56,10 @@ namespace School.iOS
 			this.thuT.Text = getDay(thuT);
 			this.ngayT.Text = ngayT;
 			this.soTiet.Text = "Số Tiết:"+ soTiet;
+			this.num=num;
+			if (hasRM) {
+				this.hasRM.Image= UIImage.FromBundle ("menupic/Iclichhoc.png");
+			}
 		}
 		public override void LayoutSubviews ()
 		{
@@ -63,6 +70,7 @@ namespace School.iOS
 			thuT.Frame= new CGRect (0, 5, 200, 50);
 			ngayT.Frame= new CGRect (0, 55,  200, 50);
 			soTiet.Frame= new CGRect (180, 25, ContentView.Bounds.Width-250, 20);
+			hasRM.Frame = new CGRect (10, 5, 20, 10);
 		}
 		public static string getDay (string day)
 		{

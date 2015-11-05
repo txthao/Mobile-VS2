@@ -31,9 +31,14 @@ namespace School.iOS
 			base.ViewDidLoad ();
 			progress.Hidden = true;
 			LoadData_Tuan (DateTime.Today);
+		
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
-		async void LoadData_Tuan (DateTime dateOfWeek)
+
+
+
+
+		public async void LoadData_Tuan (DateTime dateOfWeek)
 		{
 			progress.Hidden = false;
 			progress.StartAnimating ();
@@ -66,7 +71,7 @@ namespace School.iOS
 
 			txtngayLHTuan.Text = "Từ " + begining + " Đến " + end;
 			timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
-			listContent.Source = new LichHocTSource (listCT);
+			listContent.Source = new LichHocTSource (listCT,this);
 			listContent.ReloadData ();
 		}
 		public static DateTime convertFromStringToDate (string date)

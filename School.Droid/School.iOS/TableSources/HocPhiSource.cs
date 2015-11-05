@@ -37,7 +37,8 @@ namespace School.iOS
 				if (cell == null) {
 					cell = new HocPhiCell (cellIdentifier);
 				}
-				cell.UpdateCell (tableItems [indexPath.Row].MaMH, tableItems [indexPath.Row].HocPhi, tableItems [indexPath.Row].MienGiam,
+				MonHoc mh = BMonHoc.GetMH (SQLite_iOS.GetConnection (), tableItems [indexPath.Row].MaMH);
+				cell.UpdateCell (mh.TenMH, tableItems [indexPath.Row].HocPhi, tableItems [indexPath.Row].MienGiam,
 					tableItems [indexPath.Row].PhaiDong);
 				return cell;
 				// now set the properties as normal

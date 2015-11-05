@@ -1,6 +1,6 @@
-# Version: 9.0.1.29 (xcode7-c5: 1d27ac2)
+# Version: 9.1.0.27 (monotouch-9.1.0-branch: 1f068b4)
 # [first argument, ignore] # /Users/mactien/Mobile-VS2/School.Droid/School.iOS/mtouch.exe
-/Library/Frameworks/Xamarin.iOS.framework/Versions/9.0.1.29/bin/mtouch \
+/Library/Frameworks/Xamarin.iOS.framework/Versions/9.1.0.27/bin/mtouch \
 	--cache \
 	/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
 	--sim \
