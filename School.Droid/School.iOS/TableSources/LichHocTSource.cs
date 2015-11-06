@@ -16,7 +16,8 @@ namespace School.iOS
 		public List<chiTietLH> Items;
 	
 		NSString cellIdentifier = new NSString("TableCell");
-		protected int currentExpandedIndex = -1;
+		public int currentExpandedIndex = -1;
+		public NSIndexPath lastindexPath;
 		bool key=true;
 
 		public  LichHocTSource(List<chiTietLH> list,VCLichHocTuan controller)
@@ -28,10 +29,12 @@ namespace School.iOS
 
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
-			return Items.Count + ((currentExpandedIndex > -1) ? 1 : 0);
+			
+				return Items.Count + ((currentExpandedIndex > -1) ? 1 : 0);
+
 		}
 
-		void collapseSubItemsAtIndex(UITableView tableView, int index)
+		public void collapseSubItemsAtIndex(UITableView tableView, int index)
 		{
 			tableView.DeleteRows(new[] {NSIndexPath.FromRowSection(index+1, 0)}, UITableViewRowAnimation.Fade);
 		}
@@ -54,6 +57,7 @@ namespace School.iOS
 
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
+			lastindexPath = indexPath;
 			if (isChild(indexPath)) {
 				//Handle selection of child cell
 				Console.WriteLine("You touched a child!");
@@ -73,7 +77,7 @@ namespace School.iOS
 				this.expandItemAtIndex(tableView, currentExpandedIndex);
 			}
 			tableView.EndUpdates();
-			tableView.DeselectRow(indexPath, true);
+
 		}
 
 		//TODO: implement this here?
@@ -85,17 +89,19 @@ namespace School.iOS
 
 			}
 			if (key) {
-				
-
-
-					LichHocTCell cell = tableView.DequeueReusableCell (cellIdentifier) as LichHocTCell;
-
+				if (row == Items.Count) {
+					row = row - 1;
+				}
+				LichHocTCell cell = tableView.DequeueReusableCell (cellIdentifier) as LichHocTCell;
 				if (cell == null) {
 					cell = new LichHocTCell (cellIdentifier);
 
-
-					LHRemindItem rmItem = BRemind.GetLHRemind (SQLite_iOS.GetConnection (), Items [row].Id, Items [row].Tuan);
-					bool hasRM = false;
+				}
+				 else {
+					cell.UpdateCell ("", "", "", "", "", "", 0, false);
+				}
+				LHRemindItem rmItem = BRemind.GetLHRemind (SQLite_iOS.GetConnection (), Items [row].Id, Items [row].Tuan);
+				bool hasRM = false;
 					if (rmItem != null) {
 						hasRM = true;
 					}
@@ -106,11 +112,6 @@ namespace School.iOS
 						,	row, hasRM);
 					UILongPressGestureRecognizer longPress = new UILongPressGestureRecognizer (LongPress);
 					cell.AddGestureRecognizer (longPress);
-
-				} else {
-					
-				}
-
 					return cell;
 			
 			} else {

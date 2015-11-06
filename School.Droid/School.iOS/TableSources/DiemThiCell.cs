@@ -89,6 +89,7 @@ namespace School.iOS
 		public override void LayoutSubviews ()
 		{
 			base.LayoutSubviews ();
+
 			monhoc.Frame = new CGRect (0, 5, ContentView.Bounds.Width - 200, 50);
 			tile.Frame= new CGRect (ContentView.Bounds.Width-200, 5, 50,50);
 			diemkt.Frame= new CGRect (ContentView.Bounds.Width-150, 5, 50,50);

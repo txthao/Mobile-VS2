@@ -17,6 +17,7 @@ namespace School.iOS
 		public DiemThiSource (List<DiemMon> list)
 		{
 			tableItems = list;
+		
 			this.listType = setTypeForItem (list);
 		}
 		public List<int> setTypeForItem(List<DiemMon> list){

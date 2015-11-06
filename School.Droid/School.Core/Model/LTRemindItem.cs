@@ -1,4 +1,5 @@
 ﻿using System;
+using SQLite;
 
 namespace School.Core
 {
@@ -8,6 +9,7 @@ namespace School.Core
 		{
 		}
 		string eventID,mamh,namhoc,hocky ;
+		[PrimaryKey, Column("EventID")]
 		public string EventID
 		{
 			get{return eventID;}

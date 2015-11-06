@@ -10,7 +10,7 @@ namespace School.iOS
 		}
 		public static SQLite.SQLiteConnection GetConnection ()
 		{
-			var sqliteFilename = "SchoolDBV2.db3";
+			var sqliteFilename = "SchoolDBV23.db3";
 			string documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
 			string libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
 			var path = Path.Combine(libraryPath, sqliteFilename);

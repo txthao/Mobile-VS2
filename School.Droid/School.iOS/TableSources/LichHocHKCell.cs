@@ -21,12 +21,14 @@ namespace School.iOS
 			thu = new UILabel () {
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
+				TextAlignment=UITextAlignment.Center,
 				BackgroundColor = UIColor.Clear,
 				Font = UIFont.FromName("AmericanTypewriter", 12f)
 			};
 			tietBD= new UILabel () {
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
+				TextAlignment=UITextAlignment.Center,
 				BackgroundColor = UIColor.Clear,
 				Font = UIFont.FromName("AmericanTypewriter", 12f)
 			};
@@ -34,12 +36,14 @@ namespace School.iOS
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
 				BackgroundColor = UIColor.Clear,
+				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 12f)
 			};
 			phong  = new UILabel () {
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
 				BackgroundColor = UIColor.Clear,
+				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 12f)
 			};
 			hasRM = new UIImageView ();
@@ -52,27 +56,42 @@ namespace School.iOS
 		{
 			monhoc  = new UILabel () {
 				Text="Môn Học",
+				LineBreakMode = UILineBreakMode.WordWrap,
+				Lines=0,
 				BackgroundColor = UIColor.Gray,
+				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			thu = new UILabel () {
 				Text="Thứ",
+				LineBreakMode = UILineBreakMode.WordWrap,
+				Lines=0,
 				BackgroundColor = UIColor.Gray,
+				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			tietBD= new UILabel () {
 				Text="Tiết BD",
+				LineBreakMode = UILineBreakMode.WordWrap,
+				Lines=0,
 				BackgroundColor = UIColor.Gray,
+				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			soTiet = new UILabel () {
 				Text="Số Tiết",
+				LineBreakMode = UILineBreakMode.WordWrap,
+				Lines=0,
 				BackgroundColor = UIColor.Gray,
+				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			phong  = new UILabel () {
 				Text="Phòng",
+				LineBreakMode = UILineBreakMode.WordWrap,
+				Lines=0,
 				BackgroundColor = UIColor.Gray,
+				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			hasRM = new UIImageView ();
@@ -93,12 +112,19 @@ namespace School.iOS
 		public override void LayoutSubviews ()
 		{
 			base.LayoutSubviews ();
-			monhoc.Frame = new CGRect (0,5,ContentView.Bounds.Width-150,40);
-			thu.Frame=new CGRect (ContentView.Bounds.Width-150, 5, 30,20);
-			tietBD.Frame=new CGRect (ContentView.Bounds.Width-120, 5, 30,20);
-			soTiet.Frame=new CGRect (ContentView.Bounds.Width-90, 5, 30,20);
-			phong.Frame=new CGRect (ContentView.Bounds.Width-60, 5, 40,20);
-			hasRM.Frame = new CGRect (ContentView.Bounds.Width - 20, 5, 20, 10);
+			nfloat width = (ContentView.Bounds.Width - App.Current.labelMHWidth )/ 4;
+			nfloat mhwdt = App.Current.labelMHWidth;
+			monhoc.Frame = new CGRect (0,5,App.Current.labelMHWidth,40);
+			thu.Frame=new CGRect (mhwdt, 5, width-10,40);
+			tietBD.Frame=new CGRect (mhwdt+width-10, 5, width-10,40);
+			soTiet.Frame=new CGRect (mhwdt+2*width-20, 5, width-10,40);
+			if (hasRM.Image != null) {
+				phong.Frame = new CGRect (mhwdt + 3 * width-30, 5, width+20, 40);
+				hasRM.Frame= new CGRect (mhwdt + 4* width-10, 5, 10, 10);
+			} else {
+				phong.Frame = new CGRect (mhwdt + 3 * width-30, 5, width+30, 40);
+			}
+
 		}
 	}
 }

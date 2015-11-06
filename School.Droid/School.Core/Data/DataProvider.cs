@@ -84,32 +84,17 @@ namespace School.Core
 				select c;
 			return query.ToList ();
 		}
-		public void RemoveLHRemind(string id,string date)
+		public void RemoveRemind(string eventID)
 		{
 			
-			List<LHRemindItem> list=GetLHRemind(id, date);
-			foreach (var obj in list) {
-				_connection.Delete<LHRemindItem> (obj);
-			}
-			_connection.Commit ();
-		}
-		public void RemoveLHRemind(string id)
-		{
+			_connection.Delete<LTRemindItem> ( eventID);
+		
 
-			LHRemindItem list=GetLHRemind(id);
-
-			_connection.Delete<LHRemindItem> (list);
+				_connection.Delete<LHRemindItem> (eventID);
 		
 			_connection.Commit ();
-		}
-		public void RemoveLTRemind(string mamh,string namhoc,string hocky)
-		{
 
-			LTRemindItem list=GetLTRemind(mamh,namhoc,hocky);
 
-			_connection.Delete<LTRemindItem> (list);
-
-			_connection.Commit ();
 		}
 		public void RemoveALlLTRemind()
 		{

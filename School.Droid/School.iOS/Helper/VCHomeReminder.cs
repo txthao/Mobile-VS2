@@ -323,6 +323,7 @@ namespace School.iOS
 				case EventKitUI.EKEventEditViewAction.Canceled:
 					break;
 				case EventKitUI.EKEventEditViewAction.Deleted:
+					BRemind.RemoveRemind (SQLite_iOS.GetConnection (), controller.Event.EventIdentifier);
 					break;
 				case EventKitUI.EKEventEditViewAction.Saved:
 					// if you wanted to modify the event you could do so here, and then

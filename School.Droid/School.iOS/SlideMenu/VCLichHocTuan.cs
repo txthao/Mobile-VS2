@@ -6,6 +6,7 @@ using UIKit;
 using School.Core;
 using System.Collections.Generic;
 using System.Globalization;
+using CoreGraphics;
 
 namespace School.iOS
 {
@@ -14,6 +15,7 @@ namespace School.iOS
 		List<chiTietLH> listCT;
 		string begining;
 		string end;
+		public bool isReload=false;
 		public VCLichHocTuan () : base ("VCLichHocTuan", null)
 		{
 		}
@@ -29,6 +31,10 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			CGRect frame = listContent.Frame;
+			frame.Width = App.Current.width;
+			listContent.Frame = frame;
+
 			progress.Hidden = true;
 			LoadData_Tuan (DateTime.Today);
 		
@@ -71,8 +77,12 @@ namespace School.iOS
 
 			txtngayLHTuan.Text = "Từ " + begining + " Đến " + end;
 			timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
-			listContent.Source = new LichHocTSource (listCT,this);
-			listContent.ReloadData ();
+
+
+				listContent.Source = new LichHocTSource (listCT, this);
+				listContent.ReloadData ();
+
+
 		}
 		public static DateTime convertFromStringToDate (string date)
 		{
@@ -86,15 +96,21 @@ namespace School.iOS
 		}
 		partial void btTuanKeClick (NSObject sender)
 		{
-			listContent.Source=null;
+	
+			((LichHocTSource)listContent.Source).Items.Clear();
 			listContent.ReloadData();
+			isReload=true;
 			LoadData_Tuan (convertFromStringToDate (begining).AddDays (7));
+
+
 		}
 		partial void btTuanTRCClick (NSObject sender)
 		{
-			listContent.Source=null;
+			((LichHocTSource)listContent.Source).Items.Clear();
 			listContent.ReloadData();
+			isReload=true;
 			LoadData_Tuan (convertFromStringToDate (begining).AddDays (-7));
+
 		}
 		public static string checkTuan (string s, DateTime dayOfWeek)
 		{

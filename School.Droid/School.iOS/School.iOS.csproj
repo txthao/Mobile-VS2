@@ -93,6 +93,7 @@
     <InterfaceDefinition Include="SlideMenu\VCADiemThi.xib" />
     <InterfaceDefinition Include="SlideMenu\VCLichHocTuan.xib" />
     <InterfaceDefinition Include="SlideMenu\LogOut.xib" />
+    <InterfaceDefinition Include="Resources\SlideMenu\en.lproj\VCLichHocTuan.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

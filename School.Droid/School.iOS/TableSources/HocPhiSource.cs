@@ -8,7 +8,7 @@ namespace School.iOS
 {
 	public class HocPhiSource: UITableViewSource 
 	{
-		List<CTHocPhi> tableItems;
+		public List<CTHocPhi> tableItems;
 		NSString cellIdentifier = new NSString("TableCell");
 		bool isHeader=false;
 		public HocPhiSource (List<CTHocPhi> list)
@@ -27,6 +27,13 @@ namespace School.iOS
 		public override nint RowsInSection (UITableView tableview, nint section)
 		{
 			return tableItems.Count;
+		}
+		public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
+		{
+			// In here you could customize how you want to get the height for row. Then   
+			// just return it. 
+
+			return 60;
 		}
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{

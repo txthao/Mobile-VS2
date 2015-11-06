@@ -20,6 +20,11 @@ namespace School.Core
 				dtb.AddRemindLT (item);
 			}
 		}
+		public static void RemoveRemind(SQLiteConnection connection,string eventID)
+		{
+			DataProvider dtb = new DataProvider (connection);
+			dtb.RemoveRemind (eventID);
+		}
 		public static LHRemindItem GetLHRemind(SQLiteConnection connection,string id,string date)
 		{
 			DataProvider dtb = new DataProvider (connection);

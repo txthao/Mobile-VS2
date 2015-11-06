@@ -5,6 +5,7 @@ using Foundation;
 using UIKit;
 using System.Collections.Generic;
 using School.Core;
+using CoreGraphics;
 
 namespace School.iOS
 {
@@ -26,6 +27,14 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			headers.Source = new LichHocHKSource ();
+
+
+			CGRect frame = listLH.Frame;
+			frame.Width = App.Current.width;
+			listLH.Frame = frame;
+			frame = headers.Frame;
+			frame.Width = App.Current.width;
+			headers.Frame = frame;
 			progress.Hidden = true;
 			LoadData ();
 

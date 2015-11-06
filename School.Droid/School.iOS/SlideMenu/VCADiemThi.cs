@@ -6,6 +6,7 @@ using UIKit;
 using School.Core;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CoreGraphics;
 
 namespace School.iOS
 {
@@ -13,6 +14,7 @@ namespace School.iOS
 	{
 		public VCADiemThi () : base ("VCADiemThi", null)
 		{
+			
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -27,6 +29,9 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			headers.Source = new DiemThiHKSource ();
+			headers.AutoresizingMask=UIViewAutoresizing.FlexibleWidth;
+
+			listContent.AutoresizingMask = UIViewAutoresizing.FlexibleWidth;
 			progress.Hidden = true;
 			LoadData ();
 			// Perform any additional setup after loading the view, typically from a nib.

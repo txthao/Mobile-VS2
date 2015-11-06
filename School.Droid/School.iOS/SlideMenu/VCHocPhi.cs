@@ -5,6 +5,7 @@ using Foundation;
 using UIKit;
 using School.Core;
 using System.Collections.Generic;
+using CoreGraphics;
 
 namespace School.iOS
 {
@@ -26,6 +27,12 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			headers.Source = new HocPhiSource ();
+			CGRect frame = listHP.Frame;
+			frame.Width = App.Current.width;
+			listHP.Frame = frame;
+			frame = headers.Frame;
+			frame.Width = App.Current.width;
+			headers.Frame = frame;
 			progress.Hidden = true;
 			LoadData ();
 

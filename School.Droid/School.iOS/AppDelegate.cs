@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 using School.Core;
+using CoreGraphics;
 
 namespace School.iOS
 {
