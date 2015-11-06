@@ -16,6 +16,7 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/asset-manifest.plist
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/LaunchImage-700-568h@2x.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppLogo~iphone.jpg
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/Assets.car
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/Icdiemthi.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/Iclichhoc.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/Icsettings.png

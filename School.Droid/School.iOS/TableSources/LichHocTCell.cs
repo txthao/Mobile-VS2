@@ -63,9 +63,10 @@ namespace School.iOS
 			this.soTiet.Text = "Số Tiết:"+ soTiet;
 			this.num=num;
 			if (hasRM) {
-				this.thuT.BackgroundColor = UIColor.Red;
+				this.thuT.BackgroundColor = LayoutHelper.ourDarkCyan;
+			
 			} else {
-				this.thuT.BackgroundColor = UIColor.Blue;
+				this.thuT.BackgroundColor = LayoutHelper.ourCyan;
 			}
 		}
 		public override void LayoutSubviews ()

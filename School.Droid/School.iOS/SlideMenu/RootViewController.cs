@@ -17,7 +17,7 @@ namespace School.iOS
 		private static RootViewController instance=null; 
 		public RootViewController () : base ("RootViewController", null)
 		{
-
+			instance = this;
 			navigation = new FlyoutNavigationController ();
 		}
 
@@ -36,17 +36,26 @@ namespace School.iOS
 			navigation = new FlyoutNavigationController {
 				// Create the navigation menu
 				NavigationRoot = new RootElement ("Navigation") {
-					new Section ("Trang") {
-						new ImageStringElement("Lịch Học",UIImage.FromBundle("menupic/Iclichhoc.png")),
-						new ImageStringElement("Lịch Học Tuần",UIImage.FromBundle("menupic/Iclichhoc.png")),
+					new Section ("Lịch Học") {
+
+						new ImageStringElement("Theo Học Kỳ",UIImage.FromBundle("menupic/Iclichhoc.png")),
+						new ImageStringElement("Theo Tuần",UIImage.FromBundle("menupic/Iclichhoc.png")),
+					},
+					new Section ("Điểm Thi") {
+
+						new ImageStringElement("Học Kỳ Hiện Tại",UIImage.FromBundle("menupic/Icdiemthi.png")),
+						new ImageStringElement("Tất Cả ",UIImage.FromBundle("menupic/Icdiemthi.png")),
+					}
+					,
+					new Section ("Học Phí-Lịch Thi") {
+
 						new ImageStringElement("Lịch Thi",UIImage.FromBundle("menupic/Iclichthi.png")),
-						new ImageStringElement("Điểm Thi HK",UIImage.FromBundle("menupic/Icdiemthi.png")),
-						new ImageStringElement("Điểm Thi",UIImage.FromBundle("menupic/Icdiemthi.png")),
+
 						new ImageStringElement("Học Phí",UIImage.FromBundle("menupic/Ichocphi.png")),
 
 
 					},
-					new Section("Ứng dụng") {
+					new Section("Ứng Dụng") {
 						new ImageStringElement("Cài đặt",UIImage.FromBundle("menupic/Icsettings.png")),
 						new ImageStringElement("Đăng xuất",UIImage.FromBundle("menupic/Icsettings.png")),
 					}
@@ -55,9 +64,10 @@ namespace School.iOS
 				ViewControllers = new UIViewController[] {
 					new VCLichHoc(),
 					new VCLichHocTuan(),
-					new VCLichThi(),
+
 					new VCDiemThi(),
 					new VCADiemThi(),
+					new VCLichThi(),
 					new VCHocPhi(),
 					new VCSettings(),
 					new LogOut(),
@@ -80,7 +90,7 @@ namespace School.iOS
 		}
 		public void LogOut()
 		{
-			this.PresentViewController (VCLogIn.Instance, true, null);
+			this.PresentViewController (new VCLogIn(), true, null);
 		}
 	}
 }

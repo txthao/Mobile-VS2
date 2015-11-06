@@ -12,7 +12,7 @@ namespace School.iOS
 		{
 			header=new UILabel(){
 				
-				BackgroundColor = UIColor.Brown,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				Font = UIFont.FromName("AmericanTypewriter", 12f)
 			};
 			ContentView.AddSubviews (new UIView[] { header });

@@ -46,33 +46,33 @@ namespace School.iOS
 		public DiemThiCell (NSString cellId,bool key) : base (UITableViewCellStyle.Default, cellId)
 		{
 			monhoc = new UILabel () {
-				Text="Môn Học",
+				Text="  Môn Học",
 				Lines=2,
-				BackgroundColor = UIColor.Gray,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			tile = new UILabel () {
 				Text="Tỉ Lệ",
 				Lines=2,
-				BackgroundColor = UIColor.Gray,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			diemkt = new UILabel () {
 				Text="Điểm KT",
 				Lines=2,
-				BackgroundColor = UIColor.Gray,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			diemthi = new UILabel () {
 				Text="Điểm Thi",
 				Lines=2,
-				BackgroundColor = UIColor.Gray,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			diemtk = new UILabel () {
 				Text="Điểm TK",
 				Lines=2,
-				BackgroundColor = UIColor.Gray,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			ContentView.AddSubviews (new UIView[] { monhoc, tile, diemkt, diemthi,diemtk });
@@ -80,7 +80,7 @@ namespace School.iOS
 		}
 		public void UpdateCell (string imonhoc,string itile,string idiemkt, string idiemthi,string idiemtk,string diemchu)
 		{
-			monhoc.Text = imonhoc;
+			monhoc.Text =" "+ imonhoc;
 			tile.Text = ApiHelper.calPercent (int.Parse(itile));
 			diemkt.Text = ApiHelper.checkSpaceValue(idiemkt);
 			diemthi.Text = ApiHelper.checkSpaceValue(idiemthi);

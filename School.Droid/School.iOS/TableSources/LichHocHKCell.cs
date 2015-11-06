@@ -58,7 +58,7 @@ namespace School.iOS
 				Text="Môn Học",
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
-				BackgroundColor = UIColor.Gray,
+				BackgroundColor =LayoutHelper.ourDarkCyan,
 				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
@@ -66,7 +66,7 @@ namespace School.iOS
 				Text="Thứ",
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
-				BackgroundColor = UIColor.Gray,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
@@ -74,7 +74,7 @@ namespace School.iOS
 				Text="Tiết BD",
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
-				BackgroundColor = UIColor.Gray,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
@@ -82,7 +82,7 @@ namespace School.iOS
 				Text="Số Tiết",
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
-				BackgroundColor = UIColor.Gray,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
@@ -90,7 +90,7 @@ namespace School.iOS
 				Text="Phòng",
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
-				BackgroundColor = UIColor.Gray,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				TextAlignment=UITextAlignment.Center,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};

@@ -32,7 +32,7 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			if (BUser.IsLogined (SQLite_iOS.GetConnection ()) == true) {	
-				this.NavigationController.PresentViewController(RootViewController.Instance,true,null);
+				this.PresentViewController(new RootViewController(),true,null);
 			}
 			txtMaSV.Text = "3111410094";
 			txtMatKhau.Text = "itdaihocsg";
@@ -50,11 +50,15 @@ namespace School.iOS
 				 ApiHelper.Login(tk,pass,"1",error=>{
 					if (error==null)
 					{
+						BTProgressHUD.Dismiss();
 						InvokeOnMainThread (()=>{
 						txtMaSV.Text=string.Empty;
+
 						txtMatKhau.Text=string.Empty;
+						BTProgressHUD.Show ("Đang tải dữ liệu lần đầu...");
+						
 						BTProgressHUD.Dismiss();
-							this.NavigationController.PresentViewController(RootViewController.Instance,true,null);
+							this.PresentViewController(new RootViewController(),true,null);
 						});
 					}
 					else

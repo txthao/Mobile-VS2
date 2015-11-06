@@ -53,7 +53,12 @@ namespace School.iOS
 			if (sync) {
 				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 				var newlistlh = BLichHoc.MakeDataFromXml (SQLite_iOS.GetConnection ());
-				List<LichHoc> newListLH= await newlistlh;
+
+				List<LichHoc> newListLH= await newlistlh;var checkRemind=SettingsHelper.LoadSetting("Remind");
+				if (checkRemind){
+					VCHomeReminder remind= new VCHomeReminder(this);
+					await remind.RemindALLLH(newListLH,"");
+				}
 				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 			}
 			progress.StopAnimating ();
@@ -75,13 +80,14 @@ namespace School.iOS
 
 			GetWeek (dateOfWeek, out begining, out end);
 
-			txtngayLHTuan.Text = "Từ " + begining + " Đến " + end;
-			timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
 
 
+			if (listLH.Count > 0) {
+				txtngayLHTuan.Text = "Từ " + begining + " Đến " + end;
+				timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
 				listContent.Source = new LichHocTSource (listCT, this);
 				listContent.ReloadData ();
-
+			}
 
 		}
 		public static DateTime convertFromStringToDate (string date)

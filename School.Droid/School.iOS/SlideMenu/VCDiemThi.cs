@@ -5,6 +5,7 @@ using Foundation;
 using UIKit;
 using School.Core;
 using System.Collections.Generic;
+using CoreGraphics;
 
 namespace School.iOS
 {
@@ -26,6 +27,14 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			headers.Source = new DiemThiHKSource ();
+			CGRect frame = listDM.Frame;
+			frame.Width = App.Current.width;
+			frame.Height = App.Current.height;
+			listDM.Frame = frame;
+
+			frame = headers.Frame;
+			frame.Width = App.Current.width;
+			headers.Frame = frame;
 			progress.Hidden = true;
 			LoadData ();
 			// Perform any additional setup after loading the view, typically from a nib.

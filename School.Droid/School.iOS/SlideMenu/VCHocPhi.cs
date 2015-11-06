@@ -54,7 +54,7 @@ namespace School.iOS
 			HocPhi hp = BHocPhi.GetHP(SQLite_iOS.GetConnection ());
 			if (hp!=null)
 			{
-			timeHP.Text="Học Kỳ "+hp.HocKy+"Năm "+hp.NamHoc;
+			timeHP.Text="Học Kỳ "+hp.HocKy+" Năm "+hp.NamHoc;
 			list= BHocPhi.GetCTHP(SQLite_iOS.GetConnection (),hp.NamHoc,hp.HocKy);
 			listHP.Source = new HocPhiSource (list);
 			listHP.ReloadData();

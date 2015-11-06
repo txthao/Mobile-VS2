@@ -188,10 +188,13 @@ namespace School.Core
 				orderby c.NamHoc descending, c.HocKy descending
 				select c;
 			LichHoc lh = query.FirstOrDefault ();
-			var result = from a in _connection.Table<LichHoc> ()
-					where a.NamHoc.Equals(lh.NamHoc) && a.HocKy.Equals(lh.HocKy)
-			             select a;
-			return result.ToList();
+			if (lh != null) {
+				var result = from a in _connection.Table<LichHoc> ()
+				            where a.NamHoc.Equals (lh.NamHoc) && a.HocKy.Equals (lh.HocKy)
+				            select a;
+				return result.ToList();
+			}
+			return query.ToList();
 		}
 
 		public LichHoc GetLH_Id (string id)

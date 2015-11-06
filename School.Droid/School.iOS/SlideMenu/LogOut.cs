@@ -25,6 +25,7 @@ namespace School.iOS
 			
 			base.ViewDidLoad ();
 			ApiHelper.LogOut ();
+
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 	}

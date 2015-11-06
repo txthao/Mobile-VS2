@@ -76,9 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\AppLogo.imageset\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\AppLogo.imageset\SguIcon.jpg" />
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\SguLogo.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\SguLogo.imageset\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
@@ -164,6 +164,7 @@
     </Compile>
     <Compile Include="App.cs" />
     <Compile Include="Helper\VCHomeReminder.cs" />
+    <Compile Include="Helper\LayoutHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\SQLitePCL.raw_basic.0.8.2\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets" Condition="Exists('..\packages\SQLitePCL.raw_basic.0.8.2\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets')" />

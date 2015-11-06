@@ -12,28 +12,28 @@ namespace School.iOS
 		{
 			monhoc = new UILabel () {
 				Text="Môn Học",
-				BackgroundColor = UIColor.Blue,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			hocphi = new UILabel () {
 				Text="Học Phí",
-				BackgroundColor = UIColor.Blue,
+				BackgroundColor =LayoutHelper.ourDarkCyan,
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			miengiam = new UILabel () {
 				Text="Miễn Giảm",
-				BackgroundColor = UIColor.Blue,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
 			phaidong = new UILabel () {
 				Text="Phải Đóng",
-				BackgroundColor = UIColor.Blue,
+				BackgroundColor = LayoutHelper.ourDarkCyan,
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)

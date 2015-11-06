@@ -12,7 +12,6 @@ namespace School.iOS
 	{
 		// class-level declarations
 		UINavigationController navigation;
-		RootViewController menu;
 		public override UIWindow Window {
 			get;
 			set;
@@ -25,7 +24,7 @@ namespace School.iOS
 		
 			// If you have defined a root view controller, set it here:
 			// Window.RootViewController = myViewController;
-			navigation = new UINavigationController (new VCLogIn ());
+			navigation = new UINavigationController (new VCLogIn());
 
 			navigation.SetNavigationBarHidden (true, true);
 			Window.RootViewController = navigation ;

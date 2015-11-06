@@ -75,10 +75,11 @@ namespace School.iOS
 
 					}
 					});
-					progress.StopAnimating ();
+					
 					listContent.Source=new DiemThiSource(list);
 					listContent.ReloadData();
 				}
+				progress.StopAnimating ();
 			}
 			catch {
 			}
