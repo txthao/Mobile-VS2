@@ -15,7 +15,7 @@ using Android.Content.PM;
 
 namespace School.Droid
 {
-	[Activity (Label = "Cài đặt nhắc lịch", ScreenOrientation = ScreenOrientation.Portrait)]			
+	[Activity (Label = "Cài đặt nhắc lịch",Icon="@drawable/reminder", ScreenOrientation = ScreenOrientation.Portrait)]			
 	public class Remider : Activity
 	{
 		string MH;

@@ -62,6 +62,7 @@ namespace School.Droid
 			listItems.Add(new DrawerItem("Điểm Thi",Resource.Drawable.archive,false));
 			listItems.Add(new DrawerItem("Học Phí",Resource.Drawable.tag,true));
 			listItems.Add(new DrawerItem("Cài đặt",Resource.Drawable.configuration2,false));
+			listItems.Add(new DrawerItem("Giới thiệu",Resource.Drawable.configuration2,false));
 			listItems.Add (new DrawerItem ("Đăng xuất", Resource.Drawable.back,false));
 			_drawerList.Adapter = new CustomDrawerAdapter (this, listItems);
 			_drawerList.ItemClick += (sender, args) => SelectItem(args.Position);
@@ -128,6 +129,10 @@ namespace School.Droid
 
 				break;
 			case 6:
+				fragment = new AboutFragment ();
+
+				break;
+			case 7:
 				BUser.LogOut (SQLite_Android.GetConnection ());
 				var prefs = Application.Context.GetSharedPreferences ("SGU APP", FileCreationMode.Private);
 				prefs.Edit ().Clear ().Commit ();
@@ -201,7 +206,7 @@ namespace School.Droid
 					FragmentManager.PopBackStackImmediate ();
 					int pos = int.Parse (title);
 					
-					while (pos > 5) {
+					while (pos > 6) {
 						title = FragmentManager.GetBackStackEntryAt (FragmentManager.BackStackEntryCount - 1).Name;
 						FragmentManager.PopBackStackImmediate ();
 						pos = int.Parse (title);

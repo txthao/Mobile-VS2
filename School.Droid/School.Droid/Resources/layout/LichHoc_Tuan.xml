@@ -12,22 +12,34 @@
         android:minHeight="25px"
         android:layout_above="@+id/seperator_LH">
         <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:id="@+id/radioGroup2"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/radioBtn_group"
+            android:orientation="horizontal"
+            android:padding="1dp">
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Xem dạng HK "
-                android:id="@+id/rb_dangHK_Tuan"
-                android:textSize="15dip" />
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:background="@drawable/radio_states"
+                android:button="@null"
+                android:padding="5dp"
                 android:text="Xem dạng Tuần"
+                android:textColor="@drawable/radio_text"
                 android:id="@+id/rb_dangTuan_Tuan"
-                android:textSize="15dip" />
+                android:textSize="14dip" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:background="@drawable/radio_states"
+                android:padding="5dp"
+                android:textColor="@drawable/radio_text"
+                android:text="Xem dạng Học kỳ"
+                android:id="@+id/rb_dangHK_Tuan"
+                android:textSize="14dip" />
         </RadioGroup>
         <TextView
             android:textColor="@android:color/background_dark"
