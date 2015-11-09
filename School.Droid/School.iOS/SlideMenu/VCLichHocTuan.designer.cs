@@ -13,31 +13,59 @@ namespace School.iOS
 	partial class VCLichHocTuan
 	{
 		[Outlet]
+		UIKit.UIButton btTuanKe { get; set; }
+
+		[Outlet]
+		UIKit.UIButton btTuanTrc { get; set; }
+
+		[Outlet]
 		UIKit.UITableView listContent { get; set; }
 
 		[Outlet]
+		UIKit.UILabel mytitle { get; set; }
+
+		[Outlet]
 		UIKit.UIActivityIndicatorView progress { get; set; }
+
+		[Outlet]
+		UIKit.UIButton testBT { get; set; }
 
 		[Outlet]
 		UIKit.UILabel timeLHTuan { get; set; }
 
 		[Outlet]
 		UIKit.UILabel txtngayLHTuan { get; set; }
-
-		[Action ("btTuanKeClick:")]
-		partial void btTuanKeClick (Foundation.NSObject sender);
-
-		[Action ("btTuanTRCClick:")]
-		partial void btTuanTRCClick (Foundation.NSObject sender);
-
-		[Action ("btTuanTRClick:")]
-		partial void btTuanTRClick (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (btTuanKe != null) {
+				btTuanKe.Dispose ();
+				btTuanKe = null;
+			}
+
+			if (btTuanTrc != null) {
+				btTuanTrc.Dispose ();
+				btTuanTrc = null;
+			}
+
 			if (listContent != null) {
 				listContent.Dispose ();
 				listContent = null;
+			}
+
+			if (progress != null) {
+				progress.Dispose ();
+				progress = null;
+			}
+
+			if (mytitle != null) {
+				mytitle.Dispose ();
+				mytitle = null;
+			}
+
+			if (testBT != null) {
+				testBT.Dispose ();
+				testBT = null;
 			}
 
 			if (timeLHTuan != null) {
@@ -48,11 +76,6 @@ namespace School.iOS
 			if (txtngayLHTuan != null) {
 				txtngayLHTuan.Dispose ();
 				txtngayLHTuan = null;
-			}
-
-			if (progress != null) {
-				progress.Dispose ();
-				progress = null;
 			}
 		}
 	}

@@ -77,7 +77,7 @@ namespace School.iOS
 				this.expandItemAtIndex(tableView, currentExpandedIndex);
 			}
 			tableView.EndUpdates();
-
+			tableView.DeselectRow (indexPath, false);
 		}
 
 		//TODO: implement this here?

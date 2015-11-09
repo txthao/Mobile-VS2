@@ -23,6 +23,7 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/Iclichthi.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/Ichocphi.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/Iclogout.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/signout.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/Settings.Bundle/Root.plist
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/success@2x.png
@@ -51,3 +52,5 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.Net.Http.Primitives.xml
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.IO.dll
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.Text.Encoding.dll
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/Reachability.Net.dll
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/Reachability.Net.XamarinIOS.dll

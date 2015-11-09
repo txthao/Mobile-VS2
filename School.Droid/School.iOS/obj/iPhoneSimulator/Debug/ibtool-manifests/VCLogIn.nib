@@ -7,22 +7,6 @@
 	<key>com.apple.ibtool.document.notices</key>
 	<dict/>
 	<key>com.apple.ibtool.document.warnings</key>
-	<dict>
-		<key>T1I-w2-fQN</key>
-		<array>
-			<dict>
-				<key>affected-objects</key>
-				<array>
-					<string>T1I-w2-fQN</string>
-				</array>
-				<key>message</key>
-				<string>Automatic Preferred Max Layout Width is not available on iOS versions prior to 8.0</string>
-				<key>type</key>
-				<string>IBAttributeUnavailable</string>
-				<key>type-value</key>
-				<integer>5</integer>
-			</dict>
-		</array>
-	</dict>
+	<dict/>
 </dict>
 </plist>

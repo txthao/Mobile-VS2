@@ -11,7 +11,7 @@ namespace School.iOS
 	public class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
-		UINavigationController navigation;
+	
 		public override UIWindow Window {
 			get;
 			set;
@@ -21,13 +21,16 @@ namespace School.iOS
 		{
 			// create a new window instance based on the screen size
 			Window = new UIWindow (UIScreen.MainScreen.Bounds);
-		
+
 			// If you have defined a root view controller, set it here:
 			// Window.RootViewController = myViewController;
-			navigation = new UINavigationController (new VCLogIn());
+			if (BUser.IsLogined (SQLite_iOS.GetConnection ()) == true) {	
+				Window.RootViewController = new RootViewController()  ;
 
-			navigation.SetNavigationBarHidden (true, true);
-			Window.RootViewController = navigation ;
+			} else {
+				Window.RootViewController = new VCLogIn()  ;
+			}
+
 			// make the window visible
 			Window.MakeKeyAndVisible ();
 

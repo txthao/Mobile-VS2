@@ -23,6 +23,9 @@ namespace School.iOS
 
 		[Outlet]
 		UIKit.UILabel timeLH { get; set; }
+
+		[Outlet]
+		UIKit.UILabel title { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -34,6 +37,11 @@ namespace School.iOS
 			if (listLH != null) {
 				listLH.Dispose ();
 				listLH = null;
+			}
+
+			if (title != null) {
+				title.Dispose ();
+				title = null;
 			}
 
 			if (progress != null) {

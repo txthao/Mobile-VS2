@@ -57,7 +57,7 @@ namespace School.iOS
 					},
 					new Section("Ứng Dụng") {
 						new ImageStringElement("Cài đặt",UIImage.FromBundle("menupic/Icsettings.png")),
-						new ImageStringElement("Đăng xuất",UIImage.FromBundle("menupic/Icsettings.png")),
+						new ImageStringElement("Đăng xuất",UIImage.FromBundle("menupic/signout.png")),
 					}
 				},
 				// Supply view controllers corresponding to menu items:

@@ -20,12 +20,20 @@ namespace School.iOS
 
 		[Outlet]
 		UIKit.UIActivityIndicatorView progress { get; set; }
+
+		[Outlet]
+		UIKit.UILabel title { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (headers != null) {
 				headers.Dispose ();
 				headers = null;
+			}
+
+			if (title != null) {
+				title.Dispose ();
+				title = null;
 			}
 
 			if (listContent != null) {

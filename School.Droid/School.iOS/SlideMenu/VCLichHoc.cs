@@ -11,8 +11,10 @@ namespace School.iOS
 {
 	public partial class VCLichHoc : UIViewController
 	{
+		public static VCLichHoc instance;
 		public VCLichHoc () : base ("VCLichHoc", null)
 		{
+			instance = this;
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -29,19 +31,21 @@ namespace School.iOS
 			headers.Source = new LichHocHKSource ();
 
 
-			CGRect frame = listLH.Frame;
-			frame.Width = App.Current.width;
-			listLH.Frame = frame;
-			frame = headers.Frame;
-			frame.Width = App.Current.width;
-			headers.Frame = frame;
+	
+			listLH.Frame = LayoutHelper.setlayoutForTB (listLH.Frame );
+
+			headers.Frame = LayoutHelper.setlayoutForHeader (headers.Frame );
+			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
+
+
+			timeLH.Frame = LayoutHelper.setlayoutForTimeLB(timeLH.Frame);
 			progress.Hidden = true;
 			LoadData ();
 
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 
-		private async void LoadData()
+		public async void LoadData()
 		{
 			try
 			{
@@ -49,7 +53,7 @@ namespace School.iOS
 				progress.StartAnimating ();
 
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-				if (sync)
+				if (sync&&Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
 				{
 				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 					var newlistlh= BLichHoc.MakeDataFromXml (SQLite_iOS.GetConnection ());
@@ -68,11 +72,22 @@ namespace School.iOS
 					foreach (LichHoc item in newlistLH) {
 						listCT.AddRange (BLichHoc.GetCTLH (SQLite_iOS.GetConnection (),item.Id ));
 					}
+					timeLH.TextAlignment= UITextAlignment.Center;
+					timeLH.Text="Học Kỳ " + newlistLH[0].HocKy+ " Năm "+ newlistLH[0].NamHoc;
 					listLH.Source=new LichHocHKSource(listCT,this);
 					listLH.ReloadData();
 				}
 			}
 			catch {
+			}
+		}
+		public static VCLichHoc Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new VCLichHoc ();
+				return instance;
 			}
 		}
 	}

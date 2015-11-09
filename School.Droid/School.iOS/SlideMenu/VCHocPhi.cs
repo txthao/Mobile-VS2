@@ -11,8 +11,10 @@ namespace School.iOS
 {
 	public partial class VCHocPhi : UIViewController
 	{
+		public static VCHocPhi instance;
 		public VCHocPhi () : base ("VCHocPhi", null)
 		{
+			instance = this;
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -27,24 +29,37 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			headers.Source = new HocPhiSource ();
-			CGRect frame = listHP.Frame;
-			frame.Width = App.Current.width;
-			listHP.Frame = frame;
-			frame = headers.Frame;
-			frame.Width = App.Current.width;
-			headers.Frame = frame;
+
+			listHP.Frame = LayoutHelper.setlayoutForTB (listHP.Frame );
+
+			headers.Frame = LayoutHelper.setlayoutForHeader (headers.Frame );
+			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
+			timeHP.Frame = LayoutHelper.setlayoutForTimeLB(timeHP.Frame);;
+			txtToSoTC.Frame = LayoutHelper.setlayoutForFooter (txtToSoTC.Frame, 0, listHP.Frame.Y);
+			txtTongTienHP.Frame = LayoutHelper.setlayoutForFooter (txtTongTienHP.Frame, 1, listHP.Frame.Y);
+			txtTTLD.Frame = LayoutHelper.setlayoutForFooter (txtTTLD.Frame, 2, listHP.Frame.Y);
+			txtTongTIenDD.Frame = LayoutHelper.setlayoutForFooter (txtTongTIenDD.Frame, 3, listHP.Frame.Y);
+			txtTienConNo.Frame = LayoutHelper.setlayoutForFooter (txtTienConNo.Frame, 4, listHP.Frame.Y);
+
+			txtToSoTC.Font = UIFont.SystemFontOfSize (App.Current.textSize);
+			txtTongTienHP.Font = UIFont.SystemFontOfSize (App.Current.textSize);
+			txtTTLD.Font = UIFont.SystemFontOfSize (App.Current.textSize);
+			txtTongTIenDD.Font = UIFont.SystemFontOfSize (App.Current.textSize);
+			txtTienConNo.Font = UIFont.SystemFontOfSize (App.Current.textSize);
+
+
 			progress.Hidden = true;
 			LoadData ();
 
 		}
-		private async void LoadData()
+		public async void LoadData()
 		{
 			try{
 				progress.Hidden = false;
 				progress.StartAnimating ();	
 			List<CTHocPhi> list = new List<CTHocPhi> ();
 			bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-			if (sync)
+				if (sync&&Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
 			{
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 			await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
@@ -66,6 +81,15 @@ namespace School.iOS
 			}
 			}
 			catch {
+			}
+		}
+		public static VCHocPhi Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new VCHocPhi ();
+				return instance;
 			}
 		}
 	}

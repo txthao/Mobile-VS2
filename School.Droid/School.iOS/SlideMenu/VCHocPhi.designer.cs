@@ -25,7 +25,13 @@ namespace School.iOS
 		UIKit.UIActivityIndicatorView progress { get; set; }
 
 		[Outlet]
+		UIKit.UIScrollView scrollView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel timeHP { get; set; }
+
+		[Outlet]
+		UIKit.UILabel title { get; set; }
 
 		[Outlet]
 		UIKit.UILabel txtTienConNo { get; set; }
@@ -49,11 +55,6 @@ namespace School.iOS
 				headers = null;
 			}
 
-			if (progress != null) {
-				progress.Dispose ();
-				progress = null;
-			}
-
 			if (listHeaders != null) {
 				listHeaders.Dispose ();
 				listHeaders = null;
@@ -64,9 +65,24 @@ namespace School.iOS
 				listHP = null;
 			}
 
+			if (progress != null) {
+				progress.Dispose ();
+				progress = null;
+			}
+
+			if (scrollView != null) {
+				scrollView.Dispose ();
+				scrollView = null;
+			}
+
 			if (timeHP != null) {
 				timeHP.Dispose ();
 				timeHP = null;
+			}
+
+			if (title != null) {
+				title.Dispose ();
+				title = null;
 			}
 
 			if (txtTienConNo != null) {

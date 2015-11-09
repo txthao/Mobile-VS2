@@ -165,6 +165,7 @@
     <Compile Include="App.cs" />
     <Compile Include="Helper\VCHomeReminder.cs" />
     <Compile Include="Helper\LayoutHelper.cs" />
+    <Compile Include="Helper\Reachability.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\SQLitePCL.raw_basic.0.8.2\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets" Condition="Exists('..\packages\SQLitePCL.raw_basic.0.8.2\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets')" />
@@ -194,6 +195,7 @@
     <BundleResource Include="Resources\menupic\Ichocphi.png" />
     <BundleResource Include="Resources\menupic\Iclogout.png" />
     <BundleResource Include="Settings.Bundle\Root.plist" />
+    <BundleResource Include="Resources\menupic\signout.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\School.Core\School.Core.csproj">

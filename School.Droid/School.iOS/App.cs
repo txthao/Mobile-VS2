@@ -16,6 +16,8 @@ namespace School.iOS
 		public nfloat width;
 		public nfloat height;
 		public nfloat labelMHWidth;
+		public nfloat textSize;
+		public nfloat footerHeight;
 		/// <summary>
 		/// The EKEventStore is intended to be long-lived. It's expensive to new it up
 		/// and can be thought of as a database, so we create a single instance of it
@@ -48,21 +50,25 @@ namespace School.iOS
 				{
 				labelMHWidth = 100;
 				tableSize.Height = 200;
+				textSize = 13;
 				}
 				else if(result.Height == 568)
 				{
 				labelMHWidth = 120;
 				tableSize.Height = 360;
+				textSize = 15;
 				}
 				else if(result.Height == 667)
 				{
 				labelMHWidth = 150;
 				tableSize.Height = 500;
+				textSize = 15;
 				}
 				else if(result.Height == 736)
 				{
 				labelMHWidth = 180;
 				tableSize.Height = 580;
+				textSize = 17;
 				}
 
 		}

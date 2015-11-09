@@ -108,7 +108,7 @@ namespace School.iOS
 					await remind.RemindALLLH(newListLH,"");
 					await remind.RemindAllLT(newListLT);
 				}
-				return "load success ";
+				return "Cập nhật dữ liệu thành công";
 			}
 			catch {
 				return "load failed";

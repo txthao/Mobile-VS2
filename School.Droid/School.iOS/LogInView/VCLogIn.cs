@@ -6,6 +6,7 @@ using UIKit;
 using BigTed;
 using ObjCRuntime;
 using School.Core;
+using CoreGraphics;
 
 
 namespace School.iOS
@@ -31,9 +32,53 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			if (BUser.IsLogined (SQLite_iOS.GetConnection ()) == true) {	
-				this.PresentViewController(new RootViewController(),true,null);
-			}
+			txtMatKhau.SecureTextEntry = true;
+			View.BackgroundColor = LayoutHelper.ourCyan;
+
+
+			CGRect frame = new CGRect ();
+			frame = appName.Frame;
+			frame.Width = App.Current.width;
+			frame.Y = 80;
+			appName.Frame = frame;
+			frame = appFooter.Frame;
+			frame.Width = App.Current.width;
+			frame.Y= App.Current.height - 20;
+			appFooter.Frame = frame;
+			frame = appLogo.Frame;
+			frame.Y = appName.Frame.Y + 40;
+			frame.Height = App.Current.width / 3+30;
+			frame.Width = App.Current.width / 3+30;
+			frame.X = App.Current.width / 3-15;
+			appLogo.Frame = frame;
+			frame = txtMaSV.Frame;
+			frame.Width = appLogo.Frame.Width + 40;
+			frame.Y = appLogo.Frame.Y +appLogo.Frame.Height+ 30;
+			frame.X = App.Current.width / 3 - 35;
+			txtMaSV.Frame = frame;
+			frame = txtMatKhau.Frame;
+			frame.Width = appLogo.Frame.Width + 40;
+			frame.Y = txtMaSV.Frame.Y + txtMaSV.Frame.Height + 20; 
+			frame.X = App.Current.width / 3 - 35;
+			txtMatKhau.Frame = frame;
+			frame = btDangNhap.Frame;
+			frame.Width = appLogo.Frame.Width -10;
+			frame.Y = txtMatKhau.Frame.Y + txtMatKhau.Frame.Height + 20; 
+			frame.X = App.Current.width / 3-10 ;
+			btDangNhap.Frame = frame;
+
+
+
+			frame = txtError.Frame;
+
+			frame.Width = App.Current.width - 20;
+			frame.Y = btDangNhap.Frame.Y + btDangNhap.Frame.Height ; 
+			frame.X = 10;
+			txtError.Lines = 0;
+			txtError.TextAlignment = UITextAlignment.Center;
+			txtError.LineBreakMode = UILineBreakMode.WordWrap;
+			txtError.Font = UIFont.SystemFontOfSize (App.Current.textSize);
+			txtError.Frame = frame;
 			txtMaSV.Text = "3111410094";
 			txtMatKhau.Text = "itdaihocsg";
 
@@ -41,6 +86,12 @@ namespace School.iOS
 		}
 		partial void btDangNhapClick (NSObject sender)
 		{
+			if (Reachability.InternetConnectionStatus ()==NetworkStatus.NotReachable)
+			{
+				txtError.Text = "Không Có Kết Nối Mạng";
+			}
+			else
+			{	
 			if (checkInfo())
 			{
 				string tk=txtMaSV.Text.Trim();
@@ -70,6 +121,7 @@ namespace School.iOS
 				});
 
 
+			}
 			}
 
 		}

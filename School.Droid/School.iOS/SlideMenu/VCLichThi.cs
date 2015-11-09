@@ -11,8 +11,10 @@ namespace School.iOS
 {
 	public partial class VCLichThi : UIViewController
 	{
+		public static VCLichThi instance;
 		public VCLichThi () : base ("VCLichThi", null)
 		{
+			instance = this;
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -27,18 +29,18 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			headers.Source = new LichThiSource ();
-			CGRect frame = listLT.Frame;
-			frame.Width = App.Current.width;
-			listLT.Frame = frame;
-			frame = headers.Frame;
-			frame.Width = App.Current.width;
-			headers.Frame = frame;
+
+			listLT.Frame =LayoutHelper.setlayoutForTB (listLT.Frame);
+		
+			headers.Frame =LayoutHelper.setlayoutForHeader (headers.Frame );
+			timeLT.Frame =  LayoutHelper.setlayoutForTimeLB(timeLT.Frame);
+			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
 			progress.Hidden = true;
 			LoadData ();
 
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
-		private async void LoadData()
+		public async void LoadData()
 		{
 			try
 			{
@@ -46,7 +48,7 @@ namespace School.iOS
 				progress.StartAnimating ();
 				List<LichThi> list= new List<LichThi>();
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-				if (sync)
+				if (sync&&Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
 				{
 				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 					var newlistlt= BLichThi.MakeDataFromXml (SQLite_iOS.GetConnection ());
@@ -68,6 +70,15 @@ namespace School.iOS
 				}
 			}
 			catch {
+			}
+		}
+		public static VCLichThi Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new VCLichThi ();
+				return instance;
 			}
 		}
 	}

@@ -25,6 +25,9 @@ namespace School.iOS
 		UIKit.UILabel timeDTHK { get; set; }
 
 		[Outlet]
+		UIKit.UILabel title { get; set; }
+
+		[Outlet]
 		UIKit.UILabel txtDRL { get; set; }
 
 		[Outlet]
@@ -47,19 +50,24 @@ namespace School.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (title != null) {
+				title.Dispose ();
+				title = null;
+			}
+
 			if (headers != null) {
 				headers.Dispose ();
 				headers = null;
 			}
 
-			if (progress != null) {
-				progress.Dispose ();
-				progress = null;
-			}
-
 			if (listDM != null) {
 				listDM.Dispose ();
 				listDM = null;
+			}
+
+			if (progress != null) {
+				progress.Dispose ();
+				progress = null;
 			}
 
 			if (timeDTHK != null) {

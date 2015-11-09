@@ -1,6 +1,7 @@
 ﻿using System;
 using Foundation;
 
+
 namespace School.iOS
 {
 	public class SettingsHelper
@@ -20,6 +21,7 @@ namespace School.iOS
 
 			return settingValue;
 		}
+
 	}
 }
 

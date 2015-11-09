@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5.8.2" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.8.2" />
   <MonoDevelop.Ide.Workbench ActiveDocument="School.iOS/SlideMenu/VCLichHocTuan.cs">
     <Files>
-      <File FileName="School.iOS/SlideMenu/VCLichHocTuan.cs" Line="84" Column="4" />
-      <File FileName="School.iOS/TableSources/LichHocTSource.cs" Line="39" Column="1" />
+      <File FileName="School.iOS/SlideMenu/VCSettings.cs" Line="91" Column="34" />
+      <File FileName="School.iOS/SlideMenu/VCLichHocTuan.cs" Line="57" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

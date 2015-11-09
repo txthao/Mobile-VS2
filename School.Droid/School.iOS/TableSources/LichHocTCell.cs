@@ -48,7 +48,7 @@ namespace School.iOS
 				
 
 				TextAlignment=UITextAlignment.Center,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font = UIFont.FromName("AmericanTypewriter", 17f)
 			};
 
 			ContentView.AddSubviews (new UIView[] { thuT, ngayT, monhoc, tietBD, soTiet, phong }); 
@@ -78,7 +78,7 @@ namespace School.iOS
 			tietBD.Frame=  new CGRect (150, 45, 100, 20);
 			phong.Frame= new CGRect (150, 70, ContentView.Bounds.Width - 150, 20);
 			thuT.Frame= new CGRect (30, 15, 80, 30);
-			ngayT.Frame= new CGRect (30, 35,  80, 50);
+			ngayT.Frame= new CGRect (30, 45,  80, 50);
 			soTiet.Frame= new CGRect (250, 45, ContentView.Bounds.Width-250, 20);
 
 

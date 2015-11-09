@@ -23,9 +23,17 @@ namespace School.iOS
 
 		[Outlet]
 		UIKit.UILabel timeLT { get; set; }
+
+		[Outlet]
+		UIKit.UILabel title { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (title != null) {
+				title.Dispose ();
+				title = null;
+			}
+
 			if (headers != null) {
 				headers.Dispose ();
 				headers = null;
