@@ -15,9 +15,9 @@ namespace School.iOS
 			iFrame.Y = App.Current.height / 4+15;
 			if (App.Current.height <= 568) {
 				
-				iFrame.Height = App.Current.height / 2 - 60;
+				iFrame.Height = App.Current.height / 2 - 70;
 			} else {
-				iFrame.Height = App.Current.height / 2-100;
+				iFrame.Height = App.Current.height / 2-110;
 			}
 			return iFrame;
 		}
@@ -47,9 +47,9 @@ namespace School.iOS
 		{
 			CGRect iFrame = frame;
 			iFrame.Width = App.Current.width;
-			nfloat tableHeight = (App.Current.height <= 568) ? App.Current.height / 2 - 60 : App.Current.height / 2 - 100;
-			iFrame.Y = 10 + Y + tableHeight;
-			iFrame.Height = (App.Current.height - iFrame.Y) / 6;
+			nfloat tableHeight = (App.Current.height <= 568) ? App.Current.height / 2 - 70 : App.Current.height / 2 - 110;
+			iFrame.Y =  Y + tableHeight;
+			iFrame.Height = (App.Current.height - iFrame.Y) / 6-5;
 			iFrame.Y = num*iFrame.Height+iFrame.Y+5;
 			return iFrame;
 		}

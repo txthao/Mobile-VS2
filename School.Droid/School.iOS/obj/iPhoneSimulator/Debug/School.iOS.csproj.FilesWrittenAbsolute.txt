@@ -52,5 +52,3 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.Net.Http.Primitives.xml
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.IO.dll
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.Text.Encoding.dll
-/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/Reachability.Net.dll
-/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/Reachability.Net.XamarinIOS.dll

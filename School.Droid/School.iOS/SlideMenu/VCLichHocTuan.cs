@@ -123,11 +123,12 @@ namespace School.iOS
 
 			}
 
-			GetWeek (dateOfWeek, out begining, out end);
+			
 
 
 
-			if (listLH.Count > 0) {
+			if (listCT.Count > 0) {
+					GetWeek (dateOfWeek, out begining, out end);
 				txtngayLHTuan.Text = "Từ " + begining + " Đến " + end;
 				timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
 				listContent.Source = new LichHocTSource (listCT, this);

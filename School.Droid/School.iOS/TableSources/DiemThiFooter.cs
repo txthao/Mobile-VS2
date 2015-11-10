@@ -57,13 +57,13 @@ namespace School.iOS
 		}
 		public void UpdateCell(DiemThi dt)
 		{
-			TB10.Text = "Điểm TB Hệ 10:"+dt.DiemTB10;
-			TB4.Text ="Điểm TB Hệ 4:"+ dt.DiemTB4;
-			TC.Text = "Số TC Đạt:" + dt.SoTCDat;
+			TB10.Text = "Điểm TB Hệ 10: "+dt.DiemTB10;
+			TB4.Text ="Điểm TB Hệ 4: "+ dt.DiemTB4;
+			TC.Text = "Số TC Đạt: " + dt.SoTCDat;
 			TCTL.Text = "Số TCTL:" + dt.SoTCTL;
-			TBTL10.Text = "Điểm TB TL Hệ 10:" + dt.DiemTBTL10;
-			TBTL4.Text = "Điểm TB TL Hệ 4:" + dt.DiemTBTL4;
-			DRL.Text = "Điểm Rèn Luyện:" + dt.DiemRL;
+			TBTL10.Text = "Điểm TB TL Hệ 10: " + dt.DiemTBTL10;
+			TBTL4.Text = "Điểm TB TL Hệ 4: " + dt.DiemTBTL4;
+			DRL.Text = "Điểm Rèn Luyện: " + dt.DiemRL;
 		}
 	}
 }

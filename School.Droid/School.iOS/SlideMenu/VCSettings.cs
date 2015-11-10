@@ -106,7 +106,7 @@ namespace School.iOS
 				if (VCADiemThi.instance!=null) VCADiemThi.Instance.LoadData();
 				if (VCLichHocTuan.instance!=null) VCLichHocTuan.Instance.LoadData_Tuan(DateTime.Today);
 				if (VCLichThi.instance!=null) VCLichThi.Instance.LoadData();
-				if (VCDiemThi.instance!=null) VCDiemThi.Instance.LoadData();
+				if (VCDiemThi.instance!=null) VCDiemThi.Instance.LoadData("0","0");
 				if (VCHocPhi.instance!=null) VCHocPhi.Instance.LoadData();
 				}
 			}
