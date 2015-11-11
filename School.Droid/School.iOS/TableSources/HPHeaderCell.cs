@@ -15,28 +15,33 @@ namespace School.iOS
 				BackgroundColor = LayoutHelper.ourDarkCyan,
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
-				Font = UIFont.FromName("AmericanTypewriter", 15f)
+				Font = UIFont.FromName("AmericanTypewriter", 15f),
+				TextAlignment=UITextAlignment.Center
 			};
 			hocphi = new UILabel () {
 				Text="Học Phí",
 				BackgroundColor =LayoutHelper.ourDarkCyan,
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
-				Font = UIFont.FromName("AmericanTypewriter", 15f)
+				Font = UIFont.FromName("AmericanTypewriter", 15f),
+				TextAlignment=UITextAlignment.Center
+					
 			};
 			miengiam = new UILabel () {
 				Text="Miễn Giảm",
 				BackgroundColor = LayoutHelper.ourDarkCyan,
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
-				Font = UIFont.FromName("AmericanTypewriter", 15f)
+				Font = UIFont.FromName("AmericanTypewriter", 15f),
+				TextAlignment=UITextAlignment.Center
 			};
 			phaidong = new UILabel () {
 				Text="Phải Đóng",
 				BackgroundColor = LayoutHelper.ourDarkCyan,
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
-				Font = UIFont.FromName("AmericanTypewriter", 15f)
+				Font = UIFont.FromName("AmericanTypewriter", 15f),
+				TextAlignment=UITextAlignment.Center
 			};
 
 			ContentView.AddSubviews (new UIView[] { monhoc, hocphi, miengiam, phaidong });
@@ -46,10 +51,10 @@ namespace School.iOS
 			base.LayoutSubviews ();
 			nfloat width = (ContentView.Bounds.Width - App.Current.labelMHWidth )/ 3;
 			nfloat mhwdt = App.Current.labelMHWidth;
-			monhoc.Frame = new CGRect (0, 10, mhwdt,20);
-			hocphi.Frame = new CGRect (mhwdt, 10,width, 20);
-			miengiam.Frame= new CGRect (mhwdt+width, 10,width, 20);
-			phaidong.Frame =new CGRect (mhwdt+2*width, 10, width, 20);
+			monhoc.Frame = new CGRect (0, 10, mhwdt,45);
+			hocphi.Frame = new CGRect (mhwdt, 10,width,45);
+			miengiam.Frame= new CGRect (mhwdt+width, 10,width, 45);
+			phaidong.Frame =new CGRect (mhwdt+2*width, 10, width, 45);
 
 		}
 	}

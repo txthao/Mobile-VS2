@@ -28,6 +28,11 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
+			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
 			headers.Source = new LichThiSource ();
 
 			listLT.Frame =LayoutHelper.setlayoutForTB (listLT.Frame);
@@ -36,6 +41,9 @@ namespace School.iOS
 			timeLT.Frame =  LayoutHelper.setlayoutForTimeLB(timeLT.Frame);
 			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
 			progress.Hidden = true;
+			CGRect frame = listLT.Frame;
+			frame.Height = App.Current.height - frame.Y;
+			listLT.Frame = frame;
 			LoadData ();
 
 			// Perform any additional setup after loading the view, typically from a nib.

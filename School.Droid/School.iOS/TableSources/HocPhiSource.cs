@@ -47,6 +47,10 @@ namespace School.iOS
 				MonHoc mh = BMonHoc.GetMH (SQLite_iOS.GetConnection (), tableItems [indexPath.Row].MaMH);
 				cell.UpdateCell (mh.TenMH, tableItems [indexPath.Row].HocPhi, tableItems [indexPath.Row].MienGiam,
 					tableItems [indexPath.Row].PhaiDong);
+
+				if (indexPath.Row % 2 != 0) {
+					cell.BackgroundColor = UIColor.FromRGBA((float)0.8, (float)0.8, (float)0.8, (float)1);
+				}
 				return cell;
 				// now set the properties as normal
 			} else {

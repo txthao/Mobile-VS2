@@ -16,6 +16,9 @@ namespace School.iOS
 		UIKit.UIButton btCNDL { get; set; }
 
 		[Outlet]
+		UIKit.UIButton btMenu { get; set; }
+
+		[Outlet]
 		UIKit.UILabel footer { get; set; }
 
 		[Outlet]
@@ -59,14 +62,9 @@ namespace School.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (title1 != null) {
-				title1.Dispose ();
-				title1 = null;
-			}
-
-			if (lbNL != null) {
-				lbNL.Dispose ();
-				lbNL = null;
+			if (btMenu != null) {
+				btMenu.Dispose ();
+				btMenu = null;
 			}
 
 			if (btCNDL != null) {
@@ -74,9 +72,9 @@ namespace School.iOS
 				btCNDL = null;
 			}
 
-			if (title2 != null) {
-				title2.Dispose ();
-				title2 = null;
+			if (footer != null) {
+				footer.Dispose ();
+				footer = null;
 			}
 
 			if (lbCNDL != null) {
@@ -84,9 +82,9 @@ namespace School.iOS
 				lbCNDL = null;
 			}
 
-			if (progress1 != null) {
-				progress1.Dispose ();
-				progress1 = null;
+			if (lbNL != null) {
+				lbNL.Dispose ();
+				lbNL = null;
 			}
 
 			if (progress != null) {
@@ -94,9 +92,9 @@ namespace School.iOS
 				progress = null;
 			}
 
-			if (title3 != null) {
-				title3.Dispose ();
-				title3 = null;
+			if (progress1 != null) {
+				progress1.Dispose ();
+				progress1 = null;
 			}
 
 			if (swtCNDL != null) {
@@ -109,14 +107,24 @@ namespace School.iOS
 				swtNLich = null;
 			}
 
-			if (footer != null) {
-				footer.Dispose ();
-				footer = null;
-			}
-
 			if (title != null) {
 				title.Dispose ();
 				title = null;
+			}
+
+			if (title1 != null) {
+				title1.Dispose ();
+				title1 = null;
+			}
+
+			if (title2 != null) {
+				title2.Dispose ();
+				title2 = null;
+			}
+
+			if (title3 != null) {
+				title3.Dispose ();
+				title3 = null;
 			}
 
 			if (txtHoTenSV != null) {

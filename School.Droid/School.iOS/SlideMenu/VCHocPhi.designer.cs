@@ -13,6 +13,9 @@ namespace School.iOS
 	partial class VCHocPhi
 	{
 		[Outlet]
+		UIKit.UIButton btMenu { get; set; }
+
+		[Outlet]
 		UIKit.UITableView headers { get; set; }
 
 		[Outlet]
@@ -50,6 +53,11 @@ namespace School.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (btMenu != null) {
+				btMenu.Dispose ();
+				btMenu = null;
+			}
+
 			if (headers != null) {
 				headers.Dispose ();
 				headers = null;

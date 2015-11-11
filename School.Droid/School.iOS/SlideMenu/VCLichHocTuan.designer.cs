@@ -13,6 +13,9 @@ namespace School.iOS
 	partial class VCLichHocTuan
 	{
 		[Outlet]
+		UIKit.UIButton btMenu { get; set; }
+
+		[Outlet]
 		UIKit.UIButton btTuanKe { get; set; }
 
 		[Outlet]
@@ -48,19 +51,24 @@ namespace School.iOS
 				btTuanTrc = null;
 			}
 
+			if (btMenu != null) {
+				btMenu.Dispose ();
+				btMenu = null;
+			}
+
 			if (listContent != null) {
 				listContent.Dispose ();
 				listContent = null;
 			}
 
-			if (progress != null) {
-				progress.Dispose ();
-				progress = null;
-			}
-
 			if (mytitle != null) {
 				mytitle.Dispose ();
 				mytitle = null;
+			}
+
+			if (progress != null) {
+				progress.Dispose ();
+				progress = null;
 			}
 
 			if (testBT != null) {

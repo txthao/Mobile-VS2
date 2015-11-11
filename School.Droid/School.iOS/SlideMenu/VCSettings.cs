@@ -30,6 +30,11 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
+			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
 			SetLayout ();
 			User sv = BUser.GetMainUser (SQLite_iOS.GetConnection ());
 			txtMaSV.Text += "    " + sv.Id;
@@ -131,6 +136,11 @@ namespace School.iOS
 
 		private void SetLayout()
 		{
+			title1.Font = UIFont.FromName ("AmericanTypewriter", 17f);
+			title2.Font = UIFont.FromName ("AmericanTypewriter", 17f);
+			title3.Font = UIFont.FromName ("AmericanTypewriter", 17f);
+
+
 			CGRect frame = new CGRect ();
 			frame = title1.Frame;
 			frame.Y = title.Frame.Y + 50;

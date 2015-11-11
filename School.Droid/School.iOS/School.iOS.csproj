@@ -196,6 +196,7 @@
     <BundleResource Include="Resources\menupic\Iclogout.png" />
     <BundleResource Include="Settings.Bundle\Root.plist" />
     <BundleResource Include="Resources\menupic\signout.png" />
+    <BundleResource Include="Resources\menupic\options27.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\School.Core\School.Core.csproj">

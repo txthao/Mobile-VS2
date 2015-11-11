@@ -13,6 +13,9 @@ namespace School.iOS
 	partial class VCLichHoc
 	{
 		[Outlet]
+		UIKit.UIButton btMenu { get; set; }
+
+		[Outlet]
 		UIKit.UITableView headers { get; set; }
 
 		[Outlet]
@@ -39,9 +42,9 @@ namespace School.iOS
 				listLH = null;
 			}
 
-			if (title != null) {
-				title.Dispose ();
-				title = null;
+			if (btMenu != null) {
+				btMenu.Dispose ();
+				btMenu = null;
 			}
 
 			if (progress != null) {
@@ -52,6 +55,11 @@ namespace School.iOS
 			if (timeLH != null) {
 				timeLH.Dispose ();
 				timeLH = null;
+			}
+
+			if (title != null) {
+				title.Dispose ();
+				title = null;
 			}
 		}
 	}

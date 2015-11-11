@@ -33,7 +33,7 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			txtMatKhau.SecureTextEntry = true;
-			View.BackgroundColor = LayoutHelper.ourCyan;
+			View.BackgroundColor = UIColor.White;
 
 
 			CGRect frame = new CGRect ();
@@ -41,6 +41,7 @@ namespace School.iOS
 			frame.Width = App.Current.width;
 			frame.Y = 80;
 			appName.Frame = frame;
+			appName.TextColor = LayoutHelper.ourCyan;
 			frame = appFooter.Frame;
 			frame.Width = App.Current.width;
 			frame.Y= App.Current.height - 20;
@@ -66,9 +67,14 @@ namespace School.iOS
 			frame.Y = txtMatKhau.Frame.Y + txtMatKhau.Frame.Height + 20; 
 			frame.X = App.Current.width / 3-10 ;
 			btDangNhap.Frame = frame;
+			btDangNhap.BackgroundColor = LayoutHelper.ourCyan;
+			btDangNhap.SetTitleColor (UIColor.White, UIControlState.Normal);
 
-
-
+			txtMaSV.Layer.BorderColor=LayoutHelper.ourCyan.CGColor;
+			txtMatKhau.Layer.BorderColor=LayoutHelper.ourCyan.CGColor;
+			txtMaSV.Layer.BorderWidth = 2;
+			txtMatKhau.Layer.BorderWidth = 2;
+			appFooter.TextColor=LayoutHelper.ourCyan;
 			frame = txtError.Frame;
 
 			frame.Width = App.Current.width - 20;

@@ -76,10 +76,12 @@ namespace School.iOS
 				DiemThiCell cell = tableView.DequeueReusableCell (cellIdentifier) as DiemThiCell;
 				if (cell == null) {
 					cell = new DiemThiCell (cellIdentifier);
+
 				}
 				MonHoc mh = BMonHoc.GetMH (SQLite_iOS.GetConnection (), tableItems [indexPath.Row].MaMH);
 				cell.UpdateCell (mh.TenMH, mh.TiLeThi.ToString (), tableItems [indexPath.Row].DiemKT,
 					tableItems [indexPath.Row].DiemThi, tableItems [indexPath.Row].DiemTK10, tableItems [indexPath.Row].DiemChu);
+				
 				return cell;
 
 

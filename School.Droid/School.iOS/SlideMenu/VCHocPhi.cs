@@ -28,11 +28,14 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
+			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
 			headers.Source = new HocPhiSource ();
 
-			listHP.Frame = LayoutHelper.setlayoutForTB (listHP.Frame );
 
-			headers.Frame = LayoutHelper.setlayoutForHeader (headers.Frame );
 			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
 			timeHP.Frame = LayoutHelper.setlayoutForTimeLB(timeHP.Frame);;
 			txtToSoTC.Frame = LayoutHelper.setlayoutForFooter (txtToSoTC.Frame, 0, listHP.Frame.Y);
@@ -47,6 +50,9 @@ namespace School.iOS
 			txtTongTIenDD.Font = UIFont.SystemFontOfSize (App.Current.textSize);
 			txtTienConNo.Font = UIFont.SystemFontOfSize (App.Current.textSize);
 
+			listHP.Frame = LayoutHelper.setlayoutForTB (listHP.Frame );
+
+			headers.Frame = LayoutHelper.setlayoutForHeader (headers.Frame );
 
 			progress.Hidden = true;
 			LoadData ();

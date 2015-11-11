@@ -16,34 +16,34 @@ namespace School.iOS
 				Lines=0,
 				Text="Giáo Viên:",
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			mamh=new UILabel () {
 				Text="Mã Môn Học: ",
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			sotc=new UILabel () {
 				Text="Số TC: ",
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			nhommh=new UILabel () {
 				Text="Nhóm Môn Học:",
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			malop= new UILabel () {
 				Text="Nhóm Lớp:",
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			thoigian= new UILabel () {
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
 				Text="Thời Gian:",
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			ContentView.AddSubviews (new UIView[] { gv, thoigian, malop, nhommh, sotc, mamh });
 		}

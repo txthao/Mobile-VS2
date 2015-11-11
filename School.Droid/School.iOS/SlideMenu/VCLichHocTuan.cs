@@ -33,9 +33,10 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
 			CGRect frame = listContent.Frame;
 			frame.Width = App.Current.width;
-			frame.Height = App.Current.height / 2;
+			frame.Height = App.Current.height / 2+50;
 			listContent.Frame = frame;
 
 			progress.Hidden = true;
@@ -59,11 +60,14 @@ namespace School.iOS
 			frame.X = 60;
 			btTuanTrc.Frame = frame;
 			mytitle.Frame = LayoutHelper.setlayoutForTimeTT (mytitle.Frame);
-
+			mytitle.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 			LoadData_Tuan (DateTime.Today);
 			btTuanKe.TouchUpInside+= BtTuanKe_TouchUpInside;
 			btTuanTrc.TouchUpInside+= BtTuanTrc_TouchUpInside;
-		
+			btMenu=LayoutHelper.NaviButton (btMenu, mytitle.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 

@@ -10,6 +10,7 @@ namespace School.iOS
 		UILabel monthi,thoigian,phongthi,gioBD;
 		public int num;
 		UIImageView hasRM;
+		bool key=false;
 		public LichThiCell (NSString cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;
@@ -19,7 +20,7 @@ namespace School.iOS
 				Lines=0,
 				BackgroundColor = UIColor.Clear,
 
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			thoigian = new UILabel () {
 
@@ -27,14 +28,14 @@ namespace School.iOS
 				Lines=0,
 				BackgroundColor = UIColor.Clear,
 				TextAlignment= UITextAlignment.Center,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			phongthi = new UILabel () {
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
 				BackgroundColor = UIColor.Clear,
 				TextAlignment= UITextAlignment.Center,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			hasRM = new UIImageView ();
 
@@ -42,8 +43,9 @@ namespace School.iOS
 		}
 		public LichThiCell (NSString cellId,bool key) : base (UITableViewCellStyle.Default, cellId)
 		{
+			this.key = true;
 			monthi = new UILabel () {
-				Text="  Môn Thi",
+				Text="Môn Thi",
 				Lines=2,
 				TextAlignment= UITextAlignment.Center,
 				BackgroundColor = LayoutHelper.ourDarkCyan,
@@ -63,6 +65,8 @@ namespace School.iOS
 				BackgroundColor = LayoutHelper.ourDarkCyan,
 				Font = UIFont.FromName("AmericanTypewriter", 15f)
 			};
+			hasRM = new UIImageView ();
+
 			ContentView.AddSubviews (new UIView[] { monthi,thoigian,phongthi });
 		}
 		public void UpdateCell (string imonthi, string ithoigian, string iphongthi,string igioBD,int num,bool hasRM)
@@ -81,10 +85,18 @@ namespace School.iOS
 			base.LayoutSubviews ();
 			nfloat width = (ContentView.Bounds.Width - App.Current.labelMHWidth )/ 2;
 			nfloat mhwdt = App.Current.labelMHWidth;
-			monthi.Frame= new CGRect (10,5, mhwdt,40);
-			thoigian.Frame= new CGRect ( mhwdt, 5, width,40);
-			phongthi.Frame= new CGRect (mhwdt+width, 5, width-10,40);
-
+			if (key) {
+				monthi.Frame = new CGRect (0, 5, mhwdt, 40);
+			} else {
+				monthi.Frame = new CGRect (7, 5, mhwdt, 40);
+			}
+			thoigian.Frame = new CGRect (mhwdt, 5, width, 40);
+			if (hasRM.Image != null) {
+				
+				phongthi.Frame = new CGRect (mhwdt + width, 5, width - 10, 40);
+			} else {
+				phongthi.Frame = new CGRect (mhwdt + width, 5, width , 40);
+			}
 		}
 	}
 }

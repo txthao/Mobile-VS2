@@ -28,18 +28,26 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
+			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
 			headers.Source = new LichHocHKSource ();
 
 
 	
 			listLH.Frame = LayoutHelper.setlayoutForTB (listLH.Frame );
-
+			CGRect frame = listLH.Frame;
+			frame.Height = App.Current.height - frame.Y;
+			listLH.Frame = frame;
 			headers.Frame = LayoutHelper.setlayoutForHeader (headers.Frame );
 			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
 
 
 			timeLH.Frame = LayoutHelper.setlayoutForTimeLB(timeLH.Frame);
 			progress.Hidden = true;
+
 			LoadData ();
 
 			// Perform any additional setup after loading the view, typically from a nib.

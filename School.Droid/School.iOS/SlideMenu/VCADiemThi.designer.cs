@@ -13,6 +13,9 @@ namespace School.iOS
 	partial class VCADiemThi
 	{
 		[Outlet]
+		UIKit.UIButton btMenu { get; set; }
+
+		[Outlet]
 		UIKit.UITableView headers { get; set; }
 
 		[Outlet]
@@ -22,18 +25,21 @@ namespace School.iOS
 		UIKit.UIActivityIndicatorView progress { get; set; }
 
 		[Outlet]
+		UIKit.UILabel timeDT { get; set; }
+
+		[Outlet]
 		UIKit.UILabel title { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (btMenu != null) {
+				btMenu.Dispose ();
+				btMenu = null;
+			}
+
 			if (headers != null) {
 				headers.Dispose ();
 				headers = null;
-			}
-
-			if (title != null) {
-				title.Dispose ();
-				title = null;
 			}
 
 			if (listContent != null) {
@@ -44,6 +50,16 @@ namespace School.iOS
 			if (progress != null) {
 				progress.Dispose ();
 				progress = null;
+			}
+
+			if (timeDT != null) {
+				timeDT.Dispose ();
+				timeDT = null;
+			}
+
+			if (title != null) {
+				title.Dispose ();
+				title = null;
 			}
 		}
 	}

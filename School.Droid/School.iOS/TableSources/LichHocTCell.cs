@@ -18,37 +18,37 @@ namespace School.iOS
 				LineBreakMode = UILineBreakMode.WordWrap,
 				Lines=0,
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			tietBD= new UILabel () {
 				Text="Tiết Bắt Đầu ",
 				BackgroundColor = UIColor.Clear,
 
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			soTiet=  new UILabel () {
 				Text="Số Tiết ",
 				BackgroundColor = UIColor.Clear,
 		
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			phong= new UILabel () {
 				Text="Phòng ",
 				BackgroundColor = UIColor.Clear,
 			
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				Font =UIFont.SystemFontOfSize (12)
 			};
 			thuT= new UILabel () {
 				
 				BackgroundColor = UIColor.Clear,
 				TextAlignment=UITextAlignment.Center,
-				Font = UIFont.FromName("AmericanTypewriter", 15f)
+				Font =UIFont.SystemFontOfSize (15)
 			};
 			ngayT= new UILabel () {
 				
 
 				TextAlignment=UITextAlignment.Center,
-				Font = UIFont.FromName("AmericanTypewriter", 17f)
+				Font =UIFont.SystemFontOfSize (15)
 			};
 
 			ContentView.AddSubviews (new UIView[] { thuT, ngayT, monhoc, tietBD, soTiet, phong }); 

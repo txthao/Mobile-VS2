@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="btHKKe" destination="hQ3-GY-3sD" id="Tvj-Iz-xVG"/>
                 <outlet property="btHKTrc" destination="ofO-6R-MSF" id="FZB-OX-Lcx"/>
+                <outlet property="btMenu" destination="rkB-T6-xLK" id="III-19-mvp"/>
                 <outlet property="headers" destination="YRr-BM-sI7" id="wtR-eo-BWi"/>
                 <outlet property="listDM" destination="NUe-PP-zEr" id="e1h-yq-OHk"/>
                 <outlet property="progress" destination="P3f-nB-88n" id="dhK-2g-iOI"/>
@@ -35,7 +36,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NUe-PP-zEr">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NUe-PP-zEr">
                     <rect key="frame" x="0.0" y="133" width="320" height="135"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,6 +117,13 @@
                     <rect key="frame" x="30" y="530" width="97" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Trước">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rkB-T6-xLK">
+                    <rect key="frame" x="8" y="23" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>

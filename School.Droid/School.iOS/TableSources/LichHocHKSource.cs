@@ -5,6 +5,7 @@ using School.Core;
 using Foundation;
 using System.Threading.Tasks;
 using System.IO;
+using CoreGraphics;
 
 namespace School.iOS
 {
@@ -57,8 +58,14 @@ namespace School.iOS
 				cell.UpdateCell (monhoc, tableItems [indexPath.Row].Thu, tableItems [indexPath.Row].TietBatDau
 					, tableItems [indexPath.Row].SoTiet,tableItems [indexPath.Row].Phong,indexPath.Row,hasRM);
 				UILongPressGestureRecognizer longPress = new UILongPressGestureRecognizer (LongPress);
+
 				cell.AddGestureRecognizer (longPress);
-				
+
+				if (cell.num % 2 != 0) {
+					cell.BackgroundColor = UIColor.FromRGBA((float)0.8, (float)0.8, (float)0.8, (float)1);
+				}
+
+
 				return cell;
 				// now set the properties as normal
 			} else {
