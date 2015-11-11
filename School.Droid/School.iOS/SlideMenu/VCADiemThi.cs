@@ -6,13 +6,16 @@ using UIKit;
 using School.Core;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CoreGraphics;
 
 namespace School.iOS
 {
 	public partial class VCADiemThi : UIViewController
 	{
+		public static VCADiemThi instance;
 		public VCADiemThi () : base ("VCADiemThi", null)
 		{
+			instance = this;
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -26,19 +29,31 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 			headers.Source = new DiemThiHKSource ();
+			listContent.Frame = LayoutHelper.setlayoutForTB (listContent.Frame);
+			CGRect iFrame = listContent.Frame;
+			iFrame.Height = 3 * (App.Current.height / 4) - 50;
+			listContent.Frame = iFrame;
+			headers.Frame = LayoutHelper.setlayoutForHeader (headers.Frame );
+			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
 			progress.Hidden = true;
+			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
+			timeDT.Frame = LayoutHelper.setlayoutForTimeLB(timeDT.Frame );
 			LoadData ();
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
-		private async void LoadData()
+		public async void LoadData()
 		{
 			try
 			{
 				progress.Hidden = false;
 				progress.StartAnimating ();
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-				if (sync)
+				if (sync&&Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
 				{
 				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 				await  BDiemThi.MakeDataFromXml(SQLite_iOS.GetConnection());
@@ -70,12 +85,22 @@ namespace School.iOS
 
 					}
 					});
-					progress.StopAnimating ();
+					
 					listContent.Source=new DiemThiSource(list);
 					listContent.ReloadData();
 				}
+				progress.StopAnimating ();
 			}
 			catch {
+			}
+		}
+		public static VCADiemThi Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new VCADiemThi ();
+				return instance;
 			}
 		}
 	}

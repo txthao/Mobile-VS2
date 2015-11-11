@@ -6,6 +6,7 @@ using UIKit;
 using School.Core;
 using System.Collections.Generic;
 using System.Globalization;
+using CoreGraphics;
 
 namespace School.iOS
 {
@@ -14,8 +15,11 @@ namespace School.iOS
 		List<chiTietLH> listCT;
 		string begining;
 		string end;
+		public bool isReload=false;
+		public static VCLichHocTuan instance;
 		public VCLichHocTuan () : base ("VCLichHocTuan", null)
 		{
+			instance = this;
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -29,20 +33,81 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+			CGRect frame = listContent.Frame;
+			frame.Width = App.Current.width;
+			frame.Height = App.Current.height / 2+50;
+			listContent.Frame = frame;
+
 			progress.Hidden = true;
+			frame = timeLHTuan.Frame;
+		
+			frame.Y = 70;
+			frame.Width = App.Current.width;
+			timeLHTuan.Frame = frame;
+			frame = txtngayLHTuan.Frame;
+
+			frame.Y = 100;
+			frame.Width = App.Current.width;
+			txtngayLHTuan.Frame = frame;
+
+			frame = btTuanKe.Frame;
+			frame.X = App.Current.width-60-frame.Width;
+			frame.Y = App.Current.height - 40;
+			btTuanKe.Frame = frame;
+			frame = btTuanTrc.Frame;
+			frame.Y = App.Current.height - 40;
+			frame.X = 60;
+			btTuanTrc.Frame = frame;
+			mytitle.Frame = LayoutHelper.setlayoutForTimeTT (mytitle.Frame);
+			mytitle.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 			LoadData_Tuan (DateTime.Today);
+			btTuanKe.TouchUpInside+= BtTuanKe_TouchUpInside;
+			btTuanTrc.TouchUpInside+= BtTuanTrc_TouchUpInside;
+			btMenu=LayoutHelper.NaviButton (btMenu, mytitle.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
-		async void LoadData_Tuan (DateTime dateOfWeek)
+
+		void BtTuanTrc_TouchUpInside (object sender, EventArgs e)
 		{
+			((LichHocTSource)listContent.Source).Items.Clear();
+			listContent.ReloadData();
+			isReload=true;
+			LoadData_Tuan (convertFromStringToDate (begining).AddDays (-7));
+		}
+
+		void BtTuanKe_TouchUpInside (object sender, EventArgs e)
+		{
+			((LichHocTSource)listContent.Source).Items.Clear();
+			listContent.ReloadData();
+			isReload=true;
+			LoadData_Tuan (convertFromStringToDate (begining).AddDays (7));
+
+		}
+
+
+
+
+		public async void LoadData_Tuan (DateTime dateOfWeek)
+		{
+			try
+			{
 			progress.Hidden = false;
 			progress.StartAnimating ();
 			bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
 			List<LichHoc> listLH = new List<LichHoc> ();
-			if (sync) {
+				if (sync&&Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable) {
 				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 				var newlistlh = BLichHoc.MakeDataFromXml (SQLite_iOS.GetConnection ());
-				List<LichHoc> newListLH= await newlistlh;
+
+				List<LichHoc> newListLH= await newlistlh;var checkRemind=SettingsHelper.LoadSetting("Remind");
+				if (checkRemind){
+					VCHomeReminder remind= new VCHomeReminder(this);
+					await remind.RemindALLLH(newListLH,"");
+				}
 				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 			}
 			progress.StopAnimating ();
@@ -62,12 +127,20 @@ namespace School.iOS
 
 			}
 
-			GetWeek (dateOfWeek, out begining, out end);
+			
 
-			txtngayLHTuan.Text = "Từ " + begining + " Đến " + end;
-			timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
-			listContent.Source = new LichHocTSource (listCT);
-			listContent.ReloadData ();
+
+
+			if (listCT.Count > 0) {
+					GetWeek (dateOfWeek, out begining, out end);
+				txtngayLHTuan.Text = "Từ " + begining + " Đến " + end;
+				timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
+				listContent.Source = new LichHocTSource (listCT, this);
+				listContent.ReloadData ();
+			}
+			}
+			catch {
+			}
 		}
 		public static DateTime convertFromStringToDate (string date)
 		{
@@ -79,18 +152,8 @@ namespace School.iOS
 		{
 			return date.ToString ("dd/MM/yyyy");
 		}
-		partial void btTuanKeClick (NSObject sender)
-		{
-			listContent.Source=null;
-			listContent.ReloadData();
-			LoadData_Tuan (convertFromStringToDate (begining).AddDays (7));
-		}
-		partial void btTuanTRCClick (NSObject sender)
-		{
-			listContent.Source=null;
-			listContent.ReloadData();
-			LoadData_Tuan (convertFromStringToDate (begining).AddDays (-7));
-		}
+
+
 		public static string checkTuan (string s, DateTime dayOfWeek)
 		{
 			int number = s.ToCharArray ().Length / 10;
@@ -131,6 +194,15 @@ namespace School.iOS
 			} else {
 				begining = convertFromDateToString (now.AddDays (-6));
 				end = convertFromDateToString (now);
+			}
+		}
+		public static VCLichHocTuan Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new VCLichHocTuan ();
+				return instance;
 			}
 		}
 	}

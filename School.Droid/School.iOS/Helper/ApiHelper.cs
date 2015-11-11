@@ -17,6 +17,7 @@ namespace School.iOS
 				{
 					if (await BUser.CheckAuth(masv,pass,SQLite_iOS.GetConnection()))
 					{
+						await ApiHelper.LoadDataFromSV(VCLogIn.Instance);
 							callback(error);
 					}
 					else
@@ -88,7 +89,7 @@ namespace School.iOS
 			return "";
 		}
 
-		public static async Task<string> LoadDataFromSV()
+		public static async Task<string> LoadDataFromSV(UIViewController controller)
 		{
 			try
 			{
@@ -100,8 +101,14 @@ namespace School.iOS
 				await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
 //				var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);              
 //				var checkRemind = prefs.GetBoolean ("Remind",false);
-			
-				return "load success ";
+				var checkRemind=SettingsHelper.LoadSetting("Remind");
+				if (checkRemind)
+				{
+					VCHomeReminder remind= new VCHomeReminder(controller);
+					await remind.RemindALLLH(newListLH,"");
+					await remind.RemindAllLT(newListLT);
+				}
+				return "Cập nhật dữ liệu thành công";
 			}
 			catch {
 				return "load failed";

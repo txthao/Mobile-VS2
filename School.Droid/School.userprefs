@@ -1,19 +1,11 @@
 ﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5.8.2" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="School.iOS/Settings.Bundle/Root.plist">
-    <Files>
-      <File FileName="School.iOS/SlideMenu/VCSettings.cs" Line="54" Column="5" />
-      <File FileName="School.iOS/Helper/SettingsHelper.cs" Line="20" Column="1" />
-      <File FileName="School.iOS/Settings.Bundle/Root.plist" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/HocPhiAdapter.cs" line="23" column="1" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Core/Bussiness/BLichHoc.cs" line="140" column="1" />
-      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.Droid/Helper/ScheduleReminder.cs" line="154" column="1" />
-      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.iOS/Helper/SettingsHelper.cs" line="20" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

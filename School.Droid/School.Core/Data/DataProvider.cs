@@ -28,7 +28,85 @@ namespace School.Core
 			_connection.CreateTable<DiemMon> ();
 			_connection.CreateTable<CTHocPhi> ();
 			_connection.CreateTable<chiTietLH> ();
+			_connection.CreateTable<LHRemindItem> ();
+			_connection.CreateTable<LTRemindItem> ();
 		}
+
+
+
+
+		public void AddRemindLH (LHRemindItem T)
+		{
+			_connection.Insert (T);
+			_connection.Commit ();
+
+		}
+		public void AddRemindLT(LTRemindItem T)
+		{
+			_connection.Insert (T);
+			_connection.Commit ();
+
+		}
+
+		public LHRemindItem GetLHRemind(string idLH,string date)
+		{
+			var query = from c in _connection.Table<LHRemindItem> ()
+					where (c.IDLH.Equals(idLH))&&(c.Date.Equals(date))
+				select c;
+			return query.FirstOrDefault ();
+		}
+		public List<LHRemindItem> GetLHRemind(string idLH)
+		{
+			var query = from c in _connection.Table<LHRemindItem> ()
+					where (c.IDLH.Equals(idLH))
+				select c;
+			return query.ToList();
+		}
+		public LTRemindItem GetLTRemind(string mamh,string namhoc,string hocky)
+		{
+			var query = from c in _connection.Table<LTRemindItem> ()
+					where (c.MaMH.Equals(mamh))&&(c.HocKy.Equals(hocky)) && (c.NamHoc.Equals(namhoc))
+				select c;
+
+
+			return query.FirstOrDefault ();
+		}
+
+		public List<LTRemindItem> GetAllLTRemind ()
+		{
+			var query = from c in _connection.Table<LTRemindItem> ()
+				select c;
+			return query.ToList ();
+		}
+		public List<LHRemindItem> GetAllLHRemind ()
+		{
+			var query = from c in _connection.Table<LHRemindItem> ()
+				select c;
+			return query.ToList ();
+		}
+		public void RemoveRemind(string eventID)
+		{
+			
+			_connection.Delete<LTRemindItem> ( eventID);
+		
+
+				_connection.Delete<LHRemindItem> (eventID);
+		
+			_connection.Commit ();
+
+
+		}
+		public void RemoveALlLTRemind()
+		{
+			_connection.DeleteAll<LTRemindItem> ();
+			_connection.Commit ();
+		}
+		public void RemoveALlLHRemind()
+		{
+			_connection.DeleteAll<LHRemindItem> ();
+			_connection.Commit ();
+		}
+
 
 		public void AddLT (LichThi T)
 		{
@@ -110,10 +188,13 @@ namespace School.Core
 				orderby c.NamHoc descending, c.HocKy descending
 				select c;
 			LichHoc lh = query.FirstOrDefault ();
-			var result = from a in _connection.Table<LichHoc> ()
-					where a.NamHoc.Equals(lh.NamHoc) && a.HocKy.Equals(lh.HocKy)
-			             select a;
-			return result.ToList();
+			if (lh != null) {
+				var result = from a in _connection.Table<LichHoc> ()
+				            where a.NamHoc.Equals (lh.NamHoc) && a.HocKy.Equals (lh.HocKy)
+				            select a;
+				return result.ToList();
+			}
+			return query.ToList();
 		}
 
 		public LichHoc GetLH_Id (string id)
@@ -378,6 +459,10 @@ namespace School.Core
 			i += _connection.DeleteAll<DiemMon> ();
 			_connection.Commit ();
 			i += _connection.DeleteAll<MonHoc> ();
+			_connection.Commit ();
+			i+=_connection.DeleteAll<LTRemindItem> ();
+			_connection.Commit ();
+			i+=_connection.DeleteAll<LHRemindItem> ();
 			_connection.Commit ();
 			return i;
 		}

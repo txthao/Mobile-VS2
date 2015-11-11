@@ -13,6 +13,15 @@ namespace School.iOS
 	partial class VCDiemThi
 	{
 		[Outlet]
+		UIKit.UIButton btHKKe { get; set; }
+
+		[Outlet]
+		UIKit.UIButton btHKTrc { get; set; }
+
+		[Outlet]
+		UIKit.UIButton btMenu { get; set; }
+
+		[Outlet]
 		UIKit.UITableView headers { get; set; }
 
 		[Outlet]
@@ -23,6 +32,9 @@ namespace School.iOS
 
 		[Outlet]
 		UIKit.UILabel timeDTHK { get; set; }
+
+		[Outlet]
+		UIKit.UILabel title { get; set; }
 
 		[Outlet]
 		UIKit.UILabel txtDRL { get; set; }
@@ -47,14 +59,24 @@ namespace School.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (btMenu != null) {
+				btMenu.Dispose ();
+				btMenu = null;
+			}
+
+			if (btHKKe != null) {
+				btHKKe.Dispose ();
+				btHKKe = null;
+			}
+
+			if (btHKTrc != null) {
+				btHKTrc.Dispose ();
+				btHKTrc = null;
+			}
+
 			if (headers != null) {
 				headers.Dispose ();
 				headers = null;
-			}
-
-			if (progress != null) {
-				progress.Dispose ();
-				progress = null;
 			}
 
 			if (listDM != null) {
@@ -62,9 +84,19 @@ namespace School.iOS
 				listDM = null;
 			}
 
+			if (progress != null) {
+				progress.Dispose ();
+				progress = null;
+			}
+
 			if (timeDTHK != null) {
 				timeDTHK.Dispose ();
 				timeDTHK = null;
+			}
+
+			if (title != null) {
+				title.Dispose ();
+				title = null;
 			}
 
 			if (txtDRL != null) {

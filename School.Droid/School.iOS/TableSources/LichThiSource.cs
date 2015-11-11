@@ -8,13 +8,15 @@ namespace School.iOS
 {
 	public class LichThiSource: UITableViewSource 
 	{
+		UIViewController controller;
 		List<LichThi> tableItems;
 		NSString cellIdentifier = new NSString("TableCell");
 		bool isHeader=false;
-		public LichThiSource (List<LichThi> list)
+		public LichThiSource (List<LichThi> list,UIViewController controller )
 		{
 			tableItems = list;
 			isHeader = false;
+			this.controller = controller;
 		}
 		public LichThiSource()
 		{
@@ -37,8 +39,18 @@ namespace School.iOS
 				if (cell == null) {
 					cell = new LichThiCell (cellIdentifier);
 				}
-				cell.UpdateCell (tableItems [indexPath.Row].MaMH, tableItems [indexPath.Row].NgayThi, tableItems [indexPath.Row].PhongThi
-					,tableItems [indexPath.Row].GioBD);
+				MonHoc mh = BMonHoc.GetMH (SQLite_iOS.GetConnection (), tableItems [indexPath.Row].MaMH);
+				LTRemindItem rmItem = BRemind.GetLTRemind (SQLite_iOS.GetConnection (), tableItems [indexPath.Row].MaMH, 
+					tableItems [indexPath.Row].NamHoc,
+					tableItems [indexPath.Row].HocKy);
+				bool hasRM = false;
+				if (rmItem != null) {
+					hasRM = true;
+				}
+				cell.UpdateCell (mh.TenMH, tableItems [indexPath.Row].NgayThi, tableItems [indexPath.Row].PhongThi
+					,tableItems [indexPath.Row].GioBD,indexPath.Row,hasRM);
+				UILongPressGestureRecognizer longPress = new UILongPressGestureRecognizer (LongPress);
+				cell.AddGestureRecognizer (longPress);
 				return cell;
 				// now set the properties as normal
 			} else {
@@ -50,6 +62,31 @@ namespace School.iOS
 			}
 
 
+		}
+		void LongPress(UILongPressGestureRecognizer gesture)
+		{
+			LichThiCell cell = (LichThiCell )gesture.View;
+
+			VCHomeReminder remid = new VCHomeReminder (controller);
+			remid.lt = tableItems [cell.num];
+			LTRemindItem rmItem = BRemind.GetLTRemind (SQLite_iOS.GetConnection (), remid.lt.MaMH, 
+				remid.lt.NamHoc,
+				remid.lt.HocKy);
+
+			if (rmItem != null) {
+				remid.LoadEvent (rmItem.EventID);
+			}
+				else
+				{
+			remid.RemindLT ();
+				}
+		}
+		public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
+		{
+			// In here you could customize how you want to get the height for row. Then   
+			// just return it. 
+
+			return 60;
 		}
 	}
 }

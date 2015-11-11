@@ -8,7 +8,7 @@ namespace School.iOS
 {
 	public class HocPhiSource: UITableViewSource 
 	{
-		List<CTHocPhi> tableItems;
+		public List<CTHocPhi> tableItems;
 		NSString cellIdentifier = new NSString("TableCell");
 		bool isHeader=false;
 		public HocPhiSource (List<CTHocPhi> list)
@@ -28,6 +28,13 @@ namespace School.iOS
 		{
 			return tableItems.Count;
 		}
+		public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
+		{
+			// In here you could customize how you want to get the height for row. Then   
+			// just return it. 
+
+			return 60;
+		}
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
 			// in a Storyboard, Dequeue will ALWAYS return a cell, 
@@ -37,8 +44,13 @@ namespace School.iOS
 				if (cell == null) {
 					cell = new HocPhiCell (cellIdentifier);
 				}
-				cell.UpdateCell (tableItems [indexPath.Row].MaMH, tableItems [indexPath.Row].HocPhi, tableItems [indexPath.Row].MienGiam,
+				MonHoc mh = BMonHoc.GetMH (SQLite_iOS.GetConnection (), tableItems [indexPath.Row].MaMH);
+				cell.UpdateCell (mh.TenMH, tableItems [indexPath.Row].HocPhi, tableItems [indexPath.Row].MienGiam,
 					tableItems [indexPath.Row].PhaiDong);
+
+				if (indexPath.Row % 2 != 0) {
+					cell.BackgroundColor = UIColor.FromRGBA((float)0.8, (float)0.8, (float)0.8, (float)1);
+				}
 				return cell;
 				// now set the properties as normal
 			} else {
