@@ -11,39 +11,23 @@
         android:minWidth="25px"
         android:minHeight="25px">
         <RadioGroup
-            android:layout_margin="10dp"
-            android:id="@+id/radioGroup3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/radioBtn_group"
-            android:orientation="horizontal"
-            android:padding="1dp">
+            android:id="@+id/radioGroup3"
+            android:orientation="horizontal">
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:button="@null"
-                android:background="@drawable/radio_states"
-                android:padding="5dp"
-                android:textColor="@drawable/radio_text"
-                android:text="Xem dạng Học kỳ"
+                android:text="Xem dạng HK"
                 android:id="@+id/rb_dangHK_All_DT"
-                android:textSize="14dip" />
+                android:textSize="15dip" />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/radio_states"
-                android:button="@null"
-                android:padding="5dp"
-                android:text="     Xem Tất cả    "
-                android:textColor="@drawable/radio_text"
+                android:text="Xem Tất cả"
                 android:id="@+id/rb_dangAll_All_DT"
-                android:textSize="14dip" />
+                android:textSize="15dip" />
         </RadioGroup>
-    <!--     <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#CCCCCC" />-->
         <TextView
             android:text="Điểm tất cả học kỳ"
             android:textColor="@android:color/background_dark"

@@ -4,8 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:scrollbars="vertical">
+    android:padding="20dp">
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -48,12 +47,11 @@
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:gravity="center"
-            android:background="@drawable/edittext_reminder"
+            android:background="@drawable/edittext"
             android:inputType="number"
             android:imeOptions="actionNext"
             android:layout_marginLeft="10dp"
             android:text="60"
-            android:textColor="#999999"
             android:id="@+id/txt_minutes" />
         <TextView
             android:layout_width="wrap_content"
@@ -71,23 +69,21 @@
         android:text="Nội dung"
         android:layout_marginTop="10dp" />
     <EditText
-        android:gravity="top|left"
-        android:scrollbars="vertical"
         android:id="@+id/edtxt_Content"
         android:layout_width="fill_parent"
         android:layout_height="120dp"
-        android:textColor="#999999"
-        android:background="@drawable/edittext_reminder"
-        android:inputType="textMultiLine"
+        android:textColor="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:background="@drawable/edittext"
+        android:inputType="text"
         android:imeOptions="actionDone"
-        android:layout_marginTop="10dp"
-        android:padding="5dp" />
+        android:layout_marginTop="10dp" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="6dip"
-        android:paddingTop="30dip"
+        android:paddingTop="50dip"
         android:weightSum="1"
         android:layout_marginTop="10dp">
         <View

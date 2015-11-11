@@ -90,7 +90,6 @@
     <Compile Include="SettingsFragment.cs" />
     <Compile Include="Helper\Remider.cs" />
     <Compile Include="HocPhiAdapter.cs" />
-    <Compile Include="AboutFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -158,16 +157,6 @@
     <AndroidResource Include="Resources\layout\HocPhiFooter.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\Progress.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\appicon.jpg" />
-    <AndroidResource Include="Resources\drawable-hdpi\radio_states.xml" />
-    <AndroidResource Include="Resources\drawable-hdpi\radioBtn_group.xml" />
-    <AndroidResource Include="Resources\drawable-hdpi\radio_text.xml" />
-    <AndroidResource Include="Resources\drawable-hdpi\radio_on.xml" />
-    <AndroidResource Include="Resources\drawable-hdpi\radio_off.xml" />
-    <AndroidResource Include="Resources\drawable-hdpi\edittext_reminder.xml" />
-    <AndroidResource Include="Resources\layout\About.xml" />
-    <AndroidResource Include="Resources\drawable-hdpi\reminder.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\drawer_item_states.xml" />
-    <AndroidResource Include="Resources\drawable-hdpi\drawer_item_text.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
