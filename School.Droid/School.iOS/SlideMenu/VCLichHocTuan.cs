@@ -33,7 +33,7 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
+			errorLB = LayoutHelper.ErrLabel (errorLB);
 			CGRect frame = listContent.Frame;
 			frame.Width = App.Current.width;
 			frame.Height = App.Current.height / 2+50;
@@ -59,6 +59,8 @@ namespace School.iOS
 			frame.Y = App.Current.height - 40;
 			frame.X = 60;
 			btTuanTrc.Frame = frame;
+			timeLHTuan.Text = "";
+			txtngayLHTuan.Text = "";
 			mytitle.Frame = LayoutHelper.setlayoutForTimeTT (mytitle.Frame);
 			mytitle.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 			LoadData_Tuan (DateTime.Today);
@@ -95,6 +97,9 @@ namespace School.iOS
 		{
 			try
 			{
+			listContent.Hidden= false;
+			errorLB.Hidden=true;
+
 			progress.Hidden = false;
 			progress.StartAnimating ();
 			bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
@@ -112,6 +117,12 @@ namespace School.iOS
 			}
 			progress.StopAnimating ();
 			listLH = BLichHoc.GetNewestLH (SQLite_iOS.GetConnection ());
+				if (listLH.Count==0) 
+				{
+					listContent.Hidden= true;
+					errorLB.Hidden=false;
+				}
+
 			listCT = new List<chiTietLH> ();
 			foreach (var item in listLH) {
 				List<chiTietLH> list = BLichHoc.GetCTLH (SQLite_iOS.GetConnection (), item.Id);

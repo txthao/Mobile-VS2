@@ -29,6 +29,7 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 			headers.Source = new DiemThiHKSource ();
 			listContent.Frame = LayoutHelper.setlayoutForTB (listContent.Frame);
@@ -50,6 +51,7 @@ namespace School.iOS
 		{
 			try
 			{
+				
 				progress.Hidden = false;
 				progress.StartAnimating ();
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
@@ -65,6 +67,9 @@ namespace School.iOS
 				listDT = BDiemThi.getAll(SQLite_iOS.GetConnection ());
 				if (listDT.Count>0)
 				{
+					listContent.Hidden= false;
+					errorLB.Hidden=true;
+					headers.Hidden=false;
 					await Task.Run(()=>
 					{
 					foreach (var item in listDT) {
@@ -88,6 +93,12 @@ namespace School.iOS
 					
 					listContent.Source=new DiemThiSource(list);
 					listContent.ReloadData();
+				}
+				else
+				{
+					headers.Hidden=true;
+					listContent.Hidden= true;
+					errorLB.Hidden=false;
 				}
 				progress.StopAnimating ();
 			}

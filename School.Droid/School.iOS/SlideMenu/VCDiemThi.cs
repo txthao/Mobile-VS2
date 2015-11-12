@@ -30,6 +30,7 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
 			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
@@ -84,6 +85,7 @@ namespace School.iOS
 		{
 			try
 			{
+				
 				progress.Hidden = false;
 				progress.StartAnimating ();
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
@@ -114,6 +116,9 @@ namespace School.iOS
 				}
 				if (dt!=null)
 				{
+					listDM.Hidden= false;
+					errorLB.Hidden=true;
+					headers.Hidden=false;
 					hocky=dt.Hocky;
 					namhoc=dt.NamHoc;
 					timeDTHK.Text="Học Kỳ "+dt.Hocky +" Năm "+dt.NamHoc;
@@ -128,7 +133,13 @@ namespace School.iOS
 					txtTBTL4.Text="Hệ 4: "+dt.DiemTBTL4;
 					txtDRL.Text="Điểm Rèn Luyện: "+dt.DiemRL;
 				}
-			
+				else
+				{
+					timeDTHK.Text="";
+					headers.Hidden=true;
+					listDM.Hidden= true;
+					errorLB.Hidden=false;
+				}
 			}
 			catch {
 			}

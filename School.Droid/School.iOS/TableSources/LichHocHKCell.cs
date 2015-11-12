@@ -113,7 +113,7 @@ namespace School.iOS
 			this.num = num;
 
 			if (hasRM) {
-				this.hasRM.Image = UIImage.FromBundle ("menupic/Iclichhoc.png");
+				this.hasRM.Image = UIImage.FromBundle ("menupic/remind.png");
 			}
 
 		}

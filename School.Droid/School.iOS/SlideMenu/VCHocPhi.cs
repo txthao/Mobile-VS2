@@ -28,6 +28,7 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
 			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
@@ -75,6 +76,15 @@ namespace School.iOS
 			HocPhi hp = BHocPhi.GetHP(SQLite_iOS.GetConnection ());
 			if (hp!=null)
 			{
+					
+				listHP.Hidden= false;
+				errorLB.Hidden=true;
+				headers.Hidden=false;
+				txtToSoTC.Hidden=false;
+				txtTongTIenDD.Hidden=false;
+				txtTTLD.Hidden=false;
+				txtTienConNo.Hidden=false;
+				txtTongTienHP.Hidden=false;
 			timeHP.Text="Học Kỳ "+hp.HocKy+" Năm "+hp.NamHoc;
 			list= BHocPhi.GetCTHP(SQLite_iOS.GetConnection (),hp.NamHoc,hp.HocKy);
 			listHP.Source = new HocPhiSource (list);
@@ -85,6 +95,18 @@ namespace School.iOS
 			txtTongTIenDD.Text+=hp.TienDaDong;
 			txtTienConNo.Text+=hp.TienConNo;
 			}
+				else
+				{
+					timeHP.Text="";
+					headers.Hidden=true;
+					listHP.Hidden= true;
+					errorLB.Hidden=false;
+					txtToSoTC.Hidden=true;
+					txtTongTIenDD.Hidden=true;
+					txtTTLD.Hidden=true;
+					txtTienConNo.Hidden=true;
+					txtTongTienHP.Hidden=true;
+				}
 			}
 			catch {
 			}

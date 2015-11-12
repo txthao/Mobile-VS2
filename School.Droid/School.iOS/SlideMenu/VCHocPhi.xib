@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VCHocPhi">
             <connections>
                 <outlet property="btMenu" destination="Egp-Hg-dQf" id="a7l-2o-DcC"/>
+                <outlet property="errorLB" destination="8ef-6Q-ifb" id="GK6-uw-KCt"/>
                 <outlet property="headers" destination="Obr-CP-SG5" id="qvA-eL-keH"/>
                 <outlet property="listHP" destination="eO3-cn-cfX" id="tOo-zm-3eQ"/>
                 <outlet property="progress" destination="BUh-w9-t9z" id="uuF-hu-DUj"/>
@@ -95,6 +96,13 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8ef-6Q-ifb">
+                    <rect key="frame" x="0.0" y="178" width="320" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="486" y="309"/>

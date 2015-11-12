@@ -17,7 +17,7 @@ namespace School.iOS
 				{
 					if (await BUser.CheckAuth(masv,pass,SQLite_iOS.GetConnection()))
 					{
-						await ApiHelper.LoadDataFromSV(VCLogIn.Instance);
+					//	await ApiHelper.LoadDataFromSV(VCLogIn.Instance);
 							callback(error);
 					}
 					else

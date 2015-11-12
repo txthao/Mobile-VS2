@@ -197,6 +197,9 @@
     <BundleResource Include="Settings.Bundle\Root.plist" />
     <BundleResource Include="Resources\menupic\signout.png" />
     <BundleResource Include="Resources\menupic\options27.png" />
+    <BundleResource Include="Resources\menupic\IcAdiemthi.png" />
+    <BundleResource Include="Resources\menupic\calendar.png" />
+    <BundleResource Include="Resources\menupic\remind.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\School.Core\School.Core.csproj">

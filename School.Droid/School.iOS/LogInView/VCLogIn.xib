@@ -6,10 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VCLogIn">
             <connections>
-                <outlet property="appFooter" destination="thu-lX-RTt" id="38m-ut-k2Q"/>
                 <outlet property="appLogo" destination="MP9-qC-PVW" id="8Tg-St-tia"/>
                 <outlet property="appName" destination="ZUZ-n2-ErX" id="HU3-kE-eyq"/>
                 <outlet property="btDangNhap" destination="7OI-Hc-KI2" id="hbc-ir-Bmc"/>
+                <outlet property="btFooter" destination="TTV-cG-XhQ" id="f9X-TI-ec9"/>
                 <outlet property="txtError" destination="T1I-w2-fQN" id="BY1-BF-Gwp"/>
                 <outlet property="txtMaSV" destination="js1-cR-0No" id="SSf-Kc-ZmR"/>
                 <outlet property="txtMatKhau" destination="Uiv-fT-OZs" id="qAx-Hr-6zr"/>
@@ -52,13 +52,6 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIT-SGU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="thu-lX-RTt">
-                    <rect key="frame" x="0.0" y="518" width="320" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7OI-Hc-KI2">
                     <rect key="frame" x="111" y="359" width="92" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -68,6 +61,13 @@
                     <connections>
                         <action selector="btDangNhapClick:" destination="-1" eventType="touchUpInside" id="l1h-uU-c2q"/>
                     </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TTV-cG-XhQ">
+                    <rect key="frame" x="0.0" y="522" width="320" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="FIT-SGU">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>

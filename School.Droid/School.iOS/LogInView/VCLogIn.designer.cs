@@ -25,6 +25,9 @@ namespace School.iOS
 		UIKit.UIButton btDangNhap { get; set; }
 
 		[Outlet]
+		UIKit.UIButton btFooter { get; set; }
+
+		[Outlet]
 		UIKit.UILabel txtError { get; set; }
 
 		[Outlet]
@@ -71,6 +74,11 @@ namespace School.iOS
 			if (txtMatKhau != null) {
 				txtMatKhau.Dispose ();
 				txtMatKhau = null;
+			}
+
+			if (btFooter != null) {
+				btFooter.Dispose ();
+				btFooter = null;
 			}
 		}
 	}

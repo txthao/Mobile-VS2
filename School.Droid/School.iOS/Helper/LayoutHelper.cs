@@ -6,7 +6,7 @@ namespace School.iOS
 {
 	public class LayoutHelper
 	{
-		public static UIColor ourCyan = UIColor.FromRGBA((float)0, (float)0.8, (float)1, (float)1);
+		public static UIColor ourCyan = UIColor.FromRGBA((float)0.7, (float)0.8, (float)1, (float)1);
 		public static UIColor ourDarkCyan = UIColor.FromRGBA((float)0.3, (float)0.8, (float)1, (float)1);
 		public static CGRect setlayoutForTB(CGRect frame)
 		{
@@ -65,6 +65,23 @@ namespace School.iOS
 			iFrame.Y = Y;
 			mbt.Frame = iFrame;
 			return mbt;
+		}
+		public static UILabel ErrLabel(UILabel lb)
+		{
+			UILabel mlb = lb;
+			CGRect iFrame = mlb.Frame;
+			iFrame.Width = App.Current.width;
+			iFrame.Height = 40;
+			iFrame.X = 0;
+			iFrame.Y = App.Current.height / 2-20;
+			mlb.Frame = iFrame;
+			mlb.Text = "Hiện Tại Chưa Có Dữ Liệu, Vui Lòng Thử Lại Sau";
+			mlb.Font = UIFont.ItalicSystemFontOfSize (16);
+			mlb.TextAlignment = UITextAlignment.Center;
+			mlb.Lines = 0;
+			mlb.LineBreakMode = UILineBreakMode.WordWrap;
+			mlb.Hidden = true;
+			return mlb;
 		}
 	}
 }

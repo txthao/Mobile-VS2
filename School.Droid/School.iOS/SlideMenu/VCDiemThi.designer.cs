@@ -22,6 +22,9 @@ namespace School.iOS
 		UIKit.UIButton btMenu { get; set; }
 
 		[Outlet]
+		UIKit.UILabel errorLB { get; set; }
+
+		[Outlet]
 		UIKit.UITableView headers { get; set; }
 
 		[Outlet]
@@ -59,9 +62,9 @@ namespace School.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (btMenu != null) {
-				btMenu.Dispose ();
-				btMenu = null;
+			if (errorLB != null) {
+				errorLB.Dispose ();
+				errorLB = null;
 			}
 
 			if (btHKKe != null) {
@@ -72,6 +75,11 @@ namespace School.iOS
 			if (btHKTrc != null) {
 				btHKTrc.Dispose ();
 				btHKTrc = null;
+			}
+
+			if (btMenu != null) {
+				btMenu.Dispose ();
+				btMenu = null;
 			}
 
 			if (headers != null) {

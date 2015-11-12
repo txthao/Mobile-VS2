@@ -9,6 +9,7 @@
                 <outlet property="btHKKe" destination="hQ3-GY-3sD" id="Tvj-Iz-xVG"/>
                 <outlet property="btHKTrc" destination="ofO-6R-MSF" id="FZB-OX-Lcx"/>
                 <outlet property="btMenu" destination="rkB-T6-xLK" id="III-19-mvp"/>
+                <outlet property="errorLB" destination="wg3-hZ-4NU" id="kj8-7a-STe"/>
                 <outlet property="headers" destination="YRr-BM-sI7" id="wtR-eo-BWi"/>
                 <outlet property="listDM" destination="NUe-PP-zEr" id="e1h-yq-OHk"/>
                 <outlet property="progress" destination="P3f-nB-88n" id="dhK-2g-iOI"/>
@@ -127,6 +128,13 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wg3-hZ-4NU">
+                    <rect key="frame" x="0.0" y="190" width="320" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
         </view>

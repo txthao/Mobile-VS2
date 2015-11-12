@@ -22,6 +22,9 @@ namespace School.iOS
 		UIKit.UIButton btTuanTrc { get; set; }
 
 		[Outlet]
+		UIKit.UILabel errorLB { get; set; }
+
+		[Outlet]
 		UIKit.UITableView listContent { get; set; }
 
 		[Outlet]
@@ -41,19 +44,24 @@ namespace School.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (btMenu != null) {
+				btMenu.Dispose ();
+				btMenu = null;
+			}
+
 			if (btTuanKe != null) {
 				btTuanKe.Dispose ();
 				btTuanKe = null;
 			}
 
+			if (errorLB != null) {
+				errorLB.Dispose ();
+				errorLB = null;
+			}
+
 			if (btTuanTrc != null) {
 				btTuanTrc.Dispose ();
 				btTuanTrc = null;
-			}
-
-			if (btMenu != null) {
-				btMenu.Dispose ();
-				btMenu = null;
 			}
 
 			if (listContent != null) {

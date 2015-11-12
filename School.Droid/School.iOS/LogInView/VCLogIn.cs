@@ -42,10 +42,13 @@ namespace School.iOS
 			frame.Y = 80;
 			appName.Frame = frame;
 			appName.TextColor = LayoutHelper.ourCyan;
-			frame = appFooter.Frame;
+			frame = btFooter.Frame;
 			frame.Width = App.Current.width;
 			frame.Y= App.Current.height - 20;
-			appFooter.Frame = frame;
+			btFooter.Frame = frame;
+
+			btFooter.TouchUpInside+= BtFooter_TouchUpInside;
+
 			frame = appLogo.Frame;
 			frame.Y = appName.Frame.Y + 40;
 			frame.Height = App.Current.width / 3+30;
@@ -74,7 +77,7 @@ namespace School.iOS
 			txtMatKhau.Layer.BorderColor=LayoutHelper.ourCyan.CGColor;
 			txtMaSV.Layer.BorderWidth = 2;
 			txtMatKhau.Layer.BorderWidth = 2;
-			appFooter.TextColor=LayoutHelper.ourCyan;
+
 			frame = txtError.Frame;
 
 			frame.Width = App.Current.width - 20;
@@ -89,6 +92,14 @@ namespace School.iOS
 			txtMatKhau.Text = "itdaihocsg";
 
 			// Perform any additional setup after loading the view, typically from a nib.
+		}
+
+		void BtFooter_TouchUpInside (object sender, EventArgs e)
+		{
+
+			UIAlertView _error = new UIAlertView ("About", "My About", null, "Ok", null);
+
+			_error.Show ();
 		}
 		partial void btDangNhapClick (NSObject sender)
 		{

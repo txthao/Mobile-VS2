@@ -39,12 +39,12 @@ namespace School.iOS
 					new Section ("Lịch Học") {
 
 						new ImageStringElement("Theo Học Kỳ",UIImage.FromBundle("menupic/Iclichhoc.png")),
-						new ImageStringElement("Theo Tuần",UIImage.FromBundle("menupic/Iclichhoc.png")),
+						new ImageStringElement("Theo Tuần",UIImage.FromBundle("menupic/calendar.png")),
 					},
 					new Section ("Điểm Thi") {
 
 						new ImageStringElement("Học Kỳ Hiện Tại",UIImage.FromBundle("menupic/Icdiemthi.png")),
-						new ImageStringElement("Tất Cả ",UIImage.FromBundle("menupic/Icdiemthi.png")),
+						new ImageStringElement("Tất Cả ",UIImage.FromBundle("menupic/IcAdiemthi.png")),
 					}
 					,
 					new Section ("Học Phí-Lịch Thi") {

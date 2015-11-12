@@ -28,6 +28,7 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
 			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
@@ -44,7 +45,7 @@ namespace School.iOS
 			headers.Frame = LayoutHelper.setlayoutForHeader (headers.Frame );
 			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
 
-
+			timeLH.Text = "";
 			timeLH.Frame = LayoutHelper.setlayoutForTimeLB(timeLH.Frame);
 			progress.Hidden = true;
 
@@ -60,6 +61,9 @@ namespace School.iOS
 				progress.Hidden = false;
 				progress.StartAnimating ();
 
+				listLH.Hidden= false;
+				errorLB.Hidden=true;
+				headers.Hidden=false;
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
 				if (sync&&Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
 				{
@@ -84,6 +88,12 @@ namespace School.iOS
 					timeLH.Text="Học Kỳ " + newlistLH[0].HocKy+ " Năm "+ newlistLH[0].NamHoc;
 					listLH.Source=new LichHocHKSource(listCT,this);
 					listLH.ReloadData();
+				}
+				else
+				{
+					headers.Hidden=true;
+					listLH.Hidden= true;
+					errorLB.Hidden=false;
 				}
 			}
 			catch {

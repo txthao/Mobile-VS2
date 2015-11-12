@@ -16,6 +16,9 @@ namespace School.iOS
 		UIKit.UIButton btMenu { get; set; }
 
 		[Outlet]
+		UIKit.UILabel errorLB { get; set; }
+
+		[Outlet]
 		UIKit.UITableView headers { get; set; }
 
 		[Outlet]
@@ -45,6 +48,11 @@ namespace School.iOS
 			if (listContent != null) {
 				listContent.Dispose ();
 				listContent = null;
+			}
+
+			if (errorLB != null) {
+				errorLB.Dispose ();
+				errorLB = null;
 			}
 
 			if (progress != null) {

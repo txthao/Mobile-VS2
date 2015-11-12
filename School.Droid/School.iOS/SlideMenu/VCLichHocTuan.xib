@@ -9,6 +9,7 @@
                 <outlet property="btMenu" destination="zNQ-zj-8fz" id="wZq-wZ-KVx"/>
                 <outlet property="btTuanKe" destination="uu3-XJ-nnW" id="ojh-4C-Kx9"/>
                 <outlet property="btTuanTrc" destination="AAW-vp-HKu" id="57O-Sp-w40"/>
+                <outlet property="errorLB" destination="x5H-n9-8MT" id="GyX-Ti-Lsh"/>
                 <outlet property="listContent" destination="bYq-9d-ZhW" id="eIn-eK-Uag"/>
                 <outlet property="mytitle" destination="9jZ-JZ-9oI" id="zum-sG-okr"/>
                 <outlet property="progress" destination="l1t-9S-Utn" id="5Eo-4A-Ysd"/>
@@ -73,6 +74,13 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x5H-n9-8MT">
+                    <rect key="frame" x="0.0" y="246" width="320" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="408" y="366"/>

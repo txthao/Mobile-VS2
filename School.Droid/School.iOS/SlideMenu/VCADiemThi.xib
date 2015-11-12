@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VCADiemThi">
             <connections>
                 <outlet property="btMenu" destination="3PS-c1-EdO" id="kgX-J3-CuC"/>
+                <outlet property="errorLB" destination="PED-Rr-Eg7" id="vkA-ny-Vim"/>
                 <outlet property="headers" destination="2Sr-GY-CRk" id="Rfd-cj-qYi"/>
                 <outlet property="listContent" destination="R0V-qL-ckg" id="RXa-EI-qby"/>
                 <outlet property="progress" destination="eza-Wc-tvW" id="0PS-8j-Dvt"/>
@@ -50,6 +51,13 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Điểm Thi Tất Cả Học Kỳ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZgA-qp-rSC">
                     <rect key="frame" x="0.0" y="55" width="320" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PED-Rr-Eg7">
+                    <rect key="frame" x="0.0" y="226" width="320" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

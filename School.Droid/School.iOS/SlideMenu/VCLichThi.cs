@@ -28,6 +28,7 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
 			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
@@ -72,9 +73,19 @@ namespace School.iOS
 				list= BLichThi.GetNewestLT(SQLite_iOS.GetConnection());
 				if (list.Count>0)
 				{
+					listLT.Hidden= false;
+					errorLB.Hidden=true;
+					headers.Hidden=false;
 					timeLT.Text="Học Kỳ "+list[0].HocKy+" Năm "+ list[0].NamHoc;
 					listLT.Source=new LichThiSource(list,this);
 					listLT.ReloadData();
+				}
+				else
+				{
+					timeLT.Text="";
+					listLT.Hidden= true;
+					errorLB.Hidden=false;
+					headers.Hidden=true;
 				}
 			}
 			catch {
