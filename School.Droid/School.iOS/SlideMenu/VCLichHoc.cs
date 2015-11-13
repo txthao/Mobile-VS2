@@ -30,10 +30,7 @@ namespace School.iOS
 			base.ViewDidLoad ();
 			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
-			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
-			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
-				RootViewController.Instance.navigation.ToggleMenu();
-			};
+
 			headers.Source = new LichHocHKSource ();
 
 
@@ -48,7 +45,12 @@ namespace School.iOS
 			timeLH.Text = "";
 			timeLH.Frame = LayoutHelper.setlayoutForTimeLB(timeLH.Frame);
 			progress.Hidden = true;
-
+			progress = LayoutHelper.progressDT (progress);
+			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
+			title.BackgroundColor = UIColor.FromRGBA((float)0.9, (float)0.9, (float)0.9, (float)1);
 			LoadData ();
 
 			// Perform any additional setup after loading the view, typically from a nib.
@@ -65,8 +67,17 @@ namespace School.iOS
 				errorLB.Hidden=true;
 				headers.Hidden=false;
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-				if (sync&&Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
+				if (sync)
 				{
+					bool accepted =false;
+					while (Reachability.InternetConnectionStatus ()==NetworkStatus.NotReachable&&!accepted)
+					{
+						accepted = await LayoutHelper.ShowAlert("Lỗi", "Bạn cần mở kết nối để cập nhật dữ liệu mới nhất");
+
+
+					}
+					if (Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
+					{
 				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 					var newlistlh= BLichHoc.MakeDataFromXml (SQLite_iOS.GetConnection ());
 					List<LichHoc> newListLH= await newlistlh;var checkRemind=SettingsHelper.LoadSetting("Remind");
@@ -74,7 +85,9 @@ namespace School.iOS
 						VCHomeReminder remind= new VCHomeReminder(this);
 						await remind.RemindALLLH(newListLH,"");
 					}
-				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+					}
+
 				}
 				progress.StopAnimating ();
 				List<LichHoc> newlistLH= BLichHoc.GetNewestLH(SQLite_iOS.GetConnection());

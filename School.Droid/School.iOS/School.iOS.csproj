@@ -200,6 +200,7 @@
     <BundleResource Include="Resources\menupic\IcAdiemthi.png" />
     <BundleResource Include="Resources\menupic\calendar.png" />
     <BundleResource Include="Resources\menupic\remind.png" />
+    <BundleResource Include="Resources\menupic\refresh.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\School.Core\School.Core.csproj">

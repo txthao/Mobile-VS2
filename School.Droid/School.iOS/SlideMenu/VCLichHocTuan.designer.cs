@@ -16,6 +16,9 @@ namespace School.iOS
 		UIKit.UIButton btMenu { get; set; }
 
 		[Outlet]
+		UIKit.UIButton btRefresh { get; set; }
+
+		[Outlet]
 		UIKit.UIButton btTuanKe { get; set; }
 
 		[Outlet]
@@ -54,14 +57,14 @@ namespace School.iOS
 				btTuanKe = null;
 			}
 
-			if (errorLB != null) {
-				errorLB.Dispose ();
-				errorLB = null;
-			}
-
 			if (btTuanTrc != null) {
 				btTuanTrc.Dispose ();
 				btTuanTrc = null;
+			}
+
+			if (errorLB != null) {
+				errorLB.Dispose ();
+				errorLB = null;
 			}
 
 			if (listContent != null) {
@@ -87,6 +90,11 @@ namespace School.iOS
 			if (timeLHTuan != null) {
 				timeLHTuan.Dispose ();
 				timeLHTuan = null;
+			}
+
+			if (btRefresh != null) {
+				btRefresh.Dispose ();
+				btRefresh = null;
 			}
 
 			if (txtngayLHTuan != null) {

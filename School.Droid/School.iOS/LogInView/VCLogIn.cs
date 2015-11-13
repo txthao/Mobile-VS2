@@ -41,10 +41,10 @@ namespace School.iOS
 			frame.Width = App.Current.width;
 			frame.Y = 80;
 			appName.Frame = frame;
-			appName.TextColor = LayoutHelper.ourCyan;
+			appName.TextColor = LayoutHelper.ourDarkCyan;
 			frame = btFooter.Frame;
 			frame.Width = App.Current.width;
-			frame.Y= App.Current.height - 20;
+			frame.Y= App.Current.height - 30;
 			btFooter.Frame = frame;
 
 			btFooter.TouchUpInside+= BtFooter_TouchUpInside;
@@ -70,11 +70,11 @@ namespace School.iOS
 			frame.Y = txtMatKhau.Frame.Y + txtMatKhau.Frame.Height + 20; 
 			frame.X = App.Current.width / 3-10 ;
 			btDangNhap.Frame = frame;
-			btDangNhap.BackgroundColor = LayoutHelper.ourCyan;
+			btDangNhap.BackgroundColor = LayoutHelper.ourDarkCyan;
 			btDangNhap.SetTitleColor (UIColor.White, UIControlState.Normal);
 
-			txtMaSV.Layer.BorderColor=LayoutHelper.ourCyan.CGColor;
-			txtMatKhau.Layer.BorderColor=LayoutHelper.ourCyan.CGColor;
+			txtMaSV.Layer.BorderColor=LayoutHelper.ourDarkCyan.CGColor;
+			txtMatKhau.Layer.BorderColor=LayoutHelper.ourDarkCyan.CGColor;
 			txtMaSV.Layer.BorderWidth = 2;
 			txtMatKhau.Layer.BorderWidth = 2;
 
@@ -83,9 +83,11 @@ namespace School.iOS
 			frame.Width = App.Current.width - 20;
 			frame.Y = btDangNhap.Frame.Y + btDangNhap.Frame.Height ; 
 			frame.X = 10;
+			frame.Height = 40;
 			txtError.Lines = 0;
-			txtError.TextAlignment = UITextAlignment.Center;
 			txtError.LineBreakMode = UILineBreakMode.WordWrap;
+			txtError.TextAlignment = UITextAlignment.Center;
+
 			txtError.Font = UIFont.SystemFontOfSize (App.Current.textSize);
 			txtError.Frame = frame;
 			txtMaSV.Text = "3111410094";

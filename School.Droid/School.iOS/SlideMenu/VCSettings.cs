@@ -31,10 +31,7 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
-			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
-			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
-				RootViewController.Instance.navigation.ToggleMenu();
-			};
+		
 			SetLayout ();
 			txtResult.Lines = 0;
 			txtResult.TextColor = UIColor.Green;
@@ -50,7 +47,12 @@ namespace School.iOS
 			btCNDL.TouchUpInside+= BtCNDL_TouchUpInside;
 			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
 			progress.Hidden = true;
-		
+			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
+			title.BackgroundColor = UIColor.FromRGBA((float)0.9, (float)0.9, (float)0.9, (float)1);
+
 			txtResult.Font = UIFont.SystemFontOfSize (App.Current.textSize);
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
@@ -90,6 +92,22 @@ namespace School.iOS
 		{
 			btCNDL.Enabled = !swtCNDL.On;
 			SettingsHelper.SaveSetting ("AutoUpdate", swtCNDL.On);
+			if (swtCNDL.On)
+			{
+				try
+				{
+				VCLichHoc.Instance.LoadData();
+				if (VCADiemThi.instance!=null) VCADiemThi.Instance.LoadData();
+				if (VCLichHocTuan.instance!=null) VCLichHocTuan.Instance.LoadData_Tuan(DateTime.Today);
+				if (VCLichThi.instance!=null) VCLichThi.Instance.LoadData();
+				if (VCDiemThi.instance!=null) VCDiemThi.Instance.LoadData("0","0");
+				if (VCHocPhi.instance!=null) VCHocPhi.Instance.LoadData();
+				}
+				catch{
+				}
+			}
+		
+		
 		}
 
 		async void BtCNDL_TouchUpInside (object sender, EventArgs e)
