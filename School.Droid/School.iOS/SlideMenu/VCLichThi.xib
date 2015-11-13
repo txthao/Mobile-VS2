@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VCLichThi">
             <connections>
                 <outlet property="btMenu" destination="T6r-bm-wSv" id="e2z-dx-AlL"/>
+                <outlet property="errorLB" destination="VPC-9y-Wdg" id="ITq-mj-ClK"/>
                 <outlet property="headers" destination="egj-84-sJW" id="Zc4-GC-oW1"/>
                 <outlet property="listLT" destination="oNL-ki-m7V" id="JDO-IH-dsx"/>
                 <outlet property="progress" destination="cXT-pI-LgT" id="Ni9-Jk-dBz"/>
@@ -55,6 +56,13 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VPC-9y-Wdg">
+                    <rect key="frame" x="0.0" y="234" width="320" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
         </view>

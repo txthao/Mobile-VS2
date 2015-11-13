@@ -31,11 +31,11 @@ namespace School.iOS
 		{
 			base.ViewDidLoad ();
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
-			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
-			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
-				RootViewController.Instance.navigation.ToggleMenu();
-			};
+		
 			SetLayout ();
+			txtResult.Lines = 0;
+			txtResult.TextColor = UIColor.Green;
+			txtResult.LineBreakMode = UILineBreakMode.WordWrap;
 			User sv = BUser.GetMainUser (SQLite_iOS.GetConnection ());
 			txtMaSV.Text += "    " + sv.Id;
 			txtHoTenSV.Text += "    " + sv.Hoten;
@@ -47,6 +47,12 @@ namespace School.iOS
 			btCNDL.TouchUpInside+= BtCNDL_TouchUpInside;
 			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
 			progress.Hidden = true;
+			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
+			title.BackgroundColor = UIColor.FromRGBA((float)0.9, (float)0.9, (float)0.9, (float)1);
+
 			txtResult.Font = UIFont.SystemFontOfSize (App.Current.textSize);
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
@@ -86,6 +92,22 @@ namespace School.iOS
 		{
 			btCNDL.Enabled = !swtCNDL.On;
 			SettingsHelper.SaveSetting ("AutoUpdate", swtCNDL.On);
+			if (swtCNDL.On)
+			{
+				try
+				{
+				VCLichHoc.Instance.LoadData();
+				if (VCADiemThi.instance!=null) VCADiemThi.Instance.LoadData();
+				if (VCLichHocTuan.instance!=null) VCLichHocTuan.Instance.LoadData_Tuan(DateTime.Today);
+				if (VCLichThi.instance!=null) VCLichThi.Instance.LoadData();
+				if (VCDiemThi.instance!=null) VCDiemThi.Instance.LoadData("0","0");
+				if (VCHocPhi.instance!=null) VCHocPhi.Instance.LoadData();
+				}
+				catch{
+				}
+			}
+		
+		
 		}
 
 		async void BtCNDL_TouchUpInside (object sender, EventArgs e)
@@ -193,9 +215,9 @@ namespace School.iOS
 			frame.Y = btCNDL.Frame.Y;
 			progress.Frame = frame;
 			frame = txtResult.Frame;
-			frame.Width=App.Current.width/2+30;
+			frame.Width=App.Current.width-60;
 			frame.X = 30;
-			frame.Y = progress.Frame.Y + 20;
+			frame.Y = progress.Frame.Y + 30;
 			txtResult.Frame = frame;
 			//
 			frame = title3.Frame;
@@ -213,10 +235,21 @@ namespace School.iOS
 			frame.X = 30;
 			frame.Width = App.Current.width/2+30;
 			txtHoTenSV.Frame= frame;
-			frame = footer.Frame;
+			frame = btFooter.Frame;
 			frame.Width = App.Current.width;
+			frame.X = 0;
 			frame.Y= App.Current.height - 30;
-			footer.Frame = frame;
+			btFooter.Frame = frame;
+
+			btFooter.TouchUpInside+= BtFooter_TouchUpInside;;
+
+		}
+
+		void BtFooter_TouchUpInside (object sender, EventArgs e)
+		{
+			UIAlertView _error = new UIAlertView ("About", "My About", null, "Ok", null);
+
+			_error.Show ();
 		}
 	}
 }

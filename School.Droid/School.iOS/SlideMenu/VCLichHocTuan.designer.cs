@@ -16,10 +16,16 @@ namespace School.iOS
 		UIKit.UIButton btMenu { get; set; }
 
 		[Outlet]
+		UIKit.UIButton btRefresh { get; set; }
+
+		[Outlet]
 		UIKit.UIButton btTuanKe { get; set; }
 
 		[Outlet]
 		UIKit.UIButton btTuanTrc { get; set; }
+
+		[Outlet]
+		UIKit.UILabel errorLB { get; set; }
 
 		[Outlet]
 		UIKit.UITableView listContent { get; set; }
@@ -41,6 +47,11 @@ namespace School.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (btMenu != null) {
+				btMenu.Dispose ();
+				btMenu = null;
+			}
+
 			if (btTuanKe != null) {
 				btTuanKe.Dispose ();
 				btTuanKe = null;
@@ -51,9 +62,9 @@ namespace School.iOS
 				btTuanTrc = null;
 			}
 
-			if (btMenu != null) {
-				btMenu.Dispose ();
-				btMenu = null;
+			if (errorLB != null) {
+				errorLB.Dispose ();
+				errorLB = null;
 			}
 
 			if (listContent != null) {
@@ -79,6 +90,11 @@ namespace School.iOS
 			if (timeLHTuan != null) {
 				timeLHTuan.Dispose ();
 				timeLHTuan = null;
+			}
+
+			if (btRefresh != null) {
+				btRefresh.Dispose ();
+				btRefresh = null;
 			}
 
 			if (txtngayLHTuan != null) {

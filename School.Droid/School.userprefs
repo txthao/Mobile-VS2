@@ -1,6 +1,15 @@
 ﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5.8.2" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.2" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="School.iOS/SlideMenu/VCDiemThi.cs">
+    <Files>
+      <File FileName="School.iOS/Helper/LayoutHelper.cs" Line="64" Column="21" />
+      <File FileName="School.iOS/SlideMenu/VCSettings.cs" Line="54" Column="91" />
+      <File FileName="School.iOS/SlideMenu/VCLichHocTuan.cs" Line="73" Column="5" />
+      <File FileName="School.iOS/SlideMenu/VCHocPhi.cs" Line="34" Column="1" />
+      <File FileName="School.iOS/SlideMenu/VCDiemThi.cs" Line="83" Column="91" />
+      <File FileName="School.iOS/SlideMenu/VCLichThi.cs" Line="43" Column="57" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />

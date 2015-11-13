@@ -46,14 +46,28 @@ namespace School.Core
 			DataProvider dtb = new DataProvider (connection);
 			dtb.DeleteAll ();
 		}
-		public static async Task<bool> CheckAuth(string id, string pass,SQLiteConnection connection)
+		public static async Task<Exception> CheckAuth(string id, string pass,SQLiteConnection connection)
 		{
 			var httpClient = new HttpClient ();
+			Exception  error;
+			httpClient.Timeout = TimeSpan.FromSeconds (20);
+			string contents;
 			Task<string> contentsTask = httpClient.GetStringAsync ("http://www.schoolapi.somee.com/dangnhap/"+id+"/"+pass);
-			string contents =  await contentsTask;
-			if (contents.Contains("false"))
 
-				return false;
+			try
+			{
+			contents =  await contentsTask;
+			
+			}
+			catch(Exception e) {
+				error =new Exception("Xảy Ra Lỗi Trong Quá Trình Kết Nối Server");
+				return error;
+			}
+			if (contents.Contains ("false")) {
+				error=new Exception("Mã Sinh Viên Hoặc Mật Khẩu Không Đúng");
+				return error;
+
+			}
 			User usr = new User ();
 			usr.Password = pass;
 			usr.Id = id;
@@ -62,7 +76,7 @@ namespace School.Core
 			XDocument doc = XDocument.Parse (contents);
 			usr.Hoten= doc.Root.Elements().ElementAt(0).Elements().ElementAt(1).Value.ToString();
 			int i = AddUser (connection, usr);
-			return true;
+			return null;
 		}
 	
 	}

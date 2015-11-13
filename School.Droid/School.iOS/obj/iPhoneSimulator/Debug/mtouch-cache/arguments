@@ -1,10 +1,10 @@
 # Version: 9.1.0.27 (monotouch-9.1.0-branch: 1f068b4)
-# [first argument, ignore] # /Users/mactien/Mobile-VS2/School.Xamarin/School.iOS/mtouch.exe
+# [first argument, ignore] # /Users/mactien/Mobile-VS2/School.Droid/School.iOS/mtouch.exe
 /Library/Frameworks/Xamarin.iOS.framework/Versions/9.1.0.27/bin/mtouch \
 	--cache \
-	/Users/mactien/Mobile-VS2/School.Xamarin/School.iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
+	/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
 	--sim \
-	/Users/mactien/Mobile-VS2/School.Xamarin/School.iOS/bin/iPhoneSimulator/Debug/School.iOS.app \
+	/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/School.iOS.app \
 	--executable \
 	School.iOS \
 	--debug \
@@ -17,7 +17,7 @@
 	7.0 \
 	--abi=i386 \
 	--symbollist \
-	/Users/mactien/Mobile-VS2/School.Xamarin/School.iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
+	/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
 	--dsym=no \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.dll \
@@ -26,19 +26,19 @@
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/Components/flyoutnavigation-1.5.1/lib/ios-unified/FlyoutNavigation.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/Components/flyoutnavigation-1.5.1/lib/ios-unified/FlyoutNavigation.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/MonoTouch.Dialog-1.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/Components/btprogresshud-1.17/lib/ios-unified/BTProgressHUD.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/Components/btprogresshud-1.17/lib/ios-unified/BTProgressHUD.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/packages/sqlite-net-pcl.1.0.11/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/packages/sqlite-net-pcl.1.0.11/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/packages/SQLitePCL.raw_basic.0.8.2/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/packages/SQLitePCL.raw_basic.0.8.2/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/School.Core/bin/Debug/School.Core.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/School.Core/bin/Debug/School.Core.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll \
 	-r \
@@ -134,23 +134,23 @@
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.XmlSerializer.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/Components/flyoutnavigation-1.5.1/lib/ios-unified/FlyoutNavigation.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/Components/flyoutnavigation-1.5.1/lib/ios-unified/FlyoutNavigation.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/Components/btprogresshud-1.17/lib/ios-unified/BTProgressHUD.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/Components/btprogresshud-1.17/lib/ios-unified/BTProgressHUD.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/packages/sqlite-net-pcl.1.0.11/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/packages/sqlite-net-pcl.1.0.11/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/packages/SQLitePCL.raw_basic.0.8.2/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/packages/SQLitePCL.raw_basic.0.8.2/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/School.Core/bin/Debug/School.Core.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/School.Core/bin/Debug/School.Core.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/School.Core/bin/Debug/System.Net.Http.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/School.Core/bin/Debug/System.Net.Http.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/School.Core/bin/Debug/System.Net.Http.Primitives.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/School.Core/bin/Debug/System.Net.Http.Primitives.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/School.Core/bin/Debug/System.IO.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/School.Core/bin/Debug/System.IO.dll \
 	-r \
-	/Users/mactien/Mobile-VS2/School.Xamarin/School.Core/bin/Debug/System.Text.Encoding.dll \
+	/Users/mactien/Mobile-VS2/School.Droid/School.Core/bin/Debug/System.Text.Encoding.dll \
 	--target-framework \
 	"Xamarin.iOS,v1.0" \
-	/Users/mactien/Mobile-VS2/School.Xamarin/School.iOS/bin/iPhoneSimulator/Debug//School.iOS.exe \
+	/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug//School.iOS.exe \

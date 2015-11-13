@@ -30,11 +30,9 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
-			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
-			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
-				RootViewController.Instance.navigation.ToggleMenu();
-			};
+
 			headers.Source = new DiemThiHKSource ();
 
 			listDM.Frame =  LayoutHelper.setlayoutForTB (listDM.Frame );
@@ -43,6 +41,10 @@ namespace School.iOS
 
 			timeDTHK.Frame = LayoutHelper.setlayoutForTimeLB(timeDTHK.Frame );;
 			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
+			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
 			txtTB10.Frame = LayoutHelper.setlayoutForFooter (txtTB10.Frame, 0, listDM.Frame.Y);
 			txtTB4.Frame = txtTB10.Frame;
 
@@ -67,6 +69,7 @@ namespace School.iOS
 			txtDRL.Font = UIFont.SystemFontOfSize (App.Current.textSize);
 
 			progress.Hidden = true;
+			progress = LayoutHelper.progressDT (progress);
 			LoadData ("0","0");
 			btHKKe.TouchUpInside += btnHK_Ke_Click;
 			btHKTrc.TouchUpInside += btnHK_Truoc_Click;
@@ -78,20 +81,32 @@ namespace School.iOS
 			frame.Y = App.Current.height - 40;
 			frame.X = 60;
 			btHKTrc.Frame = frame;
+			title.BackgroundColor = UIColor.FromRGBA((float)0.9, (float)0.9, (float)0.9, (float)1);
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 		public async void LoadData(string hocKy, string namHoc)
 		{
 			try
 			{
-				progress.Hidden = false;
+				
 				progress.StartAnimating ();
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-				if (sync&&Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
+				if (sync)
 				{
+					bool accepted =false;
+					while (Reachability.InternetConnectionStatus ()==NetworkStatus.NotReachable&&!accepted)
+					{
+						accepted = await LayoutHelper.ShowAlert("Lỗi", "Bạn cần mở kết nối để cập nhật dữ liệu mới nhất");
+
+
+					}
+					if (Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
+					{
 				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 				await BDiemThi.MakeDataFromXml(SQLite_iOS.GetConnection());
 				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+					}
+
 				}
 				progress.StopAnimating ();
 				List<DiemMon> listdm= new List<DiemMon>();
@@ -114,6 +129,9 @@ namespace School.iOS
 				}
 				if (dt!=null)
 				{
+					listDM.Hidden= false;
+					errorLB.Hidden=true;
+					headers.Hidden=false;
 					hocky=dt.Hocky;
 					namhoc=dt.NamHoc;
 					timeDTHK.Text="Học Kỳ "+dt.Hocky +" Năm "+dt.NamHoc;
@@ -127,8 +145,28 @@ namespace School.iOS
 					txtTBTL.Text="Điểm TB TL Hệ 10: "+dt.DiemTBTL10;
 					txtTBTL4.Text="Hệ 4: "+dt.DiemTBTL4;
 					txtDRL.Text="Điểm Rèn Luyện: "+dt.DiemRL;
+					txtTC.Hidden=false;
+					txtTCTL.Hidden=false;
+					txtTB10.Hidden=false;
+					txtTB4.Hidden=false;
+					txtTBTL.Hidden=false;
+					txtTBTL4.Hidden=false;
+					txtDRL.Hidden=false;
 				}
-			
+				else
+				{
+					timeDTHK.Text="";
+					headers.Hidden=true;
+					listDM.Hidden= true;
+					errorLB.Hidden=false;
+					txtTC.Hidden=true;
+					txtTCTL.Hidden=true;
+					txtTB10.Hidden=true;
+					txtTB4.Hidden=true;
+					txtTBTL.Hidden=true;
+					txtTBTL4.Hidden=true;
+					txtDRL.Hidden=true;
+				}
 			}
 			catch {
 			}

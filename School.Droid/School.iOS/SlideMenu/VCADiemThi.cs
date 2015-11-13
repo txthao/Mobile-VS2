@@ -29,6 +29,7 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 			headers.Source = new DiemThiHKSource ();
 			listContent.Frame = LayoutHelper.setlayoutForTB (listContent.Frame);
@@ -38,11 +39,14 @@ namespace School.iOS
 			headers.Frame = LayoutHelper.setlayoutForHeader (headers.Frame );
 			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
 			progress.Hidden = true;
+
+			progress = LayoutHelper.progressDT (progress);
 			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
 			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
 				RootViewController.Instance.navigation.ToggleMenu();
 			};
 			timeDT.Frame = LayoutHelper.setlayoutForTimeLB(timeDT.Frame );
+			title.BackgroundColor = UIColor.FromRGBA((float)0.9, (float)0.9, (float)0.9, (float)1);
 			LoadData ();
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
@@ -50,21 +54,36 @@ namespace School.iOS
 		{
 			try
 			{
+				
 				progress.Hidden = false;
 				progress.StartAnimating ();
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-				if (sync&&Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
+				if (sync)
 				{
-				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-				await  BDiemThi.MakeDataFromXml(SQLite_iOS.GetConnection());
+					bool accepted =false;
+					while (Reachability.InternetConnectionStatus ()==NetworkStatus.NotReachable&&!accepted)
+					{
+						 accepted = await ShowAlert("Lỗi", "Bạn cần mở kết nối để cập nhật dữ liệu mới nhất");
+							
 				
-				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+					}
+					if(Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
+					{
+					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
+					await  BDiemThi.MakeDataFromXml(SQLite_iOS.GetConnection());
+
+					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+					}
 				}
+
 				List<DiemThi> listDT = new List<DiemThi>();
 				List<DiemMon> list = new List<DiemMon>();
 				listDT = BDiemThi.getAll(SQLite_iOS.GetConnection ());
 				if (listDT.Count>0)
 				{
+					listContent.Hidden= false;
+					errorLB.Hidden=true;
+					headers.Hidden=false;
 					await Task.Run(()=>
 					{
 					foreach (var item in listDT) {
@@ -89,6 +108,12 @@ namespace School.iOS
 					listContent.Source=new DiemThiSource(list);
 					listContent.ReloadData();
 				}
+				else
+				{
+					headers.Hidden=true;
+					listContent.Hidden= true;
+					errorLB.Hidden=false;
+				}
 				progress.StopAnimating ();
 			}
 			catch {
@@ -102,6 +127,19 @@ namespace School.iOS
 					instance = new VCADiemThi ();
 				return instance;
 			}
+		}
+		public Task<bool> ShowAlert(string title, string message) {
+			var tcs = new TaskCompletionSource<bool>();
+
+			UIApplication.SharedApplication.InvokeOnMainThread(new Action(() =>
+				{
+					UIAlertView alert = new UIAlertView(title, message, null, NSBundle.MainBundle.LocalizedString("Cancel", "Cancel"),
+						NSBundle.MainBundle.LocalizedString("OK", "OK"));
+					alert.Clicked += (sender, buttonArgs) => tcs.SetResult(buttonArgs.ButtonIndex != alert.CancelButtonIndex);
+					alert.Show();
+				}));
+
+			return tcs.Task;
 		}
 	}
 }

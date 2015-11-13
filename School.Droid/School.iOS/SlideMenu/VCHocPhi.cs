@@ -28,11 +28,9 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
-			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
-			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
-				RootViewController.Instance.navigation.ToggleMenu();
-			};
+
 			headers.Source = new HocPhiSource ();
 
 
@@ -53,8 +51,13 @@ namespace School.iOS
 			listHP.Frame = LayoutHelper.setlayoutForTB (listHP.Frame );
 
 			headers.Frame = LayoutHelper.setlayoutForHeader (headers.Frame );
-
+			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
+			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
+				RootViewController.Instance.navigation.ToggleMenu();
+			};
 			progress.Hidden = true;
+			progress = LayoutHelper.progressDT (progress);
+			title.BackgroundColor = UIColor.FromRGBA((float)0.9, (float)0.9, (float)0.9, (float)1);
 			LoadData ();
 
 		}
@@ -63,18 +66,39 @@ namespace School.iOS
 			try{
 				progress.Hidden = false;
 				progress.StartAnimating ();	
-			List<CTHocPhi> list = new List<CTHocPhi> ();
-			bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-				if (sync&&Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
-			{
-			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-			await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
-			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+				List<CTHocPhi> list = new List<CTHocPhi> ();
+				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
+				if (sync)
+				{
+					bool accepted =false;
+					while (Reachability.InternetConnectionStatus ()==NetworkStatus.NotReachable&&!accepted)
+					{
+						accepted = await LayoutHelper.ShowAlert("Lỗi", "Bạn cần mở kết nối để cập nhật dữ liệu mới nhất");
+
+
+					}
+					if (Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
+					{
+			
+					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
+					await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
+					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+				}
+				
 			}
 			progress.StopAnimating ();
 			HocPhi hp = BHocPhi.GetHP(SQLite_iOS.GetConnection ());
 			if (hp!=null)
 			{
+					
+				listHP.Hidden= false;
+				errorLB.Hidden=true;
+				headers.Hidden=false;
+				txtToSoTC.Hidden=false;
+				txtTongTIenDD.Hidden=false;
+				txtTTLD.Hidden=false;
+				txtTienConNo.Hidden=false;
+				txtTongTienHP.Hidden=false;
 			timeHP.Text="Học Kỳ "+hp.HocKy+" Năm "+hp.NamHoc;
 			list= BHocPhi.GetCTHP(SQLite_iOS.GetConnection (),hp.NamHoc,hp.HocKy);
 			listHP.Source = new HocPhiSource (list);
@@ -85,6 +109,18 @@ namespace School.iOS
 			txtTongTIenDD.Text+=hp.TienDaDong;
 			txtTienConNo.Text+=hp.TienConNo;
 			}
+				else
+				{
+					timeHP.Text="";
+					headers.Hidden=true;
+					listHP.Hidden= true;
+					errorLB.Hidden=false;
+					txtToSoTC.Hidden=true;
+					txtTongTIenDD.Hidden=true;
+					txtTTLD.Hidden=true;
+					txtTienConNo.Hidden=true;
+					txtTongTienHP.Hidden=true;
+				}
 			}
 			catch {
 			}

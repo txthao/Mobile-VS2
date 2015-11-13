@@ -15,14 +15,15 @@ namespace School.iOS
 				Exception error= null;
 				if (error==null)
 				{
-					if (await BUser.CheckAuth(masv,pass,SQLite_iOS.GetConnection()))
+					error=await BUser.CheckAuth(masv,pass,SQLite_iOS.GetConnection());
+					if (error==null)
 					{
 						await ApiHelper.LoadDataFromSV(VCLogIn.Instance);
 							callback(error);
 					}
 					else
 					{
-							error=new Exception("Mã Sinh Viên Hoặc Mật Khẩu Không Đúng");
+						
 					}
 						if (callback!=null&&error!=null) {
 							callback(error);
@@ -111,7 +112,7 @@ namespace School.iOS
 				return "Cập nhật dữ liệu thành công";
 			}
 			catch {
-				return "load failed";
+				return "Xảy ra lỗi trong quá trình cập nhật dữ liệu";
 			}
 
 

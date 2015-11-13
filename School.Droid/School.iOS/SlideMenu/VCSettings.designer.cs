@@ -16,6 +16,9 @@ namespace School.iOS
 		UIKit.UIButton btCNDL { get; set; }
 
 		[Outlet]
+		UIKit.UIButton btFooter { get; set; }
+
+		[Outlet]
 		UIKit.UIButton btMenu { get; set; }
 
 		[Outlet]
@@ -62,14 +65,14 @@ namespace School.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (btMenu != null) {
-				btMenu.Dispose ();
-				btMenu = null;
-			}
-
 			if (btCNDL != null) {
 				btCNDL.Dispose ();
 				btCNDL = null;
+			}
+
+			if (btMenu != null) {
+				btMenu.Dispose ();
+				btMenu = null;
 			}
 
 			if (footer != null) {
@@ -140,6 +143,11 @@ namespace School.iOS
 			if (txtResult != null) {
 				txtResult.Dispose ();
 				txtResult = null;
+			}
+
+			if (btFooter != null) {
+				btFooter.Dispose ();
+				btFooter = null;
 			}
 		}
 	}

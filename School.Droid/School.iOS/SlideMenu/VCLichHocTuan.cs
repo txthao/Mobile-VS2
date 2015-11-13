@@ -33,13 +33,16 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
+			errorLB = LayoutHelper.ErrLabel (errorLB);
 			CGRect frame = listContent.Frame;
 			frame.Width = App.Current.width;
 			frame.Height = App.Current.height / 2+50;
 			listContent.Frame = frame;
 
 			progress.Hidden = true;
+			progress = LayoutHelper.progressDT (progress);
+
+
 			frame = timeLHTuan.Frame;
 		
 			frame.Y = 70;
@@ -59,6 +62,8 @@ namespace School.iOS
 			frame.Y = App.Current.height - 40;
 			frame.X = 60;
 			btTuanTrc.Frame = frame;
+			timeLHTuan.Text = "";
+			txtngayLHTuan.Text = "";
 			mytitle.Frame = LayoutHelper.setlayoutForTimeTT (mytitle.Frame);
 			mytitle.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 			LoadData_Tuan (DateTime.Today);
@@ -68,6 +73,7 @@ namespace School.iOS
 			btMenu.TouchUpInside+= (object sender, EventArgs e) => {
 				RootViewController.Instance.navigation.ToggleMenu();
 			};
+			mytitle.BackgroundColor = UIColor.FromRGBA((float)0.9, (float)0.9, (float)0.9, (float)1);
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 
@@ -95,23 +101,44 @@ namespace School.iOS
 		{
 			try
 			{
+			listContent.Hidden= false;
+			errorLB.Hidden=true;
+				btTuanKe.Hidden=true;
+				btTuanTrc.Hidden=true;
 			progress.Hidden = false;
 			progress.StartAnimating ();
 			bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
 			List<LichHoc> listLH = new List<LichHoc> ();
-				if (sync&&Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable) {
-				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-				var newlistlh = BLichHoc.MakeDataFromXml (SQLite_iOS.GetConnection ());
+				if (sync)
+				{
+					bool accepted =false;
+					while (Reachability.InternetConnectionStatus ()==NetworkStatus.NotReachable&&!accepted)
+					{
+						accepted = await LayoutHelper.ShowAlert("Lỗi", "Bạn cần mở kết nối để cập nhật dữ liệu mới nhất");
 
-				List<LichHoc> newListLH= await newlistlh;var checkRemind=SettingsHelper.LoadSetting("Remind");
-				if (checkRemind){
-					VCHomeReminder remind= new VCHomeReminder(this);
-					await remind.RemindALLLH(newListLH,"");
+
+					}
+					if (Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
+					{
+						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
+						var newlistlh= BLichHoc.MakeDataFromXml (SQLite_iOS.GetConnection ());
+						List<LichHoc> newListLH= await newlistlh;var checkRemind=SettingsHelper.LoadSetting("Remind");
+						if (checkRemind){
+							VCHomeReminder remind= new VCHomeReminder(this);
+							await remind.RemindALLLH(newListLH,"");
+						}
+						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+					}
+
 				}
-				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
-			}
 			progress.StopAnimating ();
 			listLH = BLichHoc.GetNewestLH (SQLite_iOS.GetConnection ());
+				if (listLH.Count==0) 
+				{
+					listContent.Hidden= true;
+					errorLB.Hidden=false;
+				}
+
 			listCT = new List<chiTietLH> ();
 			foreach (var item in listLH) {
 				List<chiTietLH> list = BLichHoc.GetCTLH (SQLite_iOS.GetConnection (), item.Id);
@@ -137,6 +164,8 @@ namespace School.iOS
 				timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
 				listContent.Source = new LichHocTSource (listCT, this);
 				listContent.ReloadData ();
+					btTuanKe.Hidden=false;
+					btTuanTrc.Hidden=false;
 			}
 			}
 			catch {
