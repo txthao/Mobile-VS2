@@ -22,6 +22,10 @@ namespace School.Droid
 		TextView lbl_HK;
 		TextView lbl_NH;
 		ProgressBar progress;
+		LinearLayout linear;
+		LinearLayout linearLH;
+		TextView txtNotify;
+		RadioGroup radioGroup;
 		bool check,autoupdate;
 		Bundle bundle;
 		List<chiTietLH> listCT;
@@ -43,6 +47,10 @@ namespace School.Droid
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_LH);
 			lbl_NH = rootView.FindViewById<TextView> (Resource.Id.lbl_NH_LH);
 			progress = rootView.FindViewById<ProgressBar> (Resource.Id.progressLH);
+			linear = rootView.FindViewById<LinearLayout>(Resource.Id.linear_HK_LH);
+			linearLH = rootView.FindViewById<LinearLayout>(Resource.Id.linearLH);
+			txtNotify = rootView.FindViewById<TextView>(Resource.Id.txtNotify_LT_HK);
+			radioGroup = rootView.FindViewById<RadioGroup>(Resource.Id.radioGroup1);
 		    bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
@@ -65,7 +73,7 @@ namespace School.Droid
 //			btnHKKe.Click += new EventHandler (btnHK_Ke_Click);	
 							
 			// row click
-			listView_HK.ItemClick += listView_ItemClick;
+			listView_HK.ItemLongClick += listView_ItemClick;
 						
 
 			return rootView;
@@ -113,6 +121,10 @@ namespace School.Droid
 			}
 			listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());
 			if (listLH.Count > 0) {
+				radioGroup.Visibility = ViewStates.Visible;
+				linearLH.Visibility = ViewStates.Visible;
+				linear.Visibility = ViewStates.Visible;
+				txtNotify.Visibility = ViewStates.Gone;
 				listCT = new List<chiTietLH> ();
 				foreach (var item in listLH) {
 					listCT.AddRange (BLichHoc.GetCTLH (SQLite_Android.GetConnection (), item.Id));
@@ -123,6 +135,12 @@ namespace School.Droid
 				lbl_NH.Text = listLH [0].NamHoc;
 				LichHocHKAdapter adapter = new LichHocHKAdapter (Activity, listCT);
 				listView_HK.Adapter = adapter;  
+			}else {
+				radioGroup.Visibility= ViewStates.Invisible;
+				linearLH.Visibility = ViewStates.Gone;
+				linear.Visibility = ViewStates.Gone;
+				txtNotify.Visibility = ViewStates.Visible;
+				txtNotify.Text = "Hiện tại lịch học chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
 			}
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;

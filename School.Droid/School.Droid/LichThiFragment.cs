@@ -22,6 +22,8 @@ namespace School.Droid
 		ProgressBar progress;
 		TextView txtHocKy;
 		View rootView;
+		LinearLayout linear;
+		TextView txtNotify;
 		bool check,autoupdate;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
@@ -42,6 +44,8 @@ namespace School.Droid
 			txtHocKy = rootView.FindViewById<TextView> (Resource.Id.txtHocKy);
             listView = rootView.FindViewById<ListView>(Resource.Id.listLT);
 			progress= rootView.FindViewById<ProgressBar>(Resource.Id.progressLT);
+			linear = rootView.FindViewById<LinearLayout>(Resource.Id.linear1);
+			txtNotify = rootView.FindViewById<TextView>(Resource.Id.txtNotify_LT);
 
 			Bundle bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
@@ -55,7 +59,7 @@ namespace School.Droid
 //			}
 
 			LoadData ();
-			listView.ItemClick += listView_ItemClick;
+			listView.ItemLongClick += listView_ItemClick;
 			return rootView;
 		}
 		void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e){
@@ -87,13 +91,21 @@ namespace School.Droid
 			list = BLichThi.GetNewestLT (SQLite_Android.GetConnection ()); 
 			//list = BLichThi.getAll (SQLite_Android.GetConnection ());
 			if (list.Count > 0) {
+				linear.Visibility = ViewStates.Visible;
+				txtNotify.Visibility = ViewStates.Gone;
 				LichThiAdapter adapter = new LichThiAdapter (Activity, list);
 				rootView.FindViewById<TextView> (Resource.Id.txtHocKy).Text = "Học Kỳ " + list [0].HocKy + " Năm Học " + list [0].NamHoc;
 				listView.Adapter = adapter;
 
 			}
+			else {
+				linear.Visibility = ViewStates.Gone;
+				progress.Visibility = ViewStates.Gone;
+				txtNotify.Visibility = ViewStates.Visible;
+				txtNotify.Text = "Hiện tại lịch thi chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
+			}
 			progress.Indeterminate = false;
-			progress.Visibility = ViewStates.Gone;
+
 		}
 	}
 }

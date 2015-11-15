@@ -46,6 +46,5 @@ G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\bin\Debug\System.Net.Ht
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\bin\Debug\Xamarin.Forms.Core.xml
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\bin\Debug\Xamarin.Forms.Xaml.xml
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\obj\Debug\School.Core.csproj.App.config
-G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\obj\Debug\School.Core.csprojResolveAssemblyReference.cache
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\obj\Debug\School.Core.dll
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\obj\Debug\School.Core.pdb

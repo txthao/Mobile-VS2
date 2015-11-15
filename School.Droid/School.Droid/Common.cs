@@ -115,6 +115,19 @@ namespace School.Droid
 			bundle.PutBoolean ("AutoUpdateData", autoUpdate);
 			return bundle;
 		}
+		// s= list of date in ctlH 
+		public static bool checkInWeek (string s, string date)
+		{
+			int number = s.ToCharArray ().Length / 10;
+			for (int i = 1; i <= number; i++) {
+				string a = s.Substring ((i - 1) * 10, 10);
+				if (a.Equals (date)) {
+					return true;
+				}
+			}
+			return false;
+		}
+
 
 	}
 }

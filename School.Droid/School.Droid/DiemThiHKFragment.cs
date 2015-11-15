@@ -44,6 +44,10 @@ namespace School.Droid
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_DT);
 			lbl_NH = rootView.FindViewById<TextView> (Resource.Id.lbl_NH_DT);
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressDTHK);
+			TextView txtNotify = rootView.FindViewById<TextView> (Resource.Id.txtNotify_DT_HK);
+			LinearLayout linear = rootView.FindViewById<LinearLayout> (Resource.Id.linear_HK_DT);
+			LinearLayout linearDT = rootView.FindViewById<LinearLayout> (Resource.Id.linearDT_HK);
+			RadioGroup radioGroup = rootView.FindViewById<RadioGroup> (Resource.Id.radioGroup3);
 			//button 
 			Button btnHKTruoc = rootView.FindViewById<Button> (Resource.Id.btnHK_Truoc_DT);
 			Button btnHKKe = rootView.FindViewById<Button> (Resource.Id.btnHK_Ke_DT);
@@ -58,11 +62,20 @@ namespace School.Droid
 					LoadData ("0", "0");
 					flag = false;
 				}
+				txtNotify.Visibility = ViewStates.Gone;
+				radioGroup.Visibility = ViewStates.Visible;
+				linear.Visibility = ViewStates.Visible;
+				linearDT.Visibility = ViewStates.Visible;
 				LoadData (dt.Hocky, dt.NamHoc);
 				btnHKKe.Enabled = true;
 				btnHKTruoc.Enabled = true;
 			} else {
+				linear.Visibility = ViewStates.Gone;
+				linearDT.Visibility = ViewStates.Gone;
 				progress.Visibility = ViewStates.Gone;
+				radioGroup.Visibility = ViewStates.Gone;
+				txtNotify.Visibility = ViewStates.Visible;
+				txtNotify.Text = "Hiện tại điểm thi chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
 				btnHKKe.Enabled = false;
 				btnHKTruoc.Enabled = false;
 			}

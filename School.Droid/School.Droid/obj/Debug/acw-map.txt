@@ -82,6 +82,10 @@ School.Droid.HocPhiAdapter, School.Droid;md57f5688a386234212827f14cda194d215.Hoc
 School.Droid.HocPhiAdapter, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.HocPhiAdapter
 School.Droid.HocPhiAdapter;md57f5688a386234212827f14cda194d215.HocPhiAdapter
 school.droid.HocPhiAdapter;md57f5688a386234212827f14cda194d215.HocPhiAdapter
+School.Droid.AboutFragment, School.Droid;md57f5688a386234212827f14cda194d215.AboutFragment
+School.Droid.AboutFragment, School.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57f5688a386234212827f14cda194d215.AboutFragment
+School.Droid.AboutFragment;md57f5688a386234212827f14cda194d215.AboutFragment
+school.droid.AboutFragment;md57f5688a386234212827f14cda194d215.AboutFragment
 Android.Support.V4.View.ViewPager/IOnPageChangeListenerImplementor, Xamarin.Android.Support.v4;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 Android.Support.V4.View.ViewPager/IOnPageChangeListenerImplementor, Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 Android.Support.V4.View.ViewPager.IOnPageChangeListenerImplementor;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor

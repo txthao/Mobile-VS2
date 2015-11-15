@@ -44,12 +44,19 @@ namespace School.Droid
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressHP);
 			listView = rootView.FindViewById<ListView>(Resource.Id.listHP);
 			txtHocKyHP = rootView.FindViewById<TextView>(Resource.Id.txtHocKyHP);
+			TextView txtNotify = rootView.FindViewById<TextView> (Resource.Id.txtNotify_HP);
+			LinearLayout linear = rootView.FindViewById<LinearLayout> (Resource.Id.linear10);
 			//load data
 			HocPhi hp = BHocPhi.GetHP(SQLite_Android.GetConnection ());
 			if (hp != null) {
+				txtNotify.Visibility = ViewStates.Gone;
+				linear.Visibility = ViewStates.Visible;
 				LoadData ();
 			} else {
+				linear.Visibility = ViewStates.Gone;
 				progress.Visibility = ViewStates.Gone;
+				txtNotify.Visibility = ViewStates.Visible;
+				txtNotify.Text = "Hiện tại học phí chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
 			}
 			return rootView;
 		}
@@ -68,12 +75,6 @@ namespace School.Droid
 
 			listView.Adapter = adapter;
 			rootView.FindViewById<TextView> (Resource.Id.txtHocKyHP).Text = "Học Kỳ " + hp.HocKy +" Năm Học "+ hp.NamHoc;
-//			rootView.FindViewById<TextView> (Resource.Id.txtTSTC).Text += hp.TongSoTC;
-//			rootView.FindViewById<TextView> (Resource.Id.txtTSTHP).Text += hp.TongSoTien;
-//			rootView.FindViewById<TextView> (Resource.Id.txtTTLD).Text += hp.TienDongTTLD;
-//			rootView.FindViewById<TextView> (Resource.Id.txtTDD).Text += hp.TienDaDong;
-//			rootView.FindViewById<TextView> (Resource.Id.txtTCN).Text += hp.TienConNo;
-			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 		}
 	}

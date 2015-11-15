@@ -61,6 +61,12 @@ namespace School.Droid
             txtGioBD.Text = list[position].GioBD;
             TextView txtPhong = view.FindViewById<TextView>(Resource.Id.txtPhongThi);
             txtPhong.Text = list[position].PhongThi;
+
+			if (BRemind.GetLTRemind (SQLite_Android.GetConnection (),list[position].MaMH,list[position].NamHoc, list[position].HocKy)!= null) {
+
+				view.FindViewById<ImageView>(Resource.Id.imgBell_LT).Visibility = ViewStates.Visible;
+			}
+
 			if (position % 2 == 0) {
 				view.FindViewById<LinearLayout> (Resource.Id.linear2).SetBackgroundColor(Color.ParseColor("#FFFFFF"));
 			} else {

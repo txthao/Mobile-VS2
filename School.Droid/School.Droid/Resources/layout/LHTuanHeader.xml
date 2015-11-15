@@ -40,19 +40,36 @@
         android:layout_height="fill_parent"
         android:orientation="vertical"
         android:gravity="center_horizontal">
-        <TextView
-            android:id="@+id/txtMon_Tuan"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp" />
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
             android:weightSum="1">
+            <TextView
+                android:id="@+id/txtMon_Tuan"
+                android:layout_width="0dp"
+                android:layout_weight="0.9"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginTop="5dp" />
+            <ImageView
+                android:id="@+id/imgBell_Tuan"
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/bell"
+                android:visibility="invisible" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:weightSum="1"
+            android:layout_marginLeft="5dp">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="0.8"
@@ -62,20 +79,17 @@
                     android:id="@+id/txtTietBD_Tuan"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:layout_marginLeft="5dp" />
+                    android:gravity="left" />
                 <TextView
                     android:id="@+id/txtSoTiet_Tuan"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:layout_marginLeft="5dp" />
+                    android:gravity="left" />
                 <TextView
                     android:id="@+id/txtPhong_Tuan"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp" />
             </LinearLayout>
             <ImageView

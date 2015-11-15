@@ -6,7 +6,8 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/drawer_item_states">
         <ImageView
             android:id="@+id/icon_drawer"
             android:layout_width="50dp"
@@ -21,15 +22,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceListItemSmall"
-            android:textColor="#fff"
-            android:background="@android:color/holo_blue_dark"
             android:minHeight="?android:attr/listPreferredItemHeightSmall"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textColor="@drawable/drawer_item_text" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="3dp"
-        android:background="@android:color/background_light"
+        android:background="@android:color/holo_blue_dark"
         android:id="@+id/separator"
         android:visibility="invisible" />
 </LinearLayout>
