@@ -18,7 +18,7 @@ using Android.Content.PM;
 
 namespace School.Droid
 {
-	[Activity (Label = "SGU Mobile", ScreenOrientation = ScreenOrientation.Portrait)]			
+	[Activity (Label = "Thông Tin Đào Tạo", ScreenOrientation = ScreenOrientation.Portrait)]			
 	public class DrawerActivity : Activity
 	{
 		private DrawerLayout _drawer;
@@ -57,12 +57,21 @@ namespace School.Droid
 			_drawerList.AddHeaderView (header);
 			List<DrawerItem> listItems = new List<DrawerItem> ();
 		//	listItems.Add(new DrawerItem(namesv,Resource.Drawable.user,true));
-			listItems.Add(new DrawerItem("Lịch Học",Resource.Drawable.note,false));
+			listItems.Add(new DrawerItem("Lịch Học",0,false));
+			listItems.Add(new DrawerItem("Theo Học Kỳ",Resource.Drawable.note,false));
+			listItems.Add(new DrawerItem("Theo Tuần",Resource.Drawable.note,false));
+
+			listItems.Add(new DrawerItem("Điểm Thi",0,false));
+			listItems.Add(new DrawerItem("Theo Học Kỳ",Resource.Drawable.archive,false));
+			listItems.Add(new DrawerItem("Tất Cả",Resource.Drawable.archive,false));
+
+			listItems.Add(new DrawerItem("Học Phí-Lịch Thi",0,false));
 			listItems.Add(new DrawerItem("Lịch Thi",Resource.Drawable.pencil,false));
-			listItems.Add(new DrawerItem("Điểm Thi",Resource.Drawable.archive,false));
 			listItems.Add(new DrawerItem("Học Phí",Resource.Drawable.tag,true));
+
+			listItems.Add(new DrawerItem("Ứng Dụng",0,false));
 			listItems.Add(new DrawerItem("Cài đặt",Resource.Drawable.configuration2,false));
-			listItems.Add(new DrawerItem("Giới thiệu",Resource.Drawable.notepad,false));
+
 			listItems.Add (new DrawerItem ("Đăng xuất", Resource.Drawable.back,false));
 			_drawerList.Adapter = new CustomDrawerAdapter (this, listItems);
 			_drawerList.ItemClick += (sender, args) => SelectItem(args.Position);
@@ -99,8 +108,8 @@ namespace School.Droid
 			this.ActionBar.SetDisplayHomeAsUpEnabled(true);
 			this.ActionBar.SetHomeButtonEnabled(true);
 			if (null == savedInstanceState) {
-				SelectItem (5);
-				previousItemChecked = 5;
+				SelectItem (2);
+				previousItemChecked = 2;
 			}
 
 		}
@@ -113,24 +122,38 @@ namespace School.Droid
 			case 0:
 				break;
             case 1:
-                fragment = new LichHocTuanFragment ();
                 break;
             case 2:
-                fragment = new LichThiFragment ();
+                fragment = new LichHocHKFragment ();
                 break;
             case 3:
-                fragment = new DiemThiHKFragment ();
+                fragment = new LichHocTuanFragment ();
                 break;
             case 4:
-                fragment = new HocPhiFragment ();
                 break;
 			case 5:
-				fragment = new SettingsFragment ();
+				fragment = new DiemThiHKFragment ();
 				break;
 			case 6:
-				fragment = new AboutFragment ();
+				fragment = new DiemThiFragment ();
 				break;
 			case 7:
+				
+				break;
+			case 8:
+				fragment = new LichThiFragment ();
+				break;
+			case 9:
+				fragment = new HocPhiFragment ();
+				break;
+			case 10:
+				
+				break;
+			case 11:
+				fragment = new SettingsFragment ();
+				break;
+			
+			case 12:
 
 				BUser.LogOut (SQLite_Android.GetConnection ());
 				var prefs = Application.Context.GetSharedPreferences ("SGU APP", FileCreationMode.Private);
@@ -142,7 +165,7 @@ namespace School.Droid
            
             }
 
-				if (position != 0) {
+			if (position != 0&&position!=1&&position!=4&&position!=7&&position!=10) {
 				
 					fragment.Arguments = bundle;
 					FragmentManager.BeginTransaction ()
@@ -205,7 +228,7 @@ namespace School.Droid
 					FragmentManager.PopBackStackImmediate ();
 					int pos = int.Parse (title);
 					
-					while (pos > 6) {
+					while (pos > 12) {
 						title = FragmentManager.GetBackStackEntryAt (FragmentManager.BackStackEntryCount - 1).Name;
 						FragmentManager.PopBackStackImmediate ();
 						pos = int.Parse (title);

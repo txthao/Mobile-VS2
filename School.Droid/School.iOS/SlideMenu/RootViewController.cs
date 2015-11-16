@@ -43,7 +43,7 @@ namespace School.iOS
 					},
 					new Section ("Điểm Thi") {
 
-						new ImageStringElement("Học Kỳ Hiện Tại",UIImage.FromBundle("menupic/Icdiemthi.png")),
+						new ImageStringElement("Theo Học Kỳ ",UIImage.FromBundle("menupic/Icdiemthi.png")),
 						new ImageStringElement("Tất Cả ",UIImage.FromBundle("menupic/IcAdiemthi.png")),
 					}
 					,

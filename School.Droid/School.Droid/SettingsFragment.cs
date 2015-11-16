@@ -48,7 +48,7 @@ namespace School.Droid
 			btupdateData.Click+= BtupdateData_Click;
 			cbNLT.CheckedChange += CbNLT_CheckedChange;
 			cbUpdate.CheckedChange+= CbUpdate_CheckedChange;
-
+			btupdateData.Enabled = !cbUpdate.Checked;
 			return rootView;
 		}
 
@@ -70,12 +70,7 @@ namespace School.Droid
 
 		void CbUpdate_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
 		{
-			if (cbUpdate.Checked == true) {
-				btupdateData.Visibility = ViewStates.Invisible;
-			} else {
-				btupdateData.Visibility = ViewStates.Visible;
-
-			}
+			btupdateData.Enabled = !cbUpdate.Checked;
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
 			var prefEditor = prefs.Edit();
 			prefEditor.PutBoolean("AutoUpdateData",cbUpdate.Checked);
@@ -90,7 +85,7 @@ namespace School.Droid
 			if (cbNLT.Checked == true) {
 
 				try{
-					List<LichThi> listlt= BLichThi.getAll(SQLite_Android.GetConnection());
+					List<LichThi> listlt= BLichThi.GetNewestLT(SQLite_Android.GetConnection());
 					Log.Debug("logsettings","Load LT Success");
 					List<LichHoc> listlh= BLichHoc.GetNewestLH(SQLite_Android.GetConnection());
 					Log.Debug("logsettings","Load LH Success");

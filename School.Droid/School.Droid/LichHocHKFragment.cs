@@ -79,7 +79,7 @@ namespace School.Droid
 			return rootView;
 		}
 
-		void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e){
+		void listView_ItemClick(object sender, AdapterView.ItemLongClickEventArgs e){
 			// content to pass 
 			var bundle1 = new Bundle();
 			LichHoc lh = BLichHoc.GetLH(SQLite_Android.GetConnection (),listCT[e.Position].Id);
@@ -113,10 +113,14 @@ namespace School.Droid
 			
 				var newlistlh = BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
 				List<LichHoc> newListLH= await newlistlh;
-				if (check) {
-					ScheduleReminder reminder = new ScheduleReminder (Activity);
+				if (newListLH == null) {
+					Toast.MakeText (Activity, "Xảy ra lỗi trong quá trình cập nhật dữ liệu từ server", ToastLength.Long).Show ();
+				} else {
+					if (check) {
+						ScheduleReminder reminder = new ScheduleReminder (Activity);
 
-					await reminder.RemindAllLH (newListLH);
+						await reminder.RemindAllLH (newListLH);
+					}
 				}
 			}
 			listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());

@@ -144,10 +144,14 @@ namespace School.Droid
 			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
 				var newlistlh= BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
 				List<LichHoc> newListLH= await newlistlh;
-				if (check) {
-					ScheduleReminder reminder = new ScheduleReminder (Activity);
+				if (newListLH == null) {
+					Toast.MakeText (Activity, "Xảy ra lỗi trong quá trình cập nhật dữ liệu từ server", ToastLength.Long).Show ();
+				} else {
+					if (check) {
+						ScheduleReminder reminder = new ScheduleReminder (Activity);
 
-					await reminder.RemindAllLH (newListLH);
+						await reminder.RemindAllLH (newListLH);
+					}
 				}
 			}
 			listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());

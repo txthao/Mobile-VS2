@@ -94,8 +94,18 @@ namespace School.Core
 			if (BUser.GetMainUser (connection) != null) {
 				list = new List<LichHoc> ();
 				var httpClient = new HttpClient ();
+				httpClient.Timeout = TimeSpan.FromSeconds (20);
 				Task<string> contentsTask = httpClient.GetStringAsync (UrlHelper.UrlLH(BUser.GetMainUser(connection).Id));
-				string contents = await contentsTask;
+				string contents;
+
+				try
+				{
+					contents =  await contentsTask;
+
+				}
+				catch(Exception e) {
+					return null;
+				}
 				XDocument doc = XDocument.Parse (contents);
 				//get lichthi 
 				IEnumerable<XElement> childList =

@@ -131,7 +131,11 @@ namespace School.Droid
 			progress.Indeterminate = true;
 			DiemThi diemThi = new DiemThi ();
 			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
-				 await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+				var rs= await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+				if (rs==null)
+				{
+					Toast.MakeText (Activity, "Xảy ra lỗi trong quá trình cập nhật dữ liệu từ server", ToastLength.Long).Show();
+				}
 			}
 			if (hocKy == "0") {
 				diemThi = BDiemThi.GetNewestDT (SQLite_Android.GetConnection ());

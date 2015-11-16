@@ -60,28 +60,33 @@ namespace School.Droid
 			errormsg = FindViewById<TextView> (Resource.Id.errorMSG);
 			if (Common.checkNWConnection (this) == true) {
 				
+				Exception error = null;
 
 				if (!String.IsNullOrEmpty (username.Text) && !String.IsNullOrEmpty (password.Text)) {
 					ProgressDialog dialog = new ProgressDialog (this);
 					dialog.SetMessage ("Đăng nhập...");
 					dialog.Indeterminate = false;
 					dialog.SetCancelable (false);
-		
+					
 					dialog.Show ();
+					error=await BUser.CheckAuth(username.Text,password.Text,SQLite_Android.GetConnection());
+					if (error==null) {
+						Intent myintent = new Intent (this, typeof(DrawerActivity));
+						myintent.PutExtra ("FirstLoad", true);
+						dialog.SetMessage ("Đang tải dữ liệu....");
+						await Common.LoadDataFromSV (this);
+						StartActivity (myintent);
 
-//					if (await BUser.CheckAuth (username.Text, password.Text, SQLite_Android.GetConnection ())) {
-//						Intent myintent = new Intent (this, typeof(DrawerActivity));
-//						myintent.PutExtra ("FirstLoad", true);
-//						dialog.SetMessage ("Đang tải dữ liệu....");
-//						await Common.LoadDataFromSV (this);
-//						StartActivity (myintent);
-//
-//						this.Finish ();
-//					} else {
-//						dialog.Dismiss ();
-//						errormsg.Text = "Mã Sinh Viên Hoặc Mật Khẩu Không Đúng!";
-//
-//					}
+						this.Finish ();
+					} else {
+						dialog.Dismiss ();
+						errormsg.Text = error.Message;
+
+					}
+				}
+				else
+				{
+					errormsg.Text = "Vui lòng nhập đầy đủ thông tin đăng nhập";
 				}
 			} else {
 				errormsg.Text = "Không có kết nối mạng, vui lòng thử lại sau";

@@ -64,7 +64,7 @@
             android:id="@+id/txtVersion1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="SGU Mobile Phiên Bản Beta"
+            android:text="FIT-SGU"
             android:textColor="@android:color/black"
             android:paddingTop="70dp"
             android:gravity="center" />

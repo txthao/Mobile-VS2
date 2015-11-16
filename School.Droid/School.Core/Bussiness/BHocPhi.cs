@@ -63,8 +63,20 @@ namespace School.Core
 			if (BUser.GetMainUser (connection) != null) {
 				
 				var httpClient = new HttpClient ();
+				httpClient.Timeout = TimeSpan.FromSeconds (20);
+				string contents;
 				Task<string> contentsTask = httpClient.GetStringAsync (UrlHelper.UrlHP(BUser.GetMainUser(connection).Id,BUser.GetMainUser(connection).Password));
-				string contents = await contentsTask;
+
+
+
+				try
+				{
+					contents =  await contentsTask;
+
+				}
+				catch(Exception e) {
+					return null;
+				}
 				XDocument doc = XDocument.Parse (contents);
 
 				XElement node = doc.Root;

@@ -123,9 +123,17 @@ namespace School.iOS
 						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 						var newlistlh= BLichHoc.MakeDataFromXml (SQLite_iOS.GetConnection ());
 						List<LichHoc> newListLH= await newlistlh;var checkRemind=SettingsHelper.LoadSetting("Remind");
+						if (newListLH==null)
+						{
+							UIAlertView _error = new UIAlertView ("Lỗi", "Xảy ra lỗi trong quá trình cập nhật dữ liệu từ server", null, "Ok", null);
+
+							_error.Show ();
+						}
+						else {
 						if (checkRemind){
 							VCHomeReminder remind= new VCHomeReminder(this);
 							await remind.RemindALLLH(newListLH,"");
+						}
 						}
 						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 					}

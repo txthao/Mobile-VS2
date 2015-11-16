@@ -98,18 +98,29 @@ namespace School.iOS
 				List<LichHoc> newListLH= await newlistlh;
 				var newlistlt= BLichThi.MakeDataFromXml (SQLite_iOS.GetConnection ());
 				List<LichThi> newListLT= await newlistlt;
-				await BDiemThi.MakeDataFromXml (SQLite_iOS.GetConnection ());
-				await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
+				var dtRS=await BDiemThi.MakeDataFromXml (SQLite_iOS.GetConnection ());
+				var hpRS=await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
 //				var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);              
 //				var checkRemind = prefs.GetBoolean ("Remind",false);
 				var checkRemind=SettingsHelper.LoadSetting("Remind");
 				if (checkRemind)
 				{
 					VCHomeReminder remind= new VCHomeReminder(controller);
-					await remind.RemindALLLH(newListLH,"");
-					await remind.RemindAllLT(newListLT);
+					if (newListLH!=null) await remind.RemindALLLH(newListLH,"");
+					if (newListLT!=null) await remind.RemindAllLT(newListLT);
 				}
-				return "Cập nhật dữ liệu thành công";
+
+
+				if (dtRS!=null&&hpRS!=null&&newListLH!=null&&newListLT!=null)
+				{
+					
+					return "Cập nhật dữ liệu thành công";
+				}	
+				else
+				{
+					
+					return "Xảy ra lỗi trong quá trình cập nhật dữ liệu";
+				}
 			}
 			catch {
 				return "Xảy ra lỗi trong quá trình cập nhật dữ liệu";
