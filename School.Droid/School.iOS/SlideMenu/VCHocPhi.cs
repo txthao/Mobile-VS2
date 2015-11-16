@@ -81,7 +81,13 @@ namespace School.iOS
 					{
 			
 					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-					await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
+					var rs=await BHocPhi.MakeDataFromXml (SQLite_iOS.GetConnection ());
+						if (rs==null)
+						{
+							UIAlertView _error = new UIAlertView ("Lỗi", "Xảy ra lỗi trong quá trình cập nhật dữ liệu từ server", null, "Ok", null);
+
+							_error.Show ();
+						}
 					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 				}
 				

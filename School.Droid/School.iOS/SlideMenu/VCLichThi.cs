@@ -78,10 +78,18 @@ namespace School.iOS
 					var newlistlt= BLichThi.MakeDataFromXml (SQLite_iOS.GetConnection ());
 					List<LichThi> newListLT= await newlistlt;
 					var checkRemind=SettingsHelper.LoadSetting("Remind");
+					if (newListLT==null)
+					{
+						UIAlertView _error = new UIAlertView ("Lỗi", "Xảy ra lỗi trong quá trình cập nhật dữ liệu từ server", null, "Ok", null);
+						_error.Show ();
+					}
+						else
+						{
 					if (checkRemind){
 						VCHomeReminder remind= new VCHomeReminder(this);
 						await remind.RemindAllLT(newListLT);
 					}
+						}
 					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 					}
 				}

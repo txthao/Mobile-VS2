@@ -58,12 +58,12 @@
             android:textColor="@android:color/black"
             android:checked="false" />
         <Button
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
             android:id="@+id/btUpdateData"
             android:layout_height="wrap_content"
             android:layout_width="150dp"
             android:text="Cập nhật dữ liệu"
-            android:layout_gravity="center"
             android:textSize="15dp"
             android:background="@android:color/holo_blue_dark"
             android:textColor="@android:color/background_light" />
@@ -86,7 +86,7 @@
             android:id="@+id/txtVersion"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="SGU Mobile Phiên Bản Beta"
+            android:text="FIT-SGU"
             android:textColor="@android:color/black"
             android:paddingTop="150dp"
             android:gravity="center" />

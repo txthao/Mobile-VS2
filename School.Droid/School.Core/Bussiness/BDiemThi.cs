@@ -77,8 +77,15 @@ namespace School.Core
 				list = new List<DiemThi> ();
 
 				var httpClient = new HttpClient ();
+				httpClient.Timeout = TimeSpan.FromSeconds (30);
+				string contents;
 				Task<string> contentsTask = httpClient.GetStringAsync (UrlHelper.UrlDT(BUser.GetMainUser(connection).Id));
-				string contents = await contentsTask;
+				try{
+					contents = await contentsTask;
+				}
+				catch {
+					return null;
+				}
 				XDocument doc = XDocument.Parse (contents);
 				//get lichthi 
 				IEnumerable<XElement> childList =

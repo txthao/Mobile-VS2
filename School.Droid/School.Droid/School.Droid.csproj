@@ -160,7 +160,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\appicon.jpg" />
     <AndroidResource Include="Resources\drawable-hdpi\app_icon.jpg" />
     <AndroidResource Include="Resources\drawable-hdpi\bell.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\divider.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\drawer_item_states.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\drawer_item_text.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\edittext_reminder.xml" />

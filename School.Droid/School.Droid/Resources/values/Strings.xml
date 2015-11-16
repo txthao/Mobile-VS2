@@ -4,13 +4,18 @@
 	<string name="app_name">School.Droid</string>
 	<string-array name="MenuArray">
 	<item>Sinh Viên</item>
+	<item>a</item>
     <item>Lịch Học</item>
-    <item>Lịch Thi</item>
+    <item>Lịch Học</item>
+    <item>a</item>
     <item>Điểm Thi</item>
+    <item>Điểm Thi</item>
+    <item>a</item>
+    <item>Lịch Thi</item>
     <item>Học Phí</item>
+    <item>a</item>
     <item>Cài đặt</item>
-    <item>Đăng Xuất</item>
-
+     <item>Đăng Xuất</item>
   </string-array>
    <string name="DrawerOpen">Open</string>
   <string name="DrawerClose">Close</string>

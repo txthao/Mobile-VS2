@@ -69,10 +69,15 @@ namespace School.iOS
 					}
 					if(Reachability.InternetConnectionStatus ()!=NetworkStatus.NotReachable)
 					{
-					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-					await  BDiemThi.MakeDataFromXml(SQLite_iOS.GetConnection());
+						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
+						var rs=await  BDiemThi.MakeDataFromXml(SQLite_iOS.GetConnection());
+						if (rs==null)
+						{
+							UIAlertView _error = new UIAlertView ("Lỗi", "Xảy ra lỗi trong quá trình cập nhật dữ liệu từ server", null, "Ok", null);
 
-					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+							_error.Show ();
+						}
+						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 					}
 				}
 

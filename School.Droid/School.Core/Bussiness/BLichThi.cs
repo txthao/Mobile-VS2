@@ -42,8 +42,15 @@ namespace School.Core
 			if (BUser.GetMainUser (connection) != null) {
 				list = new List<LichThi> ();
 				var httpClient = new HttpClient ();
+				httpClient.Timeout = TimeSpan.FromSeconds (20);
 				Task<string> contentsTask = httpClient.GetStringAsync (UrlHelper.UrlLT(BUser.GetMainUser(connection).Id));
-				string contents = await contentsTask;
+				string contents;
+				try{
+					contents = await contentsTask;
+				}
+				catch {
+					return null;
+				}
 				XDocument doc = XDocument.Parse (contents);
 
 				//get lichthi 

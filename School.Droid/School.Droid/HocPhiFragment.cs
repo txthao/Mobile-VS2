@@ -67,7 +67,11 @@ namespace School.Droid
 			progress.Indeterminate = true;
 			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
 				
-				 await BHocPhi.MakeDataFromXml (SQLite_Android.GetConnection ());
+				var rs= await BHocPhi.MakeDataFromXml (SQLite_Android.GetConnection ());
+				if (rs==null)
+				{
+					Toast.MakeText (Activity, "Xảy ra lỗi trong quá trình cập nhật dữ liệu từ server", ToastLength.Long).Show();
+				}
 			}
 			HocPhi hp = BHocPhi.GetHP(SQLite_Android.GetConnection ());
 			List<CTHocPhi> listCT = BHocPhi.GetCTHP (SQLite_Android.GetConnection (), hp.NamHoc, hp.HocKy);

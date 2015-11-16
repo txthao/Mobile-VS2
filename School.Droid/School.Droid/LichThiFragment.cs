@@ -62,7 +62,7 @@ namespace School.Droid
 			listView.ItemLongClick += listView_ItemClick;
 			return rootView;
 		}
-		void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e){
+		void listView_ItemClick(object sender, AdapterView.ItemLongClickEventArgs e){
 			// content to pass to dialog fragment
 			var bundle1 = new Bundle();
 			bundle1.PutString ("MH", list[e.Position].MaMH);
@@ -83,9 +83,13 @@ namespace School.Droid
 			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
 				var newlistlt= BLichThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 				List<LichThi> newListLT= await newlistlt;
-				if (check) {
-					ScheduleReminder reminder = new ScheduleReminder (Activity);
-					await reminder.RemindAllLT (newListLT);
+				if (newListLT == null) {
+					Toast.MakeText (Activity, "Xảy ra lỗi trong quá trình cập nhật dữ liệu từ server", ToastLength.Long).Show ();
+				} else {
+					if (check) {
+						ScheduleReminder reminder = new ScheduleReminder (Activity);
+						await reminder.RemindAllLT (newListLT);
+					}
 				}
 			}
 			list = BLichThi.GetNewestLT (SQLite_Android.GetConnection ()); 

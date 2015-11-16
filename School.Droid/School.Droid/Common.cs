@@ -76,24 +76,37 @@ namespace School.Droid
 			List<LichHoc> newListLH= await newlistlh;
 			var newlistlt= BLichThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 			List<LichThi> newListLT= await newlistlt;
-			await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
-			await BHocPhi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			var dtKS=await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			var hpKS= await BHocPhi.MakeDataFromXml (SQLite_Android.GetConnection ());
+			try{
+					DrawerActivity drAc=(DrawerActivity)ctx;
+					drAc.SelectItem(drAc.previousItemChecked);
+			}catch
+			{
+			}
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);              
 			var checkRemind = prefs.GetBoolean ("Remind",false);
 			if ( checkRemind)
 			{
 			ScheduleReminder reminder = new ScheduleReminder(ctx);
-			await reminder.RemindAllLH(newListLH);
-			await reminder.RemindAllLT(newListLT);
+					if (newListLH!=null) await reminder.RemindAllLH(newListLH);
+					if (newListLT!=null) await reminder.RemindAllLT(newListLT);
+
+			Toast.MakeText (ctx, "Cài đặt nhắc lịch cho dữ liệu mới thành công", ToastLength.Long).Show();
 			}
-			Toast.MakeText (ctx, "Cập nhật dữ liệu thành công", ToastLength.Long).Show();
-				try{
-			DrawerActivity drAc=(DrawerActivity)ctx;
-			drAc.SelectItem(drAc.previousItemChecked);
-				}catch
-				{
-				}
-			return "load success ";
+			if (dtKS!=null&&hpKS!=null&&newListLH!=null&&newListLT!=null)
+			{
+					Toast.MakeText (ctx, "Cập nhật dữ liệu thành công", ToastLength.Long).Show();
+					return "load success ";
+			}	
+				else
+			{
+				Toast.MakeText (ctx, "Xảy ra lỗi trong quá trình tải dữ liệu", ToastLength.Long).Show();
+					return "load failed ";
+			}
+
+			
+			
 			}
 			catch {
 				Toast.MakeText (ctx, "Xảy ra lỗi trong quá trình tải dữ liệu, vui lòng thử lại sau", ToastLength.Long).Show();
