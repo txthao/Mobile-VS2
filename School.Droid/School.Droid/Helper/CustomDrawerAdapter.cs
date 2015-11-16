@@ -3,6 +3,7 @@ using Android.Widget;
 using Android.Content;
 using System.Collections.Generic;
 using Android.Views;
+using Android.Graphics;
 
 namespace School.Droid
 {
@@ -46,6 +47,11 @@ namespace School.Droid
 			view.FindViewById<ImageView>(Resource.Id.icon_drawer).SetImageResource(item.getImgResID());
 			if (item.Separator() == true) {
 				view.FindViewById<LinearLayout> (Resource.Id.separator).Visibility = ViewStates.Visible;
+			}
+			if (item.IsHeader () == true) {
+				view.FindViewById<LinearLayout> (Resource.Id.linear_drawerItem).SetBackgroundColor (Color.ParseColor ("#e6e6e6"));
+				view.FindViewById<ImageView>(Resource.Id.icon_drawer).Visibility = ViewStates.Gone;
+				view.Clickable = true;
 			}
 				
 

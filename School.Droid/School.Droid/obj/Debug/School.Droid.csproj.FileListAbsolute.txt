@@ -193,7 +193,6 @@ G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\appicon.jpg
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\app_icon.jpg
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\bell.png
-G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\divider.xml
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\drawer_item_states.xml
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\drawer_item_text.xml
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\edittext_reminder.xml
@@ -208,3 +207,11 @@ G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\layout\about.xml
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\R.cs.flag
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\uploadflags.txt
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\icadiemthi.png
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\icdiemthi.png
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\ichocphi.png
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\iclichhoc.png
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\iclichthi.png
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\iclogout.png
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\icsettings.png
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\signout.png

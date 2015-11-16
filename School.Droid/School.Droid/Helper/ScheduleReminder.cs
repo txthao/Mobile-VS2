@@ -79,16 +79,22 @@ namespace School.Droid
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.EventTimezone,"GMT+7:00");
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone,"GMT+7:00");
 			var eventUri = ctx.ContentResolver.Insert(CalendarContract.Events.ContentUri, eventValues);
-			long eventID = long.Parse(eventUri.LastPathSegment);
-			if (isSaveId) {
-				SaveRMId (eventID);
-			}
+			string eventID = eventUri.LastPathSegment;
+
+			LHRemindItem item = new LHRemindItem ();
+			item.EventID = eventID;
+			item.Date = DateForCTLH;
+			item.IDLH = lh.Id;
+			BRemind.SaveLHRemind(SQLite_Android.GetConnection (),item);
+
 			ContentValues remindervalues = new ContentValues();
 			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Minutes,MinutesRemind);
 			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.EventId,eventID);
 			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Method,(int)Android.Provider.RemindersMethod.Alert);
 			var reminderURI= ctx.ContentResolver.Insert(CalendarContract.Reminders.ContentUri,remindervalues);
 		}
+
+
 
 
 		public  void SetCalenDarLT()
@@ -117,16 +123,22 @@ namespace School.Droid
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.EventTimezone,"GMT+7:00");
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone,"GMT+7:00");
 			var eventUri = ctx.ContentResolver.Insert(CalendarContract.Events.ContentUri, eventValues);
-			long eventID = long.Parse(eventUri.LastPathSegment);
-			if (isSaveId) {
-				SaveRMId (eventID);
-			}
+			string eventID = eventUri.LastPathSegment;
+
+			LTRemindItem item = new LTRemindItem ();
+			item.EventID = eventID;
+			item.HocKy = lt.HocKy;
+			item.NamHoc = lt.NamHoc;
+			item.MaMH = lt.MaMH;
+			BRemind.SaveLTRemind (SQLite_Android.GetConnection (),item);
+
 			ContentValues remindervalues = new ContentValues();
 			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Minutes,MinutesRemind);
 			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.EventId,eventID);
 			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Method,(int)Android.Provider.RemindersMethod.Alert);
 			var reminderURI= ctx.ContentResolver.Insert(CalendarContract.Reminders.ContentUri,remindervalues);
 		}
+
 
 		public Task RemindAllLH( List<LichHoc> listlh)
 		{

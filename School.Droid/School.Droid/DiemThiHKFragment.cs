@@ -47,7 +47,7 @@ namespace School.Droid
 			TextView txtNotify = rootView.FindViewById<TextView> (Resource.Id.txtNotify_DT_HK);
 			LinearLayout linear = rootView.FindViewById<LinearLayout> (Resource.Id.linear_HK_DT);
 			LinearLayout linearDT = rootView.FindViewById<LinearLayout> (Resource.Id.linearDT_HK);
-			RadioGroup radioGroup = rootView.FindViewById<RadioGroup> (Resource.Id.radioGroup3);
+		//	RadioGroup radioGroup = rootView.FindViewById<RadioGroup> (Resource.Id.radioGroup3);
 			//button 
 			Button btnHKTruoc = rootView.FindViewById<Button> (Resource.Id.btnHK_Truoc_DT);
 			Button btnHKKe = rootView.FindViewById<Button> (Resource.Id.btnHK_Ke_DT);
@@ -63,7 +63,7 @@ namespace School.Droid
 					flag = false;
 				}
 				txtNotify.Visibility = ViewStates.Gone;
-				radioGroup.Visibility = ViewStates.Visible;
+			//	radioGroup.Visibility = ViewStates.Visible;
 				linear.Visibility = ViewStates.Visible;
 				linearDT.Visibility = ViewStates.Visible;
 				LoadData (dt.Hocky, dt.NamHoc);
@@ -73,7 +73,7 @@ namespace School.Droid
 				linear.Visibility = ViewStates.Gone;
 				linearDT.Visibility = ViewStates.Gone;
 				progress.Visibility = ViewStates.Gone;
-				radioGroup.Visibility = ViewStates.Gone;
+			//	radioGroup.Visibility = ViewStates.Gone;
 				txtNotify.Visibility = ViewStates.Visible;
 				txtNotify.Text = "Hiện tại điểm thi chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
 				btnHKKe.Enabled = false;
@@ -81,10 +81,10 @@ namespace School.Droid
 			}
 
 			//radio button
-			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangAll_HK_DT);
-			RadioButton rb_hocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK_HK_DT);
-			rb_hocKy.Checked = true;
-			rb_tuan.Click += new EventHandler (rd_OnCheckedChangeListener);
+//			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangAll_HK_DT);
+//			RadioButton rb_hocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK_HK_DT);
+//			rb_hocKy.Checked = true;
+//			rb_tuan.Click += new EventHandler (rd_OnCheckedChangeListener);
 
 			//button event
 			btnHKTruoc.Click += new EventHandler (btnHK_Truoc_Click);
@@ -94,14 +94,14 @@ namespace School.Droid
 			return rootView;
 		}
 
-		void rd_OnCheckedChangeListener (object sender, EventArgs e)
-		{
-			DiemThiFragment fragment = new DiemThiFragment ();
-			fragment.Arguments = bundle;
-			FragmentManager.BeginTransaction ()
-				.Replace (Resource.Id.content_frame, fragment).AddToBackStack("32")
-				.Commit ();
-		}
+//		void rd_OnCheckedChangeListener (object sender, EventArgs e)
+//		{
+//			DiemThiFragment fragment = new DiemThiFragment ();
+//			fragment.Arguments = bundle;
+//			FragmentManager.BeginTransaction ()
+//				.Replace (Resource.Id.content_frame, fragment).AddToBackStack("32")
+//				.Commit ();
+//		}
 
 		void btnHK_Truoc_Click (object sender, EventArgs e)
 		{

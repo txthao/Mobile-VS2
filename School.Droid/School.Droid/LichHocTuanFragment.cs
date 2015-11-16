@@ -54,7 +54,7 @@ namespace School.Droid
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_Tuan);
 			LinearLayout linear_ThoiGian= rootView.FindViewById<LinearLayout> (Resource.Id.linear_LH_Tuan_ThoiGian);
 			TextView txtNotify = rootView.FindViewById<TextView> (Resource.Id.txtNotify_LH_Tuan);
-			RadioGroup radioGroup = rootView.FindViewById<RadioGroup>(Resource.Id.radioGroup2);
+			//RadioGroup radioGroup = rootView.FindViewById<RadioGroup>(Resource.Id.radioGroup2);
 			//button 
 			Button btnTuanTruoc = rootView.FindViewById<Button> (Resource.Id.btnTuanTruoc);
 			Button btnTuanKe = rootView.FindViewById<Button> (Resource.Id.btnTuanKe);
@@ -67,7 +67,7 @@ namespace School.Droid
 			if (lh != null) {
 				btnTuanTruoc.Enabled = true;
 				btnTuanKe.Enabled = true;
-				radioGroup.Visibility = ViewStates.Visible;
+			//	radioGroup.Visibility = ViewStates.Visible;
 				linear_ThoiGian.Visibility = ViewStates.Visible;
 				txtNotify.Visibility = ViewStates.Gone;
 				LoadData_Tuan (DateTime.Today);
@@ -76,7 +76,7 @@ namespace School.Droid
 				progress.Visibility = ViewStates.Gone;
 				btnTuanTruoc.Enabled = false;
 				btnTuanKe.Enabled = false;
-				radioGroup.Visibility = ViewStates.Gone;
+			//	radioGroup.Visibility = ViewStates.Gone;
 				linear_ThoiGian.Visibility = ViewStates.Gone;
 				txtNotify.Visibility = ViewStates.Visible;
 				txtNotify.Text = "Hiện tại lịch học chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
@@ -84,10 +84,10 @@ namespace School.Droid
 
 
 			//radio button 
-			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangTuan_Tuan);
-			RadioButton rb_hocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK_Tuan);
-			rb_tuan.Checked = true;
-			rb_hocKy.Click += new EventHandler (rd_OnCheckedChangeListener);
+//			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangTuan_Tuan);
+//			RadioButton rb_hocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK_Tuan);
+//			rb_tuan.Checked = true;
+//			rb_hocKy.Click += new EventHandler (rd_OnCheckedChangeListener);
 
 			// button event
 			btnTuanTruoc.Click += new EventHandler (btnTuanTruoc_Click);
@@ -114,14 +114,14 @@ namespace School.Droid
 			StartActivity (myintent);
 		}
 
-		void rd_OnCheckedChangeListener (object sender, EventArgs e)
-		{
-			LichHocHKFragment fragment = new LichHocHKFragment ();
-			fragment.Arguments = bundle;
-			FragmentManager.BeginTransaction ()
-				.Add (Resource.Id.content_frame, fragment).AddToBackStack("12")
-				.Commit ();
-		}
+//		void rd_OnCheckedChangeListener (object sender, EventArgs e)
+//		{
+//			LichHocHKFragment fragment = new LichHocHKFragment ();
+//			fragment.Arguments = bundle;
+//			FragmentManager.BeginTransaction ()
+//				.Add (Resource.Id.content_frame, fragment).AddToBackStack("12")
+//				.Commit ();
+//		}
 
 		void btnTuanTruoc_Click (object sender, EventArgs e)
 		{

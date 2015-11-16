@@ -7,11 +7,13 @@ namespace School.Droid
 		String ItemName;
 		int imgResID;
 		bool HaveSeparator;
-		public DrawerItem(String itemName, int imgResID, bool haveSeparator) {
+		bool isHeader;
+		public DrawerItem(String itemName, int imgResID, bool haveSeparator, bool isHeader) {
 			
 			ItemName = itemName;
 			this.imgResID = imgResID;
 			this.HaveSeparator = haveSeparator;
+			this.isHeader = isHeader;
 		}
 
 		public String getItemName() {
@@ -30,6 +32,11 @@ namespace School.Droid
 		public void setImgResID(int imgResID) {
 			this.imgResID = imgResID;
 		}
+		public bool IsHeader()
+		{
+			return isHeader;
+		}
+
 	}
 }
 
