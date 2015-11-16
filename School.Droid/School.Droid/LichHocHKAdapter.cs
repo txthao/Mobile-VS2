@@ -52,6 +52,7 @@ namespace School.Droid
 				viewholder.txtSoTiet = view.FindViewById<TextView> (Resource.Id.txtSoTiet_HK);
 				viewholder.txtTBD = view.FindViewById<TextView> (Resource.Id.txtTietBD_HK);
 				viewholder.txtThu = view.FindViewById<TextView> (Resource.Id.txtThu_HK);
+				viewholder.imgBell = view.FindViewById<ImageView> (Resource.Id.imgBell_HK);
 				view.Tag = viewholder;
 			} else {
 				viewholder = (ViewHolderItem)view.Tag;
@@ -62,6 +63,14 @@ namespace School.Droid
 			viewholder.txtSoTiet.Text = list [position].SoTiet;
 			viewholder.txtTBD.Text = list [position].TietBatDau;
 			viewholder.txtThu.Text = list [position].Thu;
+			if (BRemind.GetLHRemind (SQLite_Android.GetConnection (), lh.Id).Count > 0) {
+				List<LHRemindItem> rmList = BRemind.GetLHRemind (SQLite_Android.GetConnection (), lh.Id);
+				foreach (var item in rmList) {
+					if (Common.checkInWeek (list [position].Tuan, item.Date)) {
+						viewholder.imgBell.Visibility = ViewStates.Visible;
+					}
+				}
+			}
 //			view.FindViewById<TextView> (Resource.Id.txtMonHoc_HK).TextView = BMonHoc.GetMH (SQLite_Android.GetConnection (), lh.MaMH).TenMH;
 //			view.FindViewById<TextView> (Resource.Id.txtThu_HK).Text = list [position].Thu;
 //			view.FindViewById<TextView> (Resource.Id.txtTietBD_HK).Text = list [position].TietBatDau;
@@ -82,6 +91,7 @@ namespace School.Droid
 			internal TextView txtTBD;
 			internal TextView txtSoTiet;
 			internal TextView txtPhong;
+			internal ImageView imgBell;
 		}
 
 	}

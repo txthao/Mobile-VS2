@@ -53,6 +53,8 @@ namespace School.Droid
 			lbl_DenNgay = rootView.FindViewById<TextView> (Resource.Id.lbl_DenNgay);
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_Tuan);
 			LinearLayout linear_ThoiGian= rootView.FindViewById<LinearLayout> (Resource.Id.linear_LH_Tuan_ThoiGian);
+			TextView txtNotify = rootView.FindViewById<TextView> (Resource.Id.txtNotify_LH_Tuan);
+			RadioGroup radioGroup = rootView.FindViewById<RadioGroup>(Resource.Id.radioGroup2);
 			//button 
 			Button btnTuanTruoc = rootView.FindViewById<Button> (Resource.Id.btnTuanTruoc);
 			Button btnTuanKe = rootView.FindViewById<Button> (Resource.Id.btnTuanKe);
@@ -63,16 +65,21 @@ namespace School.Droid
 
 			LichHoc lh = BLichHoc.GetLast (SQLite_Android.GetConnection ());
 			if (lh != null) {
-				LoadData_Tuan (DateTime.Today);
 				btnTuanTruoc.Enabled = true;
 				btnTuanKe.Enabled = true;
+				radioGroup.Visibility = ViewStates.Visible;
 				linear_ThoiGian.Visibility = ViewStates.Visible;
+				txtNotify.Visibility = ViewStates.Gone;
+				LoadData_Tuan (DateTime.Today);
 			}
 			else {
 				progress.Visibility = ViewStates.Gone;
 				btnTuanTruoc.Enabled = false;
 				btnTuanKe.Enabled = false;
-				linear_ThoiGian.Visibility = ViewStates.Invisible;
+				radioGroup.Visibility = ViewStates.Gone;
+				linear_ThoiGian.Visibility = ViewStates.Gone;
+				txtNotify.Visibility = ViewStates.Visible;
+				txtNotify.Text = "Hiện tại lịch học chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
 			}
 
 
@@ -164,7 +171,7 @@ namespace School.Droid
 			lbl_TuNgay.Text = begining;
 			lbl_DenNgay.Text = end;
 			lbl_HK.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
-			listView_Tuan.SetAdapter (new LichHocTuanAdapter (Activity, listCT)); 
+			listView_Tuan.SetAdapter (new LichHocTuanAdapter (Activity, listCT.OrderBy(x=>x.Thu).ToList())); 
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 			listView_Tuan.Visibility = ViewStates.Visible;

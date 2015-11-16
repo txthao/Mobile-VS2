@@ -69,19 +69,19 @@ namespace School.Droid
 		
 					dialog.Show ();
 
-					if (await BUser.CheckAuth (username.Text, password.Text, SQLite_Android.GetConnection ())) {
-						Intent myintent = new Intent (this, typeof(DrawerActivity));
-						myintent.PutExtra ("FirstLoad", true);
-						dialog.SetMessage ("Đang tải dữ liệu....");
-						await Common.LoadDataFromSV (this);
-						StartActivity (myintent);
-
-						this.Finish ();
-					} else {
-						dialog.Dismiss ();
-						errormsg.Text = "Mã Sinh Viên Hoặc Mật Khẩu Không Đúng!";
-
-					}
+//					if (await BUser.CheckAuth (username.Text, password.Text, SQLite_Android.GetConnection ())) {
+//						Intent myintent = new Intent (this, typeof(DrawerActivity));
+//						myintent.PutExtra ("FirstLoad", true);
+//						dialog.SetMessage ("Đang tải dữ liệu....");
+//						await Common.LoadDataFromSV (this);
+//						StartActivity (myintent);
+//
+//						this.Finish ();
+//					} else {
+//						dialog.Dismiss ();
+//						errormsg.Text = "Mã Sinh Viên Hoặc Mật Khẩu Không Đúng!";
+//
+//					}
 				}
 			} else {
 				errormsg.Text = "Không có kết nối mạng, vui lòng thử lại sau";
