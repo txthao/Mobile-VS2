@@ -49,8 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btDangNhap"
-            android:textColor="@android:color/holo_blue_dark"
-            android:background="@android:color/transparent"
+            android:textColor="#FFF"
+            android:background="@android:color/holo_blue_dark"
             android:gravity="center"
             android:layout_marginTop="20dp"
             android:padding="10dp" />
@@ -60,13 +60,14 @@
             android:id="@+id/errorMSG"
             android:textColor="@android:color/holo_red_light"
             android:gravity="center" />
-        <TextView
-            android:id="@+id/txtVersion1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="FIT-SGU"
-            android:textColor="@android:color/black"
-            android:paddingTop="70dp"
-            android:gravity="center" />
     </LinearLayout>
+    <TextView
+        android:id="@+id/txtVersion_Log"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="FIT-SGU"
+        android:textColor="@android:color/black"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:gravity="center" />
 </RelativeLayout>

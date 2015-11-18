@@ -215,3 +215,4 @@ G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\iclogout.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\icsettings.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\signout.png
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\layout\customdialog.xml

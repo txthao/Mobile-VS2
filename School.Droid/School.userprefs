@@ -1,15 +1,17 @@
 ﻿<Properties StartupItem="School.Droid\School.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.avd1" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid\Helper\CustomDrawerAdapter.cs">
     <Files>
-      <File FileName="School.Droid\LichHocHKFragment.cs" Line="1" Column="1" />
-      <File FileName="School.Droid\DiemThiHKFragment.cs" Line="1" Column="1" />
-      <File FileName="School.Droid\LichThiFragment.cs" Line="73" Column="44" />
-      <File FileName="School.Droid\HocPhiFragment.cs" Line="56" Column="36" />
-      <File FileName="School.Droid\DrawerActivity.cs" Line="71" Column="4" />
-      <File FileName="School.Droid\Helper\DrawerItem.cs" Line="20" Column="13" />
-      <File FileName="School.Droid\Helper\CustomDrawerAdapter.cs" Line="48" Column="11" />
-      <File FileName="School.Droid\HocPhiAdapter.cs" Line="57" Column="108" />
+      <File FileName="School.Droid\Helper\Remider.cs" Line="117" Column="20" />
+      <File FileName="School.Droid\Helper\ScheduleReminder.cs" Line="201" Column="20" />
+      <File FileName="School.Core\Bussiness\BRemind.cs" Line="26" Column="31" />
+      <File FileName="School.Core\Model\LHRemindItem.cs" Line="17" Column="24" />
+      <File FileName="School.Core\Model\LTRemindItem.cs" Line="26" Column="23" />
+      <File FileName="School.Droid\DrawerActivity.cs" Line="70" Column="25" />
+      <File FileName="School.Droid\Helper\CustomDrawerAdapter.cs" Line="59" Column="4" />
+      <File FileName="School.Droid\LoginActivity.cs" Line="50" Column="28" />
+      <File FileName="School.Droid\LichHocHKAdapter.cs" Line="44" Column="4" />
+      <File FileName="School.Droid\Helper\DrawerItem.cs" Line="15" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -20,5 +22,5 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.School.Droid AndroidDesignerPreferredDevice="Nexus 4" />
+  <MonoDevelop.Ide.ItemProperties.School.Droid AndroidDesignerPreferredDevice="3.4&quot; WQVGA" />
 </Properties>

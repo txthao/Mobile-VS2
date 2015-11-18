@@ -7,6 +7,7 @@ G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\assemblies\S
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\assemblies\SQLitePCL.raw.dll
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\assemblies\System.Core.dll
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\assemblies\System.dll
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\assemblies\System.Windows.dll
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\assemblies\System.Xml.dll
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\assemblies\Xamarin.Android.Support.v4.dll
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\assemblies\Xamarin.Forms.Core.dll

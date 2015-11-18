@@ -250,11 +250,14 @@ namespace School.Droid
 			// aapt resource value: 0x7f080079
 			public const int btDangNhap = 2131230841;
 			
-			// aapt resource value: 0x7f08008f
-			public const int btUpdateData = 2131230863;
+			// aapt resource value: 0x7f080092
+			public const int btUpdateData = 2131230866;
 			
-			// aapt resource value: 0x7f08008c
-			public const int btnCancel = 2131230860;
+			// aapt resource value: 0x7f08008f
+			public const int btnCancel = 2131230863;
+			
+			// aapt resource value: 0x7f08008e
+			public const int btnDel = 2131230862;
 			
 			// aapt resource value: 0x7f080012
 			public const int btnHK_Ke_DT = 2131230738;
@@ -262,8 +265,8 @@ namespace School.Droid
 			// aapt resource value: 0x7f080011
 			public const int btnHK_Truoc_DT = 2131230737;
 			
-			// aapt resource value: 0x7f08008b
-			public const int btnSave = 2131230859;
+			// aapt resource value: 0x7f08008d
+			public const int btnSave = 2131230861;
 			
 			// aapt resource value: 0x7f08005f
 			public const int btnTuanKe = 2131230815;
@@ -274,11 +277,11 @@ namespace School.Droid
 			// aapt resource value: 0x7f080041
 			public const int btn_Expand = 2131230785;
 			
-			// aapt resource value: 0x7f08008e
-			public const int ckboxAutoUpdateData = 2131230862;
+			// aapt resource value: 0x7f080091
+			public const int ckboxAutoUpdateData = 2131230865;
 			
-			// aapt resource value: 0x7f08008d
-			public const int ckboxRemindLT = 2131230861;
+			// aapt resource value: 0x7f080090
+			public const int ckboxRemindLT = 2131230864;
 			
 			// aapt resource value: 0x7f080083
 			public const int content_frame = 2131230851;
@@ -286,8 +289,8 @@ namespace School.Droid
 			// aapt resource value: 0x7f080082
 			public const int drawer_layout = 2131230850;
 			
-			// aapt resource value: 0x7f08008a
-			public const int edtxt_Content = 2131230858;
+			// aapt resource value: 0x7f08008c
+			public const int edtxt_Content = 2131230860;
 			
 			// aapt resource value: 0x7f08007a
 			public const int errorMSG = 2131230842;
@@ -412,8 +415,8 @@ namespace School.Droid
 			// aapt resource value: 0x7f080076
 			public const int listLT = 2131230838;
 			
-			// aapt resource value: 0x7f080090
-			public const int proUpdateData = 2131230864;
+			// aapt resource value: 0x7f080093
+			public const int proUpdateData = 2131230867;
 			
 			// aapt resource value: 0x7f080018
 			public const int profile_image = 2131230744;
@@ -435,6 +438,9 @@ namespace School.Droid
 			
 			// aapt resource value: 0x7f080075
 			public const int progressLT = 2131230837;
+			
+			// aapt resource value: 0x7f080085
+			public const int scroll = 2131230853;
 			
 			// aapt resource value: 0x7f080016
 			public const int separator = 2131230742;
@@ -490,8 +496,8 @@ namespace School.Droid
 			// aapt resource value: 0x7f080015
 			public const int text_drawer = 2131230741;
 			
-			// aapt resource value: 0x7f080085
-			public const int toast_layout = 2131230853;
+			// aapt resource value: 0x7f080086
+			public const int toast_layout = 2131230854;
 			
 			// aapt resource value: 0x7f080046
 			public const int txtCBGD = 2131230790;
@@ -507,6 +513,9 @@ namespace School.Droid
 			
 			// aapt resource value: 0x7f080027
 			public const int txtDTK = 2131230759;
+			
+			// aapt resource value: 0x7f080089
+			public const int txtDateRM = 2131230857;
 			
 			// aapt resource value: 0x7f08007f
 			public const int txtGioBD = 2131230847;
@@ -595,8 +604,8 @@ namespace School.Droid
 			// aapt resource value: 0x7f08003f
 			public const int txtSoTiet_Tuan = 2131230783;
 			
-			// aapt resource value: 0x7f080087
-			public const int txtSubjectRM = 2131230855;
+			// aapt resource value: 0x7f080088
+			public const int txtSubjectRM = 2131230856;
 			
 			// aapt resource value: 0x7f08001c
 			public const int txtTB10 = 2131230748;
@@ -646,17 +655,17 @@ namespace School.Droid
 			// aapt resource value: 0x7f08003e
 			public const int txtTietBD_Tuan = 2131230782;
 			
-			// aapt resource value: 0x7f080088
-			public const int txtTimeRM = 2131230856;
+			// aapt resource value: 0x7f08008a
+			public const int txtTimeRM = 2131230858;
 			
-			// aapt resource value: 0x7f080086
-			public const int txtTitleRM = 2131230854;
-			
-			// aapt resource value: 0x7f080092
-			public const int txtVersion = 2131230866;
+			// aapt resource value: 0x7f080087
+			public const int txtTitleRM = 2131230855;
 			
 			// aapt resource value: 0x7f08007b
-			public const int txtVersion1 = 2131230843;
+			public const int txtVersion_Log = 2131230843;
+			
+			// aapt resource value: 0x7f080095
+			public const int txtVersion_Set = 2131230869;
 			
 			// aapt resource value: 0x7f080001
 			public const int txt_d1 = 2131230721;
@@ -667,8 +676,8 @@ namespace School.Droid
 			// aapt resource value: 0x7f080003
 			public const int txt_d3 = 2131230723;
 			
-			// aapt resource value: 0x7f080089
-			public const int txt_minutes = 2131230857;
+			// aapt resource value: 0x7f08008b
+			public const int txt_minutes = 2131230859;
 			
 			// aapt resource value: 0x7f08001b
 			public const int txtmasv = 2131230747;
@@ -679,8 +688,8 @@ namespace School.Droid
 			// aapt resource value: 0x7f080077
 			public const int txtmsv = 2131230839;
 			
-			// aapt resource value: 0x7f080091
-			public const int txtresult = 2131230865;
+			// aapt resource value: 0x7f080094
+			public const int txtresult = 2131230868;
 			
 			static Id()
 			{
@@ -699,70 +708,73 @@ namespace School.Droid
 			public const int About = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int DiemThi = 2130903041;
+			public const int CustomDialog = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int DiemThi_HK = 2130903042;
+			public const int DiemThi = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int drawer_item = 2130903043;
+			public const int DiemThi_HK = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int DrawerHeader = 2130903044;
+			public const int drawer_item = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int DTFooter = 2130903045;
+			public const int DrawerHeader = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int DTHeader = 2130903046;
+			public const int DTFooter = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int DTRow = 2130903047;
+			public const int DTHeader = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int HocPhi = 2130903048;
+			public const int DTRow = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int HocPhiFooter = 2130903049;
+			public const int HocPhi = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int HocPhiRow = 2130903050;
+			public const int HocPhiFooter = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int LHTuanHeader = 2130903051;
+			public const int HocPhiRow = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int LHTuanRow = 2130903052;
+			public const int LHTuanHeader = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int LichHoc_HK = 2130903053;
+			public const int LHTuanRow = 2130903053;
 			
 			// aapt resource value: 0x7f03000e
-			public const int LichHoc_Tuan = 2130903054;
+			public const int LichHoc_HK = 2130903054;
 			
 			// aapt resource value: 0x7f03000f
-			public const int LichHocHeader = 2130903055;
+			public const int LichHoc_Tuan = 2130903055;
 			
 			// aapt resource value: 0x7f030010
-			public const int LichHocRow = 2130903056;
+			public const int LichHocHeader = 2130903056;
 			
 			// aapt resource value: 0x7f030011
-			public const int LichThi = 2130903057;
+			public const int LichHocRow = 2130903057;
 			
 			// aapt resource value: 0x7f030012
-			public const int LogIn = 2130903058;
+			public const int LichThi = 2130903058;
 			
 			// aapt resource value: 0x7f030013
-			public const int LTRow = 2130903059;
+			public const int LogIn = 2130903059;
 			
 			// aapt resource value: 0x7f030014
-			public const int Menu = 2130903060;
+			public const int LTRow = 2130903060;
 			
 			// aapt resource value: 0x7f030015
-			public const int Reminder_Dialog = 2130903061;
+			public const int Menu = 2130903061;
 			
 			// aapt resource value: 0x7f030016
-			public const int Settings = 2130903062;
+			public const int Reminder_Dialog = 2130903062;
+			
+			// aapt resource value: 0x7f030017
+			public const int Settings = 2130903063;
 			
 			static Layout()
 			{

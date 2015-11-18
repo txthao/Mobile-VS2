@@ -85,6 +85,8 @@ namespace School.Droid
 			item.EventID = eventID;
 			item.Date = DateForCTLH;
 			item.IDLH = lh.Id;
+			item.Mess = content;
+			item.Minute = MinutesRemind;
 			BRemind.SaveLHRemind(SQLite_Android.GetConnection (),item);
 
 			ContentValues remindervalues = new ContentValues();
@@ -130,6 +132,8 @@ namespace School.Droid
 			item.HocKy = lt.HocKy;
 			item.NamHoc = lt.NamHoc;
 			item.MaMH = lt.MaMH;
+			item.Mess = content;
+			item.Minute = MinutesRemind;
 			BRemind.SaveLTRemind (SQLite_Android.GetConnection (),item);
 
 			ContentValues remindervalues = new ContentValues();
@@ -177,38 +181,62 @@ namespace School.Droid
 		}
 
 
-		public Task DeleteAlLRemind()
+
+		public Task DeleteRemind(List<string> listEventId )
 		{
 			return Task.Run(()=>
 				{
-					List<string> list = new List<string> ();
-					var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
-					string listidsaved = prefs.GetString ("ListRMId",null);
-					List<string> listid = CovertListId (listidsaved);
-
-					int k = int.Parse(listid[0]);
-					list.Add (k.ToString());
-
-					for (int i=0;i<listid.Count;i++)
+					
+					
+					for (int i=0;i<listEventId.Count;i++)
 					{
-						list [0] =k.ToString();	
+						List<string> eventID = new List<string>();
+						eventID.Add(listEventId[i]);
 						int deleted =
 							ctx.ContentResolver.
 							Delete (
 								CalendarContract.Events.ContentUri,
 								CalendarContract.Events.InterfaceConsts.Id + " =? ",
-								list.ToArray ());
-						try{
-							k=int.Parse(listid[i+1]);
-						}
-						catch{
-							break;
-						}
-
+								eventID.ToArray());
+						BRemind.RemoveRemind(SQLite_Android.GetConnection (),listEventId[i]);
 					}
-					var prefEditor = prefs.Edit();
-					prefEditor.PutString ("ListRMId", "");
-					prefEditor.Commit();
+				}
+					);
+
+		}
+
+
+		public Task DeleteAlLRemind()
+		{
+			return Task.Run(()=>
+				{
+
+					List<LHRemindItem> listLH = BRemind.GetAllLHRemind(SQLite_Android.GetConnection ());
+					List<LTRemindItem> listLT = BRemind.GetAllLTRemind(SQLite_Android.GetConnection ());
+
+					for (int i=0;i<listLH.Count;i++)
+					{
+						List<string> eventID = new List<string>();
+						eventID.Add(listLH[i].EventID);
+						int deleted =
+							ctx.ContentResolver.
+							Delete (
+								CalendarContract.Events.ContentUri,
+								CalendarContract.Events.InterfaceConsts.Id + " =? ",
+								eventID.ToArray());
+					}
+					for (int i=0;i<listLT.Count;i++){
+						List<string> eventID = new List<string>();
+						eventID.Add(listLH[i].EventID);
+						int deleted =
+							ctx.ContentResolver.
+							Delete (
+								CalendarContract.Events.ContentUri,
+								CalendarContract.Events.InterfaceConsts.Id + " =? ",
+								eventID.ToArray());
+					}
+						
+					BRemind.RemoveAllRM(SQLite_Android.GetConnection ());
 				});
 		}
 		private void SaveRMId(long id)
