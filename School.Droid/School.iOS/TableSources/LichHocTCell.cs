@@ -8,7 +8,7 @@ namespace School.iOS
 	public class LichHocTCell: UITableViewCell
 	{
 		UILabel thuT,ngayT,monhoc,tietBD,soTiet,phong;
-
+		UIImageView hasRM;
 		public int num;
 		public LichHocTCell (NSString cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
@@ -29,29 +29,29 @@ namespace School.iOS
 			soTiet=  new UILabel () {
 				Text="Số Tiết ",
 				BackgroundColor = UIColor.Clear,
-		
+
 				Font =UIFont.SystemFontOfSize (12)
 			};
 			phong= new UILabel () {
 				Text="Phòng ",
 				BackgroundColor = UIColor.Clear,
-			
+
 				Font =UIFont.SystemFontOfSize (12)
 			};
 			thuT= new UILabel () {
-				
+
 				BackgroundColor = UIColor.Clear,
 				TextAlignment=UITextAlignment.Center,
 				Font =UIFont.SystemFontOfSize (15)
 			};
 			ngayT= new UILabel () {
-				
+
 
 				TextAlignment=UITextAlignment.Center,
 				Font =UIFont.SystemFontOfSize (15)
 			};
-
-			ContentView.AddSubviews (new UIView[] { thuT, ngayT, monhoc, tietBD, soTiet, phong }); 
+			hasRM = new UIImageView ();
+			ContentView.AddSubviews (new UIView[] { thuT, ngayT, monhoc, tietBD, soTiet, phong ,hasRM}); 
 		}
 		public void UpdateCell (string monhoc,string tietBD,string soTiet,string phong,string thuT,string ngayT,int num,bool hasRM)
 		{
@@ -62,11 +62,11 @@ namespace School.iOS
 			this.ngayT.Text = ngayT;
 			this.soTiet.Text = "Số Tiết:"+ soTiet;
 			this.num=num;
+			this.thuT.BackgroundColor = LayoutHelper.ourDarkCyan;
 			if (hasRM) {
-				this.thuT.BackgroundColor = LayoutHelper.ourCyan;
-			
+				this.hasRM.Image = UIImage.FromBundle ("menupic/bell.png");
 			} else {
-				this.thuT.BackgroundColor = LayoutHelper.ourDarkCyan;
+				this.hasRM.Image = UIImage.FromBundle ("");
 			}
 		}
 		public override void LayoutSubviews ()
@@ -74,13 +74,13 @@ namespace School.iOS
 			base.LayoutSubviews ();
 			ngayT.Layer.BorderColor = UIColor.Brown.CGColor;
 			ngayT.Layer.BorderWidth = new nfloat(0.5);
-			monhoc.Frame = new CGRect (150, 5, ContentView.Bounds.Width - 150, 40);
-			tietBD.Frame=  new CGRect (150, 45, 100, 20);
-			phong.Frame= new CGRect (150, 70, ContentView.Bounds.Width - 150, 20);
+			monhoc.Frame = new CGRect (120, 5, ContentView.Bounds.Width - 135, 40);
+			tietBD.Frame=  new CGRect (120, 45, 100, 20);
+			phong.Frame= new CGRect (120, 70, ContentView.Bounds.Width - 120, 20);
 			thuT.Frame= new CGRect (30, 15, 80, 30);
 			ngayT.Frame= new CGRect (30, 45,  80, 50);
-			soTiet.Frame= new CGRect (250, 45, ContentView.Bounds.Width-250, 20);
-
+			soTiet.Frame= new CGRect (220, 45, ContentView.Bounds.Width-220, 20);
+			hasRM.Frame= new CGRect ( ContentView.Bounds.Width-15, 10, 15, 15);
 
 		}
 		public static string getDay (string day)

@@ -193,6 +193,7 @@
     <BundleResource Include="Resources\menupic\calendar.png" />
     <BundleResource Include="Resources\menupic\remind.png" />
     <BundleResource Include="Resources\menupic\refresh.png" />
+    <BundleResource Include="Resources\menupic\bell.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\School.Core\School.Core.csproj">

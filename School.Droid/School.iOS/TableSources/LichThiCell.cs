@@ -78,6 +78,8 @@ namespace School.iOS
 			if (hasRM) {
 				this.hasRM.Image= UIImage.FromBundle ("menupic/Iclichhoc.png");
 				this.hasRM.Frame = new CGRect (0, 5, 20, 10);
+			}else {
+				this.hasRM.Image = UIImage.FromBundle ("");
 			}
 		}
 		public override void LayoutSubviews ()

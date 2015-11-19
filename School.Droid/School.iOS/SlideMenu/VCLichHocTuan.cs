@@ -16,6 +16,7 @@ namespace School.iOS
 		string begining;
 		string end;
 		public bool isReload=false;
+		public static DateTime LoadedDate;
 		public static VCLichHocTuan instance;
 		public VCLichHocTuan () : base ("VCLichHocTuan", null)
 		{
@@ -26,7 +27,7 @@ namespace School.iOS
 		{
 			// Releases the view if it doesn't have a superview.
 			base.DidReceiveMemoryWarning ();
-			
+
 			// Release any cached data, images, etc that aren't in use.
 		}
 
@@ -44,7 +45,7 @@ namespace School.iOS
 
 
 			frame = timeLHTuan.Frame;
-		
+
 			frame.Y = 70;
 			frame.Width = App.Current.width;
 			timeLHTuan.Frame = frame;
@@ -101,14 +102,14 @@ namespace School.iOS
 		{
 			try
 			{
-			listContent.Hidden= false;
-			errorLB.Hidden=true;
+				listContent.Hidden= false;
+				errorLB.Hidden=true;
 				btTuanKe.Hidden=true;
 				btTuanTrc.Hidden=true;
-			progress.Hidden = false;
-			progress.StartAnimating ();
-			bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-			List<LichHoc> listLH = new List<LichHoc> ();
+				progress.Hidden = false;
+				progress.StartAnimating ();
+				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
+				List<LichHoc> listLH = new List<LichHoc> ();
 				if (sync)
 				{
 					bool accepted =false;
@@ -130,51 +131,52 @@ namespace School.iOS
 							_error.Show ();
 						}
 						else {
-						if (checkRemind){
-							VCHomeReminder remind= new VCHomeReminder(this);
-							await remind.RemindALLLH(newListLH,"");
-						}
+							if (checkRemind){
+								VCHomeReminder remind= new VCHomeReminder(this);
+								await remind.RemindALLLH(newListLH,"");
+							}
 						}
 						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 					}
 
 				}
-			progress.StopAnimating ();
-			listLH = BLichHoc.GetNewestLH (SQLite_iOS.GetConnection ());
+				progress.StopAnimating ();
+				listLH = BLichHoc.GetNewestLH (SQLite_iOS.GetConnection ());
 				if (listLH.Count==0) 
 				{
 					listContent.Hidden= true;
 					errorLB.Hidden=false;
 				}
 
-			listCT = new List<chiTietLH> ();
-			foreach (var item in listLH) {
-				List<chiTietLH> list = BLichHoc.GetCTLH (SQLite_iOS.GetConnection (), item.Id);
-				foreach (var ct in list) {
-					String result = checkTuan (ct.Tuan, dateOfWeek);
-					if (result != "") {
-						ct.Tuan = result;
-						listCT.Add (ct);
-						break;
+				listCT = new List<chiTietLH> ();
+				foreach (var item in listLH) {
+					List<chiTietLH> list = BLichHoc.GetCTLH (SQLite_iOS.GetConnection (), item.Id);
+					foreach (var ct in list) {
+						String result = checkTuan (ct.Tuan, dateOfWeek);
+						if (result != "") {
+							ct.Tuan = result;
+							listCT.Add (ct);
+							break;
+						}
+
 					}
 
 				}
 
-			}
-
-			
 
 
 
-			if (listCT.Count > 0) {
+
+				if (listCT.Count > 0) {
 					GetWeek (dateOfWeek, out begining, out end);
-				txtngayLHTuan.Text = "Từ " + begining + " Đến " + end;
-				timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
-				listContent.Source = new LichHocTSource (listCT, this);
-				listContent.ReloadData ();
+					LoadedDate=dateOfWeek;
+					txtngayLHTuan.Text = "Từ " + begining + " Đến " + end;
+					timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
+					listContent.Source = new LichHocTSource (listCT, this);
+					listContent.ReloadData ();
 					btTuanKe.Hidden=false;
 					btTuanTrc.Hidden=false;
-			}
+				}
 			}
 			catch {
 			}
