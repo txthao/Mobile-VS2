@@ -8,7 +8,8 @@ namespace School.Core
 		public LHRemindItem ()
 		{
 		}
-		string eventID,idLH, date;
+		string eventID,idLH, date,mess;
+		int minute ;
 		[PrimaryKey, Column("EventID")]
 		
 		public string EventID
@@ -25,6 +26,16 @@ namespace School.Core
 		{
 				get{return date;}
 			set{ date = value; }
+		}
+		public string Mess
+		{
+			get{return mess;}
+			set{ mess = value; }
+		}
+		public int Minute
+		{
+			get{return minute;}
+			set{ minute = value; }
 		}
 	}
 }

@@ -104,10 +104,10 @@ namespace School.Droid
 			}
 			else {
 				linear.Visibility = ViewStates.Gone;
-				progress.Visibility = ViewStates.Gone;
 				txtNotify.Visibility = ViewStates.Visible;
 				txtNotify.Text = "Hiện tại lịch thi chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
 			}
+			progress.Visibility = ViewStates.Gone;
 			progress.Indeterminate = false;
 
 		}

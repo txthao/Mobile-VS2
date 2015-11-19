@@ -82,13 +82,14 @@
             android:id="@+id/txtresult"
             android:textSize="10dp"
             android:textColor="@android:color/holo_blue_dark" />
-        <TextView
-            android:id="@+id/txtVersion"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="FIT-SGU"
-            android:textColor="@android:color/black"
-            android:paddingTop="150dp"
-            android:gravity="center" />
     </LinearLayout>
+    <TextView
+        android:id="@+id/txtVersion_Set"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="FIT-SGU"
+        android:textColor="@android:color/black"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:gravity="center" />
 </RelativeLayout>

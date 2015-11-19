@@ -11,7 +11,7 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_above="@+id/seperator_HK">
-        <RadioGroup
+    <!--     <RadioGroup
             android:layout_margin="10dp"
             android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
                 android:id="@+id/rb_dangHK"
                 android:textSize="14dip" />
         </RadioGroup>
-    <!--     <View
+       <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:background="#CCCCCC" />-->

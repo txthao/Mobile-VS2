@@ -25,7 +25,7 @@ namespace School.Droid
 		LinearLayout linear;
 		LinearLayout linearLH;
 		TextView txtNotify;
-		RadioGroup radioGroup;
+		//RadioGroup radioGroup;
 		bool check,autoupdate;
 		Bundle bundle;
 		List<chiTietLH> listCT;
@@ -50,7 +50,7 @@ namespace School.Droid
 			linear = rootView.FindViewById<LinearLayout>(Resource.Id.linear_HK_LH);
 			linearLH = rootView.FindViewById<LinearLayout>(Resource.Id.linearLH);
 			txtNotify = rootView.FindViewById<TextView>(Resource.Id.txtNotify_LT_HK);
-			radioGroup = rootView.FindViewById<RadioGroup>(Resource.Id.radioGroup1);
+		//	radioGroup = rootView.FindViewById<RadioGroup>(Resource.Id.radioGroup1);
 		    bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
@@ -60,11 +60,11 @@ namespace School.Droid
 			LoadData_HK ();
 
 			//radio button
-			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangTuan);
-			RadioButton rb_hocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK);
-			rb_hocKy.Checked = true;
-
-			rb_tuan.Click += new EventHandler (rd_OnCheckedChangeListener);
+//			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangTuan);
+//			RadioButton rb_hocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK);
+//			rb_hocKy.Checked = true;
+//
+//			rb_tuan.Click += new EventHandler (rd_OnCheckedChangeListener);
 
 			//button 
 //			Button btnHKTruoc = rootView.FindViewById<Button> (Resource.Id.btnHK_Truoc_LH);
@@ -94,14 +94,14 @@ namespace School.Droid
 		}
 
 
-		void rd_OnCheckedChangeListener (object sender, EventArgs e)
-		{
-			LichHocTuanFragment fragment = new LichHocTuanFragment ();
-			fragment.Arguments = bundle;
-			FragmentManager.BeginTransaction ()
-				.Replace (Resource.Id.content_frame, fragment).AddToBackStack ("11")
-				.Commit ();
-		}
+//		void rd_OnCheckedChangeListener (object sender, EventArgs e)
+//		{
+//			LichHocTuanFragment fragment = new LichHocTuanFragment ();
+//			fragment.Arguments = bundle;
+//			FragmentManager.BeginTransaction ()
+//				.Replace (Resource.Id.content_frame, fragment).AddToBackStack ("11")
+//				.Commit ();
+//		}
 			
 		async void LoadData_HK ()
 		{
@@ -125,7 +125,7 @@ namespace School.Droid
 			}
 			listLH = BLichHoc.GetNewestLH (SQLite_Android.GetConnection ());
 			if (listLH.Count > 0) {
-				radioGroup.Visibility = ViewStates.Visible;
+				//radioGroup.Visibility = ViewStates.Visible;
 				linearLH.Visibility = ViewStates.Visible;
 				linear.Visibility = ViewStates.Visible;
 				txtNotify.Visibility = ViewStates.Gone;
@@ -140,7 +140,7 @@ namespace School.Droid
 				LichHocHKAdapter adapter = new LichHocHKAdapter (Activity, listCT);
 				listView_HK.Adapter = adapter;  
 			}else {
-				radioGroup.Visibility= ViewStates.Invisible;
+				//radioGroup.Visibility= ViewStates.Invisible;
 				linearLH.Visibility = ViewStates.Gone;
 				linear.Visibility = ViewStates.Gone;
 				txtNotify.Visibility = ViewStates.Visible;

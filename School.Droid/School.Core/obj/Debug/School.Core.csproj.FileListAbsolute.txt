@@ -48,3 +48,4 @@ G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\bin\Debug\Xamarin.Forms
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\obj\Debug\School.Core.csproj.App.config
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\obj\Debug\School.Core.dll
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\obj\Debug\School.Core.pdb
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Core\obj\Debug\School.Core.csprojResolveAssemblyReference.cache

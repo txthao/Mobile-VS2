@@ -86,12 +86,10 @@ namespace School.Core
 		}
 		public void RemoveRemind(string eventID)
 		{
-			
 			_connection.Delete<LTRemindItem> ( eventID);
-		
 
-				_connection.Delete<LHRemindItem> (eventID);
-		
+			_connection.Delete<LHRemindItem> (eventID);
+
 			_connection.Commit ();
 
 

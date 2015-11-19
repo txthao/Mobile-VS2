@@ -8,7 +8,8 @@ namespace School.Core
 		public LTRemindItem ()
 		{
 		}
-		string eventID,mamh,namhoc,hocky ;
+		string eventID,mamh,namhoc,hocky,mess;
+		int minute ;
 		[PrimaryKey, Column("EventID")]
 		public string EventID
 		{
@@ -29,6 +30,16 @@ namespace School.Core
 		{
 			get{return hocky;}
 			set{ hocky = value; }
+		}
+		public string Mess
+		{
+			get{return mess;}
+			set{ mess = value; }
+		}
+		public int Minute
+		{
+			get{return minute;}
+			set{ minute = value; }
 		}
 	}
 }

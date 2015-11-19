@@ -50,25 +50,25 @@ namespace School.Droid
 			LoadData ();
 
 			//radio button
-			RadioButton rb_All = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangAll_All_DT);
-			RadioButton rb_HocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK_All_DT);
-			rb_All.Checked = true;
-			rb_HocKy.Click += new EventHandler (rd_OnCheckedChangeListener);
+//			RadioButton rb_All = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangAll_All_DT);
+//			RadioButton rb_HocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK_All_DT);
+//			rb_All.Checked = true;
+//			rb_HocKy.Click += new EventHandler (rd_OnCheckedChangeListener);
 
 
 			return rootView;
 		}
 
 
-		void rd_OnCheckedChangeListener (object sender, EventArgs e)
-		{
-			DiemThiHKFragment fragment = new DiemThiHKFragment();
-			fragment.Arguments = bundle;
-			FragmentManager.BeginTransaction()
-				.Replace(Resource.Id.content_frame, fragment).AddToBackStack("31")
-				.Commit();
-		}
-			
+//		void rd_OnCheckedChangeListener (object sender, EventArgs e)
+//		{
+//			DiemThiHKFragment fragment = new DiemThiHKFragment();
+//			fragment.Arguments = bundle;
+//			FragmentManager.BeginTransaction()
+//				.Replace(Resource.Id.content_frame, fragment).AddToBackStack("31")
+//				.Commit();
+//		}
+//			
 		async void LoadData()
 		{
 			progress.Visibility = ViewStates.Visible;

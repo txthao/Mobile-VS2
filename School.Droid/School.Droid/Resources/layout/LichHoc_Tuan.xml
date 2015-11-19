@@ -11,7 +11,7 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_above="@+id/seperator_LH">
-        <RadioGroup
+    <!--   <RadioGroup
             android:layout_margin="10dp"
             android:id="@+id/radioGroup2"
             android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
                 android:text="Xem dạng Học kỳ"
                 android:id="@+id/rb_dangHK_Tuan"
                 android:textSize="14dip" />
-        </RadioGroup>
+        </RadioGroup>-->
         <TextView
             android:textColor="@android:color/background_dark"
             android:layout_width="wrap_content"
