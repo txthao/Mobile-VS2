@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
+﻿<Properties StartupItem="School.Droid\School.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.avd1" />
   <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid\Helper\CustomDrawerAdapter.cs">
     <Files>

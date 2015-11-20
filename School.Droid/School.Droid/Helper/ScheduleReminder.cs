@@ -7,6 +7,7 @@ using Android.Provider;
 using School.Core;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 
 namespace School.Droid
@@ -85,8 +86,8 @@ namespace School.Droid
 			item.EventID = eventID;
 			item.Date = DateForCTLH;
 			item.IDLH = lh.Id;
-			item.Mess = content;
-			item.Minute = MinutesRemind;
+			//item.Mess = content;
+			//item.Minute = MinutesRemind;
 			BRemind.SaveLHRemind(SQLite_Android.GetConnection (),item);
 
 			ContentValues remindervalues = new ContentValues();
@@ -116,7 +117,7 @@ namespace School.Droid
 			}
 
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.CalendarId, 1);
-			eventValues.Put(CalendarContract.Events.InterfaceConsts.Title, "Lịch Thi");
+			eventValues.Put(CalendarContract.Events.InterfaceConsts.Title, "Nhắc Lịch Thi");
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.Description, "Bạn Có Lịch Thi Môn "+tenmh+" Ghi chú: "+content);
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS(time.yr,time.month,time.day,time.hr,time.min));
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtend,GetDateTimeMS(time.yr,time.month,time.day,time.hr+lt.SoPhut/60,time.min+lt.SoPhut%60));
@@ -132,8 +133,8 @@ namespace School.Droid
 			item.HocKy = lt.HocKy;
 			item.NamHoc = lt.NamHoc;
 			item.MaMH = lt.MaMH;
-			item.Mess = content;
-			item.Minute = MinutesRemind;
+			//item.Mess = content;
+			//item.Minute = MinutesRemind;
 			BRemind.SaveLTRemind (SQLite_Android.GetConnection (),item);
 
 			ContentValues remindervalues = new ContentValues();
@@ -216,6 +217,7 @@ namespace School.Droid
 
 					for (int i=0;i<listLH.Count;i++)
 					{
+						
 						List<string> eventID = new List<string>();
 						eventID.Add(listLH[i].EventID);
 						int deleted =
@@ -239,20 +241,27 @@ namespace School.Droid
 					BRemind.RemoveAllRM(SQLite_Android.GetConnection ());
 				});
 		}
-		private void SaveRMId(long id)
-		{
-			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
-			string listid = prefs.GetString ("ListRMId",null);
-			string strid=id.ToString();
-			while (strid.Length < 5) {
-				strid = "0" + strid;
-			}
-			listid=listid+strid;
-			var prefEditor = prefs.Edit();
-			prefEditor.PutString ("ListRMId", listid);
-			prefEditor.Commit();
-		}
 
+		//ContentUris.WithAppendedId(CalendarContract.Events.ContentUri,eventID)
+
+		public void GetRemind(string eventId, out string minutes, out string mess){
+			String[] selectionArgs = new String[] { eventId }; 
+			// Submit the query and get a Cursor object back. 
+			var cur = ctx.ContentResolver.Query (CalendarContract.Reminders.ContentUri,new String[] {
+				CalendarContract.Reminders.InterfaceConsts.EventId,CalendarContract.Reminders.InterfaceConsts.Minutes}, CalendarContract.Reminders.InterfaceConsts.EventId + " =? ", selectionArgs, null);
+			var cur2 = ctx.ContentResolver.Query (CalendarContract.Events.ContentUri,new String[] {
+				CalendarContract.Events.InterfaceConsts.Id,CalendarContract.Events.InterfaceConsts.Description},CalendarContract.Events.InterfaceConsts.Id + " =? ", selectionArgs, null);
+			
+			if (cur2.MoveToNext ()) {
+				minutes = cur.GetInt(1).ToString();
+				mess = cur2.GetString (1);
+
+			} else {
+				minutes = null;
+				mess = null;
+			}
+
+		}
 		private List<string> CovertListId(string s)
 		{
 

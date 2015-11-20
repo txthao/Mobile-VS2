@@ -28,8 +28,8 @@ namespace School.Droid
 		MonHoc mh;
 		LichHoc lh;
 		LichThi lt;
-		EditText minutes;
-		EditText content;
+		EditText edtxt_minutes;
+		EditText edtxt_content;
 		Button Cancel;
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -38,19 +38,20 @@ namespace School.Droid
 			Button Save = FindViewById<Button> (Resource.Id.btnSave);
 			Button Del = FindViewById<Button> (Resource.Id.btnDel);
 			Cancel = FindViewById<Button> (Resource.Id.btnCancel);
-			content = FindViewById<EditText> (Resource.Id.edtxt_Content);
+			edtxt_content = FindViewById<EditText> (Resource.Id.edtxt_Content);
 			TextView title = FindViewById<TextView> (Resource.Id.txtTitleRM);
 			TextView subject = FindViewById<TextView> (Resource.Id.txtSubjectRM);
 			TextView time = FindViewById<TextView> (Resource.Id.txtTimeRM);
 			TextView date = FindViewById<TextView> (Resource.Id.txtDateRM);
-			minutes = FindViewById<EditText> (Resource.Id.txt_minutes);
+			edtxt_minutes = FindViewById<EditText> (Resource.Id.txt_minutes);
 			bundle = Intent.GetBundleExtra ("RemindValue");
 			MH = bundle.GetString ("MH");
 			tietBD = bundle.GetString ("TietBD");
 			ngayhoc= bundle.GetString ("NgayHoc");
 			soTiet= bundle.GetString ("SoTiet");
 			check = bundle.GetBoolean ("check");
-			isLHT= bundle.GetBoolean ("isLHT");;
+			isLHT= bundle.GetBoolean ("isLHT");
+			string minutes, mess;
 			if (check) {
 				string namhoc=bundle.GetString ("NamHoc");
 				string hocky=bundle.GetString ("HocKy");
@@ -62,8 +63,12 @@ namespace School.Droid
 				time.Text = "Thời gian: " + lt.GioBD ;
 				LTRemindItem item = BRemind.GetLTRemind (SQLite_Android.GetConnection (), lt.MaMH, lt.NamHoc, lt.HocKy);
 				if (item != null) {
-					content.Text = item.Mess;
-					minutes.Text = item.Minute.ToString ();
+					ScheduleReminder reminder = new ScheduleReminder (this);
+					reminder.GetRemind (item.EventID, out minutes, out mess);
+					if (minutes != null || mess != null) {
+						edtxt_content.Text = mess;
+						edtxt_minutes.Text = minutes;
+					}
 				}
 
 			} else {
@@ -75,10 +80,13 @@ namespace School.Droid
 				subject.Text = "Môn: " + mh.TenMH;
 
 				List<LHRemindItem> list = BRemind.GetLHRemind(SQLite_Android.GetConnection (),lh.Id);
-
 				if (list.Count != 0) {
-					content.Text = list[0].Mess;
-					minutes.Text = list[0].Minute.ToString ();
+					ScheduleReminder reminder = new ScheduleReminder (this);
+					reminder.GetRemind (list [0].EventID, out minutes, out mess);
+					if (minutes != null || mess != null) {
+						edtxt_content.Text = mess;
+						edtxt_minutes.Text = minutes;
+					}
 				}
 				date.Visibility = ViewStates.Gone;
 				time.Visibility = ViewStates.Gone;
@@ -91,8 +99,12 @@ namespace School.Droid
 					time.Text =  "Tiết: " + tietBD ;
 					LHRemindItem item = BRemind.GetLHRemind(SQLite_Android.GetConnection (),lh.Id,ngayhoc);
 					if (item != null) {
-						content.Text = item.Mess;
-						minutes.Text = item.Minute.ToString ();
+						ScheduleReminder reminder = new ScheduleReminder (this);
+						reminder.GetRemind (item.EventID, out minutes, out mess);
+						if (minutes != null || mess != null) {
+							edtxt_content.Text = mess;
+							edtxt_minutes.Text = minutes;
+						}
 					}
 				}
 
@@ -134,8 +146,11 @@ namespace School.Droid
 		void Save_Click (object sender, EventArgs e)
 		{
 			ScheduleReminder reminder = new ScheduleReminder (this);
-			reminder.content = content.Text;
-			reminder.MinutesRemind = int.Parse(minutes.Text.Trim());
+			if (edtxt_content.Text == "") {
+				reminder.content = "0";
+			}
+			else reminder.content = edtxt_content.Text;
+			reminder.MinutesRemind = int.Parse(edtxt_minutes.Text.Trim());
 			if (check) {
 
 
