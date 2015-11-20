@@ -114,6 +114,8 @@ namespace School.iOS
 
 			if (hasRM) {
 				this.hasRM.Image = UIImage.FromBundle ("menupic/remind.png");
+			}else {
+				this.hasRM.Image = UIImage.FromBundle ("");
 			}
 
 		}

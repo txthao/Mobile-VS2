@@ -14,31 +14,38 @@ namespace School.iOS
 		{
 			TB10 = new UILabel () {
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				TextColor=LayoutHelper.textColor,
+				Font = UIFont.BoldSystemFontOfSize(13)
 			};
 			TB4 = new UILabel () {
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				TextColor=LayoutHelper.textColor,
+				Font = UIFont.BoldSystemFontOfSize(13)
 			};
 			TBTL10 = new UILabel () {
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				TextColor=LayoutHelper.textColor,
+				Font = UIFont.BoldSystemFontOfSize(13)
 			};
 			TBTL4 = new UILabel () {
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				TextColor=LayoutHelper.textColor,
+				Font = UIFont.BoldSystemFontOfSize(13)
 			};
 			TC = new UILabel () {
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				TextColor=LayoutHelper.textColor,
+				Font = UIFont.BoldSystemFontOfSize(13)
 			};
 			TCTL = new UILabel () {
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				TextColor=LayoutHelper.textColor,
+				Font = UIFont.BoldSystemFontOfSize(13)
 			};
 			DRL = new UILabel () {
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("AmericanTypewriter", 12f)
+				TextColor=LayoutHelper.textColor,
+				Font = UIFont.BoldSystemFontOfSize(13)
 			};
 
 			ContentView.AddSubviews (new UIView[]{ TB10,TB4,TC,TCTL,TBTL10,TBTL4,DRL });
@@ -46,7 +53,7 @@ namespace School.iOS
 		public override void LayoutSubviews ()
 		{
 			base.LayoutSubviews ();
-		
+
 			TB10.Frame= new CGRect (0, 5, ContentView.Bounds.Width, 20);
 			TB4.Frame= new CGRect (0, 25, ContentView.Bounds.Width , 20);
 			TC.Frame= new CGRect (0, 50, ContentView.Bounds.Width , 20);

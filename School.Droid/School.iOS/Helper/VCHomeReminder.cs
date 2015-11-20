@@ -35,9 +35,9 @@ namespace School.iOS
 		}
 		public void RemindLH()
 		{
-			
-				RequestAccess (EKEntityType.Event, () => {
-				
+
+			RequestAccess (EKEntityType.Event, () => {
+
 				title="Lịch Học";
 
 				try{
@@ -47,12 +47,12 @@ namespace School.iOS
 					string timeEnd=listTimeLH[int.Parse(ct.TietBatDau)+int.Parse(ct.SoTiet)];
 					switch(timeEnd)
 					{
-							case "09g00":
-							timeEnd="08g40";
-							break;
-							case "14g00":
-							timeEnd="13g40";
-							break;
+					case "09g00":
+						timeEnd="08g40";
+						break;
+					case "14g00":
+						timeEnd="13g40";
+						break;
 
 					}
 					endTime=GetTime(covertToExact(time),timeEnd);
@@ -61,22 +61,22 @@ namespace School.iOS
 				{
 				}
 				LaunchCreateNewEvent ();
-				});
+			});
 
 		}
-		
+
 		public void RemindLT()
 		{
 
 			RequestAccess (EKEntityType.Event, () => {
-					title="Lịch Thi";
-					try{
+				title="Lịch Thi";
+				try{
 					tenmh = BMonHoc.GetMH (SQLite_iOS.GetConnection(),lt.MaMH).TenMH;
 					srtTime=GetTime(lt.NgayThi,lt.GioBD);
 					endTime=srtTime.AddMinutes(lt.SoPhut);
-					}
-					catch{
-					}
+				}
+				catch{
+				}
 				LaunchCreateNewEvent ( );
 			});
 
@@ -87,20 +87,20 @@ namespace School.iOS
 			return Task.Run(()=>
 				{
 					RequestAccess (EKEntityType.Event, () => {
-					foreach (LichHoc lh in listlh) {
-						title="Lịch Học";
-						List<chiTietLH> cts = BLichHoc.GetCTLH (SQLite_iOS.GetConnection (), lh.Id);
-						foreach (chiTietLH ct in cts)
-						{
-							List<string> listNgayHoc = ApiHelper.strListTuanToArrayString (ct.Tuan);
-							foreach (string s in listNgayHoc) {
-								time = s;
-								this.ct = ct;
-								this.lh = lh;
+						foreach (LichHoc lh in listlh) {
+							title="Lịch Học";
+							List<chiTietLH> cts = BLichHoc.GetCTLH (SQLite_iOS.GetConnection (), lh.Id);
+							foreach (chiTietLH ct in cts)
+							{
+								List<string> listNgayHoc = ApiHelper.strListTuanToArrayString (ct.Tuan);
+								foreach (string s in listNgayHoc) {
+									time = s;
+									this.ct = ct;
+									this.lh = lh;
 
-								AutoCreateEventLH(content);
+									AutoCreateEventLH(content);
+								}
 							}
-						}
 
 						}});
 				}
@@ -108,14 +108,14 @@ namespace School.iOS
 		}
 		public Task RemindAllLT( List<LichThi> listlt)
 		{
-			
+
 			return Task.Run(()=>
 				{
 					foreach (LichThi lt in listlt) {
 						this.lt = lt;
 						title="Lịch Thi";
 						RequestAccess (EKEntityType.Event, () => {
-						AutoCreateEventLT ();
+							AutoCreateEventLT ();
 						});
 					}
 
@@ -204,7 +204,7 @@ namespace School.iOS
 		protected void LaunchCreateNewEvent ()
 		{  
 
-			
+
 			// create a new EKEventEditViewController. This controller is built in an allows
 			// the user to create a new, or edit an existing event.
 
@@ -251,22 +251,36 @@ namespace School.iOS
 		}
 		public void LoadEvent(string eventID)
 		{
-			EKEvent mySavedEvent = App.Current.EventStore.EventFromIdentifier (eventID);
-			EventKitUI.EKEventEditViewController eventController =
-				new EventKitUI.EKEventEditViewController ();
-			
-			eventController.EventStore = App.Current.EventStore;
-			eventController.Event = mySavedEvent;
+			try
+			{
+				EKEvent mySavedEvent = App.Current.EventStore.EventFromIdentifier (eventID);
+				EventKitUI.EKEventEditViewController eventController =
+					new EventKitUI.EKEventEditViewController ();
 
-			// wire up a delegate to handle events from the controller
-			eventControllerDelegate = new CreateEventEditViewDelegate (eventController);
-			eventController.EditViewDelegate = eventControllerDelegate;
-			controller.PresentViewController (eventController, true, null);
+				eventController.EventStore = App.Current.EventStore;
+				eventController.Event = mySavedEvent;
+
+				// wire up a delegate to handle events from the controller
+				eventControllerDelegate = new CreateEventEditViewDelegate (eventController);
+				eventController.EditViewDelegate = eventControllerDelegate;
+				controller.PresentViewController (eventController, true, null);
+			}
+			catch {
+				BRemind.RemoveRemind (SQLite_iOS.GetConnection (), eventID);
+				UIAlertView _error = new UIAlertView ("Lỗi", "Không tìm thấy Nhắc lịch đã tạo", null, "Ok", null);
+				if (VCLichHoc.instance != null)
+					VCLichHoc.Instance.LoadData ();
+				if (VCLichHocTuan.instance != null)
+					VCLichHocTuan.Instance.LoadData_Tuan (VCLichHocTuan.LoadedDate);
+				if (VCLichThi.instance != null)
+					VCLichThi.Instance.LoadData ();
+				_error.Show ();
+			}
 		}
 
 		protected void RetrieveEvent (string eventID)
 		{
-			
+
 
 			// to retrieve the event you can call
 			EKEvent mySavedEvent = App.Current.EventStore.EventFromIdentifier (eventID);
@@ -278,10 +292,18 @@ namespace School.iOS
 			NSError e;
 			EKEvent mySavedEvent = App.Current.EventStore.EventFromIdentifier (eventID);
 			App.Current.EventStore.RemoveEvent (mySavedEvent, EKSpan.ThisEvent, true, out e);
-		
+
 			Console.WriteLine ("Event Deleted.");
 		}
+		public  void RemoveEvents(List<LHRemindItem> rmItem)
+		{
+			foreach (var remindIT in rmItem)
+				RemoveEvent (remindIT.EventID);
+			if (VCLichHoc.instance != null)
+				VCLichHoc.Instance.LoadData ();
 
+
+		}
 		public Task RemoveAllEvent()
 		{
 			return Task.Run (() => {
@@ -324,6 +346,12 @@ namespace School.iOS
 					break;
 				case EventKitUI.EKEventEditViewAction.Deleted:
 					BRemind.RemoveRemind (SQLite_iOS.GetConnection (), controller.Event.EventIdentifier);
+					if (VCLichHoc.instance != null)
+						VCLichHoc.Instance.LoadData ();
+					if (VCLichHocTuan.instance != null)
+						VCLichHocTuan.Instance.LoadData_Tuan (VCLichHocTuan.LoadedDate);
+					if (VCLichThi.instance != null)
+						VCLichThi.Instance.LoadData ();
 					break;
 				case EventKitUI.EKEventEditViewAction.Saved:
 					// if you wanted to modify the event you could do so here, and then
@@ -332,10 +360,16 @@ namespace School.iOS
 					if (ItemLH != null) {
 						ItemLH.EventID = controller.Event.EventIdentifier;
 						BRemind.SaveLHRemind (SQLite_iOS.GetConnection (), ItemLH);
+						if (VCLichHoc.instance != null)
+							VCLichHoc.Instance.LoadData ();
+						if (VCLichHocTuan.instance != null)
+							VCLichHocTuan.Instance.LoadData_Tuan (VCLichHocTuan.LoadedDate);
 						ItemLH = null;
 					} else {
 						ItemLT.EventID = controller.Event.EventIdentifier;
 						BRemind.SaveLTRemind (SQLite_iOS.GetConnection (), ItemLT);
+						if (VCLichThi.instance != null)
+							VCLichThi.Instance.LoadData ();
 						ItemLT = null;
 					}
 					break;
@@ -350,7 +384,7 @@ namespace School.iOS
 			int phut=int.Parse(GioBD.Substring (3, 2));
 
 
-		
+
 
 			DateTime now=DateTime.Now.AddYears(time.Year-DateTime.Now.Year).AddMonths(time.Month-DateTime.Now.Month).AddDays(time.Day-DateTime.Now.Day)
 				.AddHours(gio-DateTime.Now.Hour).AddMinutes(phut-DateTime.Now.Minute);

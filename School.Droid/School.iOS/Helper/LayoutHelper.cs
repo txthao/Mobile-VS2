@@ -9,6 +9,7 @@ namespace School.iOS
 	public class LayoutHelper
 	{
 		public static UIColor ourCyan = UIColor.FromRGBA((float)0.7, (float)0.8, (float)1, (float)1);
+		public static UIColor textColor= UIColor.FromRGBA((float)0.0, (float)0.4, (float)1, (float)1);
 		public static UIColor ourDarkCyan = UIColor.FromRGBA((float)0.3, (float)0.8, (float)1, (float)1);
 		public static CGRect setlayoutForTB(CGRect frame)
 		{

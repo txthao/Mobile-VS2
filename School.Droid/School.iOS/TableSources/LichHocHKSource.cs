@@ -53,7 +53,7 @@ namespace School.iOS
 				bool hasRM=false;
 				if (rmItem.Count>0)
 				{
-						hasRM=true;
+					hasRM=true;
 				}
 				cell.UpdateCell (monhoc, tableItems [indexPath.Row].Thu, tableItems [indexPath.Row].TietBatDau
 					, tableItems [indexPath.Row].SoTiet,tableItems [indexPath.Row].Phong,indexPath.Row,hasRM);
@@ -89,7 +89,7 @@ namespace School.iOS
 					hasRM=true;
 				}
 				if (!hasRM) {
-					
+
 					remid.lh = BLichHoc.GetLH (SQLite_iOS.GetConnection (), tableItems [cell.num].Id);
 					List<LichHoc> list = new List<LichHoc> ();
 					list.Add (remid.lh);
@@ -99,11 +99,12 @@ namespace School.iOS
 				}
 				else
 				{
-					
+
+
 					bool accepted = await ShowAlert("Xoá Nhắc Lịch", "Bạn muốn xoá hết các nhắc lịch cho môn "+monhoc);
 					if (accepted) {
-						foreach (var remindIT in rmItem)
-							remid.RemoveEvent (remindIT.EventID);
+						remid.RemoveEvents (rmItem);
+
 					}
 
 				}

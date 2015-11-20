@@ -63,7 +63,7 @@ namespace School.iOS
 			gv.Frame = new CGRect (80, 5, ContentView.Bounds.Width - 180, 20);
 			thoigian.Frame= new CGRect (80, 75, ContentView.Bounds.Width - 80, 20);
 			malop.Frame= new CGRect (80, 25, 100, 20);
-			nhommh.Frame= new CGRect (180, 25, ContentView.Bounds.Width - 180, 20);
+			nhommh.Frame= new CGRect (190, 25, ContentView.Bounds.Width - 190, 20);
 			sotc.Frame= new CGRect (80, 50, 100, 20);
 			mamh.Frame= new CGRect (180, 50, ContentView.Bounds.Width - 180, 20);
 		}
