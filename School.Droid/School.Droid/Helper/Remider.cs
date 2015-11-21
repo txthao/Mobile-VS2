@@ -51,6 +51,7 @@ namespace School.Droid
 			soTiet= bundle.GetString ("SoTiet");
 			check = bundle.GetBoolean ("check");
 			isLHT= bundle.GetBoolean ("isLHT");
+			Del.Visibility = ViewStates.Invisible;
 			string minutes, mess;
 			if (check) {
 				string namhoc=bundle.GetString ("NamHoc");
@@ -99,6 +100,7 @@ namespace School.Droid
 					time.Text =  "Tiết: " + tietBD ;
 					LHRemindItem item = BRemind.GetLHRemind(SQLite_Android.GetConnection (),lh.Id,ngayhoc);
 					if (item != null) {
+						Del.Visibility = ViewStates.Visible;
 						ScheduleReminder reminder = new ScheduleReminder (this);
 						reminder.GetRemind (item.EventID, out minutes, out mess);
 						if (minutes != null || mess != null) {

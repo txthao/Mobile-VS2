@@ -67,7 +67,7 @@ namespace School.Core
 				string contents;
 				Task<string> contentsTask = httpClient.GetStringAsync (UrlHelper.UrlHP(BUser.GetMainUser(connection).Id,BUser.GetMainUser(connection).Password));
 
-
+				HocPhi hp = new HocPhi ();
 
 				try
 				{
@@ -75,12 +75,12 @@ namespace School.Core
 
 				}
 				catch(Exception e) {
-					return null;
+					return hp;
 				}
 				XDocument doc = XDocument.Parse (contents);
 
 				XElement node = doc.Root;
-				HocPhi hp = new HocPhi ();
+
 				hp.HocKy = int.Parse (node.Elements ().ElementAt (1).Value [7].ToString ());
 				hp.NamHoc = int.Parse (node.Elements ().ElementAt (1).Value.Substring (19, 4));
 				hp.TienConNo = node.Elements ().ElementAt (2).Value.Trim ();

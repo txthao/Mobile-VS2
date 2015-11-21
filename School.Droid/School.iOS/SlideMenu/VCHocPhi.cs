@@ -109,11 +109,11 @@ namespace School.iOS
 			list= BHocPhi.GetCTHP(SQLite_iOS.GetConnection (),hp.NamHoc,hp.HocKy);
 			listHP.Source = new HocPhiSource (list);
 			listHP.ReloadData();
-			txtToSoTC.Text+=hp.TongSoTC;
-			txtTongTienHP.Text+=hp.TongSoTien;
-			txtTTLD.Text+=hp.TienDongTTLD;
-			txtTongTIenDD.Text+=hp.TienDaDong;
-			txtTienConNo.Text+=hp.TienConNo;
+			txtToSoTC.Text="Tổng số TC:"+hp.TongSoTC;
+			txtTongTienHP.Text="Tổng số tiền học phí:"+hp.TongSoTien;
+			txtTTLD.Text="Số tiền đóng tối thiểu lần đầu:"+hp.TienDongTTLD;
+			txtTongTIenDD.Text="Tổng số tiền đã đóng:"+hp.TienDaDong;
+			txtTienConNo.Text="Tiền còn nợ:"+hp.TienConNo;
 			}
 				else
 				{
