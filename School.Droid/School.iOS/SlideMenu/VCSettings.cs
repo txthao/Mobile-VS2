@@ -247,7 +247,7 @@ namespace School.iOS
 
 		void BtFooter_TouchUpInside (object sender, EventArgs e)
 		{
-			UIAlertView _error = new UIAlertView ("About", "My About", null, "Ok", null);
+			UIAlertView _error = new UIAlertView ("About", UrlHelper.About(), null, "Ok", null);
 
 			_error.Show ();
 		}

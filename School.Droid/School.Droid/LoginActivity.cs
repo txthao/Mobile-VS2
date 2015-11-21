@@ -61,10 +61,9 @@ namespace School.Droid
 			dialog.SetContentView(Resource.Layout.CustomDialog);
 			dialog.SetTitle("Giới thiệu");
 
-			string d1 = "'Thông tin đào tạo' là ứng dụng cung cấp thông tin đạo tạo cho sinh viên Đại học Sài Gòn. Các thông tin bao gồm lịch thi, thời khóa biểu, xem điểm thi và xem học phí. Ngoài ra, ứng dụng còn cung cấp thêm tính năng nhắc lịch thi, lịch học nhằm hỗ trợ, nhắc nhở các bạn sinh viên cho việc học tập hằng tuần hoặc ôn luyện khi thi cuối kì. ";
 
 
-			dialog.FindViewById<TextView> (Resource.Id.txt_d1).Text = d1;
+			dialog.FindViewById<TextView> (Resource.Id.txt_d1).Text = UrlHelper.About();
 
 			dialog.Show();
 		}

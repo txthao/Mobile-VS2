@@ -1,19 +1,6 @@
 ﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.avd1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid\Helper\CustomDrawerAdapter.cs">
-    <Files>
-      <File FileName="School.Droid\Helper\Remider.cs" Line="117" Column="20" />
-      <File FileName="School.Droid\Helper\ScheduleReminder.cs" Line="201" Column="20" />
-      <File FileName="School.Core\Bussiness\BRemind.cs" Line="26" Column="31" />
-      <File FileName="School.Core\Model\LHRemindItem.cs" Line="17" Column="24" />
-      <File FileName="School.Core\Model\LTRemindItem.cs" Line="26" Column="23" />
-      <File FileName="School.Droid\DrawerActivity.cs" Line="70" Column="25" />
-      <File FileName="School.Droid\Helper\CustomDrawerAdapter.cs" Line="59" Column="4" />
-      <File FileName="School.Droid\LoginActivity.cs" Line="50" Column="28" />
-      <File FileName="School.Droid\LichHocHKAdapter.cs" Line="44" Column="4" />
-      <File FileName="School.Droid\Helper\DrawerItem.cs" Line="15" Column="22" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.8.2" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />
@@ -22,5 +9,5 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.School.Droid AndroidDesignerPreferredDevice="3.4&quot; WQVGA" />
+  <MonoDevelop.Ide.ItemProperties.School.Droid AndroidDesignerPreferredDevice="4&quot; WVGA (Nexus S)" />
 </Properties>

@@ -250,8 +250,8 @@ namespace School.Droid
 			// aapt resource value: 0x7f080079
 			public const int btDangNhap = 2131230841;
 			
-			// aapt resource value: 0x7f080092
-			public const int btUpdateData = 2131230866;
+			// aapt resource value: 0x7f080093
+			public const int btUpdateData = 2131230867;
 			
 			// aapt resource value: 0x7f08008f
 			public const int btnCancel = 2131230863;
@@ -277,8 +277,8 @@ namespace School.Droid
 			// aapt resource value: 0x7f080041
 			public const int btn_Expand = 2131230785;
 			
-			// aapt resource value: 0x7f080091
-			public const int ckboxAutoUpdateData = 2131230865;
+			// aapt resource value: 0x7f080092
+			public const int ckboxAutoUpdateData = 2131230866;
 			
 			// aapt resource value: 0x7f080090
 			public const int ckboxRemindLT = 2131230864;
@@ -415,8 +415,11 @@ namespace School.Droid
 			// aapt resource value: 0x7f080076
 			public const int listLT = 2131230838;
 			
-			// aapt resource value: 0x7f080093
-			public const int proUpdateData = 2131230867;
+			// aapt resource value: 0x7f080091
+			public const int proNL = 2131230865;
+			
+			// aapt resource value: 0x7f080094
+			public const int proUpdateData = 2131230868;
 			
 			// aapt resource value: 0x7f080018
 			public const int profile_image = 2131230744;
@@ -664,8 +667,8 @@ namespace School.Droid
 			// aapt resource value: 0x7f08007b
 			public const int txtVersion_Log = 2131230843;
 			
-			// aapt resource value: 0x7f080095
-			public const int txtVersion_Set = 2131230869;
+			// aapt resource value: 0x7f080096
+			public const int txtVersion_Set = 2131230870;
 			
 			// aapt resource value: 0x7f080001
 			public const int txt_d1 = 2131230721;
@@ -688,8 +691,8 @@ namespace School.Droid
 			// aapt resource value: 0x7f080077
 			public const int txtmsv = 2131230839;
 			
-			// aapt resource value: 0x7f080094
-			public const int txtresult = 2131230868;
+			// aapt resource value: 0x7f080095
+			public const int txtresult = 2131230869;
 			
 			static Id()
 			{
