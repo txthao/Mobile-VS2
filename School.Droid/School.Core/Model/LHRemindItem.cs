@@ -27,16 +27,7 @@ namespace School.Core
 				get{return date;}
 			set{ date = value; }
 		}
-		public string Mess
-		{
-			get{return mess;}
-			set{ mess = value; }
-		}
-		public int Minute
-		{
-			get{return minute;}
-			set{ minute = value; }
-		}
+	
 	}
 }
 

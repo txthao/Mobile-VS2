@@ -185,7 +185,6 @@ G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\contact_icon.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\layout\drawerheader.xml
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\header.jpg
-G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\layout\reminder_dialog.xml
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\down.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\up.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\layout\hocphifooter.xml
@@ -205,8 +204,6 @@ G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\reminder.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\sgu1.pdf
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\layout\about.xml
-G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\R.cs.flag
-G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\uploadflags.txt
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\icadiemthi.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\icdiemthi.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\ichocphi.png
@@ -215,4 +212,7 @@ G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\iclogout.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\icsettings.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\signout.png
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\layout\reminder_dialog.xml
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\layout\customdialog.xml
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\R.cs.flag
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\uploadflags.txt
