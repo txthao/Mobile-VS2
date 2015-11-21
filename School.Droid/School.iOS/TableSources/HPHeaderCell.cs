@@ -13,8 +13,7 @@ namespace School.iOS
 			monhoc = new UILabel () {
 				Text="Môn Học",
 				BackgroundColor = LayoutHelper.ourDarkCyan,
-				LineBreakMode = UILineBreakMode.WordWrap,
-				Lines=0,
+
 				Font = UIFont.FromName("AmericanTypewriter", 15f),
 				TextAlignment=UITextAlignment.Center
 			};
@@ -51,10 +50,10 @@ namespace School.iOS
 			base.LayoutSubviews ();
 			nfloat width = (ContentView.Bounds.Width - App.Current.labelMHWidth )/ 3;
 			nfloat mhwdt = App.Current.labelMHWidth;
-			monhoc.Frame = new CGRect (0, 10, mhwdt,45);
-			hocphi.Frame = new CGRect (mhwdt, 10,width,45);
-			miengiam.Frame= new CGRect (mhwdt+width, 10,width, 45);
-			phaidong.Frame =new CGRect (mhwdt+2*width, 10, width, 45);
+			monhoc.Frame = new CGRect (0, 10, mhwdt,40);
+			hocphi.Frame = new CGRect (mhwdt, 10,width,40);
+			miengiam.Frame= new CGRect (mhwdt+width, 10,width, 40);
+			phaidong.Frame =new CGRect (mhwdt+2*width, 10, width, 40);
 
 		}
 	}

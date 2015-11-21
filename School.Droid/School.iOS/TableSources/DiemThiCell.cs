@@ -105,7 +105,7 @@ namespace School.iOS
 			} else {
 				monhoc.Frame = new CGRect (7, 5, ContentView.Bounds.Width - 200, 50);
 			}
-			monhoc.Frame = new CGRect (0, 5, ContentView.Bounds.Width - 200, 50);
+
 			tile.Frame= new CGRect (ContentView.Bounds.Width-200, 5, 50,50);
 			diemkt.Frame= new CGRect (ContentView.Bounds.Width-150, 5, 50,50);
 			diemthi.Frame = new CGRect (ContentView.Bounds.Width-100, 5, 50,50);

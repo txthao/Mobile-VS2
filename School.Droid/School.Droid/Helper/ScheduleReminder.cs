@@ -253,7 +253,7 @@ namespace School.Droid
 				CalendarContract.Events.InterfaceConsts.Id,CalendarContract.Events.InterfaceConsts.Description},CalendarContract.Events.InterfaceConsts.Id + " =? ", selectionArgs, null);
 			
 			if (cur2.MoveToNext ()) {
-				minutes = cur.GetInt(1).ToString();
+				minutes = cur2.GetInt(1).ToString();
 				mess = cur2.GetString (1);
 
 			} else {

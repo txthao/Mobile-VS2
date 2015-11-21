@@ -29,6 +29,13 @@
             android:text="Tự động nhắc lịch học, lịch thi"
             android:textColor="@android:color/black"
             android:checked="false" />
+        <ProgressBar
+            android:id="@+id/proNL"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:indeterminateDrawable="@drawable/Progress" />
     <!--        <CheckBox
             android:layout_marginTop="10dp"
             android:textSize="20dp"

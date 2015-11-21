@@ -22,7 +22,7 @@ namespace School.Droid
 		bool autoupdate;
 		CheckBox cbNLT,cbUpdate;
 		Button btupdateData;
-		ProgressBar progressup;
+		ProgressBar progressup,progressNL;
 		TextView txtResult;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
@@ -41,7 +41,7 @@ namespace School.Droid
 			btupdateData=rootView.FindViewById<Button> (Resource.Id.btUpdateData);
 			progressup=rootView.FindViewById<ProgressBar> (Resource.Id.proUpdateData);
 			txtResult = rootView.FindViewById<TextView> (Resource.Id.txtresult);
-
+			progressNL=rootView.FindViewById<ProgressBar> (Resource.Id.proNL);
 			//About
 			TextView txtVersion = rootView.FindViewById<TextView> (Resource.Id.txtVersion_Set);
 			txtVersion.Click += TxtVersion_Click;
@@ -63,10 +63,10 @@ namespace School.Droid
 			dialog.SetContentView(Resource.Layout.CustomDialog);
 			dialog.SetTitle("Giới thiệu");
 
-			string d1 = "'Thông tin đào tạo' là ứng dụng cung cấp thông tin đạo tạo cho sinh viên Đại học Sài Gòn. Các thông tin bao gồm lịch thi, thời khóa biểu, xem điểm thi và xem học phí. Ngoài ra, ứng dụng còn cung cấp thêm tính năng nhắc lịch thi, lịch học nhằm hỗ trợ, nhắc nhở các bạn sinh viên cho việc học tập hằng tuần hoặc ôn luyện khi thi cuối kì. ";
 
 
-			dialog.FindViewById<TextView> (Resource.Id.txt_d1).Text = d1;
+
+			dialog.FindViewById<TextView> (Resource.Id.txt_d1).Text = UrlHelper.About();
 
 			dialog.Show();
 		}
@@ -99,8 +99,8 @@ namespace School.Droid
 
 		async void CbNLT_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
 		{
-			progressup.Visibility= ViewStates.Visible;
-			progressup.Indeterminate = true;
+			progressNL.Visibility= ViewStates.Visible;
+			progressNL.Indeterminate = true;
 			if (cbNLT.Checked == true) {
 
 				try{
@@ -118,12 +118,13 @@ namespace School.Droid
 				}
 
 			} else {
+				
 				ScheduleReminder reminder = new ScheduleReminder(Activity);
 				await reminder.DeleteAlLRemind ();
 				Toast.MakeText (Activity, "Xoá nhắc lịch hoàn tất", ToastLength.Long).Show();
 			}
-			progressup.Indeterminate = false;
-			progressup.Visibility = ViewStates.Gone;
+			progressNL.Indeterminate = false;
+			progressNL.Visibility = ViewStates.Gone;
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
 			var prefEditor = prefs.Edit();
 			prefEditor.PutBoolean("Remind",cbNLT.Checked);
