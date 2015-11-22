@@ -23,6 +23,7 @@ namespace School.Droid
 		string ngayhoc;
 		string tietBD;
 		string soTiet;
+		string thu;
 		Bundle bundle;
 		Boolean check;
 		MonHoc mh;
@@ -30,14 +31,18 @@ namespace School.Droid
 		LichThi lt;
 		EditText edtxt_minutes;
 		EditText edtxt_content;
-		Button Cancel;
+		Button Cancel, Save, Del;
+		View Space;
+		CheckBox checkBox;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.Reminder_Dialog);
-			Button Save = FindViewById<Button> (Resource.Id.btnSave);
-			Button Del = FindViewById<Button> (Resource.Id.btnDel);
+			Save = FindViewById<Button> (Resource.Id.btnSave);
+			Del = FindViewById<Button> (Resource.Id.btnDel);
 			Cancel = FindViewById<Button> (Resource.Id.btnCancel);
+			Space = FindViewById<View> (Resource.Id.view_Reminder);
 			edtxt_content = FindViewById<EditText> (Resource.Id.edtxt_Content);
 			TextView title = FindViewById<TextView> (Resource.Id.txtTitleRM);
 			TextView subject = FindViewById<TextView> (Resource.Id.txtSubjectRM);
@@ -46,12 +51,7 @@ namespace School.Droid
 			edtxt_minutes = FindViewById<EditText> (Resource.Id.txt_minutes);
 			bundle = Intent.GetBundleExtra ("RemindValue");
 			MH = bundle.GetString ("MH");
-			tietBD = bundle.GetString ("TietBD");
-			ngayhoc= bundle.GetString ("NgayHoc");
-			soTiet= bundle.GetString ("SoTiet");
 			check = bundle.GetBoolean ("check");
-			isLHT= bundle.GetBoolean ("isLHT");
-			Del.Visibility = ViewStates.Invisible;
 			string minutes, mess;
 			if (check) {
 				string namhoc=bundle.GetString ("NamHoc");
@@ -66,13 +66,19 @@ namespace School.Droid
 				if (item != null) {
 					ScheduleReminder reminder = new ScheduleReminder (this);
 					reminder.GetRemind (item.EventID, out minutes, out mess);
-					if (minutes != null || mess != null) {
+					if (minutes != null) {
 						edtxt_content.Text = mess;
 						edtxt_minutes.Text = minutes;
+					
+					}
+					else {
+						NewReminder ();
 					}
 				}
 
 			} else {
+				tietBD = bundle.GetString ("TietBD");
+				isLHT= bundle.GetBoolean ("isLHT");
 				lh = BLichHoc.GetLH (SQLite_Android.GetConnection (), MH);
 				mh = BMonHoc.GetMH (SQLite_Android.GetConnection (), lh.MaMH);
 				isLHT = true;
@@ -80,33 +86,50 @@ namespace School.Droid
 				title.Text = "NHẮC LỊCH HOC";
 				subject.Text = "Môn: " + mh.TenMH;
 
-				List<LHRemindItem> list = BRemind.GetLHRemind(SQLite_Android.GetConnection (),lh.Id);
-				if (list.Count != 0) {
-					ScheduleReminder reminder = new ScheduleReminder (this);
-					reminder.GetRemind (list [0].EventID, out minutes, out mess);
-					if (minutes != null || mess != null) {
-						edtxt_content.Text = mess;
-						edtxt_minutes.Text = minutes;
-					}
-				}
-				date.Visibility = ViewStates.Gone;
-				time.Visibility = ViewStates.Gone;
+
 				if (isLHT) {
-					date.Visibility = ViewStates.Visible;
-					time.Visibility = ViewStates.Visible;
+					ngayhoc= bundle.GetString ("NgayHoc");
+					soTiet= bundle.GetString ("SoTiet");
+					thu = bundle.GetString ("Thu");
 					string exNgay = ngayhoc.Substring (3, 2);
-					exNgay = exNgay + "/" + ngayhoc.Substring(0,2)+"/"+ngayhoc.Substring(6,4);
+					exNgay = exNgay + "/" + ngayhoc.Substring (0, 2) + "/" + ngayhoc.Substring (6, 4);
 					date.Text = " Ngày: " + exNgay;
-					time.Text =  "Tiết: " + tietBD ;
-					LHRemindItem item = BRemind.GetLHRemind(SQLite_Android.GetConnection (),lh.Id,ngayhoc);
+					time.Text = "Tiết: " + tietBD;
+					LHRemindItem item = BRemind.GetLHRemind (SQLite_Android.GetConnection (), lh.Id, ngayhoc);
 					if (item != null) {
-						Del.Visibility = ViewStates.Visible;
 						ScheduleReminder reminder = new ScheduleReminder (this);
 						reminder.GetRemind (item.EventID, out minutes, out mess);
-						if (minutes != null || mess != null) {
+						if (minutes != null) {
 							edtxt_content.Text = mess;
 							edtxt_minutes.Text = minutes;
+						
+						} 
+						else {
+							NewReminder ();
+							checkBox = FindViewById<CheckBox> (Resource.Id.checkBox1);
+							checkBox.Visibility = ViewStates.Visible;
 						}
+					}
+					else {
+						NewReminder ();
+						checkBox = FindViewById<CheckBox> (Resource.Id.checkBox1);
+						checkBox.Visibility = ViewStates.Visible;
+					}
+				}
+				else {
+					 
+					List<LHRemindItem> list = BRemind.GetLHRemind(SQLite_Android.GetConnection (),lh.Id);
+					if (list.Count > 1) {
+						edtxt_content.Visibility = ViewStates.Gone;
+						edtxt_minutes.Visibility = ViewStates.Gone;
+						LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams (0, LinearLayout.LayoutParams.MatchParent, 0.1f);
+						Space.LayoutParameters = layout;
+						Save.Visibility = ViewStates.Gone;
+					}else {
+
+						date.Visibility = ViewStates.Gone;
+						time.Visibility = ViewStates.Gone;
+						NewReminder ();
 					}
 				}
 
@@ -154,8 +177,6 @@ namespace School.Droid
 			else reminder.content = edtxt_content.Text;
 			reminder.MinutesRemind = int.Parse(edtxt_minutes.Text.Trim());
 			if (check) {
-
-
 				reminder.lt = lt;
 				reminder.SetCalenDarLT ();
 			} else {
@@ -167,18 +188,36 @@ namespace School.Droid
 					ct.TietBatDau = tietBD;
 					ct.SoTiet = soTiet;
 					reminder.DateForCTLH = ngayhoc;
-					reminder.ctlh = ct;
-					reminder.SetCalenDarLH ();
+
+					if (checkBox.Checked) {
+						reminder.ctlh = BLichHoc.GetCTLH (SQLite_Android.GetConnection (), lh.Id,thu,tietBD);
+						reminder.RemindLHTuan ();
+					} else {
+						reminder.ctlh = ct;
+						reminder.SetCalenDarLH ();
+					}
 				} else {
-					List<LichHoc> list = new List<LichHoc> ();
-					list.Add (lh);
-					reminder.RemindAllLH (list);
+					reminder.ctlh = BLichHoc.GetCTLH (SQLite_Android.GetConnection (),lh.Id, thu, tietBD);
+					reminder.RemindLHHK ();
 				}
 			}
-			Toast.MakeText (this, "Cài đặt nhắc lịch thành công", ToastLength.Long).Show();
+			if (reminder.isInsert) {
+				Toast.MakeText (this, "Cài đặt nhắc lịch thành công", ToastLength.Long).Show ();
+			} else {
+				Toast.MakeText (this, "Cập nhật nhắc lịch thành công", ToastLength.Long).Show ();
+			}
 			Cancel.CallOnClick ();
 		
 		}
+
+		private void NewReminder (){
+			LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams (0, LinearLayout.LayoutParams.MatchParent,0.2f);
+
+			Space.LayoutParameters = layout;
+			Del.Visibility = ViewStates.Gone;
+		}
+
+
 
 	}
 }

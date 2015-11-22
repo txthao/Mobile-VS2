@@ -23,6 +23,12 @@ namespace School.Droid
 		View rootView;
 		TextView txtHocKyHP;
 		bool check,autoupdate;
+		public static HocPhiFragment instance;
+
+		public HocPhiFragment () 
+		{
+			instance = this;
+		}
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -80,6 +86,16 @@ namespace School.Droid
 			listView.Adapter = adapter;
 			rootView.FindViewById<TextView> (Resource.Id.txtHocKyHP).Text = "Học Kỳ " + hp.HocKy +" Năm Học "+ hp.NamHoc;
 			progress.Visibility = ViewStates.Gone;
+		}
+
+		public static HocPhiFragment Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new HocPhiFragment ();
+				return instance;
+			}
 		}
 	}
 }

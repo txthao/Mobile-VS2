@@ -230,6 +230,13 @@ namespace School.Core
 			return dtb.GetCTLichHocByTime ();
 		}
 
+		public static chiTietLH GetCTLH(SQLiteConnection connection, string id, string thu, string tietBD)
+		{
+
+			DataProvider dtb = new DataProvider (connection);
+			return dtb.GetCTLichHocByThuTiet (id,thu,tietBD);
+		}
+
 
 	}
 }

@@ -29,7 +29,12 @@ namespace School.Droid
 		bool check,autoupdate;
 		Bundle bundle;
 		List<chiTietLH> listCT;
+		public static LichHocHKFragment instance;
 
+		public LichHocHKFragment () 
+		{
+			instance = this;
+		}
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -58,20 +63,7 @@ namespace School.Droid
 			//load data
 
 			LoadData_HK ();
-
-			//radio button
-//			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangTuan);
-//			RadioButton rb_hocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK);
-//			rb_hocKy.Checked = true;
-//
-//			rb_tuan.Click += new EventHandler (rd_OnCheckedChangeListener);
-
-			//button 
-//			Button btnHKTruoc = rootView.FindViewById<Button> (Resource.Id.btnHK_Truoc_LH);
-//			btnHKTruoc.Click += new EventHandler (btnHK_Truoc_Click);
-//			Button btnHKKe = rootView.FindViewById<Button> (Resource.Id.btnHK_Ke_LH);
-//			btnHKKe.Click += new EventHandler (btnHK_Ke_Click);	
-							
+		
 			// row click
 			listView_HK.ItemLongClick += listView_ItemClick;
 						
@@ -87,21 +79,13 @@ namespace School.Droid
 			bundle1.PutString ("MH", lh.Id);
 			bundle1.PutBoolean ("isLHT", false);
 			bundle1.PutBoolean ("check", false);
+			bundle1.PutString ("Thu", listCT [e.Position].Thu);
+			bundle1.PutString ("TietBD", listCT [e.Position].TietBatDau);
 
 			Intent myintent = new Intent (Activity, typeof(Remider));
 			myintent.PutExtra ("RemindValue", bundle1);
 			StartActivity (myintent);
 		}
-
-
-//		void rd_OnCheckedChangeListener (object sender, EventArgs e)
-//		{
-//			LichHocTuanFragment fragment = new LichHocTuanFragment ();
-//			fragment.Arguments = bundle;
-//			FragmentManager.BeginTransaction ()
-//				.Replace (Resource.Id.content_frame, fragment).AddToBackStack ("11")
-//				.Commit ();
-//		}
 			
 		async void LoadData_HK ()
 		{
@@ -152,24 +136,17 @@ namespace School.Droid
 
 		
 		}
-		//
-		//		void btnHK_Truoc_Click (object sender, EventArgs e)
-		//		{
-		//			string hK;
-		//			string nH;
-		//			Common.calSemester (lbl_HK.Text, lbl_NH.Text, -1, out hK, out nH);
-		//			LoadData_HK (hK, nH);
-		//		}
-		//
-		//		void btnHK_Ke_Click (object sender, EventArgs e)
-		//		{
-		//
-		//			string hK;
-		//			string nH;
-		//			Common.calSemester (lbl_HK.Text, lbl_NH.Text, 1, out hK, out nH);
-		//			LoadData_HK (hK, nH);
-		//
-		//		}
+
+		public static LichHocHKFragment Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new LichHocHKFragment ();
+				return instance;
+			}
+		}
+
 	}
 }
 

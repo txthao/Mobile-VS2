@@ -267,6 +267,12 @@ namespace School.Core
 			return query.FirstOrDefault ();
 		}
 
+		public chiTietLH GetCTLichHocByThuTiet (string id, string thu, string tietBD){
+			var query = from c in _connection.Table<chiTietLH> ()
+					where c.Id.Equals (id) && c.Thu.Equals (thu) && c.TietBatDau.Equals (tietBD)
+				select c;
+			return query.FirstOrDefault ();
+		}
 		public List<CTHocPhi> GetCTHPs (int namhoc, int hocky)
 		{
 			var query = from c in _connection.Table<CTHocPhi> ()

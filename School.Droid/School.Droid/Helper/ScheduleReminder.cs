@@ -24,6 +24,7 @@ namespace School.Droid
 		private bool isSaveId;
 		public LichThi lt;
 		List<string> listTimeLH;
+		public bool isInsert;
 		public ScheduleReminder(Context context)
 		{
 			ctx = context;
@@ -79,22 +80,35 @@ namespace School.Droid
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.HasAlarm, "1");
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.EventTimezone,"GMT+7:00");
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone,"GMT+7:00");
-			var eventUri = ctx.ContentResolver.Insert(CalendarContract.Events.ContentUri, eventValues);
-			string eventID = eventUri.LastPathSegment;
-
-			LHRemindItem item = new LHRemindItem ();
-			item.EventID = eventID;
-			item.Date = DateForCTLH;
-			item.IDLH = lh.Id;
-			//item.Mess = content;
-			//item.Minute = MinutesRemind;
-			BRemind.SaveLHRemind(SQLite_Android.GetConnection (),item);
 
 			ContentValues remindervalues = new ContentValues();
 			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Minutes,MinutesRemind);
-			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.EventId,eventID);
-			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Method,(int)Android.Provider.RemindersMethod.Alert);
-			var reminderURI= ctx.ContentResolver.Insert(CalendarContract.Reminders.ContentUri,remindervalues);
+			remindervalues.Put (CalendarContract.Reminders.InterfaceConsts.Method, (int)Android.Provider.RemindersMethod.Alert);
+
+			string id = checkHaveRemind (false);// return eventID if have 
+			if (id != null ) {
+				ctx.ContentResolver.Update (CalendarContract.Events.ContentUri,eventValues,
+					CalendarContract.Events.InterfaceConsts.Id + " =? ", new String[] { id });
+				remindervalues.Put (CalendarContract.Reminders.InterfaceConsts.EventId, id);
+				ctx.ContentResolver.Update(CalendarContract.Reminders.ContentUri,remindervalues,
+					CalendarContract.Reminders.InterfaceConsts.EventId + " =? ", new String[] { id });
+				isInsert = false;
+			}
+			else{
+				var eventUri = ctx.ContentResolver.Insert (CalendarContract.Events.ContentUri, eventValues);
+				string eventID = eventUri.LastPathSegment;
+				LHRemindItem item = new LHRemindItem ();
+				item.EventID = eventID;
+				item.Date = DateForCTLH;
+				item.IDLH = lh.Id;
+				//item.Mess = content;
+				//item.Minute = MinutesRemind;
+				BRemind.SaveLHRemind(SQLite_Android.GetConnection (),item);
+				isInsert = true;
+				remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.EventId,eventID);
+				var reminderURI= ctx.ContentResolver.Insert(CalendarContract.Reminders.ContentUri,remindervalues);
+			}
+
 		}
 
 
@@ -125,23 +139,64 @@ namespace School.Droid
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.HasAlarm, "1");
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.EventTimezone,"GMT+7:00");
 			eventValues.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone,"GMT+7:00");
-			var eventUri = ctx.ContentResolver.Insert(CalendarContract.Events.ContentUri, eventValues);
-			string eventID = eventUri.LastPathSegment;
+			ContentValues remindervalues = new ContentValues ();
+			remindervalues.Put (CalendarContract.Reminders.InterfaceConsts.Minutes, MinutesRemind);
+			remindervalues.Put (CalendarContract.Reminders.InterfaceConsts.Method, (int)Android.Provider.RemindersMethod.Alert);
+			string id = checkHaveRemind (true);// return eventID if have 
+			if (id != null) {
+				ctx.ContentResolver.Update (CalendarContract.Events.ContentUri,eventValues,
+					CalendarContract.Events.InterfaceConsts.Id + " =? ", new String[] { id });
+				remindervalues.Put (CalendarContract.Reminders.InterfaceConsts.EventId, id);
+				ctx.ContentResolver.Update(CalendarContract.Reminders.ContentUri,remindervalues,
+					CalendarContract.Reminders.InterfaceConsts.EventId + " =? ", new String[] { id });
+				isInsert = false;
+			}
+			else{
+				var eventUri = ctx.ContentResolver.Insert (CalendarContract.Events.ContentUri, eventValues);
+				string eventID = eventUri.LastPathSegment;
+				LTRemindItem item = new LTRemindItem ();
+				item.EventID = eventID;
+				item.HocKy = lt.HocKy;
+				item.NamHoc = lt.NamHoc;
+				item.MaMH = lt.MaMH;
+				isInsert = true;
+				BRemind.SaveLTRemind (SQLite_Android.GetConnection (), item);
+				remindervalues.Put (CalendarContract.Reminders.InterfaceConsts.EventId, eventID);
+				var reminderURI= ctx.ContentResolver.Insert(CalendarContract.Reminders.ContentUri,remindervalues);
+			}
+		
+		}
+		public Task RemindLHHK ()
+		{
+			isSaveId = true;
+			return Task.Run(()=>
+				{
+				List<string> listNgayHoc = Common.strListTuanToArrayString (ctlh.Tuan);
+				
+				foreach (string s in listNgayHoc) {
+					DateForCTLH = s;
+					SetCalenDarLH ();
+				}
+				isSaveId = false;
+				}
+			);
+		}
 
-			LTRemindItem item = new LTRemindItem ();
-			item.EventID = eventID;
-			item.HocKy = lt.HocKy;
-			item.NamHoc = lt.NamHoc;
-			item.MaMH = lt.MaMH;
-			//item.Mess = content;
-			//item.Minute = MinutesRemind;
-			BRemind.SaveLTRemind (SQLite_Android.GetConnection (),item);
-
-			ContentValues remindervalues = new ContentValues();
-			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Minutes,MinutesRemind);
-			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.EventId,eventID);
-			remindervalues.Put(CalendarContract.Reminders.InterfaceConsts.Method,(int)Android.Provider.RemindersMethod.Alert);
-			var reminderURI= ctx.ContentResolver.Insert(CalendarContract.Reminders.ContentUri,remindervalues);
+		public Task RemindLHTuan ()
+		{
+			isSaveId = true;
+			ctlh.Tuan = ctlh.Tuan.Substring(ctlh.Tuan.IndexOf(DateForCTLH));
+			isSaveId = true;
+			return Task.Run (() => {
+				List<string> listNgayHoc = Common.strListTuanToArrayString (ctlh.Tuan);
+				foreach (string s in listNgayHoc) {
+					DateForCTLH = s;
+					SetCalenDarLH ();
+				}
+				isSaveId = false;
+			}
+			);
+				
 		}
 
 
@@ -261,6 +316,30 @@ namespace School.Droid
 				mess = null;
 			}
 
+		}
+
+		public string checkHaveRemind(bool isLT){
+			
+			string eventId = null;
+			if (isLT) {
+				LTRemindItem item = BRemind.GetLTRemind (SQLite_Android.GetConnection (), lt.MaMH, lt.NamHoc, lt.HocKy);
+				if (item == null)
+					eventId = item.EventID;
+			} else {
+				LHRemindItem item = BRemind.GetLHRemind(SQLite_Android.GetConnection (),lh.Id,DateForCTLH);
+				if (item != null)
+					eventId = item.EventID;
+			}
+			if (eventId != null) {
+				var cur = ctx.ContentResolver.Query (CalendarContract.Events.ContentUri, new String[] {
+					CalendarContract.Events.InterfaceConsts.Id, CalendarContract.Events.InterfaceConsts.Description
+				}, CalendarContract.Events.InterfaceConsts.Id + " =? ", new String[] { eventId }, null);
+			
+				if (cur.MoveToNext ()) {
+					return eventId;
+				}
+			}
+			return null;
 		}
 		private List<string> CovertListId(string s)
 		{
