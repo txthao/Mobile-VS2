@@ -25,12 +25,15 @@ namespace School.Droid
 		LinearLayout linear;
 		TextView txtNotify;
 		bool check,autoupdate;
+		public static LichThiFragment instance;
+
+		public LichThiFragment () 
+		{
+			instance = this;
+		}
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
-
-		
-
 		}
 
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -50,14 +53,6 @@ namespace School.Droid
 			Bundle bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
-//			List<LichThi> listLT = BLichThi.GetNewestLT (SQLite_Android.GetConnection ()); 
-//			if (listLT != null) {
-//				
-//			}	
-//			else {
-//				progress.Visibility = ViewStates.Gone;
-//			}
-
 			LoadData ();
 			listView.ItemLongClick += listView_ItemClick;
 			return rootView;
@@ -110,6 +105,15 @@ namespace School.Droid
 			progress.Visibility = ViewStates.Gone;
 			progress.Indeterminate = false;
 
+		}
+		public static LichThiFragment Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new LichThiFragment ();
+				return instance;
+			}
 		}
 	}
 }

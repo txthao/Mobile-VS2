@@ -28,6 +28,12 @@ namespace School.Droid
 		Bundle bundle;
 		List<chiTietLH> listCT;
 
+		public static LichHocTuanFragment instance;
+
+		public LichHocTuanFragment () 
+		{
+			instance = this;
+		}
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -82,13 +88,6 @@ namespace School.Droid
 				txtNotify.Text = "Hiện tại lịch học chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
 			}
 
-
-			//radio button 
-//			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangTuan_Tuan);
-//			RadioButton rb_hocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK_Tuan);
-//			rb_tuan.Checked = true;
-//			rb_hocKy.Click += new EventHandler (rd_OnCheckedChangeListener);
-
 			// button event
 			btnTuanTruoc.Click += new EventHandler (btnTuanTruoc_Click);
 			btnTuanKe.Click += new EventHandler (btnTuanKe_Click);
@@ -106,6 +105,7 @@ namespace School.Droid
 			bundle1.PutString ("TietBD", listCT [e.GroupPosition].TietBatDau);
 			bundle1.PutString ("NgayHoc", listCT [e.GroupPosition].Tuan);
 			bundle1.PutString ("SoTiet", listCT [e.GroupPosition].SoTiet);
+			bundle1.PutString ("Thu", listCT [e.GroupPosition].Thu);
 			bundle1.PutBoolean ("check", false);
 			bundle1.PutBoolean ("isLHT", true);
 			// call fragment
@@ -113,15 +113,6 @@ namespace School.Droid
 			myintent.PutExtra ("RemindValue", bundle1);
 			StartActivity (myintent);
 		}
-
-//		void rd_OnCheckedChangeListener (object sender, EventArgs e)
-//		{
-//			LichHocHKFragment fragment = new LichHocHKFragment ();
-//			fragment.Arguments = bundle;
-//			FragmentManager.BeginTransaction ()
-//				.Add (Resource.Id.content_frame, fragment).AddToBackStack("12")
-//				.Commit ();
-//		}
 
 		void btnTuanTruoc_Click (object sender, EventArgs e)
 		{
@@ -239,7 +230,15 @@ namespace School.Droid
 			// and check if checkDate is inside this period
 			return checkDate >= startDateOfWeek && checkDate <= endDateOfWeek;
 		}
-
+		public static LichHocTuanFragment Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new LichHocTuanFragment ();
+				return instance;
+			}
+		}
 	
 	}
 }

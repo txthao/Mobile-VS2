@@ -24,6 +24,13 @@ namespace School.Droid
 		TextView txtNotify;
 		bool check,autoupdate;
 		Bundle bundle;
+		public static DiemThiFragment instance;
+
+		public DiemThiFragment () 
+		{
+			instance = this;
+		}
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -113,6 +120,16 @@ namespace School.Droid
 			}
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
+		}
+
+		public static DiemThiFragment Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new DiemThiFragment ();
+				return instance;
+			}
 		}
 
 	}

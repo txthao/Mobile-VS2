@@ -26,6 +26,12 @@ namespace School.Droid
 		ProgressBar progress;
 		Bundle bundle;
 		bool flag = true;//check the first time and have data
+		public static DiemThiHKFragment instance;
+
+		public DiemThiHKFragment () 
+		{
+			instance = this;
+		}
 
 		public override void OnCreate (Bundle savedInstanceState)
 		{
@@ -158,6 +164,15 @@ namespace School.Droid
 			listViewDT.Visibility = ViewStates.Visible;
 
 
+		}
+		public static DiemThiHKFragment Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new DiemThiHKFragment ();
+				return instance;
+			}
 		}
 	}
 }

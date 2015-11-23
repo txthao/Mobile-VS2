@@ -72,20 +72,21 @@ public final class R {
         public static final int RelativeLayou=0x7f080019;
         public static final int RelativeLayout5=0x7f080017;
         public static final int btDangNhap=0x7f080079;
-        public static final int btUpdateData=0x7f080093;
-        public static final int btnCancel=0x7f08008f;
-        public static final int btnDel=0x7f08008e;
+        public static final int btUpdateData=0x7f080095;
+        public static final int btnCancel=0x7f080091;
+        public static final int btnDel=0x7f080090;
         public static final int btnHK_Ke_DT=0x7f080012;
         public static final int btnHK_Truoc_DT=0x7f080011;
-        public static final int btnSave=0x7f08008d;
+        public static final int btnSave=0x7f08008f;
         public static final int btnTuanKe=0x7f08005f;
         public static final int btnTuanTruoc=0x7f08005e;
         public static final int btn_Expand=0x7f080041;
-        public static final int ckboxAutoUpdateData=0x7f080092;
-        public static final int ckboxRemindLT=0x7f080090;
+        public static final int checkBox1=0x7f08008c;
+        public static final int ckboxAutoUpdateData=0x7f080094;
+        public static final int ckboxRemindLT=0x7f080092;
         public static final int content_frame=0x7f080083;
         public static final int drawer_layout=0x7f080082;
-        public static final int edtxt_Content=0x7f08008c;
+        public static final int edtxt_Content=0x7f08008d;
         public static final int errorMSG=0x7f08007a;
         public static final int icon_drawer=0x7f080014;
         public static final int imgBell_HK=0x7f080071;
@@ -127,8 +128,8 @@ public final class R {
         public static final int listLHTuan=0x7f08006f;
         public static final int listLH_Tuan=0x7f08005c;
         public static final int listLT=0x7f080076;
-        public static final int proNL=0x7f080091;
-        public static final int proUpdateData=0x7f080094;
+        public static final int proNL=0x7f080093;
+        public static final int proUpdateData=0x7f080096;
         public static final int profile_image=0x7f080018;
         public static final int progressDT=0x7f080006;
         public static final int progressDTHK=0x7f08000e;
@@ -211,7 +212,7 @@ public final class R {
         public static final int txtTimeRM=0x7f08008a;
         public static final int txtTitleRM=0x7f080087;
         public static final int txtVersion_Log=0x7f08007b;
-        public static final int txtVersion_Set=0x7f080096;
+        public static final int txtVersion_Set=0x7f080098;
         public static final int txt_d1=0x7f080001;
         public static final int txt_d2=0x7f080002;
         public static final int txt_d3=0x7f080003;
@@ -219,7 +220,8 @@ public final class R {
         public static final int txtmasv=0x7f08001b;
         public static final int txtmk=0x7f080078;
         public static final int txtmsv=0x7f080077;
-        public static final int txtresult=0x7f080095;
+        public static final int txtresult=0x7f080097;
+        public static final int view_Reminder=0x7f08008e;
     }
     public static final class layout {
         public static final int about=0x7f030000;
