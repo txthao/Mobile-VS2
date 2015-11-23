@@ -26,7 +26,7 @@ namespace School.iOS
 		static LTRemindItem ItemLT;
 		string title;
 		string tenmh;
-
+		static bool isUpdate = false;
 		public VCHomeReminder(UIViewController controller)
 		{
 			this.controller=controller;
@@ -103,6 +103,10 @@ namespace School.iOS
 							}
 
 						}});
+					if (VCLichHoc.instance != null)
+						VCLichHoc.Instance.LoadData ();
+					if (VCLichHocTuan.instance != null)
+						VCLichHocTuan.Instance.LoadData_Tuan (VCLichHocTuan.LoadedDate);
 				}
 			);
 		}
@@ -249,10 +253,15 @@ namespace School.iOS
 			// show the event controller
 			controller.PresentViewController (eventController, true, null);
 		}
-		public void LoadEvent(string eventID)
+		public void LoadEvent(string eventID,LHRemindItem rmItem)
 		{
 			try
 			{
+				if (rmItem!=null)
+				{
+					ItemLH=rmItem;
+				}
+
 				EKEvent mySavedEvent = App.Current.EventStore.EventFromIdentifier (eventID);
 				EventKitUI.EKEventEditViewController eventController =
 					new EventKitUI.EKEventEditViewController ();
@@ -263,7 +272,9 @@ namespace School.iOS
 				// wire up a delegate to handle events from the controller
 				eventControllerDelegate = new CreateEventEditViewDelegate (eventController);
 				eventController.EditViewDelegate = eventControllerDelegate;
+				isUpdate=true;
 				controller.PresentViewController (eventController, true, null);
+			
 			}
 			catch {
 				BRemind.RemoveRemind (SQLite_iOS.GetConnection (), eventID);
@@ -285,6 +296,28 @@ namespace School.iOS
 			// to retrieve the event you can call
 			EKEvent mySavedEvent = App.Current.EventStore.EventFromIdentifier (eventID);
 			Console.WriteLine ("Retrieved Saved Event: " + mySavedEvent.Title);
+
+		}
+		protected static void UpdateEvents(EKEvent myevent)
+		{
+			NSError e;
+			NSDate startT = myevent.StartDate;
+			List<LHRemindItem> events = BRemind.GetLHRemind (SQLite_iOS.GetConnection(),ItemLH.IDLH);
+			foreach (var item in events) {
+				try
+				{
+				EKEvent mySavedEvent = App.Current.EventStore.EventFromIdentifier (item.EventID);
+					if (mySavedEvent.StartDate.Compare(startT)>0)
+					{
+						mySavedEvent.Notes= myevent.Notes;
+						App.Current.EventStore.SaveEvent(mySavedEvent,EKSpan.ThisEvent,out e);
+					}
+
+				}
+				catch {
+				}
+			}
+
 
 		}
 		public void RemoveEvent(string eventID)
@@ -332,7 +365,7 @@ namespace School.iOS
 			}
 
 			// completed is called when a user eith
-			public override void Completed (EventKitUI.EKEventEditViewController controller, EventKitUI.EKEventEditViewAction action)
+			public async override void Completed (EventKitUI.EKEventEditViewController controller, EventKitUI.EKEventEditViewAction action)
 			{
 				eventController.DismissViewController (true, null);
 
@@ -360,6 +393,14 @@ namespace School.iOS
 					if (ItemLH != null) {
 						ItemLH.EventID = controller.Event.EventIdentifier;
 						BRemind.SaveLHRemind (SQLite_iOS.GetConnection (), ItemLH);
+						if (isUpdate) {
+							EKEvent mySavedEvent = App.Current.EventStore.EventFromIdentifier (ItemLH.EventID);
+							bool accepted=await LayoutHelper.ShowAlert ("Cập nhật", "Bạn có muốn áp dụng thay đổi này cho tất cả các nhắc lịch môn này về sau");
+							if (accepted) {
+								UpdateEvents (mySavedEvent);
+							}
+							isUpdate = false;
+						}
 						if (VCLichHoc.instance != null)
 							VCLichHoc.Instance.LoadData ();
 						if (VCLichHocTuan.instance != null)
@@ -371,6 +412,8 @@ namespace School.iOS
 						if (VCLichThi.instance != null)
 							VCLichThi.Instance.LoadData ();
 						ItemLT = null;
+						isUpdate = false;
+					
 					}
 					break;
 				}

@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="School.Droid\School.Droid.csproj">
+﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.avd1" />
   <MonoDevelop.Ide.Workbench>
     <Files>

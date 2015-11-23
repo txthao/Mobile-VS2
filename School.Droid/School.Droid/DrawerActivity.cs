@@ -59,11 +59,11 @@ namespace School.Droid
 		//	listItems.Add(new DrawerItem(namesv,Resource.Drawable.user,true));
 			listItems.Add(new DrawerItem("Lịch Học",0,false,true));
 			listItems.Add(new DrawerItem("Theo Học Kỳ",Resource.Drawable.Iclichhoc,true,false));
-			listItems.Add(new DrawerItem("Theo Tuần",Resource.Drawable.Iclichhoc,false,false));
+			listItems.Add(new DrawerItem("Theo Tuần",Resource.Drawable.calendar,false,false));
 
 			listItems.Add(new DrawerItem("Điểm Thi",0,false,true));
 			listItems.Add(new DrawerItem("Theo Học Kỳ",Resource.Drawable.Icdiemthi,true,false));
-			listItems.Add(new DrawerItem("Tất Cả",Resource.Drawable.Icdiemthi,false,false));
+			listItems.Add(new DrawerItem("Tất Cả",Resource.Drawable.IcAdiemthi,false,false));
 
 			listItems.Add(new DrawerItem("Học Phí-Lịch Thi",0,false,true));
 			listItems.Add(new DrawerItem("Lịch Thi",Resource.Drawable.Iclichthi,true,false));
@@ -72,7 +72,7 @@ namespace School.Droid
 			listItems.Add(new DrawerItem("Ứng Dụng",0,false,true));
 			listItems.Add(new DrawerItem("Cài đặt",Resource.Drawable.Icsettings,true,false));
 
-			listItems.Add (new DrawerItem ("Đăng xuất", Resource.Drawable.Iclogout,false,false));
+			listItems.Add (new DrawerItem ("Đăng xuất", Resource.Drawable.signout,false,false));
 			_drawerList.Adapter = new CustomDrawerAdapter (this, listItems);
 			_drawerList.ItemClick += (sender, args) => SelectItem(args.Position);
 

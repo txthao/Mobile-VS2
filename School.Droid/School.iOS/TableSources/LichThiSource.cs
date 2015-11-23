@@ -74,7 +74,7 @@ namespace School.iOS
 				remid.lt.HocKy);
 
 			if (rmItem != null) {
-				remid.LoadEvent (rmItem.EventID);
+				remid.LoadEvent (rmItem.EventID,null);
 			}
 				else
 				{
