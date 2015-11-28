@@ -323,7 +323,7 @@ namespace School.Droid
 			string eventId = null;
 			if (isLT) {
 				LTRemindItem item = BRemind.GetLTRemind (SQLite_Android.GetConnection (), lt.MaMH, lt.NamHoc, lt.HocKy);
-				if (item == null)
+				if (item != null)
 					eventId = item.EventID;
 			} else {
 				LHRemindItem item = BRemind.GetLHRemind(SQLite_Android.GetConnection (),lh.Id,DateForCTLH);

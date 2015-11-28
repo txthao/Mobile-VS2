@@ -106,14 +106,15 @@ namespace School.Droid
 						} 
 						else {
 							NewReminder ();
-							checkBox = FindViewById<CheckBox> (Resource.Id.checkBox1);
-							checkBox.Visibility = ViewStates.Visible;
+
 						}
+						checkBox = FindViewById<CheckBox> (Resource.Id.checkBox1);
+						checkBox.Visibility = ViewStates.Visible;
 					}
 					else {
 						NewReminder ();
 						checkBox = FindViewById<CheckBox> (Resource.Id.checkBox1);
-						checkBox.Visibility = ViewStates.Visible;
+						checkBox.Visibility = ViewStates.Invisible;
 					}
 				}
 				else {

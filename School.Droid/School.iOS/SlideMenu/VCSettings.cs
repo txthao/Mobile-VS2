@@ -233,7 +233,7 @@ namespace School.iOS
 			frame = txtHoTenSV.Frame;
 			frame.Y = txtMaSV.Frame.Y + 30;
 			frame.X = 30;
-			frame.Width = App.Current.width/2+30;
+			frame.Width = App.Current.width/2+50;
 			txtHoTenSV.Frame= frame;
 			frame = btFooter.Frame;
 			frame.Width = App.Current.width;

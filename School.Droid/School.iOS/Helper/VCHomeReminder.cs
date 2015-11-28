@@ -103,10 +103,7 @@ namespace School.iOS
 							}
 
 						}});
-					if (VCLichHoc.instance != null)
-						VCLichHoc.Instance.LoadData ();
-					if (VCLichHocTuan.instance != null)
-						VCLichHocTuan.Instance.LoadData_Tuan (VCLichHocTuan.LoadedDate);
+					
 				}
 			);
 		}
@@ -122,6 +119,7 @@ namespace School.iOS
 							AutoCreateEventLT ();
 						});
 					}
+
 
 				});
 		}
@@ -330,8 +328,15 @@ namespace School.iOS
 		}
 		public  void RemoveEvents(List<LHRemindItem> rmItem)
 		{
-			foreach (var remindIT in rmItem)
+			foreach (var remindIT in rmItem) {
+				try
+				{
 				RemoveEvent (remindIT.EventID);
+				}
+				catch {
+				}
+				BRemind.RemoveRemind (SQLite_iOS.GetConnection (), remindIT.EventID);
+			}
 			if (VCLichHoc.instance != null)
 				VCLichHoc.Instance.LoadData ();
 

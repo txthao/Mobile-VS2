@@ -33,17 +33,19 @@ namespace School.iOS
 
 			headers.Source = new LichHocHKSource ();
 
-
+			timeLH.Frame = LayoutHelper.setlayoutForTimeLB(timeLH.Frame);
 	
 			listLH.Frame = LayoutHelper.setlayoutForTB (listLH.Frame );
 			CGRect frame = listLH.Frame;
-			frame.Height = App.Current.height - frame.Y;
+
+			frame.Height = App.Current.height - frame.Y-20;
 			listLH.Frame = frame;
 			headers.Frame = LayoutHelper.setlayoutForHeader (headers.Frame );
+
 			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
 
 			timeLH.Text = "";
-			timeLH.Frame = LayoutHelper.setlayoutForTimeLB(timeLH.Frame);
+
 			progress.Hidden = true;
 			progress = LayoutHelper.progressDT (progress);
 			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);

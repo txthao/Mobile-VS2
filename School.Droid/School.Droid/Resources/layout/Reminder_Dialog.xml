@@ -79,7 +79,7 @@
                 android:layout_marginLeft="10dp" />
         </LinearLayout>
         <CheckBox
-            android:text="Nhac lich tu ngay den het hoc ki"
+            android:text="Áp dụng thay đổi này cho tất cả các nhắc lịch môn này về sau"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/checkBox1"

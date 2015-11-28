@@ -76,8 +76,8 @@ namespace School.iOS
 			phongthi.Text = iphongthi;
 			this.num = num;
 			if (hasRM) {
-				this.hasRM.Image= UIImage.FromBundle ("menupic/Iclichhoc.png");
-				this.hasRM.Frame = new CGRect (0, 5, 20, 10);
+				this.hasRM.Image= UIImage.FromBundle ("menupic/bell.png");
+
 			}else {
 				this.hasRM.Image = UIImage.FromBundle ("");
 			}
@@ -96,6 +96,7 @@ namespace School.iOS
 			if (hasRM.Image != null) {
 				
 				phongthi.Frame = new CGRect (mhwdt + width, 5, width - 10, 40);
+				hasRM.Frame= new CGRect (mhwdt + 2* width-10, 5, 10, 10);
 			} else {
 				phongthi.Frame = new CGRect (mhwdt + width, 5, width , 40);
 			}

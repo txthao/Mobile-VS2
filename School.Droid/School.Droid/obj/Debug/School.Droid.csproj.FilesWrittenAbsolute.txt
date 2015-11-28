@@ -96,3 +96,4 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/bin/Debug/SQLitePCL.raw.dll
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/bin/Debug/School.Core.dll
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/bin/Debug/School.Core.dll.mdb
+/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/calendar.png
