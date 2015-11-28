@@ -51,6 +51,12 @@ namespace School.iOS
 					,tableItems [indexPath.Row].GioBD,indexPath.Row,hasRM);
 				UILongPressGestureRecognizer longPress = new UILongPressGestureRecognizer (LongPress);
 				cell.AddGestureRecognizer (longPress);
+				if (indexPath.Row % 2 != 0) {
+					cell.BackgroundColor = UIColor.FromRGBA((float)0.8, (float)0.8, (float)0.8, (float)1);
+				}
+				else {
+					cell.BackgroundColor = UIColor.White;
+				}
 				return cell;
 				// now set the properties as normal
 			} else {
@@ -74,7 +80,7 @@ namespace School.iOS
 				remid.lt.HocKy);
 
 			if (rmItem != null) {
-				remid.LoadEvent (rmItem.EventID);
+				remid.LoadEvent (rmItem.EventID,null);
 			}
 				else
 				{

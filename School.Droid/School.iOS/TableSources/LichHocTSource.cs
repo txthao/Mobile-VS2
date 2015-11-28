@@ -145,7 +145,7 @@ namespace School.iOS
 			LHRemindItem rmItem = BRemind.GetLHRemind (SQLite_iOS.GetConnection (), remid.ct.Id, remid.ct.Tuan);
 
 			if (rmItem != null) {
-				remid.LoadEvent (rmItem.EventID);
+				remid.LoadEvent (rmItem.EventID,rmItem);
 			} else {
 				remid.lh = BLichHoc.GetLH (SQLite_iOS.GetConnection (), Items [cell.num].Id);
 				remid.RemindLH ();

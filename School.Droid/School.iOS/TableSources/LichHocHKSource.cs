@@ -61,8 +61,10 @@ namespace School.iOS
 
 				cell.AddGestureRecognizer (longPress);
 
-				if (cell.num % 2 != 0) {
-					cell.BackgroundColor = UIColor.FromRGBA((float)0.8, (float)0.8, (float)0.8, (float)1);
+				if (indexPath.Row % 2 != 0) {
+					cell.BackgroundColor = UIColor.FromRGBA ((float)0.8, (float)0.8, (float)0.8, (float)1);
+				} else {
+					cell.BackgroundColor = UIColor.White;
 				}
 
 
@@ -96,6 +98,10 @@ namespace School.iOS
 					var mycontent = ShowAlert (monhoc);
 					string content = await mycontent;
 					await remid.RemindALLLH (list, content);
+					if (VCLichHoc.instance != null)
+						VCLichHoc.Instance.LoadData ();
+					if (VCLichHocTuan.instance != null)
+						VCLichHocTuan.Instance.LoadData_Tuan (VCLichHocTuan.LoadedDate);
 				}
 				else
 				{
@@ -104,7 +110,8 @@ namespace School.iOS
 					bool accepted = await ShowAlert("Xoá Nhắc Lịch", "Bạn muốn xoá hết các nhắc lịch cho môn "+monhoc);
 					if (accepted) {
 						remid.RemoveEvents (rmItem);
-
+						UIAlertView _error = new UIAlertView ("Xoá Nhắc Lịch", "Xoá Nhắc Lịch Thành Công", null, "Ok", null);
+						_error.Show ();
 					}
 
 				}

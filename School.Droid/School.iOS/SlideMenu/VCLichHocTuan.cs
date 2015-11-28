@@ -80,7 +80,12 @@ namespace School.iOS
 
 		void BtTuanTrc_TouchUpInside (object sender, EventArgs e)
 		{
-			((LichHocTSource)listContent.Source).Items.Clear();
+			try
+			{
+				((LichHocTSource)listContent.Source).Items.Clear();
+			}
+			catch{
+			}
 			listContent.ReloadData();
 			isReload=true;
 			LoadData_Tuan (convertFromStringToDate (begining).AddDays (-7));
@@ -88,7 +93,12 @@ namespace School.iOS
 
 		void BtTuanKe_TouchUpInside (object sender, EventArgs e)
 		{
+			try
+			{
 			((LichHocTSource)listContent.Source).Items.Clear();
+			}
+			catch{
+			}
 			listContent.ReloadData();
 			isReload=true;
 			LoadData_Tuan (convertFromStringToDate (begining).AddDays (7));
@@ -142,11 +152,7 @@ namespace School.iOS
 				}
 				progress.StopAnimating ();
 				listLH = BLichHoc.GetNewestLH (SQLite_iOS.GetConnection ());
-				if (listLH.Count==0) 
-				{
-					listContent.Hidden= true;
-					errorLB.Hidden=false;
-				}
+
 
 				listCT = new List<chiTietLH> ();
 				foreach (var item in listLH) {
@@ -162,16 +168,25 @@ namespace School.iOS
 					}
 
 				}
+				if (listLH.Count>0) 
+				{
+				btTuanKe.Hidden=false;
+				btTuanTrc.Hidden=false;
 
+				}
+				if (listCT.Count==0) 
+				{
+					listContent.Hidden= true;
+					errorLB.Hidden=false;
+				}
 
-
-
-
+				GetWeek (dateOfWeek, out begining, out end);
+				txtngayLHTuan.Text = "Từ " + begining + " Đến " + end;
+				timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
 				if (listCT.Count > 0) {
-					GetWeek (dateOfWeek, out begining, out end);
+					
 					LoadedDate=dateOfWeek;
-					txtngayLHTuan.Text = "Từ " + begining + " Đến " + end;
-					timeLHTuan.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
+
 					listContent.Source = new LichHocTSource (listCT, this);
 					listContent.ReloadData ();
 					btTuanKe.Hidden=false;

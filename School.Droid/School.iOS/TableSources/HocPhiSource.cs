@@ -51,6 +51,9 @@ namespace School.iOS
 				if (indexPath.Row % 2 != 0) {
 					cell.BackgroundColor = UIColor.FromRGBA((float)0.8, (float)0.8, (float)0.8, (float)1);
 				}
+				else {
+					cell.BackgroundColor = UIColor.White;
+				}
 				return cell;
 				// now set the properties as normal
 			} else {

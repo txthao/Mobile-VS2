@@ -15,12 +15,13 @@ namespace School.iOS
 		{
 			CGRect iFrame = frame;
 			iFrame.Width = App.Current.width;
-			iFrame.Y = App.Current.height / 4+15;
+
 			if (App.Current.height <= 568) {
-				
+				iFrame.Y = App.Current.height / 4+15;
 				iFrame.Height = App.Current.height / 2 - 70;
 			} else {
 				iFrame.Height = App.Current.height / 2-110;
+				iFrame.Y = App.Current.height / 4-5;
 			}
 			return iFrame;
 		}
@@ -29,7 +30,7 @@ namespace School.iOS
 			CGRect iFrame = frame;
 			iFrame.Width = App.Current.width;
 			iFrame.Height = 45;
-			iFrame.Y = App.Current.height / 4-30;
+			iFrame.Y = (App.Current.height <= 568) ? App.Current.height / 4 - 30 : App.Current.height / 4 - 50;
 			return iFrame;
 		}
 		public static CGRect setlayoutForTimeLB(CGRect frame)
@@ -52,7 +53,7 @@ namespace School.iOS
 			CGRect iFrame = frame;
 			iFrame.Width = App.Current.width;
 			nfloat tableHeight = (App.Current.height <= 568) ? App.Current.height / 2 - 70 : App.Current.height / 2 - 110;
-			iFrame.Y =  Y + tableHeight;
+			iFrame.Y =  Y + tableHeight+40;
 			iFrame.Height = (App.Current.height - iFrame.Y) / 6-5;
 			iFrame.Y = num*iFrame.Height+iFrame.Y+5;
 			return iFrame;

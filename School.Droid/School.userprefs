@@ -1,11 +1,8 @@
-﻿<Properties StartupItem="School.Droid\School.Droid.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.avd1" />
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.2" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="School.iOS/SlideMenu/VCLichHocTuan.cs">
     <Files>
-      <File FileName="School.Droid\Helper\Remider.cs" Line="194" Column="1" />
-      <File FileName="School.Droid\Helper\ScheduleReminder.cs" Line="198" Column="6" />
-      <File FileName="School.Droid\LichHocHKFragment.cs" Line="82" Column="55" />
-      <File FileName="School.Droid\LichHocTuanFragment.cs" Line="108" Column="53" />
+      <File FileName="School.iOS/SlideMenu/VCLichHocTuan.cs" Line="34" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -13,6 +10,11 @@
       <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/HocPhiAdapter.cs" line="23" column="1" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Core/Bussiness/BLichHoc.cs" line="140" column="1" />
+      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.iOS/SlideMenu/VCLichHocTuan.cs" line="175" column="1" />
+      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.iOS/SlideMenu/VCLichHocTuan.cs" line="176" column="1" />
+      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.iOS/SlideMenu/VCLichHocTuan.cs" line="177" column="1" />
+      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.iOS/SlideMenu/VCLichHocTuan.cs" line="111" column="1" />
+      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.iOS/SlideMenu/VCLichHocTuan.cs" line="112" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
