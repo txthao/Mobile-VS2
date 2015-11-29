@@ -114,7 +114,6 @@ G:\Xay dung phan mem\Mobile\School-App-Mobile\School.Droid\School.Droid\obj\Debu
 G:\Xay dung phan mem\Mobile\School-App-Mobile\School.Droid\School.Droid\obj\Debug\res\layout\dt_hkrow.xml
 G:\Xay dung phan mem\Mobile\School-App-Mobile\School.Droid\School.Droid\obj\Debug\R.cs.flag
 G:\Xay dung phan mem\Mobile\School-App-Mobile\School.Droid\School.Droid\obj\Debug\uploadflags.txt
-G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\School.Droid.csprojResolveAssemblyReference.cache
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\bin\Debug\School.Droid.dll
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\bin\Debug\School.Droid.pdb
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\bin\Debug\com.companyname.school.apk
@@ -133,6 +132,7 @@ G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\bin\Debug\School.Core.
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\bin\Debug\SQLite-net.dll.mdb
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\bin\Debug\Xamarin.Forms.Core.xml
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\School.Droid.csprojResolveAssemblyReference.cache
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\School.Droid.dll
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\School.Droid.pdb
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\android\bin\com.companyname.school.apk
@@ -214,5 +214,6 @@ G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\signout.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\layout\reminder_dialog.xml
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\layout\customdialog.xml
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\res\drawable-hdpi\calendar.png
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\R.cs.flag
 G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid\obj\Debug\uploadflags.txt

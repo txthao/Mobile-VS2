@@ -15,3 +15,11 @@ G:\Xay dung phan mem\Mobile\School-App-Mobile\School.Droid\School.Droid.UITests\
 G:\Xay dung phan mem\Mobile\School-App-Mobile\School.Droid\School.Droid.UITests\obj\Debug\School.Droid.UITests.csprojResolveAssemblyReference.cache
 G:\Xay dung phan mem\Mobile\School-App-Mobile\School.Droid\School.Droid.UITests\obj\Debug\School.Droid.UITests.dll
 G:\Xay dung phan mem\Mobile\School-App-Mobile\School.Droid\School.Droid.UITests\obj\Debug\School.Droid.UITests.pdb
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid.UITests\bin\Debug\School.Droid.UITests.dll
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid.UITests\bin\Debug\School.Droid.UITests.pdb
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid.UITests\bin\Debug\nunit.framework.dll
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid.UITests\bin\Debug\Xamarin.UITest.dll
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid.UITests\bin\Debug\Xamarin.UITest.xml
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid.UITests\bin\Debug\nunit.framework.xml
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid.UITests\obj\Debug\School.Droid.UITests.dll
+G:\Xay dung phan mem\Mobile-VS2\School.Droid\School.Droid.UITests\obj\Debug\School.Droid.UITests.pdb

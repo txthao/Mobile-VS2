@@ -87,7 +87,7 @@ namespace School.Droid
 			StartActivity (myintent);
 		}
 			
-		async void LoadData_HK ()
+		public async void LoadData_HK ()
 		{
 			listView_HK.Visibility = ViewStates.Invisible;
 			progress.Visibility = ViewStates.Visible;

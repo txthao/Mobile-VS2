@@ -70,7 +70,7 @@ namespace School.Droid
 		}
 
 
-		async void LoadData()
+		public async void LoadData()
 		{
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;

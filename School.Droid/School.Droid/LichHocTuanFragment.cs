@@ -49,11 +49,8 @@ namespace School.Droid
 			listView_Tuan = rootView.FindViewById<ExpandableListView> (Resource.Id.listLH_Tuan);
 			listView_Tuan.GroupClick += (sender, e) => {
 				listView_ItemClick(sender,e);
-			//	return false;
-				// row click 
-
-
 			};
+
 			progress = rootView.FindViewById<ProgressBar> (Resource.Id.progressLHTuan);
 			lbl_TuNgay = rootView.FindViewById<TextView> (Resource.Id.lbl_TuNgay);
 			lbl_DenNgay = rootView.FindViewById<TextView> (Resource.Id.lbl_DenNgay);
@@ -126,7 +123,7 @@ namespace School.Droid
 			LoadData_Tuan (convertFromStringToDate (lbl_TuNgay.Text).AddDays (7));
 		}
 
-		async void LoadData_Tuan (DateTime dateOfWeek)
+		public async void LoadData_Tuan (DateTime dateOfWeek)
 		{
 			listView_Tuan.Visibility = ViewStates.Invisible;
 			progress.Visibility = ViewStates.Visible;
@@ -166,7 +163,8 @@ namespace School.Droid
 			lbl_TuNgay.Text = begining;
 			lbl_DenNgay.Text = end;
 			lbl_HK.Text = "Học Kỳ " + listLH [0].HocKy + " Năm học " + listLH [0].NamHoc;
-			listView_Tuan.SetAdapter (new LichHocTuanAdapter (Activity, listCT.OrderBy(x=>x.Thu).ToList())); 
+			listCT = listCT.OrderBy (x => x.Thu).ToList();
+			listView_Tuan.SetAdapter (new LichHocTuanAdapter (Activity, listCT)); 
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 			listView_Tuan.Visibility = ViewStates.Visible;
@@ -181,11 +179,11 @@ namespace School.Droid
 			if (offset != 1) {
 				DateTime weekStart = now.AddDays (offset);
 				DateTime endOfWeek = weekStart.AddDays (6);
-				begining = convertFromDateToString (weekStart);
-				end = convertFromDateToString (endOfWeek);
+				begining = Common.convertFromDateToString (weekStart);
+				end = Common.convertFromDateToString (endOfWeek);
 			} else {
-				begining = convertFromDateToString (now.AddDays (-6));
-				end = convertFromDateToString (now);
+				begining = Common.convertFromDateToString (now.AddDays (-6));
+				end = Common.convertFromDateToString (now);
 			}
 		}
 

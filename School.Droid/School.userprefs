@@ -1,9 +1,31 @@
-﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.2" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="School.iOS/SlideMenu/VCLichHocTuan.cs">
+﻿<Properties StartupItem="School.Droid\School.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.avd1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid.UITests\Tests.cs">
     <Files>
-      <File FileName="School.iOS/SlideMenu/VCLichHocTuan.cs" Line="34" Column="38" />
+      <File FileName="School.Droid.UITests\Tests.cs" Line="36" Column="52" />
+      <File FileName="School.Core\Bussiness\BMonHoc.cs" Line="15" Column="22" />
+      <File FileName="School.Droid\Helper\ScheduleReminder.cs" Line="169" Column="10" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="School" expanded="True">
+            <Node name="School.Droid.UITests" expanded="True">
+              <Node name="Test Apps" expanded="True">
+                <Node name="School.Droid" selected="True" />
+              </Node>
+              <Node name="School" expanded="True">
+                <Node name="Droid" expanded="True">
+                  <Node name="UITests" expanded="True">
+                    <Node name="Tests" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
