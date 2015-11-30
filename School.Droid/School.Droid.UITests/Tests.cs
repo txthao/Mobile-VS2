@@ -5,6 +5,7 @@ using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Android;
 using Xamarin.UITest.Queries;
+using System.Reflection;
 
 namespace School.Droid.UITests
 {
@@ -16,13 +17,16 @@ namespace School.Droid.UITests
 		[SetUp]
 		public void BeforeEachTest ()
 		{
+			
 			app = ConfigureApp.Android.StartApp ();
 		}
+
+
 
 		[Test]
 		public void ClickingButtonTwiceShouldChangeItsLabel ()
 		{
-			Func<AppQuery, AppQuery> MyButton = c => c.Button ("myButton");
+			Func<AppQuery, AppQuery> MyButton = c => c.Button ("btDangNhap");
 
 			app.Tap (MyButton);
 			app.Tap (MyButton);

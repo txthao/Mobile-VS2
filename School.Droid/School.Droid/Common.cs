@@ -141,6 +141,16 @@ namespace School.Droid
 			return false;
 		}
 
+		public static DateTime convertFromStringToDate (string date)
+		{
+			return DateTime.ParseExact (date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+		}
+
+		public static string convertFromDateToString (DateTime date)
+		{
+			return date.ToString ("dd/MM/yyyy");
+		}
 
 	}
 }

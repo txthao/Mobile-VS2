@@ -75,6 +75,10 @@ namespace School.Droid
 						NewReminder ();
 					}
 				}
+				else {
+					NewReminder ();
+				}
+
 
 			} else {
 				tietBD = bundle.GetString ("TietBD");
@@ -93,7 +97,7 @@ namespace School.Droid
 					thu = bundle.GetString ("Thu");
 					string exNgay = ngayhoc.Substring (3, 2);
 					exNgay = exNgay + "/" + ngayhoc.Substring (0, 2) + "/" + ngayhoc.Substring (6, 4);
-					date.Text = " Ngày: " + exNgay;
+					date.Text = "Ngày: " + exNgay;
 					time.Text = "Tiết: " + tietBD;
 					LHRemindItem item = BRemind.GetLHRemind (SQLite_Android.GetConnection (), lh.Id, ngayhoc);
 					if (item != null) {
@@ -114,7 +118,7 @@ namespace School.Droid
 					else {
 						NewReminder ();
 						checkBox = FindViewById<CheckBox> (Resource.Id.checkBox1);
-						checkBox.Visibility = ViewStates.Invisible;
+						checkBox.Visibility = ViewStates.Visible;
 					}
 				}
 				else {
@@ -180,6 +184,8 @@ namespace School.Droid
 			if (check) {
 				reminder.lt = lt;
 				reminder.SetCalenDarLT ();
+				LichThiFragment frag = new LichThiFragment ();
+				frag.LoadData ();
 			} else {
 
 				reminder.lh = lh;
@@ -197,9 +203,13 @@ namespace School.Droid
 						reminder.ctlh = ct;
 						reminder.SetCalenDarLH ();
 					}
+					LichHocTuanFragment frag = new LichHocTuanFragment ();
+					frag.LoadData_Tuan(Common.convertFromStringToDate(ngayhoc));
 				} else {
 					reminder.ctlh = BLichHoc.GetCTLH (SQLite_Android.GetConnection (),lh.Id, thu, tietBD);
 					reminder.RemindLHHK ();
+					LichHocHKFragment frag = new LichHocHKFragment ();
+					frag.LoadData_HK ();
 				}
 			}
 			if (reminder.isInsert) {
