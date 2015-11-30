@@ -147,10 +147,6 @@
 	/Users/mactien/Mobile-VS2/School.Droid/School.Core/bin/Debug/System.Net.Http.dll \
 	-r \
 	/Users/mactien/Mobile-VS2/School.Droid/School.Core/bin/Debug/System.Net.Http.Primitives.dll \
-	-r \
-	/Users/mactien/Mobile-VS2/School.Droid/School.Core/bin/Debug/System.IO.dll \
-	-r \
-	/Users/mactien/Mobile-VS2/School.Droid/School.Core/bin/Debug/System.Text.Encoding.dll \
 	--target-framework \
 	"Xamarin.iOS,v1.0" \
 	/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug//School.iOS.exe \

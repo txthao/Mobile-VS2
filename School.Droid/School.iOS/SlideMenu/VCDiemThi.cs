@@ -14,6 +14,7 @@ namespace School.iOS
 		public static VCDiemThi instance;
 		string hocky,namhoc;
 		int value;
+		string lasthk="0",lastnh="0";
 		public VCDiemThi () : base ("VCDiemThi", null)
 		{
 			instance = this;
@@ -117,12 +118,15 @@ namespace School.iOS
 				progress.StopAnimating ();
 				List<DiemMon> listdm= new List<DiemMon>();
 				DiemThi dt;
-				if (hocKy == "0") {
+				if (hocKy == "0"||(lastnh.Equals(namHoc)&&lasthk.Equals(hocKy))) {
 				 dt= BDiemThi.GetNewestDT(SQLite_iOS.GetConnection());
 					btHKKe.Enabled=false;
+					lastnh=dt.NamHoc;
+					lasthk=dt.Hocky;
 				}
 				else {
 					btHKKe.Enabled=true;
+
 					dt = BDiemThi.GetDT (SQLite_iOS.GetConnection (), hocKy, namHoc);
 					int t=0;
 					while (dt == null&&t<3) {

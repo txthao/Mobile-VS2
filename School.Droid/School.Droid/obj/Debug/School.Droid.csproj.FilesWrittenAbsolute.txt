@@ -81,6 +81,7 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/signout.png
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/layout/reminder_dialog.xml
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/layout/customdialog.xml
+/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/calendar.png
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/R.cs.flag
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/bin/Debug/com.companyname.school-Signed.apk
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/uploadflags.txt
@@ -96,4 +97,3 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/bin/Debug/SQLitePCL.raw.dll
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/bin/Debug/School.Core.dll
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/bin/Debug/School.Core.dll.mdb
-/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Debug/res/drawable-hdpi/calendar.png
