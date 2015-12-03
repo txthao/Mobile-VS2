@@ -24,6 +24,7 @@ namespace School.Core
 		{
 			DataProvider dtb = new DataProvider (connection);
 			if (dtb.GetUser (user.Id) == null) {
+				user.Password = base64Encode (user.Password);
 				return dtb.AddUser (user);
 			}
 			return 0;
@@ -48,6 +49,7 @@ namespace School.Core
 		}
 		public static async Task<Exception> CheckAuth(string id, string pass,SQLiteConnection connection)
 		{
+			pass = base64Encode (pass);
 			var httpClient = new HttpClient ();
 			Exception  error;
 			httpClient.Timeout = TimeSpan.FromSeconds (20);
@@ -56,8 +58,8 @@ namespace School.Core
 
 			try
 			{
-			contents =  await contentsTask;
-			
+				contents =  await contentsTask;
+
 			}
 			catch(Exception e) {
 				error =new Exception("Xảy Ra Lỗi Trong Quá Trình Kết Nối Server");
@@ -78,7 +80,11 @@ namespace School.Core
 			int i = AddUser (connection, usr);
 			return null;
 		}
-	
+
+		public static string base64Encode(string plainText) {
+			var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+			return System.Convert.ToBase64String(plainTextBytes);
+		}
+
 	}
 }
-

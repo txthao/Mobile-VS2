@@ -86,6 +86,17 @@ namespace School.iOS
 				progress1.StopAnimating ();
 
 			}
+			try
+			{
+				VCLichHoc.Instance.LoadData();
+				if (VCADiemThi.instance!=null) VCADiemThi.Instance.LoadData();
+				if (VCLichHocTuan.instance!=null) VCLichHocTuan.Instance.LoadData_Tuan(DateTime.Today);
+				if (VCLichThi.instance!=null) VCLichThi.Instance.LoadData();
+				if (VCDiemThi.instance!=null) VCDiemThi.Instance.LoadData("0","0");
+				if (VCHocPhi.instance!=null) VCHocPhi.Instance.LoadData();
+			}
+			catch{
+			}
 		}
 
 		void SwtCNDL_ValueChanged (object sender, EventArgs e)
@@ -167,6 +178,7 @@ namespace School.iOS
 			frame = title1.Frame;
 			frame.Y = title.Frame.Y + 50;
 			frame.Width = App.Current.width-20;
+			frame.Height = 20;
 			frame.X = 20;
 			title1.Frame = frame;
 			frame = lbNL.Frame;
@@ -177,13 +189,13 @@ namespace School.iOS
 			frame = swtNLich.Frame;
 			frame.Width = 30;
 			frame.Height = 30;
-			frame.X = lbNL.Frame.X + lbNL.Frame.Width+10;
+			frame.X = lbNL.Frame.X + lbNL.Frame.Width+20;
 			frame.Y = lbNL.Frame.Y ;
 			swtNLich.Frame = frame;
 			frame = progress1.Frame;
 			frame.Width = 20;
 			frame.Height = 20;
-			frame.X = lbNL.Frame.X + lbNL.Frame.Width+30;
+			frame.X = lbNL.Frame.X + lbNL.Frame.Width+40;
 			frame.Y = swtNLich.Frame.Y +35;
 			progress1.Frame = frame;
 
@@ -191,6 +203,7 @@ namespace School.iOS
 			frame = title2.Frame;
 			frame.Y = progress1.Frame.Y + 40;
 			frame.Width = App.Current.width-20;
+			frame.Height = 20;
 			frame.X = 20;
 			title2.Frame = frame;
 			frame = lbCNDL.Frame;
@@ -201,7 +214,7 @@ namespace School.iOS
 			frame = swtCNDL.Frame;
 			frame.Width = 30;
 			frame.Height = 30;
-			frame.X = lbCNDL.Frame.X + lbCNDL.Frame.Width+10;
+			frame.X = lbCNDL.Frame.X + lbCNDL.Frame.Width+20;
 			frame.Y = lbCNDL.Frame.Y ;
 			swtCNDL.Frame = frame;
 			frame = btCNDL.Frame;
@@ -211,7 +224,7 @@ namespace School.iOS
 			frame = progress.Frame;
 			frame.Width = 30;
 			frame.Height = 30;
-			frame.X = lbCNDL.Frame.X + lbCNDL.Frame.Width+35;
+			frame.X = lbCNDL.Frame.X + lbCNDL.Frame.Width+45;
 			frame.Y = btCNDL.Frame.Y;
 			progress.Frame = frame;
 			frame = txtResult.Frame;

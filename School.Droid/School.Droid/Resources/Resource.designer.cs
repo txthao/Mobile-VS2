@@ -801,6 +801,9 @@ namespace School.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f040007
+			public const int Alertitle = 2130968583;
+			
 			// aapt resource value: 0x7f040001
 			public const int ApplicationName = 2130968577;
 			

@@ -251,6 +251,7 @@ public final class R {
         public static final int settings=0x7f030017;
     }
     public static final class string {
+        public static final int Alertitle=0x7f040007;
         public static final int ApplicationName=0x7f040001;
         public static final int DrawerClose=0x7f040005;
         public static final int DrawerOpen=0x7f040004;

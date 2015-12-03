@@ -34,6 +34,11 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			btTuanKe.BackgroundColor=LayoutHelper.ourDarkCyan;
+			btTuanKe.SetTitleColor (UIColor.Black, UIControlState.Normal);
+			btTuanTrc.BackgroundColor=LayoutHelper.ourDarkCyan;
+			btTuanTrc.SetTitleColor (UIColor.Black, UIControlState.Normal);
+
 			errorLB = LayoutHelper.ErrLabel (errorLB);
 			CGRect frame = listContent.Frame;
 			frame.Width = App.Current.width;

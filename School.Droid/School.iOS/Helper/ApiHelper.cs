@@ -33,13 +33,17 @@ namespace School.iOS
 			catch {};
 			
 		}
-		public static bool LogOut()
+		public async static void LogOut()
 		{
-			BUser.LogOut (SQLite_iOS.GetConnection ());
-			SettingsHelper.SaveSetting ("AutoUpdate", false);
-			SettingsHelper.SaveSetting ("Remind", false);
-			RootViewController.Instance.LogOut ();
-			return true;
+			bool accep = await LayoutHelper.ShowAlert ("Chú ý", "Bạn có muốn đăng xuất khỏi ứng dụng?");
+			if (accep) {
+				BUser.LogOut (SQLite_iOS.GetConnection ());
+				SettingsHelper.SaveSetting ("AutoUpdate", false);
+				SettingsHelper.SaveSetting ("Remind", false);
+				RootViewController.Instance.doLogOut ();
+			} else {
+				RootViewController.Instance.navigation.SelectedIndex = 1;
+			}
 		}
 		public static string checkSpaceValue (string text)
 		{

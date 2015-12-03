@@ -92,7 +92,6 @@
     <InterfaceDefinition Include="SlideMenu\VCDiemThi.xib" />
     <InterfaceDefinition Include="SlideMenu\VCADiemThi.xib" />
     <InterfaceDefinition Include="SlideMenu\VCLichHocTuan.xib" />
-    <InterfaceDefinition Include="SlideMenu\LogOut.xib" />
     <InterfaceDefinition Include="Resources\SlideMenu\en.lproj\VCLichHocTuan.xib" />
   </ItemGroup>
   <ItemGroup>
@@ -158,10 +157,6 @@
     </Compile>
     <Compile Include="TableSources\LHExpandCell.cs" />
     <Compile Include="Helper\SettingsHelper.cs" />
-    <Compile Include="SlideMenu\LogOut.cs" />
-    <Compile Include="SlideMenu\LogOut.designer.cs">
-      <DependentUpon>LogOut.cs</DependentUpon>
-    </Compile>
     <Compile Include="App.cs" />
     <Compile Include="Helper\VCHomeReminder.cs" />
     <Compile Include="Helper\LayoutHelper.cs" />

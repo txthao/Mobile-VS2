@@ -70,12 +70,17 @@ namespace School.iOS
 					new VCLichThi(),
 					new VCHocPhi(),
 					new VCSettings(),
-					new LogOut(),
+
 				},
 			};
 			// Show the navigation view
 
-			navigation.ToggleMenu ();
+			navigation.SelectedIndexChanged = new Action (() => {
+				if (navigation.SelectedIndex==7)
+				{
+					ApiHelper.LogOut();
+				}
+			});
 			View.AddSubview (navigation.View);
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
@@ -88,8 +93,9 @@ namespace School.iOS
 				return instance;
 			}
 		}
-		public void LogOut()
+		public void doLogOut()
 		{
+			
 			this.PresentViewController (new VCLogIn(), true, null);
 		}
 

@@ -1,42 +1,12 @@
 ﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.avd1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid.UITests\Tests.cs">
-    <Files>
-      <File FileName="School.Droid.UITests\Tests.cs" Line="36" Column="52" />
-      <File FileName="School.Core\Bussiness\BMonHoc.cs" Line="15" Column="22" />
-      <File FileName="School.Droid\Helper\ScheduleReminder.cs" Line="169" Column="10" />
-    </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="School" expanded="True">
-            <Node name="School.Droid.UITests" expanded="True">
-              <Node name="Test Apps" expanded="True">
-                <Node name="School.Droid" selected="True" />
-              </Node>
-              <Node name="School" expanded="True">
-                <Node name="Droid" expanded="True">
-                  <Node name="UITests" expanded="True">
-                    <Node name="Tests" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Galaxy_Nexus_by_Google" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/HocPhiAdapter.cs" line="23" column="1" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Core/Bussiness/BLichHoc.cs" line="140" column="1" />
-      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.iOS/SlideMenu/VCLichHocTuan.cs" line="175" column="1" />
-      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.iOS/SlideMenu/VCLichHocTuan.cs" line="176" column="1" />
-      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.iOS/SlideMenu/VCLichHocTuan.cs" line="177" column="1" />
-      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.iOS/SlideMenu/VCLichHocTuan.cs" line="111" column="1" />
-      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.iOS/SlideMenu/VCLichHocTuan.cs" line="112" column="1" />
+      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.Droid/Common.cs" line="146" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

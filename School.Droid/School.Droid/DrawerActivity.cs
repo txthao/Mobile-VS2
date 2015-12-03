@@ -154,18 +154,35 @@ namespace School.Droid
 				break;
 			
 			case 12:
+				AlertDialog.Builder builder = new AlertDialog.Builder (
+					                      this);
 
-				BUser.LogOut (SQLite_Android.GetConnection ());
-				var prefs = Application.Context.GetSharedPreferences ("SGU APP", FileCreationMode.Private);
-				prefs.Edit ().Clear ().Commit ();
-				Intent myintent = new Intent (this, typeof(LoginActivity));
-				StartActivity (myintent);
-				this.Finish ();
+				// Setting Dialog Title
+
+				builder.SetTitle (Resource.String.Alertitle); 
+				builder.SetIcon (Android.Resource.Drawable.IcDialogAlert); 
+				builder.SetMessage ("Bạn có muốn đăng xuất khỏi ứng dụng?"); 
+				builder.SetPositiveButton ("Có", (sender, e) => {
+					BUser.LogOut (SQLite_Android.GetConnection ());
+					var prefs = Application.Context.GetSharedPreferences ("SGU APP", FileCreationMode.Private);
+					prefs.Edit ().Clear ().Commit ();
+					Intent myintent = new Intent (this, typeof(LoginActivity));
+					StartActivity (myintent);
+					this.Finish ();
+				});
+				builder.SetNegativeButton ("Không", (sender, e) => {
+				});
+				builder.Show(); 
+
+
+				// Setting Dialog Message
+			
+
 				break;
            
             }
 
-			if (position != 0&&position!=1&&position!=4&&position!=7&&position!=10) {
+			if (position != 0&&position!=1&&position!=4&&position!=7&&position!=10&&position!=12) {
 				
 					fragment.Arguments = bundle;
 					FragmentManager.BeginTransaction ()
