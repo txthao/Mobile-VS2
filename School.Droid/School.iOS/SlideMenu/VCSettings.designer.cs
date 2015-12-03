@@ -37,6 +37,12 @@ namespace School.iOS
 		UIKit.UIActivityIndicatorView progress1 { get; set; }
 
 		[Outlet]
+		UIKit.UILabel sepera1 { get; set; }
+
+		[Outlet]
+		UIKit.UILabel sepera2 { get; set; }
+
+		[Outlet]
 		UIKit.UISwitch swtCNDL { get; set; }
 
 		[Outlet]
@@ -65,9 +71,24 @@ namespace School.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (sepera1 != null) {
+				sepera1.Dispose ();
+				sepera1 = null;
+			}
+
 			if (btCNDL != null) {
 				btCNDL.Dispose ();
 				btCNDL = null;
+			}
+
+			if (btFooter != null) {
+				btFooter.Dispose ();
+				btFooter = null;
+			}
+
+			if (sepera2 != null) {
+				sepera2.Dispose ();
+				sepera2 = null;
 			}
 
 			if (btMenu != null) {
@@ -143,11 +164,6 @@ namespace School.iOS
 			if (txtResult != null) {
 				txtResult.Dispose ();
 				txtResult = null;
-			}
-
-			if (btFooter != null) {
-				btFooter.Dispose ();
-				btFooter = null;
 			}
 		}
 	}
