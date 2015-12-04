@@ -1,12 +1,10 @@
-﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5.8.2" />
+﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.8.2" />
   <MonoDevelop.Ide.Workbench ActiveDocument="School.iOS/SlideMenu/VCSettings.cs">
     <Files>
-      <File FileName="School.iOS/SlideMenu/VCSettings.cs" Line="214" Column="1" />
-      <File FileName="School.iOS/SlideMenu/VCLichThi.cs" Line="1" Column="1" />
-      <File FileName="School.iOS/Helper/VCHomeReminder.cs" Line="122" Column="8" />
-      <File FileName="School.Droid/SettingsFragment.cs" Line="1" Column="1" />
-      <File FileName="School.Droid/DrawerActivity.cs" Line="163" Column="64" />
+      <File FileName="School.iOS/SlideMenu/VCSettings.cs" Line="255" Column="34" />
+      <File FileName="School.iOS/SlideMenu/VCLichHocTuan.cs" Line="40" Column="67" />
+      <File FileName="School.Droid/SettingsFragment.cs" Line="99" Column="67" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

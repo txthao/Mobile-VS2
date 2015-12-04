@@ -53,6 +53,14 @@ namespace School.Droid
 			btupdateData.Click+= BtupdateData_Click;
 			cbNLT.CheckedChange += CbNLT_CheckedChange;
 			cbUpdate.CheckedChange+= CbUpdate_CheckedChange;
+			if (cbUpdate.Checked) {
+				btupdateData.SetBackgroundResource (Android.Resource.Color.DarkerGray);
+			}
+
+			else
+			{
+				btupdateData.SetBackgroundResource (Android.Resource.Color.HoloBlueDark);
+			}
 			btupdateData.Enabled = !cbUpdate.Checked;
 			return rootView;
 		}
@@ -91,12 +99,12 @@ namespace School.Droid
 		{
 			btupdateData.Enabled = !cbUpdate.Checked;
 			if (cbUpdate.Checked) {
-				btupdateData.Background = ConsoleColor.DarkGray;
+				btupdateData.SetBackgroundResource (Android.Resource.Color.DarkerGray);
 			}
 
 			else
 				{
-				btupdateData.Background = Android.Resource.Color.HoloBlueDark;
+				btupdateData.SetBackgroundResource (Android.Resource.Color.HoloBlueDark);
 				}
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
 			var prefEditor = prefs.Edit();
