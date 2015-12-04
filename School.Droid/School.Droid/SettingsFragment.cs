@@ -91,12 +91,12 @@ namespace School.Droid
 		{
 			btupdateData.Enabled = !cbUpdate.Checked;
 			if (cbUpdate.Checked) {
-				btupdateData.Background = ConsoleColor.DarkGray;
+				btupdateData.SetBackgroundResource (Android.Resource.Color.DarkerGray);
 			}
 
 			else
 				{
-				btupdateData.Background = Android.Resource.Color.HoloBlueDark;
+				btupdateData.SetBackgroundResource (Android.Resource.Color.HoloBlueDark);
 				}
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
 			var prefEditor = prefs.Edit();
