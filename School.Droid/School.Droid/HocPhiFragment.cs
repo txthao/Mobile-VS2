@@ -61,6 +61,7 @@ namespace School.Droid
 		
 		
 			progress.Visibility = ViewStates.Visible;
+			progress.Indeterminate = true;
 			//progress.Indeterminate = true;
 			LoadData ();
 
