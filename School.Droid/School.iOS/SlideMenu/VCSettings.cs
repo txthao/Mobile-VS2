@@ -45,6 +45,8 @@ namespace School.iOS
 			swtCNDL.ValueChanged+= SwtCNDL_ValueChanged;
 			swtNLich.ValueChanged+= SwtNLich_ValueChanged;
 			btCNDL.TouchUpInside+= BtCNDL_TouchUpInside;
+			btCNDL.BackgroundColor = LayoutHelper.ourDarkCyan;
+			btCNDL.SetTitleColor (UIColor.Black, UIControlState.Normal);
 			title.Frame = LayoutHelper.setlayoutForTimeTT (title.Frame);
 			progress.Hidden = true;
 			btMenu=LayoutHelper.NaviButton (btMenu, title.Frame.Y);
@@ -86,27 +88,43 @@ namespace School.iOS
 				progress1.StopAnimating ();
 
 			}
-		}
-
-		void SwtCNDL_ValueChanged (object sender, EventArgs e)
-		{
-			btCNDL.Enabled = !swtCNDL.On;
-			SettingsHelper.SaveSetting ("AutoUpdate", swtCNDL.On);
-			if (swtCNDL.On)
+			try
 			{
-				try
-				{
 				VCLichHoc.Instance.LoadData();
 				if (VCADiemThi.instance!=null) VCADiemThi.Instance.LoadData();
 				if (VCLichHocTuan.instance!=null) VCLichHocTuan.Instance.LoadData_Tuan(DateTime.Today);
 				if (VCLichThi.instance!=null) VCLichThi.Instance.LoadData();
 				if (VCDiemThi.instance!=null) VCDiemThi.Instance.LoadData("0","0");
 				if (VCHocPhi.instance!=null) VCHocPhi.Instance.LoadData();
-				}
-				catch{
-				}
 			}
-		
+			catch{
+			}
+		}
+
+		void SwtCNDL_ValueChanged (object sender, EventArgs e)
+		{
+			btCNDL.Enabled = !swtCNDL.On;
+			SettingsHelper.SaveSetting ("AutoUpdate", swtCNDL.On);
+			if (swtCNDL.On) {
+				btCNDL.BackgroundColor = UIColor.DarkGray;
+				try {
+					VCLichHoc.Instance.LoadData ();
+					if (VCADiemThi.instance != null)
+						VCADiemThi.Instance.LoadData ();
+					if (VCLichHocTuan.instance != null)
+						VCLichHocTuan.Instance.LoadData_Tuan (DateTime.Today);
+					if (VCLichThi.instance != null)
+						VCLichThi.Instance.LoadData ();
+					if (VCDiemThi.instance != null)
+						VCDiemThi.Instance.LoadData ("0", "0");
+					if (VCHocPhi.instance != null)
+						VCHocPhi.Instance.LoadData ();
+				} catch {
+				}
+			} else {
+				btCNDL.BackgroundColor = LayoutHelper.ourDarkCyan;
+			}
+			
 		
 		}
 
@@ -167,6 +185,7 @@ namespace School.iOS
 			frame = title1.Frame;
 			frame.Y = title.Frame.Y + 50;
 			frame.Width = App.Current.width-20;
+			frame.Height = 20;
 			frame.X = 20;
 			title1.Frame = frame;
 			frame = lbNL.Frame;
@@ -177,20 +196,26 @@ namespace School.iOS
 			frame = swtNLich.Frame;
 			frame.Width = 30;
 			frame.Height = 30;
-			frame.X = lbNL.Frame.X + lbNL.Frame.Width+10;
+			frame.X = App.Current.width-80;
 			frame.Y = lbNL.Frame.Y ;
 			swtNLich.Frame = frame;
 			frame = progress1.Frame;
 			frame.Width = 20;
 			frame.Height = 20;
-			frame.X = lbNL.Frame.X + lbNL.Frame.Width+30;
+			frame.X = swtNLich.Frame.X+10;
 			frame.Y = swtNLich.Frame.Y +35;
 			progress1.Frame = frame;
-
+			frame = sepera1.Frame;
+			frame.Height = 2;
+			frame.Width = App.Current.width - 20;
+			frame.X = 10;
+			frame.Y = progress1.Frame.Y + 40;
+			sepera1.Frame = frame;
 			//
 			frame = title2.Frame;
-			frame.Y = progress1.Frame.Y + 40;
+			frame.Y = sepera1.Frame.Y + 12;
 			frame.Width = App.Current.width-20;
+			frame.Height = 20;
 			frame.X = 20;
 			title2.Frame = frame;
 			frame = lbCNDL.Frame;
@@ -201,17 +226,17 @@ namespace School.iOS
 			frame = swtCNDL.Frame;
 			frame.Width = 30;
 			frame.Height = 30;
-			frame.X = lbCNDL.Frame.X + lbCNDL.Frame.Width+10;
+			frame.X = App.Current.width-80;
 			frame.Y = lbCNDL.Frame.Y ;
 			swtCNDL.Frame = frame;
 			frame = btCNDL.Frame;
-			frame.X = 0;
+			frame.X = 30;
 			frame.Y = lbCNDL.Frame.Y + lbCNDL.Frame.Height ;
 			btCNDL.Frame = frame;
 			frame = progress.Frame;
 			frame.Width = 30;
 			frame.Height = 30;
-			frame.X = lbCNDL.Frame.X + lbCNDL.Frame.Width+35;
+			frame.X = swtCNDL.Frame.X+10;
 			frame.Y = btCNDL.Frame.Y;
 			progress.Frame = frame;
 			frame = txtResult.Frame;
@@ -219,9 +244,15 @@ namespace School.iOS
 			frame.X = 30;
 			frame.Y = progress.Frame.Y + 30;
 			txtResult.Frame = frame;
+			frame = sepera2.Frame;
+			frame.Height = 2;
+			frame.Width = App.Current.width - 20;
+			frame.X = 10;
+			frame.Y = progress.Frame.Y + 70;
+			sepera2.Frame = frame;
 			//
 			frame = title3.Frame;
-			frame.Y = 	progress.Frame.Y + 70;
+			frame.Y = 	sepera2.Frame.Y + 12;
 			frame.Width = App.Current.width-20;
 			frame.X = 20;
 			title3.Frame = frame;

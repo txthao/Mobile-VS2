@@ -90,6 +90,7 @@ namespace School.Droid
 		public async void LoadData_HK ()
 		{
 			listView_HK.Visibility = ViewStates.Invisible;
+
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
 			List<LichHoc> listLH = new List<LichHoc> ();

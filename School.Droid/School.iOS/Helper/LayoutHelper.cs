@@ -93,8 +93,8 @@ namespace School.iOS
 
 			UIApplication.SharedApplication.InvokeOnMainThread(new Action(() =>
 				{
-					UIAlertView alert = new UIAlertView(title, message, null, NSBundle.MainBundle.LocalizedString("Cancel", "Cancel"),
-						NSBundle.MainBundle.LocalizedString("OK", "OK"));
+					UIAlertView alert = new UIAlertView(title, message, null, NSBundle.MainBundle.LocalizedString("Không", "Không"),
+						NSBundle.MainBundle.LocalizedString("Có", "Có"));
 					alert.Clicked += (sender, buttonArgs) => tcs.SetResult(buttonArgs.ButtonIndex != alert.CancelButtonIndex);
 					alert.Show();
 				}));

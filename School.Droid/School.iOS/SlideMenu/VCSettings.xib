@@ -13,6 +13,8 @@
                 <outlet property="lbNL" destination="zNW-4S-Gil" id="7Fo-fH-0Lg"/>
                 <outlet property="progress" destination="VHm-hu-pBO" id="K8I-ky-RDr"/>
                 <outlet property="progress1" destination="KW2-tA-MBD" id="sfK-xC-wlz"/>
+                <outlet property="sepera1" destination="e0N-l7-r8b" id="Jwo-uL-pKV"/>
+                <outlet property="sepera2" destination="KCP-g9-IIC" id="6da-f4-QgY"/>
                 <outlet property="swtCNDL" destination="uPD-W8-IeU" id="ZBV-Fd-tnF"/>
                 <outlet property="swtNLich" destination="yIM-X6-Hyt" id="7e3-X8-eQ1"/>
                 <outlet property="title" destination="9p4-M7-GoM" id="gDc-BB-smK"/>
@@ -131,6 +133,22 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KCP-g9-IIC">
+                    <rect key="frame" x="25" y="316" width="280" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e0N-l7-r8b">
+                    <rect key="frame" x="33" y="182" width="229" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="344" y="186"/>

@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using School.Core;
 using Android.Content.PM;
+using System.Globalization;
 
 namespace School.Droid
 {
@@ -118,7 +119,7 @@ namespace School.Droid
 					else {
 						NewReminder ();
 						checkBox = FindViewById<CheckBox> (Resource.Id.checkBox1);
-						checkBox.Visibility = ViewStates.Visible;
+						checkBox.Visibility = ViewStates.Invisible;
 					}
 				}
 				else {
@@ -184,8 +185,8 @@ namespace School.Droid
 			if (check) {
 				reminder.lt = lt;
 				reminder.SetCalenDarLT ();
-				LichThiFragment frag = new LichThiFragment ();
-				frag.LoadData ();
+				LichThiFragment.Instance.LoadData ();
+			
 			} else {
 
 				reminder.lh = lh;
@@ -203,13 +204,12 @@ namespace School.Droid
 						reminder.ctlh = ct;
 						reminder.SetCalenDarLH ();
 					}
-					LichHocTuanFragment frag = new LichHocTuanFragment ();
-					frag.LoadData_Tuan(Common.convertFromStringToDate(ngayhoc));
+					DateTime t = DateTime.ParseExact (ngayhoc, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+					LichHocTuanFragment.Instance.LoadData_Tuan(t);
 				} else {
 					reminder.ctlh = BLichHoc.GetCTLH (SQLite_Android.GetConnection (),lh.Id, thu, tietBD);
 					reminder.RemindLHHK ();
-					LichHocHKFragment frag = new LichHocHKFragment ();
-					frag.LoadData_HK ();
+					LichHocHKFragment.Instance.LoadData_HK ();
 				}
 			}
 			if (reminder.isInsert) {

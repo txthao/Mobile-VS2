@@ -90,6 +90,14 @@ namespace School.Droid
 		void CbUpdate_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
 		{
 			btupdateData.Enabled = !cbUpdate.Checked;
+			if (cbUpdate.Checked) {
+				btupdateData.Background = ConsoleColor.DarkGray;
+			}
+
+			else
+				{
+				btupdateData.Background = Android.Resource.Color.HoloBlueDark;
+				}
 			var prefs = Application.Context.GetSharedPreferences("SGU APP", FileCreationMode.Private);
 			var prefEditor = prefs.Edit();
 			prefEditor.PutBoolean("AutoUpdateData",cbUpdate.Checked);

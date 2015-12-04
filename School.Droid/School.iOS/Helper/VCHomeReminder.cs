@@ -112,16 +112,17 @@ namespace School.iOS
 
 			return Task.Run(()=>
 				{
-					foreach (LichThi lt in listlt) {
-						this.lt = lt;
-						title="Lịch Thi";
+					
 						RequestAccess (EKEntityType.Event, () => {
+							foreach (LichThi lt in listlt) {
+								this.lt = lt;
+							title="Lịch Thi";
 							AutoCreateEventLT ();
-						});
-					}
+						}
+					});
+				}
 
-
-				});
+				);
 		}
 
 		protected void RequestAccess (EKEntityType type, Action completion)

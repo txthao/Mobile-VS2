@@ -22,6 +22,7 @@ namespace School.Droid
 		TextView lbl_HK;
 		TextView lbl_NH;
 		bool check,autoupdate;
+		Button btnHKKe;
 		int btn_value ;
 		ProgressBar progress;
 		Bundle bundle;
@@ -56,7 +57,7 @@ namespace School.Droid
 		//	RadioGroup radioGroup = rootView.FindViewById<RadioGroup> (Resource.Id.radioGroup3);
 			//button 
 			Button btnHKTruoc = rootView.FindViewById<Button> (Resource.Id.btnHK_Truoc_DT);
-			Button btnHKKe = rootView.FindViewById<Button> (Resource.Id.btnHK_Ke_DT);
+			btnHKKe = rootView.FindViewById<Button> (Resource.Id.btnHK_Ke_DT);
 			//bundle
 			bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
@@ -145,13 +146,17 @@ namespace School.Droid
 			}
 			if (hocKy == "0") {
 				diemThi = BDiemThi.GetNewestDT (SQLite_Android.GetConnection ());
+				btnHKKe.Enabled = false;
 			} else {
 				diemThi = BDiemThi.GetDT (SQLite_Android.GetConnection (), hocKy, namHoc);
-				while (diemThi == null) {
+				btnHKKe.Enabled = true;
+				int t=0;
+				while (diemThi == null&&t<3) {
 					string hK;
 					string nH;
 					Common.calSemester (hocKy, namHoc, btn_value, out hK, out nH);
 					diemThi = BDiemThi.GetDT (SQLite_Android.GetConnection (), hK, nH);
+					t++;
 				}
 			}
 			List<DiemMon> listDM = BDiemThi.GetDiemMons (SQLite_Android.GetConnection (), diemThi.Hocky, diemThi.NamHoc);
