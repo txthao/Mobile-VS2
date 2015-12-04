@@ -79,9 +79,10 @@ namespace School.Droid
 				}
 			}
 
-			await LoadList ();
+			hp = BHocPhi.GetHP(SQLite_Android.GetConnection ());
 			progress.Visibility = ViewStates.Gone;
 			if (hp != null) {
+				listCT = BHocPhi.GetCTHP (SQLite_Android.GetConnection (), hp.NamHoc, hp.HocKy);
 				txtNotify.Visibility = ViewStates.Gone;
 				linear.Visibility = ViewStates.Visible;
 				HocPhiAdapter adapter = new HocPhiAdapter (Activity, listCT);
@@ -96,15 +97,7 @@ namespace School.Droid
 
 		}
 
-		public Task  LoadList()
-		{
-			return Task.Run (() => {
-				 hp = BHocPhi.GetHP(SQLite_Android.GetConnection ());
-				 listCT = BHocPhi.GetCTHP (SQLite_Android.GetConnection (), hp.NamHoc, hp.HocKy);
-
-
-			});
-		}
+	
 		public static HocPhiFragment Instance
 		{
 			get
