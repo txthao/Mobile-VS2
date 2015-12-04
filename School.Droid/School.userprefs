@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
+﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.8.2" />
   <MonoDevelop.Ide.Workbench ActiveDocument="School.iOS/SlideMenu/VCSettings.cs">
     <Files>

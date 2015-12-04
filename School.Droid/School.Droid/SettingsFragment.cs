@@ -53,6 +53,14 @@ namespace School.Droid
 			btupdateData.Click+= BtupdateData_Click;
 			cbNLT.CheckedChange += CbNLT_CheckedChange;
 			cbUpdate.CheckedChange+= CbUpdate_CheckedChange;
+			if (cbUpdate.Checked) {
+				btupdateData.SetBackgroundResource (Android.Resource.Color.DarkerGray);
+			}
+
+			else
+			{
+				btupdateData.SetBackgroundResource (Android.Resource.Color.HoloBlueDark);
+			}
 			btupdateData.Enabled = !cbUpdate.Checked;
 			return rootView;
 		}

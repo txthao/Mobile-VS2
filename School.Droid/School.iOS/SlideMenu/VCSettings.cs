@@ -56,6 +56,13 @@ namespace School.iOS
 			title.BackgroundColor = UIColor.FromRGBA((float)0.9, (float)0.9, (float)0.9, (float)1);
 
 			txtResult.Font = UIFont.SystemFontOfSize (App.Current.textSize);
+			if (swtCNDL.On) {
+				btCNDL.BackgroundColor = UIColor.LightGray;
+			}
+				else
+				{
+					btCNDL.BackgroundColor = LayoutHelper.ourDarkCyan;
+				}
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 
@@ -106,7 +113,7 @@ namespace School.iOS
 			btCNDL.Enabled = !swtCNDL.On;
 			SettingsHelper.SaveSetting ("AutoUpdate", swtCNDL.On);
 			if (swtCNDL.On) {
-				btCNDL.BackgroundColor = UIColor.DarkGray;
+				btCNDL.BackgroundColor = UIColor.LightGray;
 				try {
 					VCLichHoc.Instance.LoadData ();
 					if (VCADiemThi.instance != null)
