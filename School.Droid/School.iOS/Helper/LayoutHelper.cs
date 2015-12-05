@@ -53,7 +53,11 @@ namespace School.iOS
 			CGRect iFrame = frame;
 			iFrame.Width = App.Current.width;
 			nfloat tableHeight = (App.Current.height <= 568) ? App.Current.height / 2 - 70 : App.Current.height / 2 - 110;
-			iFrame.Y =  Y + tableHeight+40;
+			if (App.Current.height <= 568) {
+				iFrame.Y = Y + tableHeight + 20;
+			} else {
+				iFrame.Y = Y + tableHeight + 40;
+			}
 			iFrame.Height = (App.Current.height - iFrame.Y) / 6-5;
 			iFrame.Y = num*iFrame.Height+iFrame.Y+5;
 			return iFrame;

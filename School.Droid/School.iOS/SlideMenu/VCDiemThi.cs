@@ -75,13 +75,15 @@ namespace School.iOS
 			btHKKe.TouchUpInside += btnHK_Ke_Click;
 			btHKTrc.TouchUpInside += btnHK_Truoc_Click;
 			frame = btHKKe.Frame;
-			frame.X = App.Current.width-60-frame.Width;
+			frame.X = App.Current.width-50-frame.Width;
 			frame.Y = App.Current.height - 40;
 			btHKKe.Frame = frame;
 			frame = btHKTrc.Frame;
 			frame.Y = App.Current.height - 40;
-			frame.X = 60;
+			frame.X = 50;
 			btHKTrc.Frame = frame;
+			btHKTrc.SetTitleColor (UIColor.Black, UIControlState.Normal);
+			btHKKe.SetTitleColor (UIColor.Black, UIControlState.Normal);
 			title.BackgroundColor = UIColor.FromRGBA((float)0.9, (float)0.9, (float)0.9, (float)1);
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
@@ -89,7 +91,8 @@ namespace School.iOS
 		{
 			try
 			{
-				
+				btHKTrc.BackgroundColor=LayoutHelper.ourDarkCyan;
+				btHKKe.BackgroundColor=LayoutHelper.ourDarkCyan;
 				progress.StartAnimating ();
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
 				if (sync)
@@ -118,7 +121,7 @@ namespace School.iOS
 				progress.StopAnimating ();
 				List<DiemMon> listdm= new List<DiemMon>();
 				DiemThi dt;
-				if (hocKy == "0"||(lastnh.Equals(namHoc)&&lasthk.Equals(hocKy))) {
+				if (hocKy == "0") {
 				 dt= BDiemThi.GetNewestDT(SQLite_iOS.GetConnection());
 					btHKKe.Enabled=false;
 					lastnh=dt.NamHoc;
@@ -126,7 +129,8 @@ namespace School.iOS
 				}
 				else {
 					btHKKe.Enabled=true;
-
+					btHKTrc.Enabled = true;
+					;
 					dt = BDiemThi.GetDT (SQLite_iOS.GetConnection (), hocKy, namHoc);
 					int t=0;
 					while (dt == null&&t<3) {
@@ -136,9 +140,19 @@ namespace School.iOS
 						dt = BDiemThi.GetDT (SQLite_iOS.GetConnection (), hK, nH);
 						t++;
 					}
+					if (t == 3 && dt == null) {
+						btHKTrc.Enabled = false;
+						btHKTrc.BackgroundColor=UIColor.LightGray;
+					}
 				}
+				hocky=hocKy;
+				namhoc=namHoc;
 				if (dt!=null)
 				{
+					if (lastnh.Equals (dt.NamHoc) && lasthk.Equals (dt.Hocky)) {
+						btHKKe.Enabled = false;
+						btHKKe.BackgroundColor=UIColor.LightGray;
+					}
 					listDM.Hidden= false;
 					errorLB.Hidden=true;
 					headers.Hidden=false;
@@ -149,11 +163,11 @@ namespace School.iOS
 					listDM.Source=new DiemThiHKSource(listdm);
 					listDM.ReloadData();
 					txtTB10.Text="Điểm TB HK Hệ 10: "+dt.DiemTB10;
-					txtTB4.Text="Hệ 4: "+dt.DiemTB4;
+					txtTB4.Text="-Hệ 4: "+dt.DiemTB4;
 					txtTC.Text="Số TC Đạt: "+dt.SoTCDat;
 					txtTCTL.Text="Số TC TL: "+dt.SoTCTL;
 					txtTBTL.Text="Điểm TB TL Hệ 10: "+dt.DiemTBTL10;
-					txtTBTL4.Text="Hệ 4: "+dt.DiemTBTL4;
+					txtTBTL4.Text="-Hệ 4: "+dt.DiemTBTL4;
 					txtDRL.Text="Điểm Rèn Luyện: "+dt.DiemRL;
 					txtTC.Hidden=false;
 					txtTCTL.Hidden=false;
