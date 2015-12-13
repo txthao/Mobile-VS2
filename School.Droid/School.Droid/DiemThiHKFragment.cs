@@ -26,6 +26,11 @@ namespace School.Droid
 		int btn_value ;
 		ProgressBar progress;
 		Bundle bundle;
+		LinearLayout linear;
+		TextView txtNotify;
+		LinearLayout linearDT;
+		Button btnHKTruoc;
+		string lasthk="0",lastnh="0";
 		bool flag = true;//check the first time and have data
 		public static DiemThiHKFragment instance;
 
@@ -51,41 +56,21 @@ namespace School.Droid
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_DT);
 			lbl_NH = rootView.FindViewById<TextView> (Resource.Id.lbl_NH_DT);
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressDTHK);
-			TextView txtNotify = rootView.FindViewById<TextView> (Resource.Id.txtNotify_DT_HK);
-			LinearLayout linear = rootView.FindViewById<LinearLayout> (Resource.Id.linear_HK_DT);
-			LinearLayout linearDT = rootView.FindViewById<LinearLayout> (Resource.Id.linearDT_HK);
+			 txtNotify = rootView.FindViewById<TextView> (Resource.Id.txtNotify_DT_HK);
+			linear = rootView.FindViewById<LinearLayout> (Resource.Id.linear_HK_DT);
+			 linearDT = rootView.FindViewById<LinearLayout> (Resource.Id.linearDT_HK);
 		//	RadioGroup radioGroup = rootView.FindViewById<RadioGroup> (Resource.Id.radioGroup3);
 			//button 
-			Button btnHKTruoc = rootView.FindViewById<Button> (Resource.Id.btnHK_Truoc_DT);
+			 btnHKTruoc = rootView.FindViewById<Button> (Resource.Id.btnHK_Truoc_DT);
 			btnHKKe = rootView.FindViewById<Button> (Resource.Id.btnHK_Ke_DT);
 			//bundle
 			bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
 			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 			//load data
-			DiemThi dt = BDiemThi.GetNewestDT (SQLite_Android.GetConnection ());
-			if (dt!=null) {
-				if (flag) {
-					LoadData ("0", "0");
-					flag = false;
-				}
-				txtNotify.Visibility = ViewStates.Gone;
-			//	radioGroup.Visibility = ViewStates.Visible;
-				linear.Visibility = ViewStates.Visible;
-				linearDT.Visibility = ViewStates.Visible;
-				LoadData (dt.Hocky, dt.NamHoc);
-				btnHKKe.Enabled = true;
-				btnHKTruoc.Enabled = true;
-			} else {
-				linear.Visibility = ViewStates.Gone;
-				linearDT.Visibility = ViewStates.Gone;
-				progress.Visibility = ViewStates.Gone;
-			//	radioGroup.Visibility = ViewStates.Gone;
-				txtNotify.Visibility = ViewStates.Visible;
-				txtNotify.Text = "Hiện tại điểm thi chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
-				btnHKKe.Enabled = false;
-				btnHKTruoc.Enabled = false;
-			}
+			LoadData ("0", "0");
+
+
 
 			//radio button
 //			RadioButton rb_tuan = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangAll_HK_DT);
@@ -96,7 +81,7 @@ namespace School.Droid
 			//button event
 			btnHKTruoc.Click += new EventHandler (btnHK_Truoc_Click);
 			btnHKKe.Click += new EventHandler (btnHK_Ke_Click);	
-		
+
 
 			return rootView;
 		}
@@ -147,9 +132,14 @@ namespace School.Droid
 			if (hocKy == "0") {
 				diemThi = BDiemThi.GetNewestDT (SQLite_Android.GetConnection ());
 				btnHKKe.Enabled = false;
+				lastnh=diemThi.NamHoc;
+				lasthk=diemThi.Hocky;
 			} else {
 				diemThi = BDiemThi.GetDT (SQLite_Android.GetConnection (), hocKy, namHoc);
 				btnHKKe.Enabled = true;
+				btnHKTruoc.Enabled = true;
+				btnHKTruoc.SetBackgroundResource(Android.Resource.Color.HoloBlueDark);
+				btnHKKe.SetBackgroundResource (Android.Resource.Color.HoloBlueDark);
 				int t=0;
 				while (diemThi == null&&t<3) {
 					string hK;
@@ -158,15 +148,44 @@ namespace School.Droid
 					diemThi = BDiemThi.GetDT (SQLite_Android.GetConnection (), hK, nH);
 					t++;
 				}
+				if (t == 3 && diemThi == null) {
+					btnHKTruoc.Enabled = false;
+					btnHKTruoc.SetBackgroundResource(Android.Resource.Color.DarkerGray);
+				}
 			}
+
+			lbl_HK.Text = hocKy;
+			lbl_NH.Text = namHoc;
+			if (diemThi != null) {
+			if (lastnh.Equals (diemThi.NamHoc) && lasthk.Equals (diemThi.Hocky)) {
+					btnHKKe.Enabled = false;
+					btnHKKe.SetBackgroundResource(Android.Resource.Color.DarkerGray);
+				}
+			listViewDT.Visibility=ViewStates.Visible;
 			List<DiemMon> listDM = BDiemThi.GetDiemMons (SQLite_Android.GetConnection (), diemThi.Hocky, diemThi.NamHoc);
 			lbl_HK.Text = diemThi.Hocky;
 			lbl_NH.Text = diemThi.NamHoc;
 			DiemThiHKAdapter adapter = new DiemThiHKAdapter (Activity, listDM);
-			listViewDT.Adapter = adapter;  
+			listViewDT.Adapter = adapter;
+			txtNotify.Visibility = ViewStates.Gone;
+			//	radioGroup.Visibility = ViewStates.Visible;
+			linear.Visibility = ViewStates.Visible;
+			linearDT.Visibility = ViewStates.Visible;
+			
+		} else {
+				
+			linear.Visibility = ViewStates.Gone;
+			linearDT.Visibility = ViewStates.Gone;
+				listViewDT.Visibility=ViewStates.Gone;
+			//	radioGroup.Visibility = ViewStates.Gone;
+			
+			txtNotify.Visibility = ViewStates.Visible;
+			txtNotify.Text = "Hiện tại điểm thi chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
+			
+		}
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
-			listViewDT.Visibility = ViewStates.Visible;
+
 
 
 		}
