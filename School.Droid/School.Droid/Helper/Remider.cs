@@ -152,7 +152,7 @@ namespace School.Droid
 			this.Finish ();
 		}
 
-		void Del_Click (object sender, EventArgs e)
+		async void Del_Click (object sender, EventArgs e)
 		{
 			ScheduleReminder reminder = new ScheduleReminder (this);
 			List<string> listEventId = new List<string> ();
@@ -168,13 +168,29 @@ namespace School.Droid
 					listEventId.Add (item.EventID);
 				}
 			}
+			ProgressDialog dialog = new ProgressDialog (this);
 
-			reminder.DeleteRemind (listEventId);
+			dialog.Indeterminate = false;
+			dialog.SetCancelable (false);
+			dialog.SetMessage ("Xoá nhắc lịch...");
+			dialog.Show ();
+			await reminder.DeleteRemind (listEventId);
+			dialog.Dismiss ();
+			if (LichHocHKFragment.instance != null) {
+				LichHocHKFragment.Instance.LoadData_HK ();
+			}
+			if (LichThiFragment.instance!=null){
+				LichThiFragment.Instance.LoadData ();
+			}
+			if (LichHocTuanFragment.instance != null) {
+				DateTime t = DateTime.ParseExact (ngayhoc, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+				LichHocTuanFragment.Instance.LoadData_Tuan (t);
+			}
 			Toast.MakeText (this, "Xóa nhắc lịch thành công", ToastLength.Long).Show();
 			Cancel.CallOnClick ();
 		}
 
-		void Save_Click (object sender, EventArgs e)
+		async void Save_Click (object sender, EventArgs e)
 		{
 			ScheduleReminder reminder = new ScheduleReminder (this);
 			if (edtxt_content.Text == "") {
@@ -207,8 +223,13 @@ namespace School.Droid
 					DateTime t = DateTime.ParseExact (ngayhoc, "MM/dd/yyyy", CultureInfo.InvariantCulture);
 					LichHocTuanFragment.Instance.LoadData_Tuan(t);
 				} else {
-					reminder.ctlh = BLichHoc.GetCTLH (SQLite_Android.GetConnection (),lh.Id, thu, tietBD);
-					reminder.RemindLHHK ();
+					ProgressDialog dialog = new ProgressDialog (this);
+					dialog.Indeterminate = false;
+					dialog.SetCancelable (false);
+					dialog.SetMessage ("Xoá nhắc lịch...");
+					dialog.Show ();
+					await reminder.RemindLHHK ();
+					dialog.Dismiss ();
 					LichHocHKFragment.Instance.LoadData_HK ();
 				}
 			}

@@ -171,12 +171,16 @@ namespace School.Droid
 			isSaveId = true;
 			return Task.Run(()=>
 				{
-				List<string> listNgayHoc = Common.strListTuanToArrayString (ctlh.Tuan);
-				
+				List<chiTietLH> cts = BLichHoc.GetCTLH (SQLite_Android.GetConnection (), lh.Id);
+				foreach( var ct in cts)
+					{
+		    	List<string> listNgayHoc = Common.strListTuanToArrayString (ct.Tuan);
 				foreach (string s in listNgayHoc) {
 					DateForCTLH = s;
+							this.ctlh=ct;
 					SetCalenDarLH ();
 				}
+					}
 				isSaveId = false;
 				}
 			);
@@ -284,7 +288,7 @@ namespace School.Droid
 					}
 					for (int i=0;i<listLT.Count;i++){
 						List<string> eventID = new List<string>();
-						eventID.Add(listLH[i].EventID);
+						eventID.Add(listLT[i].EventID);
 						int deleted =
 							ctx.ContentResolver.
 							Delete (

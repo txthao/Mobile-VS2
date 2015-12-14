@@ -256,9 +256,15 @@ namespace School.iOS
 		{
 			try
 			{
+				
 				if (rmItem!=null)
 				{
+					ItemLH= new LHRemindItem();
 					ItemLH=rmItem;
+				}
+				else
+				{
+					ItemLT=new LTRemindItem();
 				}
 
 				EKEvent mySavedEvent = App.Current.EventStore.EventFromIdentifier (eventID);
@@ -382,6 +388,9 @@ namespace School.iOS
 				switch (action) {
 
 				case EventKitUI.EKEventEditViewAction.Canceled:
+					ItemLH = null;
+					ItemLT = null;
+					isUpdate = false;
 					break;
 				case EventKitUI.EKEventEditViewAction.Deleted:
 					BRemind.RemoveRemind (SQLite_iOS.GetConnection (), controller.Event.EventIdentifier);
