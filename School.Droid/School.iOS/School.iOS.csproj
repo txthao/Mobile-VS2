@@ -79,9 +79,24 @@
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\SguLogo.imageset\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\SguLogo.imageset\logo.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\bg480.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\bg940.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\bg1136.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Image.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\Image.imageset\bg480.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Image.imageset\bg940.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Image.imageset\bg1136.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Image.imageset\bg1136.jpg" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon120.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon57.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon114.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon180.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon29.jpg" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon58.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon87.png" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
     <InterfaceDefinition Include="SlideMenu\VCLichHoc.xib" />
     <InterfaceDefinition Include="SlideMenu\VCLichThi.xib" />
     <InterfaceDefinition Include="SlideMenu\VCHocPhi.xib" />
@@ -93,6 +108,8 @@
     <InterfaceDefinition Include="SlideMenu\VCADiemThi.xib" />
     <InterfaceDefinition Include="SlideMenu\VCLichHocTuan.xib" />
     <InterfaceDefinition Include="Resources\SlideMenu\en.lproj\VCLichHocTuan.xib" />
+    <InterfaceDefinition Include="Resources\en.lproj\LaunchScreen.xib" />
+    <InterfaceDefinition Include="LaunchScreen.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -189,6 +206,7 @@
     <BundleResource Include="Resources\menupic\remind.png" />
     <BundleResource Include="Resources\menupic\refresh.png" />
     <BundleResource Include="Resources\menupic\bell.png" />
+    <BundleResource Include="Resources\menupic\bg1136.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\School.Core\School.Core.csproj">

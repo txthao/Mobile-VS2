@@ -28,8 +28,6 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
-	<key>XSLaunchImageAssets</key>
-	<string>Resources/Images.xcassets/LaunchImage.launchimage</string>
 	<key>CFBundleDisplayName</key>
 	<string>Thông Tin Đào Tạo</string>
 </dict>
