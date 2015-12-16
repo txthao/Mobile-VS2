@@ -105,6 +105,7 @@ namespace School.iOS
 		}
 		partial void btDangNhapClick (NSObject sender)
 		{
+			txtError.Text="";
 			if (Reachability.InternetConnectionStatus ()==NetworkStatus.NotReachable)
 			{
 				txtError.Text = "Không Có Kết Nối Mạng";

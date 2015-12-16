@@ -1,18 +1,13 @@
-﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.8.2" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="School.iOS/SlideMenu/VCSettings.cs">
-    <Files>
-      <File FileName="School.iOS/SlideMenu/VCSettings.cs" Line="255" Column="34" />
-      <File FileName="School.iOS/SlideMenu/VCLichHocTuan.cs" Line="40" Column="67" />
-      <File FileName="School.Droid/SettingsFragment.cs" Line="99" Column="67" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.AVD_for_Galaxy_Nexus_by_Google" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Droid/HocPhiAdapter.cs" line="23" column="1" />
       <Breakpoint file="/Users/mactien/Desktop/School-App-Mobile/School.Droid/School.Core/Bussiness/BLichHoc.cs" line="140" column="1" />
       <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.Droid/Common.cs" line="146" column="1" />
+      <Breakpoint file="/Users/mactien/Mobile-VS2/School.Droid/School.Droid/Helper/ScheduleReminder.cs" line="203" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

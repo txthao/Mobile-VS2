@@ -35,6 +35,20 @@
         android:textStyle="bold"
         android:textColor="@android:color/holo_blue_light" />
     <TextView
+        android:id="@+id/txtSoTC"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dip"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_blue_light" />
+    <TextView
+        android:id="@+id/txtTCTL"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dip"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_blue_light" />
+    <TextView
         android:id="@+id/txtDRL"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

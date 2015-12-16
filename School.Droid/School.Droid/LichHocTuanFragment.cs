@@ -125,6 +125,8 @@ namespace School.Droid
 
 		public async void LoadData_Tuan (DateTime dateOfWeek)
 		{
+			try
+			{
 			listView_Tuan.Visibility = ViewStates.Invisible;
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
@@ -168,6 +170,10 @@ namespace School.Droid
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 			listView_Tuan.Visibility = ViewStates.Visible;
+		}
+		catch {
+			
+		}
 		}
 
 

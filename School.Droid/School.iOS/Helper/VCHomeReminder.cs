@@ -30,8 +30,8 @@ namespace School.iOS
 		public VCHomeReminder(UIViewController controller)
 		{
 			this.controller=controller;
-			listTimeLH= new List<string> {"07g00","07g50","08g40","09g00","09g50","10g40","11g30","12g00","12g50","13g40","14g00","14g50","15g40","16g30","17g00","17g50"
-				,"18g40"};
+			listTimeLH= new List<string> {"07g00","07g50","09g00","09g50","10g40","12g00","12g50","14g00","14g50","15g40","17g00","17g50"
+				,"18g40","19g30"};
 		}
 		public void RemindLH()
 		{
@@ -44,7 +44,7 @@ namespace School.iOS
 					tenmh = BMonHoc.GetMH (SQLite_iOS.GetConnection(),lh.MaMH).TenMH;
 					time=ct.Tuan;
 					srtTime=GetTime(covertToExact(time),listTimeLH[int.Parse(ct.TietBatDau)-1]);
-					string timeEnd=listTimeLH[int.Parse(ct.TietBatDau)+int.Parse(ct.SoTiet)];
+					string timeEnd=listTimeLH[int.Parse(ct.TietBatDau)+int.Parse(ct.SoTiet)-1];
 					switch(timeEnd)
 					{
 					case "09g00":
@@ -53,7 +53,12 @@ namespace School.iOS
 					case "14g00":
 						timeEnd="13g40";
 						break;
-
+					case "12g00":
+						timeEnd="11g30";
+						break;
+					case "17g00":
+						timeEnd="16g30";
+						break;
 					}
 					endTime=GetTime(covertToExact(time),timeEnd);
 				}
@@ -256,9 +261,15 @@ namespace School.iOS
 		{
 			try
 			{
+				
 				if (rmItem!=null)
 				{
+					ItemLH= new LHRemindItem();
 					ItemLH=rmItem;
+				}
+				else
+				{
+					ItemLT=new LTRemindItem();
 				}
 
 				EKEvent mySavedEvent = App.Current.EventStore.EventFromIdentifier (eventID);
@@ -382,6 +393,9 @@ namespace School.iOS
 				switch (action) {
 
 				case EventKitUI.EKEventEditViewAction.Canceled:
+					ItemLH = null;
+					ItemLT = null;
+					isUpdate = false;
 					break;
 				case EventKitUI.EKEventEditViewAction.Deleted:
 					BRemind.RemoveRemind (SQLite_iOS.GetConnection (), controller.Event.EventIdentifier);

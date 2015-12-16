@@ -1,5 +1,4 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
-/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCLichHoc.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCLichThi.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCHocPhi.nib
@@ -10,11 +9,22 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCDiemThi.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCADiemThi.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/VCLichHocTuan.nib
-/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/LogOut.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/en.lproj/VCLichHocTuan.nib
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/en.lproj/LaunchScreen.nib
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.nib
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/partial-info.plist
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/asset-manifest.plist
-/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/LaunchImage-700-568h@2x.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons29x29.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons29x29@2x.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons29x29@3x.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons40x40@2x.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons40x40@3x.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons57x57.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons57x57@2x.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons60x60@2x.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons60x60@3x.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons29x29~ipad.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons29x29@2x~ipad.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppLogo~iphone.jpg
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/Assets.car
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/Icdiemthi.png
@@ -30,6 +40,7 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/remind.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/refresh.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/bell.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/bg1136.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/Settings.Bundle/Root.plist
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/success@2x.png
@@ -54,7 +65,7 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/School.Core.dll.mdb
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.Net.Http.dll
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.Net.Http.xml
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.Text.Encoding.dll
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.Net.Http.Primitives.dll
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.Net.Http.Primitives.xml
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.IO.dll
-/Users/mactien/Mobile-VS2/School.Droid/School.iOS/bin/iPhoneSimulator/Debug/System.Text.Encoding.dll

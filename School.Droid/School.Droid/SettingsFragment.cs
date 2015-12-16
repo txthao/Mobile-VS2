@@ -47,7 +47,7 @@ namespace School.Droid
 			txtVersion.Click += TxtVersion_Click;
 			Bundle bundle=this.Arguments;
 			bool check = bundle.GetBoolean ("Remind");
-			 autoupdate = bundle.GetBoolean ("AutoUpdateData");
+			autoupdate = bundle.GetBoolean ("AutoUpdateData");
 			cbUpdate.Checked = autoupdate;
 			cbNLT.Checked = check;
 			btupdateData.Click+= BtupdateData_Click;
@@ -134,10 +134,24 @@ namespace School.Droid
 				}
 
 			} else {
-				
+				AlertDialog.Builder builder = new AlertDialog.Builder (
+					Activity);
+
+				// Setting Dialog Title
+
+				builder.SetTitle (Resource.String.Alertitle); 
+				builder.SetIcon (Android.Resource.Drawable.IcDialogAlert); 
+				builder.SetMessage ("Bạn có muốn xoá hết nhắc lịch đã tạo không?"); 
+				builder.SetPositiveButton ("Có", async (sender1, e1) => {
 				ScheduleReminder reminder = new ScheduleReminder(Activity);
 				await reminder.DeleteAlLRemind ();
 				Toast.MakeText (Activity, "Xoá nhắc lịch hoàn tất", ToastLength.Long).Show();
+				});
+				builder.SetNegativeButton ("Không", (sender1, e1) => {
+				});
+				builder.Show(); 
+
+				
 			}
 			progressNL.Indeterminate = false;
 			progressNL.Visibility = ViewStates.Gone;

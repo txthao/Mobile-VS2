@@ -2,18 +2,31 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UILaunchImages</key>
-	<array>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
 		<dict>
-			<key>UILaunchImageMinimumOSVersion</key>
-			<string>7.0</string>
-			<key>UILaunchImageName</key>
-			<string>LaunchImage-700-568h</string>
-			<key>UILaunchImageOrientation</key>
-			<string>Portrait</string>
-			<key>UILaunchImageSize</key>
-			<string>{320, 568}</string>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>AppIcons29x29</string>
+				<string>AppIcons40x40</string>
+				<string>AppIcons57x57</string>
+				<string>AppIcons60x60</string>
+			</array>
 		</dict>
-	</array>
+	</dict>
+	<key>CFBundleIcons~ipad</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>AppIcons29x29</string>
+				<string>AppIcons40x40</string>
+				<string>AppIcons57x57</string>
+				<string>AppIcons60x60</string>
+			</array>
+		</dict>
+	</dict>
 </dict>
 </plist>

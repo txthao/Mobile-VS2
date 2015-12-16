@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="fill_parent"><LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:gravity="center" android:background="@android:color/background_light" android:minWidth="25px" android:minHeight="25px" android:layout_above="@+id/seperator_DT"><!--        <RadioGroup
+            android:layout_margin="10dp"
+            android:id="@+id/radioGroup3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/radioBtn_group"
+            android:orientation="horizontal"
+            android:padding="1dp">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:background="@drawable/radio_states"
+                android:padding="5dp"
+                android:textColor="@drawable/radio_text"
+                android:text="Xem dạng Học kỳ"
+                android:id="@+id/rb_dangHK_HK_DT"
+                android:textSize="14dip" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radio_states"
+                android:button="@null"
+                android:padding="5dp"
+                android:text="     Xem Tất cả    "
+                android:textColor="@drawable/radio_text"
+                android:id="@+id/rb_dangAll_HK_DT"
+                android:textSize="14dip" />
+        </RadioGroup>--><TextView android:textColor="@android:color/background_dark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16dip" android:id="@+id/txtNotify_DT_HK" android:padding="5dp" /><LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:gravity="center" android:background="@android:color/background_light" android:id="@+id/linear_HK_DT" android:layout_marginTop="10dp"><TextView android:textColor="@android:color/background_dark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20dip" android:text="Học Kỳ " /><TextView android:textColor="@android:color/background_dark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20dip" android:id="@+id/lbl_HK_DT" /><TextView android:textColor="@android:color/background_dark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20dip" android:text=" Năm Học " /><TextView android:textColor="@android:color/background_dark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20dip" android:id="@+id/lbl_NH_DT" /></LinearLayout><LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/linearDT_HK" style="@style/RowHeader" android:weightSum="1" android:layout_marginTop="20dp"><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.4" android:text="Môn Học" android:gravity="center" android:paddingBottom="5dp" style="@style/RowHeader" /><View android:layout_width="1dp" android:layout_height="fill_parent" android:background="#DEDEDE" /><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.15" android:text="Tỉ lệ" android:gravity="center" android:paddingBottom="5dp" style="@style/RowHeader" /><View android:layout_width="1dp" android:layout_height="fill_parent" android:background="#DEDEDE" /><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.15" android:text="Điểm KT" android:gravity="center" android:paddingBottom="5dp" style="@style/RowHeader" /><View android:layout_width="1dp" android:layout_height="fill_parent" android:background="#DEDEDE" /><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.15" android:text="Điểm Thi" android:gravity="center" android:paddingBottom="5dp" style="@style/RowHeader" /><View android:layout_width="1dp" android:layout_height="fill_parent" android:background="#DEDEDE" /><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.15" android:text="Điểm TK" android:gravity="center" android:paddingBottom="5dp" style="@style/RowHeader" /></LinearLayout><ProgressBar android:visibility="gone" android:layout_width="fill_parent" android:layout_height="50dp" android:layout_centerHorizontal="true" android:indeterminateDrawable="@drawable/progress" android:id="@+id/progressDTHK" /><ListView android:minWidth="25px" android:minHeight="25px" android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/listDT_HK" /></LinearLayout><View android:id="@+id/seperator_DT" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="2dp" android:background="#81D4FA" android:layout_above="@+id/linearBtn_DT" android:layout_marginTop="10dp" /><LinearLayout android:id="@+id/linearBtn_DT" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:gravity="center" android:layout_alignParentBottom="true"><Button android:text="HK Trước" android:layout_width="0dp" android:layout_weight="0.5" android:layout_height="wrap_content" android:id="@+id/btnHK_Truoc_DT" style="@style/Button" /><View android:layout_width="1dp" android:layout_height="fill_parent" android:background="#81D4FA" /><Button android:text="HK Kế" android:layout_width="0dp" android:layout_weight="0.5" android:layout_height="wrap_content" android:id="@+id/btnHK_Ke_DT" style="@style/Button" /></LinearLayout></RelativeLayout>
