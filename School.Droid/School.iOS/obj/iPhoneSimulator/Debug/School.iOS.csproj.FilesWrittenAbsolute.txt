@@ -23,6 +23,8 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons57x57@2x.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons60x60@2x.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons60x60@3x.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons29x29~ipad.png
+/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons29x29@2x~ipad.png
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppLogo~iphone.jpg
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/Assets.car
 /Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/optimized/menupic/Icdiemthi.png

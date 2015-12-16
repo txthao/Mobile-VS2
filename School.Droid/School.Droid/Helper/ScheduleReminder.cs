@@ -43,8 +43,8 @@ namespace School.Droid
 			TimeForCalendar timeend=new TimeForCalendar();
 			chiTietLH ct=ctlh;
 
-			listTimeLH= new List<string> {"07g00","07g50","08g40","09g00","09g50","10g40","11g30","12g00","12g50","13g40","14g00","14g50","15g40","16g30","17g00","17g50"
-				,"18g40"};
+			listTimeLH= new List<string> {"07g00","07g50","09g00","09g50","10g40","12g00","12g50","13g40","14g50","15g40","17g00","17g50"
+				,"18g40","19g30"};
 			
 
 			ContentValues eventValues = new ContentValues();
@@ -55,7 +55,7 @@ namespace School.Droid
 				tenmh = BMonHoc.GetMH (SQLite_Android.GetConnection(),lh.MaMH).TenMH;
 				min=int.Parse(ct.SoTiet)*50;
 				time= new TimeForCalendar(DateForCTLH,listTimeLH[int.Parse(ct.TietBatDau)-1]);
-				string timeEnd=listTimeLH[int.Parse(ct.TietBatDau)+int.Parse(ct.SoTiet)];
+				string timeEnd=listTimeLH[int.Parse(ct.TietBatDau)+int.Parse(ct.SoTiet)-1];
 				switch(timeEnd)
 				{
 				case "09g00":
@@ -64,7 +64,12 @@ namespace School.Droid
 				case "14g00":
 					timeEnd="13g40";
 					break;
-				
+				case "12g00":
+					timeEnd="11g30";
+					break;
+				case "17g00":
+					timeEnd="16g30";
+					break;
 				}
 				timeend= new TimeForCalendar(DateForCTLH,timeEnd);
 				

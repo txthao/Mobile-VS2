@@ -105,7 +105,8 @@ namespace School.Droid
 					viewholder.txtTBTL10 = row.FindViewById<TextView> (Resource.Id.txtTBTL10);
 					viewholder.txtTBTL4 = row.FindViewById<TextView> (Resource.Id.txtTBTL4);
 					viewholder.txtDRL = row.FindViewById<TextView> (Resource.Id.txtDRL);
-				
+					viewholder.txtSoTC= row.FindViewById<TextView> (Resource.Id.txtSoTC);
+					viewholder.txtTCTL=row.FindViewById<TextView> (Resource.Id.txtTCTL);
 					break;
 				}
 				row.Tag = viewholder;
@@ -134,6 +135,8 @@ namespace School.Droid
 				viewholder.txtTBTL10.Text = "ĐTB Tích lũy hệ 10: " + dt.DiemTBTL10;
 				viewholder.txtTBTL4.Text = "ĐTB Tích lũy hệ 4: " + dt.DiemTBTL4;
 				viewholder.txtDRL.Text = "Điểm rèn luyện: " + dt.DiemRL;
+				viewholder.txtSoTC.Text = "Số TC Đạt: " + dt.SoTCDat;
+				viewholder.txtTCTL.Text = "Số TCTL: " + dt.SoTCTL;
 				break;
 			}
 			return row;
@@ -154,7 +157,8 @@ namespace School.Droid
 			internal TextView txtDTK;
 
 			internal TextView txtHeaderDT;
-
+			internal TextView txtSoTC;
+			internal TextView txtTCTL;
 			internal LinearLayout linear;
 		}
 
