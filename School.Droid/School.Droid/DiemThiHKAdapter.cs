@@ -67,7 +67,7 @@ namespace School.Droid
 				row.FindViewById<TextView>(Resource.Id.txtTBTL4).Text = "ĐTB Tích lũy hệ 4: " + dt.DiemTBTL4;
 				row.FindViewById<TextView>(Resource.Id.txtDRL).Text =  "Điểm rèn luyện: " + dt.DiemRL;
 				row.FindViewById<TextView> (Resource.Id.txtSoTC).Text = "Số TC Đạt: " + dt.SoTCDat;
-				row.FindViewById<TextView> (Resource.Id.txtTCTL).Text = "Số TC Đạt: " + dt.SoTCTL;
+				row.FindViewById<TextView> (Resource.Id.txtTCTL).Text = "Số TC TL: " + dt.SoTCTL;
 			}
 
 			
