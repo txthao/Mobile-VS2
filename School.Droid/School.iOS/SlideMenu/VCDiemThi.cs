@@ -124,8 +124,11 @@ namespace School.iOS
 				if (hocKy == "0") {
 				 dt= BDiemThi.GetNewestDT(SQLite_iOS.GetConnection());
 					btHKKe.Enabled=false;
+					if (dt!=null)
+					{
 					lastnh=dt.NamHoc;
 					lasthk=dt.Hocky;
+					}
 				}
 				else {
 					btHKKe.Enabled=true;

@@ -70,6 +70,8 @@ namespace School.Droid
 			if (lh != null) {
 				btnTuanTruoc.Enabled = true;
 				btnTuanKe.Enabled = true;
+				btnTuanTruoc.SetBackgroundResource(Android.Resource.Color.HoloBlueDark);
+				btnTuanKe.SetBackgroundResource(Android.Resource.Color.HoloBlueDark);
 			//	radioGroup.Visibility = ViewStates.Visible;
 				linear_ThoiGian.Visibility = ViewStates.Visible;
 				txtNotify.Visibility = ViewStates.Gone;
@@ -79,6 +81,8 @@ namespace School.Droid
 				progress.Visibility = ViewStates.Gone;
 				btnTuanTruoc.Enabled = false;
 				btnTuanKe.Enabled = false;
+				btnTuanTruoc.SetBackgroundResource(Android.Resource.Color.DarkerGray);
+				btnTuanKe.SetBackgroundResource(Android.Resource.Color.DarkerGray);
 			//	radioGroup.Visibility = ViewStates.Gone;
 				linear_ThoiGian.Visibility = ViewStates.Gone;
 				txtNotify.Visibility = ViewStates.Visible;

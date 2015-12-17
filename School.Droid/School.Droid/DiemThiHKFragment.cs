@@ -132,8 +132,14 @@ namespace School.Droid
 			if (hocKy == "0") {
 				diemThi = BDiemThi.GetNewestDT (SQLite_Android.GetConnection ());
 				btnHKKe.Enabled = false;
-				lastnh=diemThi.NamHoc;
-				lasthk=diemThi.Hocky;
+				if (diemThi != null) {
+					lastnh = diemThi.NamHoc;
+					lasthk = diemThi.Hocky;
+				} else {
+					btnHKTruoc.Enabled = false;
+					btnHKTruoc.SetBackgroundResource(Android.Resource.Color.DarkerGray);
+					btnHKKe.SetBackgroundResource (Android.Resource.Color.DarkerGray);
+				}
 			} else {
 				diemThi = BDiemThi.GetDT (SQLite_Android.GetConnection (), hocKy, namHoc);
 				btnHKKe.Enabled = true;

@@ -1,6 +1,11 @@
-﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.AVD_for_Galaxy_Nexus_by_Google" />
-  <MonoDevelop.Ide.Workbench />
+﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Galaxy_Nexus_by_Google" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="School.Droid/DiemThiHKAdapter.cs">
+    <Files>
+      <File FileName="School.Droid/DiemThiHKAdapter.cs" Line="70" Column="69" />
+      <File FileName="School.Droid/DiemThiFragment.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />

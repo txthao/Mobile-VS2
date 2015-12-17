@@ -122,6 +122,7 @@ namespace School.iOS
 				btTuanKe.Hidden=true;
 				btTuanTrc.Hidden=true;
 				progress.Hidden = false;
+				timeLHTuan.Hidden=true;
 				progress.StartAnimating ();
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
 				List<LichHoc> listLH = new List<LichHoc> ();
@@ -177,7 +178,7 @@ namespace School.iOS
 				{
 				btTuanKe.Hidden=false;
 				btTuanTrc.Hidden=false;
-
+				timeLHTuan.Hidden=false;
 				}
 				if (listCT.Count==0) 
 				{
