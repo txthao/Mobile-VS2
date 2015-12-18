@@ -157,8 +157,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\up.png" />
     <AndroidResource Include="Resources\layout\HocPhiFooter.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\Progress.xml" />
-    <AndroidResource Include="Resources\drawable-hdpi\appicon.jpg" />
-    <AndroidResource Include="Resources\drawable-hdpi\app_icon.jpg" />
     <AndroidResource Include="Resources\drawable-hdpi\bell.png" />
     <AndroidResource Include="Resources\drawable-hdpi\drawer_item_states.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\drawer_item_text.xml" />
@@ -183,6 +181,7 @@
     <AndroidResource Include="Resources\layout\Reminder_Dialog.xml" />
     <AndroidResource Include="Resources\layout\CustomDialog.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\calendar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\iconsgu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

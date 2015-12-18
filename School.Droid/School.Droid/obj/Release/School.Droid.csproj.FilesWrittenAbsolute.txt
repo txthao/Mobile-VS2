@@ -98,3 +98,4 @@
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/bin/Release/School.Core.dll
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/bin/Release/School.Core.dll.mdb
 /Users/mactien/Mobile-VS2/School.Droid/School.Droid/bin/Release/System.Text.Encoding.dll
+/Users/mactien/Mobile-VS2/School.Droid/School.Droid/obj/Release/res/drawable-hdpi/iconsgu.png

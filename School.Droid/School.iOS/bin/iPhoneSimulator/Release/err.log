@@ -1,0 +1,32 @@
+2015-12-18 11:30:45.488 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:45.496 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:45.503 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:45.512 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:45.518 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:45.524 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:45.531 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:45.537 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:45.543 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:49.083 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:49.100 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:49.145 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:30:49.644 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:01.741 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:01.752 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:01.758 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:01.767 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:01.993 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:01.999 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:02.000 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:02.006 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:02.006 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:02.013 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:02.014 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:02.020 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:03.092 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:03.277 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:03.282 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:03.577 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:03.582 School.iOS[626:12830] CUICatalog: Invalid asset name supplied: 
+2015-12-18 11:31:07.274 School.iOS[626:12830] Presenting view controllers on detached view controllers is discouraged <VCLichHocTuan: 0x7b301c70>.
+2015-12-18 11:31:08.498 School.iOS[626:12830] Warning: Attempt to present <EKEventEditViewController: 0x7c4f1a00> on <VCLichHocTuan: 0x7b301c70> whose view is not in the window hierarchy!
