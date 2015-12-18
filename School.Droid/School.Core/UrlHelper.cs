@@ -7,19 +7,19 @@ namespace School.Core
 		
 		public static string UrlHP(string id, string pass)
 		{
-			return String.Format ("http://www.schoolapi.somee.com/api/hocphi/{0}/{1}", id, pass);
+			return String.Format ("http://www.schoolapi.somee.com/hocphi/{0}/{1}", id, pass);
 		}
 		public static string UrlDT(string id)
 		{
-			return String.Format ("http://www.schoolapi.somee.com/api/diemthi/" + id);
+			return String.Format ("http://www.schoolapi.somee.com/diemthi/" + id);
 		}
 		public static string UrlLT(string id)
 		{
-			return String.Format ("http://www.schoolapi.somee.com/api/lichthi/" + id);
+			return String.Format ("http://www.schoolapi.somee.com/lichthi/" + id);
 		}
 		public static string UrlLH(string id)
 		{
-			return String.Format ("http://www.schoolapi.somee.com/api/thoikhoabieu/" + id);
+			return String.Format ("http://www.schoolapi.somee.com/thoikhoabieu/" + id);
 		}
 		public static string About()
 		{

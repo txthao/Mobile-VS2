@@ -22,6 +22,7 @@ namespace School.Droid
 		ProgressBar progress;
 		LinearLayout linear;
 		TextView txtNotify;
+		TextView txtHocKyDT;
 		bool check,autoupdate;
 		Bundle bundle;
 		public static DiemThiFragment instance;
@@ -34,16 +35,10 @@ namespace School.Droid
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
-
-			// Create your fragment here
 		}
 
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-			// Use this to return your custom view for this Fragment
-			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
-
-
 
 			var rootView = inflater.Inflate(Resource.Layout.DiemThi, container, false);
 			bundle = this.Arguments;
@@ -54,28 +49,12 @@ namespace School.Droid
 			progress=rootView.FindViewById<ProgressBar>(Resource.Id.progressDT);
 			linear = rootView.FindViewById<LinearLayout>(Resource.Id.linear11);
 			txtNotify = rootView.FindViewById<TextView>(Resource.Id.txtNotify_DT);
+			txtHocKyDT = rootView.FindViewById<TextView> (Resource.Id.txtHocKyDT);
 			LoadData ();
-
-			//radio button
-//			RadioButton rb_All = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangAll_All_DT);
-//			RadioButton rb_HocKy = rootView.FindViewById<RadioButton> (Resource.Id.rb_dangHK_All_DT);
-//			rb_All.Checked = true;
-//			rb_HocKy.Click += new EventHandler (rd_OnCheckedChangeListener);
-
 
 			return rootView;
 		}
-
-
-//		void rd_OnCheckedChangeListener (object sender, EventArgs e)
-//		{
-//			DiemThiHKFragment fragment = new DiemThiHKFragment();
-//			fragment.Arguments = bundle;
-//			FragmentManager.BeginTransaction()
-//				.Replace(Resource.Id.content_frame, fragment).AddToBackStack("31")
-//				.Commit();
-//		}
-//			
+				
 		async void LoadData()
 		{
 			progress.Visibility = ViewStates.Visible;
@@ -112,9 +91,9 @@ namespace School.Droid
 
 				}
 				listView.Adapter = new DiemThiApdater (Activity, list); 
-				//listView.SetAdapter (new DiemThiApdater (Activity, list)); 
 			} else {
 				linear.Visibility = ViewStates.Gone;
+				txtHocKyDT.Visibility=ViewStates.Gone;
 				txtNotify.Visibility = ViewStates.Visible;
 				txtNotify.Text = "Hiện tại điểm thi chưa có dữ liệu. Xin vui lòng thử lại sau!!!";
 			}

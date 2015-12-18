@@ -24,7 +24,6 @@ namespace School.Core
 		{
 			DataProvider dtb = new DataProvider (connection);
 			if (dtb.GetUser (user.Id) == null) {
-				user.Password = base64Encode (user.Password);
 				return dtb.AddUser (user);
 			}
 			return 0;
@@ -73,7 +72,7 @@ namespace School.Core
 			User usr = new User ();
 			usr.Password = pass;
 			usr.Id = id;
-			Task<string> contentNameTask = httpClient.GetStringAsync ("http://www.schoolapi.somee.com/api/user/" + id);
+			Task<string> contentNameTask = httpClient.GetStringAsync ("http://www.schoolapi.somee.com/user/" + id);
 			contents=await contentNameTask;
 			XDocument doc = XDocument.Parse (contents);
 			usr.Hoten= doc.Root.Elements().ElementAt(0).Elements().ElementAt(1).Value.ToString();
