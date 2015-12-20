@@ -87,14 +87,17 @@
     <ImageAsset Include="Resources\Images.xcassets\Image.imageset\bg940.png" />
     <ImageAsset Include="Resources\Images.xcassets\Image.imageset\bg1136.png" />
     <ImageAsset Include="Resources\Images.xcassets\Image.imageset\bg1136.jpg" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon120.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon57.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon114.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon180.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon29.jpg" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon58.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appicon87.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\iconsgu29.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\iconsgu58.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\iconsgu87.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\iconsgu80.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\iconsgu120.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\iconsgu114.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\iconsgu180.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\iconsgu144.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\iconsgu152.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\iconsgu76.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\iconsgu40.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="SlideMenu\VCLichHoc.xib" />

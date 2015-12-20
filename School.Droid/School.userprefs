@@ -1,10 +1,6 @@
-﻿<Properties StartupItem="School.Droid/School.Droid.csproj">
+﻿<Properties StartupItem="School.iOS/School.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.AVD_for_Galaxy_Nexus_by_Google" />
-  <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="School.iOS/SlideMenu/VCLichHocTuan.cs" Line="126" Column="31" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="G:\Xay dung phan mem\School-App-Mobile\School.Droid\School.Core\Bussiness\BLichHoc.cs" line="76" column="9" />

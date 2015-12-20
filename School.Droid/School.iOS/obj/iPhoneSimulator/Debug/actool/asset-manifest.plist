@@ -11,12 +11,14 @@
 			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons29x29@3x.png</string>
 			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons40x40@2x.png</string>
 			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons40x40@3x.png</string>
-			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons57x57.png</string>
 			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons57x57@2x.png</string>
 			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons60x60@2x.png</string>
 			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons60x60@3x.png</string>
-			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons29x29~ipad.png</string>
-			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons29x29@2x~ipad.png</string>
+			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons40x40~ipad.png</string>
+			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons40x40@2x~ipad.png</string>
+			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons72x72@2x~ipad.png</string>
+			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons76x76~ipad.png</string>
+			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcons76x76@2x~ipad.png</string>
 			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppLogo~iphone.jpg</string>
 			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/bundle/Assets.car</string>
 			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/obj/iPhoneSimulator/Debug/actool/partial-info.plist</string>
@@ -24,18 +26,6 @@
 	</dict>
 	<key>com.apple.actool.document.notices</key>
 	<array>
-		<dict>
-			<key>affected-items</key>
-			<array>
-				<string>./AppIcons.appiconset/[iphone][57x57][][][1x]</string>
-			</array>
-			<key>catalog</key>
-			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/Resources/Images.xcassets</string>
-			<key>message</key>
-			<string>57x57 app icons only apply to iPhone apps targeting releases of iOS prior to 7.0</string>
-			<key>type</key>
-			<string>Inapplicable Content</string>
-		</dict>
 		<dict>
 			<key>affected-items</key>
 			<array>
@@ -62,6 +52,42 @@
 			<string>The image set "Image" has an unassigned image.</string>
 			<key>type</key>
 			<string>Ambiguous Content</string>
+		</dict>
+		<dict>
+			<key>affected-items</key>
+			<array>
+				<string>./AppIcons.appiconset/[ipad][29x29][][][2x]</string>
+			</array>
+			<key>catalog</key>
+			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/Resources/Images.xcassets</string>
+			<key>message</key>
+			<string>The file "appicon58.png" for the image set "AppIcons" does not exist.</string>
+			<key>type</key>
+			<string>Missing Content</string>
+		</dict>
+		<dict>
+			<key>affected-items</key>
+			<array>
+				<string>./AppIcons.appiconset/[iphone][57x57][][][1x]</string>
+			</array>
+			<key>catalog</key>
+			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/Resources/Images.xcassets</string>
+			<key>message</key>
+			<string>AppIcons.appiconset/iconsgu58.png is 58x58 but should be 57x57.</string>
+			<key>type</key>
+			<string>Ambiguous Content</string>
+		</dict>
+		<dict>
+			<key>affected-items</key>
+			<array>
+				<string>./AppIcons.appiconset/[ipad][29x29][][][1x]</string>
+			</array>
+			<key>catalog</key>
+			<string>/Users/mactien/Mobile-VS2/School.Droid/School.iOS/Resources/Images.xcassets</string>
+			<key>message</key>
+			<string>The file "appicon29.jpg" for the image set "AppIcons" does not exist.</string>
+			<key>type</key>
+			<string>Missing Content</string>
 		</dict>
 		<dict>
 			<key>affected-items</key>
