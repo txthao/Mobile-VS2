@@ -15,6 +15,7 @@ namespace School.iOS
 		List<chiTietLH> listCT;
 		string begining;
 		string end;
+		bool isfirst;
 		public bool isReload=false;
 		public static DateTime LoadedDate;
 		public static VCLichHocTuan instance;
@@ -34,6 +35,7 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			isfirst = true;
 			btTuanKe.BackgroundColor=LayoutHelper.ourDarkCyan;
 			btTuanKe.SetTitleColor (UIColor.Black, UIControlState.Normal);
 			btTuanTrc.BackgroundColor=LayoutHelper.ourDarkCyan;
@@ -127,7 +129,7 @@ namespace School.iOS
 				progress.StartAnimating ();
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
 				List<LichHoc> listLH = new List<LichHoc> ();
-				if (sync)
+				if (sync&&isfirst)
 				{
 					bool accepted =false;
 					while (Reachability.InternetConnectionStatus ()==NetworkStatus.NotReachable&&!accepted)
@@ -181,6 +183,7 @@ namespace School.iOS
 				btTuanTrc.Hidden=false;
 				timeLHTuan.Hidden=false;
 				txtngayLHTuan.Hidden=false;
+				isfirst = false;
 				}
 				if (listCT.Count==0) 
 				{

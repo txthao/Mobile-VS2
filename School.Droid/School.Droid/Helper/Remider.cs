@@ -183,8 +183,10 @@ namespace School.Droid
 				LichThiFragment.Instance.LoadData ();
 			}
 			if (LichHocTuanFragment.instance != null) {
-				DateTime t = DateTime.ParseExact (ngayhoc, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-				LichHocTuanFragment.Instance.LoadData_Tuan (t);
+				if (ngayhoc != null) {
+					DateTime t = DateTime.ParseExact (ngayhoc, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+					LichHocTuanFragment.Instance.LoadData_Tuan (t);
+				}
 			}
 			Toast.MakeText (this, "Xóa nhắc lịch thành công", ToastLength.Long).Show();
 			Cancel.CallOnClick ();
@@ -226,7 +228,7 @@ namespace School.Droid
 					ProgressDialog dialog = new ProgressDialog (this);
 					dialog.Indeterminate = false;
 					dialog.SetCancelable (false);
-					dialog.SetMessage ("Xoá nhắc lịch...");
+					dialog.SetMessage ("Cài đặt nhắc lịch...");
 					dialog.Show ();
 					await reminder.RemindLHHK ();
 					dialog.Dismiss ();

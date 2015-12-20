@@ -14,6 +14,7 @@ namespace School.iOS
 		public static VCDiemThi instance;
 		string hocky,namhoc;
 		int value;
+		bool isfirst;
 		string lasthk="0",lastnh="0";
 		public VCDiemThi () : base ("VCDiemThi", null)
 		{
@@ -31,6 +32,7 @@ namespace School.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			isfirst = true;
 			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
 
@@ -91,11 +93,13 @@ namespace School.iOS
 		{
 			try
 			{
-				btHKTrc.BackgroundColor=LayoutHelper.ourDarkCyan;
-				btHKKe.BackgroundColor=LayoutHelper.ourDarkCyan;
+				btHKKe.Enabled=false;
+				btHKTrc.Enabled = false;
+				btHKTrc.BackgroundColor=UIColor.LightGray;
+				btHKKe.BackgroundColor=UIColor.LightGray;
 				progress.StartAnimating ();
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-				if (sync)
+				if (sync&&isfirst)
 				{
 					bool accepted =false;
 					while (Reachability.InternetConnectionStatus ()==NetworkStatus.NotReachable&&!accepted)
@@ -123,17 +127,20 @@ namespace School.iOS
 				DiemThi dt;
 				if (hocKy == "0") {
 				 dt= BDiemThi.GetNewestDT(SQLite_iOS.GetConnection());
-					btHKKe.Enabled=false;
+				
 					if (dt!=null)
 					{
 					lastnh=dt.NamHoc;
 					lasthk=dt.Hocky;
+					btHKTrc.Enabled = true;
+					btHKTrc.BackgroundColor= LayoutHelper.ourDarkCyan;
 					}
 				}
 				else {
 					btHKKe.Enabled=true;
 					btHKTrc.Enabled = true;
-					;
+					btHKTrc.BackgroundColor= LayoutHelper.ourDarkCyan;
+					btHKKe.BackgroundColor= LayoutHelper.ourDarkCyan;
 					dt = BDiemThi.GetDT (SQLite_iOS.GetConnection (), hocKy, namHoc);
 					int t=0;
 					while (dt == null&&t<3) {
@@ -147,6 +154,7 @@ namespace School.iOS
 						btHKTrc.Enabled = false;
 						btHKTrc.BackgroundColor=UIColor.LightGray;
 					}
+
 				}
 				hocky=hocKy;
 				namhoc=namHoc;
@@ -179,6 +187,7 @@ namespace School.iOS
 					txtTBTL.Hidden=false;
 					txtTBTL4.Hidden=false;
 					txtDRL.Hidden=false;
+					isfirst=false;
 				}
 				else
 				{

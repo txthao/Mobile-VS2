@@ -12,6 +12,7 @@ namespace School.iOS
 	public partial class VCLichHoc : UIViewController
 	{
 		public static VCLichHoc instance;
+		bool isfirst;
 		public VCLichHoc () : base ("VCLichHoc", null)
 		{
 			instance = this;
@@ -30,7 +31,7 @@ namespace School.iOS
 			base.ViewDidLoad ();
 			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
-
+			isfirst = true;
 			headers.Source = new LichHocHKSource ();
 
 			timeLH.Frame = LayoutHelper.setlayoutForTimeLB(timeLH.Frame);
@@ -69,7 +70,7 @@ namespace School.iOS
 				errorLB.Hidden=true;
 				headers.Hidden=false;
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-				if (sync)
+				if (sync&&isfirst)
 				{
 					bool accepted =false;
 					while (Reachability.InternetConnectionStatus ()==NetworkStatus.NotReachable&&!accepted)
@@ -112,6 +113,7 @@ namespace School.iOS
 					timeLH.Text="Học Kỳ " + newlistLH[0].HocKy+ " Năm "+ newlistLH[0].NamHoc;
 					listLH.Source=new LichHocHKSource(listCT,this);
 					listLH.ReloadData();
+					isfirst = false;
 				}
 				else
 				{
