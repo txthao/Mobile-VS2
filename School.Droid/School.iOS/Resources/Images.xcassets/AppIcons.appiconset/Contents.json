@@ -1,55 +1,55 @@
 {
   "images": [
     {
-      "filename": "appicon29.jpg",
+      "filename": "iconsgu29.png",
       "size": "29x29",
       "scale": "1x",
       "idiom": "iphone"
     },
     {
-      "filename": "appicon58.png",
+      "filename": "iconsgu58.png",
       "size": "29x29",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "appicon87.png",
+      "filename": "iconsgu87.png",
       "size": "29x29",
       "scale": "3x",
       "idiom": "iphone"
     },
     {
-      "filename": "appicon.png",
+      "filename": "iconsgu80.png",
       "size": "40x40",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "appicon120.png",
+      "filename": "iconsgu120.png",
       "size": "40x40",
       "scale": "3x",
       "idiom": "iphone"
     },
     {
-      "filename": "appicon57.png",
+      "filename": "iconsgu58.png",
       "size": "57x57",
       "scale": "1x",
       "idiom": "iphone"
     },
     {
-      "filename": "appicon114.png",
+      "filename": "iconsgu114.png",
       "size": "57x57",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "appicon120.png",
+      "filename": "iconsgu120.png",
       "size": "60x60",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "appicon180.png",
+      "filename": "iconsgu180.png",
       "size": "60x60",
       "scale": "3x",
       "idiom": "iphone"
@@ -67,11 +67,13 @@
       "idiom": "ipad"
     },
     {
+      "filename": "iconsgu40.png",
       "size": "40x40",
       "scale": "1x",
       "idiom": "ipad"
     },
     {
+      "filename": "iconsgu80.png",
       "size": "40x40",
       "scale": "2x",
       "idiom": "ipad"
@@ -92,16 +94,19 @@
       "idiom": "ipad"
     },
     {
+      "filename": "iconsgu144.png",
       "size": "72x72",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
+      "filename": "iconsgu76.png",
       "size": "76x76",
       "scale": "1x",
       "idiom": "ipad"
     },
     {
+      "filename": "iconsgu152.png",
       "size": "76x76",
       "scale": "2x",
       "idiom": "ipad"

@@ -23,9 +23,8 @@
         android:layout_height="wrap_content"
         android:textSize="14dp"
         android:id="@+id/txt_d1"
-        android:padding="10dp"
-        android:layout_margin="10dp"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:gravity="center" />
     <TextView
         android:textColor="@android:color/background_dark"
         android:layout_width="fill_parent"

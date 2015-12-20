@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_marginLeft="5dp"
-            android:text="Tự động cập nhật dữ liệu"
+            android:text="Liên tục cập nhật dữ liệu"
             android:textColor="@android:color/black"
             android:checked="false" />
         <Button
