@@ -21,6 +21,7 @@ namespace School.Droid
 		ListView listView;
 		ProgressBar progress;
 		TextView txtHocKy;
+		bool isfirst;
 		View rootView;
 		LinearLayout linear;
 		TextView txtNotify;
@@ -43,7 +44,7 @@ namespace School.Droid
 		
   
 			rootView = inflater.Inflate(Resource.Layout.LichThi, container, false);
-		
+			isfirst = true;
 			txtHocKy = rootView.FindViewById<TextView> (Resource.Id.txtHocKy);
             listView = rootView.FindViewById<ListView>(Resource.Id.listLT);
 			progress= rootView.FindViewById<ProgressBar>(Resource.Id.progressLT);
@@ -75,7 +76,7 @@ namespace School.Droid
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
 			list = new List<LichThi>();
-			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
+			if (Common.checkNWConnection (Activity) == true && autoupdate == true&&isfirst) {
 				var newlistlt= BLichThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 				List<LichThi> newListLT= await newlistlt;
 				if (newListLT == null) {
@@ -95,7 +96,7 @@ namespace School.Droid
 				LichThiAdapter adapter = new LichThiAdapter (Activity, list);
 				rootView.FindViewById<TextView> (Resource.Id.txtHocKy).Text = "Học Kỳ " + list [0].HocKy + " Năm Học " + list [0].NamHoc;
 				listView.Adapter = adapter;
-
+				isfirst = false;
 			}
 			else {
 				linear.Visibility = ViewStates.Gone;

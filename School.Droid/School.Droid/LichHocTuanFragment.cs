@@ -27,7 +27,8 @@ namespace School.Droid
 		bool check,autoupdate;
 		Bundle bundle;
 		List<chiTietLH> listCT;
-
+		Button btnTuanTruoc ,btnTuanKe;
+		bool isfirst;
 		public static LichHocTuanFragment instance;
 
 		public LichHocTuanFragment () 
@@ -50,7 +51,7 @@ namespace School.Droid
 			listView_Tuan.GroupClick += (sender, e) => {
 				listView_ItemClick(sender,e);
 			};
-
+			isfirst = true;
 			progress = rootView.FindViewById<ProgressBar> (Resource.Id.progressLHTuan);
 			lbl_TuNgay = rootView.FindViewById<TextView> (Resource.Id.lbl_TuNgay);
 			lbl_DenNgay = rootView.FindViewById<TextView> (Resource.Id.lbl_DenNgay);
@@ -59,8 +60,8 @@ namespace School.Droid
 			TextView txtNotify = rootView.FindViewById<TextView> (Resource.Id.txtNotify_LH_Tuan);
 			//RadioGroup radioGroup = rootView.FindViewById<RadioGroup>(Resource.Id.radioGroup2);
 			//button 
-			Button btnTuanTruoc = rootView.FindViewById<Button> (Resource.Id.btnTuanTruoc);
-			Button btnTuanKe = rootView.FindViewById<Button> (Resource.Id.btnTuanKe);
+			 btnTuanTruoc = rootView.FindViewById<Button> (Resource.Id.btnTuanTruoc);
+			 btnTuanKe = rootView.FindViewById<Button> (Resource.Id.btnTuanKe);
 			//bundle
 			bundle=this.Arguments;
 			check = bundle.GetBoolean ("Remind");
@@ -131,11 +132,13 @@ namespace School.Droid
 		{
 			try
 			{
+			btnTuanTruoc.Visibility= ViewStates.Invisible;
+			btnTuanKe.Visibility= ViewStates.Invisible;
 			listView_Tuan.Visibility = ViewStates.Invisible;
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
 			List<LichHoc> listLH = new List<LichHoc> ();
-			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
+				if (Common.checkNWConnection (Activity) == true && autoupdate == true&&	isfirst) {
 				var newlistlh= BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
 				List<LichHoc> newListLH= await newlistlh;
 				if (newListLH == null) {
@@ -174,6 +177,9 @@ namespace School.Droid
 			progress.Indeterminate = false;
 			progress.Visibility = ViewStates.Gone;
 			listView_Tuan.Visibility = ViewStates.Visible;
+			btnTuanTruoc.Visibility= ViewStates.Visible;
+			btnTuanKe.Visibility= ViewStates.Visible;
+			isfirst = false;
 		}
 		catch {
 			

@@ -28,6 +28,7 @@ namespace School.Droid
 		//RadioGroup radioGroup;
 		bool check,autoupdate;
 		Bundle bundle;
+		bool isfirst;
 		List<chiTietLH> listCT;
 		public static LichHocHKFragment instance;
 
@@ -48,6 +49,7 @@ namespace School.Droid
 
 			//	  Lich hoc theo HK
 			var rootView = inflater.Inflate (Resource.Layout.LichHoc_HK, container, false);
+			isfirst = true;
 			listView_HK = rootView.FindViewById<ListView> (Resource.Id.listLH);
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_LH);
 			lbl_NH = rootView.FindViewById<TextView> (Resource.Id.lbl_NH_LH);
@@ -94,7 +96,7 @@ namespace School.Droid
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
 			List<LichHoc> listLH = new List<LichHoc> ();
-			if (Common.checkNWConnection (Activity) == true&&autoupdate==true) {
+			if (Common.checkNWConnection (Activity) == true&&autoupdate==true&&isfirst) {
 			
 				var newlistlh = BLichHoc.MakeDataFromXml (SQLite_Android.GetConnection ());
 				List<LichHoc> newListLH= await newlistlh;
@@ -124,6 +126,7 @@ namespace School.Droid
 				lbl_NH.Text = listLH [0].NamHoc;
 				LichHocHKAdapter adapter = new LichHocHKAdapter (Activity, listCT);
 				listView_HK.Adapter = adapter;  
+				isfirst = false;
 			}else {
 				//radioGroup.Visibility= ViewStates.Invisible;
 				linearLH.Visibility = ViewStates.Gone;

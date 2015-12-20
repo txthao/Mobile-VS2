@@ -30,8 +30,9 @@ namespace School.Droid
 		TextView txtNotify;
 		LinearLayout linearDT;
 		Button btnHKTruoc;
+	
 		string lasthk="0",lastnh="0";
-		bool flag = true;//check the first time and have data
+		bool isfirst;
 		public static DiemThiHKFragment instance;
 
 		public DiemThiHKFragment () 
@@ -49,6 +50,7 @@ namespace School.Droid
 		{
 			//	  set View
 			var rootView = inflater.Inflate (Resource.Layout.DiemThi_HK, container, false);
+			isfirst=true;
 			listViewDT = rootView.FindViewById<ListView> (Resource.Id.listDT_HK);
 			lbl_HK = rootView.FindViewById<TextView> (Resource.Id.lbl_HK_DT);
 			lbl_NH = rootView.FindViewById<TextView> (Resource.Id.lbl_NH_DT);
@@ -100,8 +102,12 @@ namespace School.Droid
 			listViewDT.Visibility = ViewStates.Invisible;
 			progress.Visibility = ViewStates.Visible;
 			progress.Indeterminate = true;
+			btnHKKe.Enabled = false;
+			btnHKTruoc.Enabled = false;
+			btnHKTruoc.SetBackgroundResource(Android.Resource.Color.DarkerGray);
+			btnHKKe.SetBackgroundResource (Android.Resource.Color.DarkerGray);
 			DiemThi diemThi = new DiemThi ();
-			if (Common.checkNWConnection (Activity) == true && autoupdate == true) {
+			if (Common.checkNWConnection (Activity) == true && autoupdate == true&&isfirst) {
 				var rs= await BDiemThi.MakeDataFromXml (SQLite_Android.GetConnection ());
 				if (rs==null)
 				{
@@ -110,15 +116,13 @@ namespace School.Droid
 			}
 			if (hocKy == "0") {
 				diemThi = BDiemThi.GetNewestDT (SQLite_Android.GetConnection ());
-				btnHKKe.Enabled = false;
+		
 				if (diemThi != null) {
 					lastnh = diemThi.NamHoc;
 					lasthk = diemThi.Hocky;
-				} else {
-					btnHKTruoc.Enabled = false;
-					btnHKTruoc.SetBackgroundResource(Android.Resource.Color.DarkerGray);
-					btnHKKe.SetBackgroundResource (Android.Resource.Color.DarkerGray);
-				}
+					btnHKTruoc.Enabled = true;
+					btnHKTruoc.SetBackgroundResource(Android.Resource.Color.HoloBlueDark);
+				} 
 			} else {
 				diemThi = BDiemThi.GetDT (SQLite_Android.GetConnection (), hocKy, namHoc);
 				btnHKKe.Enabled = true;
@@ -156,6 +160,7 @@ namespace School.Droid
 			//	radioGroup.Visibility = ViewStates.Visible;
 			linear.Visibility = ViewStates.Visible;
 			linearDT.Visibility = ViewStates.Visible;
+			isfirst=false;
 			
 		} else {
 				

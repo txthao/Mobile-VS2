@@ -12,6 +12,7 @@ namespace School.iOS
 	public partial class VCLichThi : UIViewController
 	{
 		public static VCLichThi instance;
+		bool isfirst;
 		public VCLichThi () : base ("VCLichThi", null)
 		{
 			instance = this;
@@ -30,7 +31,7 @@ namespace School.iOS
 			base.ViewDidLoad ();
 			errorLB = LayoutHelper.ErrLabel (errorLB);
 			title.Font = UIFont.FromName ("AmericanTypewriter", 21f);
-
+			isfirst = true;
 			headers.Source = new LichThiSource ();
 
 			listLT.Frame =LayoutHelper.setlayoutForTB (listLT.Frame);
@@ -63,7 +64,7 @@ namespace School.iOS
 				progress.StartAnimating ();
 				List<LichThi> list= new List<LichThi>();
 				bool sync = SettingsHelper.LoadSetting ("AutoUpdate"); 
-				if (sync)
+				if (sync&&isfirst)
 				{
 					bool accepted =false;
 					while (Reachability.InternetConnectionStatus ()==NetworkStatus.NotReachable&&!accepted)
@@ -103,6 +104,7 @@ namespace School.iOS
 					timeLT.Text="Học Kỳ "+list[0].HocKy+" Năm "+ list[0].NamHoc;
 					listLT.Source=new LichThiSource(list,this);
 					listLT.ReloadData();
+					isfirst = false;
 				}
 				else
 				{
